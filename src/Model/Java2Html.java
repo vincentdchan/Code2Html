@@ -16,7 +16,12 @@ public final class Java2Html {
         _getters = new ArrayList<IResultGetter>();
     }
 
-    public void convert(String javaCode) {
+    /**
+     *
+     * @param filename identify the langurage of the code according to filename
+     * @param srcCode the content of the code
+     */
+    public void convert(String filename, String srcCode) {
         String result = "";
         for (IResultGetter getter : _getters) {
             getter.getResult(result);

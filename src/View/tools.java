@@ -2,18 +2,20 @@ package View;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by ZMYang on 2017/3/1.
  */
 public class tools {
-    public static void clickAction(Button child, TreeItem<Button> parent, File file, TableView<MyFile> table) {
+    public static void clickAction(Button child, TreeItem<Button> parent, File file, TableView<MyFile> table , ArrayList<File> arrayList)  {
         child.setStyle("-fx-background-color:null");
         child.setOnMouseEntered(e -> {
             child.setStyle("-fx-background-color:lightblue");
@@ -32,9 +34,9 @@ public class tools {
                         Button button1 = new Button(subFile[i].getName(), new ImageView("file:///../image/File.png"));
                         TreeItem<Button> button = new TreeItem<>(button1);
                         parent.getChildren().add(button);
-                        clickAction(button1, button, new File(subFile[i].getPath()), table);  //递归调用
+                        clickAction(button1, button, new File(subFile[i].getPath()), table , arrayList);  //递归调用
                     } else if (subFile[i].isFile() && subFile != null) {
-                        MyFile myFile = new MyFile(subFile[i]);
+                        MyFile myFile = new MyFile(subFile[i] , arrayList);
                         if (myFile.getType() != null) {
                             if (myFile.getType().matches("\\.java") || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c")) {
                                 data.add(myFile);

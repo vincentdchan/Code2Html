@@ -15,11 +15,16 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Main extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        ArrayList<File> Code2HtmlFile = new ArrayList<>();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
@@ -67,17 +72,15 @@ public class Main extends Application {
         tableBottom.setPrefWidth(87);
 
 
-
-        table.getColumns().addAll(tableName , tableDate, tableLength,tableType,tableBottom);
+        table.getColumns().addAll(tableName, tableDate, tableLength, tableType, tableBottom);
 
         Label labelIsChosen = new Label("已选文件");
-        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD,27) );
+        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
         ListView list = new ListView();
         list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         BorderPane rightBorderPane = new BorderPane();
         rightBorderPane.setTop(labelIsChosen);
         rightBorderPane.setLeft(list);
-
 
 
         HBox hBox = new HBox();
@@ -87,29 +90,29 @@ public class Main extends Application {
 
         Button computer = new Button(new File(System.getenv("COMPUTERNAME")).getName());
         computer.setStyle("-fx-background-color:null");
-        computer.setOnMouseEntered(e->{
+        computer.setOnMouseEntered(e -> {
             computer.setStyle("-fx-background-color:lightblue");
         });
-        computer.setOnMouseExited(e->{
+        computer.setOnMouseExited(e -> {
             computer.setStyle("-fx-background-color:null");
         });
         TreeItem<Button> rootItem = new TreeItem<>(computer, new ImageView(new Image("file:///../image/MyComputer.png")));
-        computer.setOnAction(e->{
+        computer.setOnAction(e -> {
             rootItem.setExpanded(true);
         });
 
         for (File file : File.listRoots()) {
-            Button button = new Button(file.getPath()+"                              ", new ImageView(new Image("file:///../image/Disk.png")));
+            Button button = new Button(file.getPath() + "                              ", new ImageView(new Image("file:///../image/Disk.png")));
             button.setStyle("-fx-background-color:null");
-            button.setOnMouseEntered(e->{
+            button.setOnMouseEntered(e -> {
                 button.setStyle("-fx-background-color:lightblue");
             });
-            button.setOnMouseExited(e->{
+            button.setOnMouseExited(e -> {
                 button.setStyle("-fx-background-color:null");
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            tools.clickAction(button , root ,file , table);
+            tools.clickAction(button, root, file, table , Code2HtmlFile);
         }
 
         TreeView<Button> tree = new TreeView<>(rootItem);
@@ -132,8 +135,4 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }

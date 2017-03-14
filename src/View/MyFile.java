@@ -6,6 +6,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,14 +18,16 @@ public class MyFile {
     private String lastModified;
     private String length;
     private String type;
-    private ImageView btChoose;
+    private Button btChoose;
 
-    MyFile(File file) {
+    MyFile(File file, ArrayList<File> arrayList) {
         this.file = file;
         fileName = file.getName();
+
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(file.lastModified());
         lastModified = fmt.format(date);
+
         long tempLength = file.length();
         if (tempLength > 1024 * 1024) {
             tempLength /= (1024 * 1024);
@@ -40,7 +43,22 @@ public class MyFile {
         } else {
             type = null;
         }
-        btChoose = new ImageView(new Image("file:///../image/YES2.png"));
+
+        btChoose = new Button(" ",new ImageView(new Image("file:///../image/YES2.png")));
+        btChoose.setStyle("-fx-background-color:null");
+        btChoose.setOnMouseEntered(e->{
+            btChoose.setStyle("-fx-background-color:lightblue");
+        });
+        btChoose.setOnMouseExited((e->{
+            btChoose.setStyle("-fx-background-color:null");
+        }));
+        btChoose.setOnAction(e -> {
+            arrayList.add(file);
+//            for (int i = 0; i < arrayList.size(); i++) {
+//                System.out.println(arrayList.get(i).getName());
+//            }
+//            System.out.println("finish!");
+        });
     }
 
     public File getFile() {
@@ -51,11 +69,11 @@ public class MyFile {
         this.file = file;
     }
 
-    public ImageView getBtChoose() {
+    public Button getBtChoose() {
         return btChoose;
     }
 
-    public void setBtChoose(ImageView btChoose) {
+    public void setBtChoose(Button btChoose) {
         this.btChoose = btChoose;
     }
 

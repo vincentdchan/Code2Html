@@ -1,40 +1,73 @@
 package View;
 
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /**
  * Created by ZMYang on 2017/3/12.
  */
 public class MyFile {
+    File file;
     private String fileName;
     private String lastModified;
-    private long length;
+    private String length;
     private String type;
-    private Button btChoose;
+    private ImageView btChoose;
 
-    MyFile(File file){
+    MyFile(File file) {
+        this.file = file;
         fileName = file.getName();
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(file.lastModified());
         lastModified = fmt.format(date);
-        length = file.length() / 1024;
-        if(fileName.matches(".*\\..*")){
+        long tempLength = file.length();
+        if (tempLength > 1024 * 1024) {
+            tempLength /= (1024 * 1024);
+            length = (tempLength + 1) + " MB";
+        } else if (tempLength > 1024) {
+            tempLength /= 1024;
+            length = (tempLength + 1) + " KB";
+        } else {
+            length = (tempLength + 1) + " B";
+        }
+        if (fileName.matches(".*\\..*")) {
             type = fileName.substring(fileName.lastIndexOf("."));
-        }else{
+        } else {
             type = null;
         }
-//        btChoose = new Button(" ","Image/Yes1.png");
+        btChoose = new ImageView(new Image("file:///../image/YES2.png"));
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public ImageView getBtChoose() {
+        return btChoose;
+    }
+
+    public void setBtChoose(ImageView btChoose) {
+        this.btChoose = btChoose;
     }
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
+    public String getLength() {
+        return length;
+    }
 
-    public void setLength(long length) {
+    public void setLength(String length) {
         this.length = length;
     }
 
@@ -54,9 +87,6 @@ public class MyFile {
         return lastModified;
     }
 
-    public long getLength() {
-        return length;
-    }
 
     public String getType() {
         return type;

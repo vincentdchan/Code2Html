@@ -54,19 +54,21 @@ public class Main extends Application {
         tableName.setCellValueFactory(new PropertyValueFactory<>("fileName"));
         TableColumn tableDate = new TableColumn("LastModified");
         tableDate.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
-        TableColumn tableLength = new TableColumn("Length \\ KB");
+        TableColumn tableLength = new TableColumn("Length");
         tableLength.setCellValueFactory(new PropertyValueFactory<>("length"));
         TableColumn tableType = new TableColumn("Type");
         tableType.setCellValueFactory(new PropertyValueFactory<>("type"));
         TableColumn tableBottom = new TableColumn("isChoose");
+        tableBottom.setCellValueFactory(new PropertyValueFactory<>("btChoose"));
         tableName.setPrefWidth(195);
         tableDate.setPrefWidth(195);
-        tableLength.setPrefWidth(195);
-        tableType.setPrefWidth(197);
+        tableLength.setPrefWidth(150);
+        tableType.setPrefWidth(150);
+        tableBottom.setPrefWidth(87);
 
 
 
-        table.getColumns().addAll(tableName , tableDate, tableLength,tableType);
+        table.getColumns().addAll(tableName , tableDate, tableLength,tableType,tableBottom);
 
         Label labelIsChosen = new Label("已选文件");
         labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD,27) );
@@ -91,13 +93,13 @@ public class Main extends Application {
         computer.setOnMouseExited(e->{
             computer.setStyle("-fx-background-color:null");
         });
-        TreeItem<Button> rootItem = new TreeItem<>(computer, new ImageView("Image/MyComputer.png"));
+        TreeItem<Button> rootItem = new TreeItem<>(computer, new ImageView(new Image("file:///../image/MyComputer.png")));
         computer.setOnAction(e->{
             rootItem.setExpanded(true);
         });
 
         for (File file : File.listRoots()) {
-            Button button = new Button(file.getPath()+"                              ", new ImageView("Image/Disk.png"));
+            Button button = new Button(file.getPath()+"                              ", new ImageView(new Image("file:///../image/Disk.png")));
             button.setStyle("-fx-background-color:null");
             button.setOnMouseEntered(e->{
                 button.setStyle("-fx-background-color:lightblue");
@@ -125,7 +127,7 @@ public class Main extends Application {
         scene.setFill(null);
 
         //窗口图标
-        primaryStage.getIcons().add(new Image("image/2.jpg"));
+        primaryStage.getIcons().add(new Image("file:///../image/2.jpg"));
 
         primaryStage.show();
     }

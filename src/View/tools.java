@@ -24,12 +24,12 @@ public class tools {
         child.setOnAction(e -> {
             File[] subFile = file.listFiles();
             ObservableList<MyFile> data = FXCollections.observableArrayList();
-            data.clear();
+//            data.clear();
             parent.setExpanded(true);
             if (parent.isLeaf() && subFile != null) {
                 for (int i = 0; i < subFile.length; i++) {
                     if (subFile[i].isDirectory() && !subFile[i].isHidden()) {
-                        Button button1 = new Button(subFile[i].getName(), new ImageView("Image/File.png"));
+                        Button button1 = new Button(subFile[i].getName(), new ImageView("file:///../image/File.png"));
                         TreeItem<Button> button = new TreeItem<>(button1);
                         parent.getChildren().add(button);
                         clickAction(button1, button, new File(subFile[i].getPath()), table);  //递归调用

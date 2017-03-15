@@ -1,6 +1,8 @@
 package Model;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -32,11 +34,17 @@ public final class StringStream {
     }
 
     public boolean swallow(Pattern pattern) {
-        throw new NotImplementedException();
+        Matcher matcher = pattern.matcher(_content);
+        if (matcher.find(ptr)) {
+            ptr = matcher.end();
+            return true;
+        }
+        return false;
     }
 
     public boolean test(Pattern pattern) {
-        throw new NotImplementedException();
+        Matcher matcher = pattern.matcher(_content);
+        return matcher.find(ptr);
     }
 
     public char getChar() {

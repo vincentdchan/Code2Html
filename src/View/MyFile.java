@@ -44,16 +44,25 @@ public class MyFile {
             type = null;
         }
 
-        btChoose = new Button(" ",new ImageView(new Image("file:///../image/YES2.png")));
+        btChoose = new Button(" ", new ImageView(new Image("file:///../image/YES2.png")));
         btChoose.setStyle("-fx-background-color:null");
-        btChoose.setOnMouseEntered(e->{
+        btChoose.setOnMouseEntered(e -> {
             btChoose.setStyle("-fx-background-color:lightblue");
         });
-        btChoose.setOnMouseExited((e->{
+        btChoose.setOnMouseExited((e -> {
             btChoose.setStyle("-fx-background-color:null");
         }));
         btChoose.setOnAction(e -> {
-            arrayList.add(file);
+            boolean flag = true;
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (file.getName().equals(arrayList.get(i).getName())) {
+                    flag = false;
+//                    System.out.println("exist!");
+                }
+            }
+            if (flag) {
+                arrayList.add(file);
+            }
 //            for (int i = 0; i < arrayList.size(); i++) {
 //                System.out.println(arrayList.get(i).getName());
 //            }

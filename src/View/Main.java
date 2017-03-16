@@ -2,16 +2,21 @@ package View;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -28,7 +33,7 @@ public class Main extends Application {
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
-        backpane.setStyle("-fx-background-color:cyan");
+//        backpane.setStyle("-fx-background-color:cyan");
 
 //        FileChooser
 
@@ -82,11 +87,37 @@ public class Main extends Application {
         rightBorderPane.setTop(labelIsChosen);
         rightBorderPane.setLeft(list);
 
-
-        HBox hBox = new HBox();
-        Button btOK = new Button("       确认       ");
-        btOK.setStyle("-fx-padding:8");
-        hBox.getChildren().add(btOK);
+        GridPane bottomPane = new GridPane();
+//        bottomPane.setGridLinesVisible(true);
+        bottomPane.setPadding(new Insets(5, 0, 5, 250));
+        bottomPane.setHgap(25);
+        bottomPane.setVgap(10);
+        Label filePath = new Label("Path :");
+        TextField showFilePath = new TextField();
+        showFilePath.setAlignment(Pos.BASELINE_LEFT);
+        showFilePath.setPrefWidth(690);
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+//        showFilePath.setStyle("fx-width:500px");
+        Button btChoosePath = new Button("Save to ...");
+        btChoosePath.setOnAction(e -> {
+            File file = directoryChooser.showDialog(primaryStage);
+//            fileChooser.setInitialDirectory(new File(System.getenv("COMPUTERNAME")));
+            if (file != null) {
+                showFilePath.setText(file.getAbsolutePath());
+            }
+        });
+        Label fileKind = new Label("Kind :");
+        Button btStartCode = new Button("Start to Code");
+        ComboBox<String> showFileKind = new ComboBox<>();
+        showFileKind.setPrefWidth(690);
+        showFileKind.getItems().addAll("all", ".h", ".c", ".java");
+        showFileKind.setValue("all");
+        bottomPane.add(filePath, 0, 0);
+        bottomPane.add(showFilePath, 1, 0);
+        bottomPane.add(btChoosePath, 2, 0);
+        bottomPane.add(fileKind, 0, 1);
+        bottomPane.add(showFileKind, 1, 1);
+        bottomPane.add(btStartCode, 2, 1);
 
         Button computer = new Button(new File(System.getenv("COMPUTERNAME")).getName());
         computer.setStyle("-fx-background-color:null");
@@ -112,7 +143,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            tools.clickAction(button, root, file, table , Code2HtmlFile);
+            tools.clickAction(button, root, file, table, Code2HtmlFile);
         }
 
         TreeView<Button> tree = new TreeView<>(rootItem);
@@ -121,7 +152,7 @@ public class Main extends Application {
         borderPane.setTop(menuBar);
         borderPane.setCenter(table);
         borderPane.setRight(rightBorderPane);
-        borderPane.setBottom(hBox);
+        borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);
 

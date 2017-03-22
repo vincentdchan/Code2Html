@@ -45,6 +45,10 @@ public final class Tokenizer {
 
     private void beginTokenize() {
         _stream = new StringStream(_content);
+
+        while (!_stream.reachEnd()) {
+
+        }
     }
 
     public TmLang get_tmLang() {

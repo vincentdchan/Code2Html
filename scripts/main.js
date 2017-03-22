@@ -74,6 +74,13 @@ StringStream.prototype.get = function () {
     return this._content.charAt(ptr);
 }
 
+/**
+ * move the pointer to next position;
+ */
+StringStream.prototype.next = function () {
+    return this.get(this._ptr++);
+}
+
 StringStream.prototype.popString = function () {
     var result = this._content.slice(this._tmpPtr, this._ptr);
     this._ptr = this._tmpPtr;
@@ -180,7 +187,8 @@ MainManager.prototype.addTmLanguageText = function(str) {
 }
 
 MainManager.prototype.tokenize = function (filename, str) {
-    var tokens = [];
+    this.tokens = [];
+
     var lastIndex = filename.lastIndexOf('.');
     if (lastIndex < -1) {
         // use default tokenizer;
@@ -198,9 +206,11 @@ MainManager.prototype.tokenize = function (filename, str) {
             }
         }
     }
+
+    print(this.tokens);
 }
 
-MainManager.prototype.handlePatterns = function (stream, patterns, repos) {
+MainManager.prototype.testPatterns = function (stream, patterns, repos) {
     var result = false;
     for (var i=0; i < patterns; ++i) {
         result = this.handlePattern(stream, patterns[i]);
@@ -211,20 +221,30 @@ MainManager.prototype.handlePatterns = function (stream, patterns, repos) {
     return result;
 }
 
-MainManager.prototype.handlePattern = function (stream, pattern, repos) {
+/**
+ * Test the stream with the pattern, 
+ * return true if success.
+ */
+MainManager.prototype.testPattern = function (stream, pattern, repos) {
     if ('include' in pattern) {
         var repo = repos[pattern['include'].slice(1)];
         return this.handlePattern(stream, repo, repos);
     } else if ('begin' in pattern) {
-        var ptn = pattern['begin'];
-        if (stream.swallow(ptn)) {
+        if (!('end' in pattern)) {
+            throw new Error("find begin regex, but end not found");
+        }
+        var beginPtn = pattern['begin'],
+            endPtn = pattern['end'],
+            ptns = pattern['patterns'];
+        if (stream.swallow(beginPtn)) { // has swallowed the begin button.
+            this.tokens.push(stream.popString());
 
-            if ('end' in pattern) {
-
-            } else {
-                return true;
+            while (!stream.swallow(endPtn)) {
+                if (ptns && this.testPatterns(ptns)) {
+                } else {
+                    stream.next();
+                }
             }
-
         } else {
             return false;
         }

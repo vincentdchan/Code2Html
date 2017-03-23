@@ -11,12 +11,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -35,13 +35,16 @@ public class Main extends Application {
         StackPane backpane = new StackPane();
 //        backpane.setStyle("-fx-background-color:cyan");
 
-//        FileChooser
-
+        BorderPane topPane = new BorderPane();
         MenuBar menuBar = new MenuBar();
         Menu menuFile = new Menu("File");
         MenuItem menuItemAbout = new MenuItem("About");
         MenuItem menuItemExit = new MenuItem("Exit");
-
+        TextField currentPath = new TextField();
+        Label labelCurrentPath = new Label("                CurrentPath:                   ");
+        Label _null = new Label("                                                          ");
+        currentPath.setDisable(true);
+//        currentPath.setPrefWidth(690);
         //关闭程序
         menuItemExit.setOnAction((ActionEvent t) -> {
             primaryStage.close();
@@ -51,11 +54,11 @@ public class Main extends Application {
         Menu menuHelp = new Menu("Help");
 
         menuBar.getMenus().addAll(menuFile, menuHelp);
-//        ImageView background = new ImageView("Image/1.jpg");
-//        background.setFitHeight(500);
-//        background.setFitWidth(500);
-//        background.setSmooth(true);
-//        backpane.getChildren().add(background);
+        topPane.setLeft(labelCurrentPath);
+        topPane.setTop(menuBar);
+        topPane.setCenter(currentPath);
+        topPane.setRight(_null);
+
 
         BorderPane borderPane = new BorderPane();
 
@@ -70,22 +73,37 @@ public class Main extends Application {
         tableType.setCellValueFactory(new PropertyValueFactory<>("type"));
         TableColumn tableBottom = new TableColumn("isChoose");
         tableBottom.setCellValueFactory(new PropertyValueFactory<>("btChoose"));
-        tableName.setPrefWidth(195);
-        tableDate.setPrefWidth(195);
-        tableLength.setPrefWidth(150);
-        tableType.setPrefWidth(150);
-        tableBottom.setPrefWidth(87);
+        tableName.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
+        tableDate.prefWidthProperty().bind(borderPane.widthProperty().divide(8.3));
+        tableLength.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
+        tableType.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
+        tableBottom.prefWidthProperty().bind(borderPane.widthProperty().divide(8));
+//        tableName.setPrefWidth(195);
+//        tableDate.setPrefWidth(195);
+//        tableLength.setPrefWidth(150);
+//        tableType.setPrefWidth(150);
+//        tableBottom.setPrefWidth(91);
 
 
         table.getColumns().addAll(tableName, tableDate, tableLength, tableType, tableBottom);
 
-        Label labelIsChosen = new Label("已选文件");
-        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
-        ListView list = new ListView();
-        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        BorderPane rightBorderPane = new BorderPane();
-        rightBorderPane.setTop(labelIsChosen);
-        rightBorderPane.setLeft(list);
+        StackPane rightPane = new StackPane();
+        TableView<MyFile> rightTable = new TableView<>();
+        TableColumn rightTableName = new TableColumn("Choosed File");
+        rightTableName.prefWidthProperty().bind(borderPane.widthProperty().divide(10));
+        rightTableName.setCellValueFactory(new PropertyValueFactory<>("choosedFile"));
+        TableColumn rightTableCancel = new TableColumn("isCancel");
+        rightTableCancel.prefWidthProperty().bind(borderPane.widthProperty().divide(10));
+        rightTableCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
+        rightTable.getColumns().addAll(rightTableName, rightTableCancel);
+        rightPane.getChildren().add(rightTable);
+//        Label labelIsChosen = new Label("           已选文件");
+//        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
+//        ListView list = new ListView();
+//        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//        BorderPane rightBorderPane = new BorderPane();
+//        rightBorderPane.setTop(labelIsChosen);
+//        rightBorderPane.setLeft(list);
 
         GridPane bottomPane = new GridPane();
 //        bottomPane.setGridLinesVisible(true);
@@ -97,17 +115,17 @@ public class Main extends Application {
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
         showFilePath.setPrefWidth(690);
         DirectoryChooser directoryChooser = new DirectoryChooser();
-//        showFilePath.setStyle("fx-width:500px");
         Button btChoosePath = new Button("Save to ...");
         btChoosePath.setOnAction(e -> {
             File file = directoryChooser.showDialog(primaryStage);
-//            fileChooser.setInitialDirectory(new File(System.getenv("COMPUTERNAME")));
             if (file != null) {
                 showFilePath.setText(file.getAbsolutePath());
             }
         });
+
         Label fileKind = new Label("Kind :");
         Button btStartCode = new Button("Start to Code");
+//        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
         showFileKind.setPrefWidth(690);
         showFileKind.getItems().addAll("all", ".h", ".c", ".java");
@@ -143,15 +161,20 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            tools.clickAction(button, root, file, table, Code2HtmlFile);
+            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath);
         }
+        rootItem.setExpanded(true);
 
         TreeView<Button> tree = new TreeView<>(rootItem);
 
+//        WebView browser = new WebView();
+//        WebEngine webEngine = browser.getEngine();
+//        webEngine.load("http://www.baidu.com");
+
         borderPane.setLeft(tree);
-        borderPane.setTop(menuBar);
+        borderPane.setTop(topPane);
         borderPane.setCenter(table);
-        borderPane.setRight(rightBorderPane);
+        borderPane.setRight(rightTable);
         borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);

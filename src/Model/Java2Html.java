@@ -1,8 +1,5 @@
 package Model;
 
-import Model.TmLang.TmLang;
-import Model.TmLang.TmLangLoader;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,8 +15,6 @@ import java.util.LinkedList;
 
 public final class Java2Html {
 
-    private static ArrayList<TmLang> tmLangs;
-    private static HashMap<String, LinkedList<TmLang>> _filetypesMap;
 
     private ArrayList<IResultGetter> _getters;
 
@@ -29,59 +24,12 @@ public final class Java2Html {
         _getters = new ArrayList<IResultGetter>();
     }
 
-    public static boolean isLoadedTmLangs() {
-        return tmLangs != null;
-    }
-
-    public static void loadTmLangs() throws IOException {
-        tmLangs = new ArrayList<>();
-        _filetypesMap = new HashMap<>();
-
-        File directory = new File("./tmLanguages");
-        if (!directory.exists()) throw new FileNotFoundException();
-        File[] files = directory.listFiles();
-        for(File _file : files) {
-            if ( _file.getName().endsWith(".json")) {
-                loadJson(_file);
-            }
-        }
-
-        cachedFileTypes();
-    }
-
     private static void loadJson(File file) throws IOException {
         String content = new String(Files.readAllBytes(Paths.get(file.getPath())));
 
-        TmLangLoader loader;
-        try {
-            loader = new TmLangLoader(content);
-        } catch (org.json.simple.parser.ParseException e) {
-            System.out.print("Parse tmLanguage error: " + file.getName());
-            e.printStackTrace();
-            return;
-        } catch (Model.TmLang.TmLangLoader.TmLangParseError e) {
-            System.out.print("Parse tmLanguage error: " + file.getName());
-            e.printStackTrace();
-            return;
-        }
-
-        TmLang spec = loader.get_langSpec();
-        tmLangs.add(spec);
     }
 
     private static void cachedFileTypes() {
-        for (TmLang _tmLang : tmLangs) {
-            String[] fileTypes = _tmLang.get_fileTypes();
-
-            for (String _fileTypes : fileTypes) {
-                LinkedList<TmLang> _ftList = _filetypesMap.get(_fileTypes);
-                if (_ftList == null) {
-                    _ftList = new LinkedList<>();
-                    _filetypesMap.put(_fileTypes, _ftList);
-                }
-                _ftList.add(_tmLang);
-            }
-        }
     }
 
     /**

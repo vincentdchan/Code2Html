@@ -1,6 +1,8 @@
 package View;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -30,6 +32,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         ArrayList<File> Code2HtmlFile = new ArrayList<>();
+        ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
@@ -89,13 +92,12 @@ public class Main extends Application {
 
         StackPane rightPane = new StackPane();
         TableView<MyFile> rightTable = new TableView<>();
-        TableColumn rightTableName = new TableColumn("Choosed File");
-        rightTableName.prefWidthProperty().bind(borderPane.widthProperty().divide(10));
-        rightTableName.setCellValueFactory(new PropertyValueFactory<>("choosedFile"));
-        TableColumn rightTableCancel = new TableColumn("isCancel");
-        rightTableCancel.prefWidthProperty().bind(borderPane.widthProperty().divide(10));
-        rightTableCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
-        rightTable.getColumns().addAll(rightTableName, rightTableCancel);
+        TableColumn chooseFile = new TableColumn("ChoosedFile");
+        chooseFile.setPrefWidth(195);
+        chooseFile.setCellValueFactory(new PropertyValueFactory<>("choosedFile"));
+        TableColumn isCancel = new TableColumn("isCancel");
+        isCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
+        rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
 //        Label labelIsChosen = new Label("           已选文件");
 //        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
@@ -161,7 +163,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath);
+            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable,dataRight);
         }
         rootItem.setExpanded(true);
 

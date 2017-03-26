@@ -1,5 +1,7 @@
 package View;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,10 +21,8 @@ public class MyFile {
     private String length;
     private String type;
     private Button btChoose;
-    private String choosedFile;
-    private Button btCancel;
 
-    MyFile(File file, ArrayList<File> arrayList) {
+    MyFile(File file, ArrayList<File> arrayList, TableView<RightTable> tableView, ObservableList<RightTable> data) {
         this.file = file;
         fileName = file.getName();
 
@@ -46,27 +46,6 @@ public class MyFile {
             type = null;
         }
 
-        choosedFile = null;
-
-        btCancel = new Button(" ", new ImageView(new Image("file:///../image/NO.png")));
-        btCancel.setStyle("-fx-background-color:null");
-        btCancel.setOnMouseEntered(e -> {
-            btCancel.setStyle("-fx-background-color:lightblue");
-        });
-        btCancel.setOnMouseExited((e -> {
-            btCancel.setStyle("-fx-background-color:null");
-        }));
-        btCancel.setOnAction(e -> {
-            for(int i = 0 ; i < arrayList.size() ; i++){
-                if(arrayList.get(i).equals(fileName)){
-                    arrayList.remove(i);
-                }
-            }
-            for (int i = 0; i < arrayList.size(); i++) {
-                System.out.println(arrayList.get(i).getName());
-            }
-            System.out.println("finish!");
-        });
 
         btChoose = new Button(" ", new ImageView(new Image("file:///../image/YES2.png")));
         btChoose.setStyle("-fx-background-color:null");
@@ -85,8 +64,10 @@ public class MyFile {
                 }
             }
             if (flag) {
-                choosedFile = fileName;
                 arrayList.add(file);
+                RightTable rightTable = new RightTable(file, arrayList, data);
+                data.add(rightTable);
+                tableView.setItems(data);
             }
             for (int i = 0; i < arrayList.size(); i++) {
                 System.out.println(arrayList.get(i).getName());
@@ -95,22 +76,6 @@ public class MyFile {
         });
     }
 
-
-    public Button getBtCancel() {
-        return btCancel;
-    }
-
-    public void setBtCancel(Button btCancel) {
-        this.btCancel = btCancel;
-    }
-
-    public String getChoosedFile() {
-        return choosedFile;
-    }
-
-    public void setChoosedFile(String choosedFile) {
-        this.choosedFile = choosedFile;
-    }
 
     public File getFile() {
         return file;

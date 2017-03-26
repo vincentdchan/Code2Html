@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Actions {
     public static void clickAction(Button child, TreeItem<Button> parent, File file,
                                    TableView<MyFile> table, ArrayList<File> arrayList,
-                                   ComboBox<String> showFileKind, TextField label) {
+                                   ComboBox<String> showFileKind, TextField label,
+                                   TableView tableView, ObservableList<RightTable> dataRight) {
         child.setStyle("-fx-background-color:null");
         child.setOnMouseEntered(e -> {
             child.setStyle("-fx-background-color:lightblue");
@@ -35,7 +36,7 @@ public class Actions {
                         Button button1 = new Button(subFile[i].getName(), new ImageView("file:///../image/File.png"));
                         TreeItem<Button> button = new TreeItem<>(button1);
                         parent.getChildren().add(button);
-                        clickAction(button1, button, new File(subFile[i].getPath()), table, arrayList, showFileKind, label);  //递归调用
+                        clickAction(button1, button, new File(subFile[i].getPath()), table, arrayList, showFileKind, label, tableView, dataRight);  //递归调用
                     }
 
                 }
@@ -43,7 +44,7 @@ public class Actions {
             if (subFile != null) {
                 for (int i = 0; i < subFile.length; i++) {
                     if (subFile[i].isFile()) {
-                        MyFile myFile = new MyFile(subFile[i], arrayList);
+                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight);
                         if (myFile.getType() != null) {
                             if (showFileKind.getValue().equals("all") && (myFile.getType().matches("\\.java")
                                     || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c"))) {
@@ -67,7 +68,7 @@ public class Actions {
                 data.clear();
                 for (int i = 0; i < subFile.length; i++) {
                     if (subFile[i].isFile()) {
-                        MyFile myFile = new MyFile(subFile[i], arrayList);
+                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight);
                         if (myFile.getType() != null) {
                             if (showFileKind.getValue().equals("all") && (myFile.getType().matches("\\.java")
                                     || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c"))) {

@@ -58,7 +58,7 @@ public class MyFile {
         btChoose.setOnAction(e -> {
             boolean flag = true;
             for (int i = 0; i < arrayList.size(); i++) {
-                if (file.getName().equals(arrayList.get(i).getName())) {
+                if (file.getAbsolutePath().equals(arrayList.get(i).getAbsolutePath())) {
                     flag = false;
 //                    System.out.println("exist!");
                 }

@@ -13,12 +13,15 @@ import java.util.ArrayList;
  */
 public class RightTable {
     private String choosedFile;
+    private String path;
     private Button btCancel;
 
     public RightTable(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> data) {
         choosedFile = fileName.getName();
 
-        btCancel = new Button(" ", new ImageView(new Image("file:///../image/NO1.png")));
+        path = fileName.getAbsolutePath();
+
+        btCancel = new Button(" ", new ImageView(new Image("file:///../image/NO2.png")));
         btCancel.setStyle("-fx-background-color:null");
         btCancel.setOnMouseEntered(e -> {
             btCancel.setStyle("-fx-background-color:lightblue");
@@ -30,12 +33,12 @@ public class RightTable {
 
         btCancel.setOnAction(e -> {
             for (int i = 0; i < arrayList.size(); i++) {
-                if (arrayList.get(i).equals(fileName)) {
+                if (arrayList.get(i).getAbsolutePath().equals(fileName.getAbsolutePath())) {
                     arrayList.remove(i);
                 }
             }
             for(int i = 0 ; i < data.size() ; i++){
-                if(data.get(i).choosedFile.equals(fileName.getName())){
+                if(data.get(i).path.equals(fileName.getAbsolutePath())){
                     data.remove(i);
                 }
             }
@@ -48,6 +51,14 @@ public class RightTable {
 
     public String getChoosedFile() {
         return choosedFile;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public void setChoosedFile(String choosedFile) {

@@ -1,20 +1,37 @@
 package Model;
 
+
+import java.util.List;
+
 /**
  * Created by duzhong on 17-3-4.
  */
-public final class GenHandler {
+public final class GenHandler implements Runnable{
 
     private Generator _generator;
-
     private Configuration _config;
+    private String _srcCode;
+    private ITokenizer _tokenizer;
+    private List<IResultGetter> _getters;
 
-    GenHandler(Generator generator, Configuration config) {
+    GenHandler(Generator generator,
+               Configuration config,
+               String srcCode,
+               ITokenizer tokenizer,
+               List<IResultGetter> getters) {
         _generator = generator;
         _config = config;
+        _srcCode = srcCode;
+        _tokenizer = tokenizer;
+        _getters = getters;
     }
 
-    void start(IEntry entry) {
+    @Override
+    public void run() {
+
+    }
+
+    void start(String srcCode, ITokenizer tokenizer, IResultGetter[] _getters) {
 
     }
 

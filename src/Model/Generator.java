@@ -1,8 +1,9 @@
 package Model;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
+import Model.LangSpec.CLang;
+import Model.LangSpec.JavaLang;
+
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -24,24 +25,7 @@ public class Generator {
     private BlockingQueue _blockingQueue;
     private Lock _lock;
 
-    private class InnerHandler implements Runnable {
-
-        private IEntry _entry;
-        private Generator _generator;
-
-        InnerHandler(Generator generator, IEntry entry) {
-            _generator = generator;
-            _entry = entry;
-        }
-
-        @Override
-        public void run() {
-            GenHandler _handler = new GenHandler(_generator, _config);
-            _handlers.add(_handler);
-            _handler.start(_entry);
-        }
-
-    }
+    private List<IResultGetter> getters;
 
     public Generator(Configuration config) {
         _config = config;
@@ -52,13 +36,32 @@ public class Generator {
                 TimeUnit.SECONDS, _blockingQueue);
     }
 
-    public void startGeneration(IEntry[] files) {
-        for (IEntry file : files) {
-            _threadPool.execute(new InnerHandler(this, file));
+    public void generate(String filename, String srcCode, List<IResultGetter> getters) {
+        this.getters = getters;
+
+        ITokenizer tokenizer = null;
+        if (filename.endsWith(".java")) {
+            tokenizer = new JavaLang();
+        } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
+            tokenizer = new CLang();
+        }
+        GenHandler _handler = new GenHandler(this, _config, srcCode, tokenizer, getters);
+        addHandler(_handler);
+        _threadPool.execute(_handler);
+
+    }
+
+    private void convertByTokenizer(String srcCode, ITokenizer tokenizer) {
+        StringStream ss = new StringStream(srcCode);
+
+        ArrayList<List<String>> tokens = new ArrayList<>();
+
+        while (!ss.reachEnd()) {
+            tokens.add(tokenizer.tokenize(ss));
         }
     }
 
-    public void addHandler(GenHandler handler) {
+    private void addHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.add(handler);
@@ -67,7 +70,7 @@ public class Generator {
         }
     }
 
-    public void removeHandler(GenHandler handler) {
+    private void removeHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.remove(handler);

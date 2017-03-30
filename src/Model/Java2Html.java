@@ -1,23 +1,29 @@
 package Model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 
 /**
  * Created by duzhong on 17-3-4.
+ *
+ * The Java2Html class must be multi-thread class.
+ * This class is a wrapper of `Generator` class, it's friendly
+ * to view part of the program.
+ *
+ * When you create a class and set a config, the object
+ * will convert the code to html in the same way(config)
+ * in different threads. You can call `convert` method
+ * many times. It's OK and it won't block the thread.
+ *
+ * Java2Html use a inner ThreadPool which is in class `Generator`.
  */
-
 public final class Java2Html {
 
 
     private ArrayList<IResultGetter> _getters;
-
     private Configuration _config;
 
     public Java2Html() {
@@ -33,15 +39,16 @@ public final class Java2Html {
     }
 
     /**
+     * You can call this methods many times, the work will be dispatch
+     * to different threads. Don't worry about the method will block
+     * the thread.
      *
      * @param filename identify the langurage of the code according to filename
      * @param srcCode the content of the code
      */
     public void convert(String filename, String srcCode) {
-        String result = "";
-        for (IResultGetter getter : _getters) {
-            getter.getResult(result);
-        }
+        Generator generator = new Generator(_config);
+        generator.generate(filename, srcCode, _getters);
     }
 
     public void addGetter(IResultGetter getter) {

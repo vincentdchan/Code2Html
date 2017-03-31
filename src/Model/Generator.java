@@ -84,16 +84,6 @@ public class Generator {
         new Thread(task).run();
     }
 
-    private void convertByTokenizer(String srcCode, ITokenizer tokenizer) {
-        StringStream ss = new StringStream(srcCode);
-
-        ArrayList<List<String>> tokens = new ArrayList<>();
-
-        while (!ss.reachEnd()) {
-            tokens.add(tokenizer.tokenize(ss));
-        }
-    }
-
     private void addHandler(GenHandler handler) {
         _lock.lock();
         try {

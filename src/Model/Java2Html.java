@@ -30,14 +30,6 @@ public final class Java2Html {
         _getters = new ArrayList<IResultGetter>();
     }
 
-    private static void loadJson(File file) throws IOException {
-        String content = new String(Files.readAllBytes(Paths.get(file.getPath())));
-
-    }
-
-    private static void cachedFileTypes() {
-    }
-
     /**
      * You can call this methods many times, the work will be dispatch
      * to different threads. Don't worry about the method will block

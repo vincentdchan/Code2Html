@@ -14,6 +14,16 @@ public final class GenHandler implements Runnable{
     private ITokenizer _tokenizer;
     private List<IResultGetter> _getters;
 
+    private final String HTMLBegin = "<html>" +
+            "   <head>" +
+            "       <title>Java Code>" +
+            "   </head>" +
+            "   <body>";
+
+    private final String HTMLEnd = "" +
+            "   </body>" +
+            "</html>";
+
     GenHandler(Generator generator,
                Configuration config,
                String srcCode,
@@ -28,11 +38,31 @@ public final class GenHandler implements Runnable{
 
     @Override
     public void run() {
+        _srcCode = _srcCode.replaceAll("<", "&lt;");
+        _srcCode = _srcCode.replaceAll(">", "&gt;");
 
+        String[] lines = _srcCode.split("\n");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(HTMLBegin);
+        sb.append("<div>");
+
+        for (String line : lines) {
+            sb.append("<p>");
+            sb.append(line);
+            sb.append("</p>");
+        }
+
+        sb.append("</div>");
+        sb.append(HTMLEnd);
+
+        dispatchGetter(sb.toString());
     }
 
-    void start(String srcCode, ITokenizer tokenizer, IResultGetter[] _getters) {
-
+    private void dispatchGetter(String destCode) {
+        for (IResultGetter getter : _getters) {
+            getter.getResult(destCode);
+        }
     }
 
     public Generator get_generator() {

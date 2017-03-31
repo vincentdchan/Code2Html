@@ -47,8 +47,16 @@ public final class Java2Html {
      * @param srcCode the content of the code
      */
     public void convert(String filename, String srcCode) {
+        Entry[] entries = new Entry[1];
+        entries[0] = new Entry();
+        entries[0].setFilename(filename);
+        entries[0].setSourceCode(srcCode);
+        convert(entries);
+    }
+
+    public void convert(Entry[] entries) {
         Generator generator = new Generator(_config);
-        generator.generate(filename, srcCode, _getters);
+        generator.generate(entries, _getters);
     }
 
     public void addGetter(IResultGetter getter) {

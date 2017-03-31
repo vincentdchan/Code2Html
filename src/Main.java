@@ -1,23 +1,37 @@
+import Model.Configuration;
+import Model.IResultGetter;
 import Model.Java2Html;
-import sun.font.Script;
-
-import java.io.IOException;
-import javax.script.*;
 
 /**
  * Created by duzhong on 17-3-15.
  */
 
-public class Main {
+public class Main implements IResultGetter {
 
     public static void main(String[] args) {
-        ScriptEngineManager factory = new ScriptEngineManager();
-        ScriptEngine engine = factory.getEngineByName("nashorn");
-        try {
-            engine.eval("load('scripts/main.js');");
-        } catch (ScriptException e) {
-            e.printStackTrace();
-        }
+
+        String javaCode  = "/**\n" +
+                " * Created by duzhong on 17-3-15.\n" +
+                " */\n" +
+                "\n" +
+                "public class Main {\n" +
+                "\n" +
+                "    public static void main(String[] args) {\n" +
+                "    }\n" +
+                "\n" +
+                "}";
+
+        Configuration config = new Configuration();
+        Java2Html converter = new Java2Html();
+        converter.set_config(config);
+        converter.addGetter(new Main());
+        converter.convert("test.java", javaCode);
+
+    }
+
+    @Override
+    public void getResult(String result) {
+        System.out.println(result);
     }
 
 }

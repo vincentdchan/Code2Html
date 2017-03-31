@@ -31,13 +31,42 @@ public class Generator {
         _config = config;
         _lock = new ReentrantLock();
         _blockingQueue = new LinkedBlockingQueue();
-
-        _threadPool = new ThreadPoolExecutor(CoreThreadSize, MaxThreadSize, 1,
-                TimeUnit.SECONDS, _blockingQueue);
+        _handlers = new LinkedList<>();
     }
 
-    public void generate(String filename, String srcCode, List<IResultGetter> getters) {
+
+    /**
+     * Generate the code in another thread.
+     * If then length of entries is less than or equal three,
+     * generate in another thread. Otherwise,
+     * using the ThreadPool.
+     *
+     * @param entries
+     * @param getters
+     */
+    public void generate(Entry[] entries, List<IResultGetter> getters) {
         this.getters = getters;
+
+        if (entries.length <= 3) {
+            for (Entry entry : entries) {
+                GenHandler _handler = generate(entry.getFilename(), entry.getSourceCode());
+                executeTaskInAnotherThread(_handler);
+            }
+        } else {
+            _threadPool = new ThreadPoolExecutor(CoreThreadSize, MaxThreadSize, 1,
+                    TimeUnit.SECONDS, _blockingQueue);
+
+            for (Entry entry : entries) {
+                GenHandler _handler = generate(entry.getFilename(), entry.getSourceCode());
+                _threadPool.execute(_handler);
+            }
+
+            _threadPool.shutdown();
+        }
+
+    }
+
+    private GenHandler generate(String filename, String srcCode) {
 
         ITokenizer tokenizer = null;
         if (filename.endsWith(".java")) {
@@ -47,8 +76,12 @@ public class Generator {
         }
         GenHandler _handler = new GenHandler(this, _config, srcCode, tokenizer, getters);
         addHandler(_handler);
-        _threadPool.execute(_handler);
+        // _threadPool.execute(_handler);
+        return _handler;
+    }
 
+    private void executeTaskInAnotherThread(Runnable task) {
+        new Thread(task).run();
     }
 
     private void convertByTokenizer(String srcCode, ITokenizer tokenizer) {

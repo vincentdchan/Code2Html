@@ -1,6 +1,8 @@
 package Model;
 
 
+import java.io.CharArrayReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,15 +16,15 @@ public final class GenHandler implements Runnable{
     private ITokenizer _tokenizer;
     private List<IResultGetter> _getters;
 
-    private final String HTMLBegin = "<html>" +
-            "   <head>" +
-            "       <title>Java Code>" +
-            "   </head>" +
-            "   <body>";
+    private final String HTMLBegin = "<html>\n" +
+            "   <head>\n" +
+            "       <title>Java Code</title>\n" +
+            "   </head>\n" +
+            "   <body>\n";
 
     private final String HTMLEnd = "" +
-            "   </body>" +
-            "</html>";
+            "   </body>\n" +
+            "</html>\n";
 
     GenHandler(Generator generator,
                Configuration config,
@@ -41,22 +43,82 @@ public final class GenHandler implements Runnable{
         _srcCode = _srcCode.replaceAll("<", "&lt;");
         _srcCode = _srcCode.replaceAll(">", "&gt;");
 
-        String[] lines = _srcCode.split("\n");
-
         StringBuilder sb = new StringBuilder();
         sb.append(HTMLBegin);
-        sb.append("<div>");
+        sb.append("<div>\n");
 
-        for (String line : lines) {
-            sb.append("<p>");
-            sb.append(line);
-            sb.append("</p>");
-        }
+        sb.append(generateCodeHTML());
 
-        sb.append("</div>");
+        sb.append("</div>\n");
         sb.append(HTMLEnd);
 
         dispatchGetter(sb.toString());
+    }
+
+    private String generateCodeHTML() {
+        List<Token> tokens = tokenize();
+
+        StringBuilder sb = new StringBuilder();
+        for (Token tok : tokens) {
+            if (tok.getContent().contains("linebreak")) {
+                sb.append("<br>");
+            } else {
+                String content = tok.getContent().replaceAll(" ", "&nbsp;");
+                if (tok.getSyntaxs().length > 0) {
+                    sb.append("<span class=\"");
+                    for (String tokStr : tok.getSyntaxs()) {
+                        sb.append("jc-");
+                        sb.append(tokStr);
+                        sb.append(" ");
+                    }
+                    sb.deleteCharAt(sb.length() - 1); // remove the last space
+                    sb.append("\">");
+                    sb.append(content);
+                    sb.append("</span>");
+                } else {
+                    sb.append(content);
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+
+    private List<Token> tokenize() {
+        ArrayList<Token> result = new ArrayList<>();
+        StringStream ss = new StringStream(_srcCode);
+
+        while(!ss.reachEnd()) {
+            Token tok = new Token();
+            tok.setSyntaxs(_tokenizer.tokenize(ss));
+            tok.setContent(ss.popString());
+            result.add(tok);
+        }
+
+        return result;
+    }
+
+    class Token {
+
+        private String[] syntaxs;
+        private String content;
+
+        public String[] getSyntaxs() {
+            return syntaxs;
+        }
+
+        public void setSyntaxs(String[] syntaxs) {
+            this.syntaxs = syntaxs;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
     }
 
     private void dispatchGetter(String destCode) {

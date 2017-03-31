@@ -39,7 +39,7 @@ public class JavaLang implements ITokenizer {
         "^=", "%=", "<<=", ">>=", ">>>="
     };
 
-    private State currentState;
+    private State currentState = State.Normal;
     private Pattern keywordsPattern;
     private Pattern typeKeywordsPattern;
     private Pattern operatorsPattern;
@@ -48,28 +48,38 @@ public class JavaLang implements ITokenizer {
     public JavaLang() {
         buildKeywordsPattern();
         buildTypekeywordsPattern();
+        buildOperatorsPattern();
     }
 
-    public List<String> tokenize(StringStream stream) {
+    public String[] tokenize(StringStream stream) {
         List<String> result = new ArrayList<>();
-        switch (currentState) {
-            case Normal:
-                if (stream.swallow(keywordsPattern)) {
-                    result.add("keyword");
-                } else if (stream.swallow(operatorsPattern)) {
-                    result.add("operators");
-                } else {
+        if (stream.getChar() == '\n') {
+            stream.moveForward();
+            result.add("linebreak");
+        } else {
+            switch (currentState) {
+                case Normal:
+                    if (stream.getChar() == ' ') {
+                        stream.eatSpace();
+                        return new String[0];
+                    } else if (stream.swallow(keywordsPattern)) {
+                        result.add("keyword");
+                    } else if (stream.swallow(operatorsPattern)) {
+                        result.add("operators");
+                    } else {
+                        stream.moveForward();
+                    }
+                    break;
+                case String:
                     stream.moveForward();
-                }
-                break;
-            case String:
-                stream.moveForward();
-                break;
-            case Comment:
-                stream.moveForward();
-                break;
+                    break;
+                case Comment:
+                    stream.moveForward();
+                    break;
+            }
         }
-        return result;
+
+        return result.toArray(new String[result.size()]);
     }
 
 

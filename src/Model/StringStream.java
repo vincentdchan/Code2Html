@@ -57,7 +57,7 @@ public final class StringStream {
 
     public char getChar(int index) {
         if (index < _content.length()) {
-            return _content.charAt(ptr);
+            return _content.charAt(index);
         } else {
             return '\0';
         }
@@ -119,6 +119,7 @@ public final class StringStream {
         }
         if (tmp > ptr) {
             int count = tmp - ptr;
+            ptr = tmp;
             return count;
         } else {
             return 0;
@@ -137,7 +138,7 @@ public final class StringStream {
     }
 
     public boolean reachEnd() {
-        return ptr < _content.length();
+        return ptr >= _content.length();
     }
 
 }

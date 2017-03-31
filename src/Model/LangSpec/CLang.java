@@ -12,7 +12,7 @@ import java.util.List;
 public class CLang implements ITokenizer {
 
     @Override
-    public List<String> tokenize(StringStream ss) {
+    public String[] tokenize(StringStream ss) {
         throw new NotImplementedException();
     }
 

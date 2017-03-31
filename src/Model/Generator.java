@@ -1,8 +1,9 @@
 package Model;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
+import Model.LangSpec.CLang;
+import Model.LangSpec.JavaLang;
+
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -24,41 +25,76 @@ public class Generator {
     private BlockingQueue _blockingQueue;
     private Lock _lock;
 
-    private class InnerHandler implements Runnable {
-
-        private IEntry _entry;
-        private Generator _generator;
-
-        InnerHandler(Generator generator, IEntry entry) {
-            _generator = generator;
-            _entry = entry;
-        }
-
-        @Override
-        public void run() {
-            GenHandler _handler = new GenHandler(_generator, _config);
-            _handlers.add(_handler);
-            _handler.start(_entry);
-        }
-
-    }
+    private List<IResultGetter> getters;
 
     public Generator(Configuration config) {
         _config = config;
         _lock = new ReentrantLock();
         _blockingQueue = new LinkedBlockingQueue();
-
-        _threadPool = new ThreadPoolExecutor(CoreThreadSize, MaxThreadSize, 1,
-                TimeUnit.SECONDS, _blockingQueue);
+        _handlers = new LinkedList<>();
     }
 
-    public void startGeneration(IEntry[] files) {
-        for (IEntry file : files) {
-            _threadPool.execute(new InnerHandler(this, file));
+
+    /**
+     * Generate the code in another thread.
+     * If then length of entries is less than or equal three,
+     * generate in another thread. Otherwise,
+     * using the ThreadPool.
+     *
+     * @param entries
+     * @param getters
+     */
+    public void generate(Entry[] entries, List<IResultGetter> getters) {
+        this.getters = getters;
+
+        if (entries.length <= 3) {
+            for (Entry entry : entries) {
+                GenHandler _handler = generate(entry.getFilename(), entry.getSourceCode());
+                executeTaskInAnotherThread(_handler);
+            }
+        } else {
+            _threadPool = new ThreadPoolExecutor(CoreThreadSize, MaxThreadSize, 1,
+                    TimeUnit.SECONDS, _blockingQueue);
+
+            for (Entry entry : entries) {
+                GenHandler _handler = generate(entry.getFilename(), entry.getSourceCode());
+                _threadPool.execute(_handler);
+            }
+
+            _threadPool.shutdown();
+        }
+
+    }
+
+    private GenHandler generate(String filename, String srcCode) {
+
+        ITokenizer tokenizer = null;
+        if (filename.endsWith(".java")) {
+            tokenizer = new JavaLang();
+        } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
+            tokenizer = new CLang();
+        }
+        GenHandler _handler = new GenHandler(this, _config, srcCode, tokenizer, getters);
+        addHandler(_handler);
+        // _threadPool.execute(_handler);
+        return _handler;
+    }
+
+    private void executeTaskInAnotherThread(Runnable task) {
+        new Thread(task).run();
+    }
+
+    private void convertByTokenizer(String srcCode, ITokenizer tokenizer) {
+        StringStream ss = new StringStream(srcCode);
+
+        ArrayList<List<String>> tokens = new ArrayList<>();
+
+        while (!ss.reachEnd()) {
+            tokens.add(tokenizer.tokenize(ss));
         }
     }
 
-    public void addHandler(GenHandler handler) {
+    private void addHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.add(handler);
@@ -67,7 +103,7 @@ public class Generator {
         }
     }
 
-    public void removeHandler(GenHandler handler) {
+    private void removeHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.remove(handler);

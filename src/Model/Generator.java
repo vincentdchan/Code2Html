@@ -84,7 +84,7 @@ public class Generator {
         new Thread(task).run();
     }
 
-    private void addHandler(GenHandler handler) {
+    public void addHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.add(handler);
@@ -93,7 +93,7 @@ public class Generator {
         }
     }
 
-    private void removeHandler(GenHandler handler) {
+    public void removeHandler(GenHandler handler) {
         _lock.lock();
         try {
             _handlers.remove(handler);

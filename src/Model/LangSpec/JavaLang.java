@@ -55,7 +55,6 @@ public class JavaLang implements ITokenizer {
         List<String> result = new ArrayList<>();
         if (stream.getChar() == '\n') {
             stream.moveForward();
-            result.add("linebreak");
         } else {
             switch (currentState) {
                 case Normal:

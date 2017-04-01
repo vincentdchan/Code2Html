@@ -16,7 +16,7 @@ public class RightTable {
     private String path;
     private Button btCancel;
 
-    public RightTable(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> data) {
+    public RightTable(File fileName) {
         choosedFile = fileName.getName();
 
         path = fileName.getAbsolutePath();
@@ -29,16 +29,19 @@ public class RightTable {
         btCancel.setOnMouseExited((e -> {
             btCancel.setStyle("-fx-background-color:null");
         }));
+    }
 
-
+    public void setButtonOnAction(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> data, Button button) {
         btCancel.setOnAction(e -> {
+            button.setDisable(false);
+            button.setText("");
             for (int i = 0; i < arrayList.size(); i++) {
                 if (arrayList.get(i).getAbsolutePath().equals(fileName.getAbsolutePath())) {
                     arrayList.remove(i);
                 }
             }
-            for(int i = 0 ; i < data.size() ; i++){
-                if(data.get(i).path.equals(fileName.getAbsolutePath())){
+            for (int i = 0; i < data.size(); i++) {
+                if (data.get(i).path.equals(fileName.getAbsolutePath())) {
                     data.remove(i);
                 }
             }

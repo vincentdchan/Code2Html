@@ -1,12 +1,17 @@
 package View;
 
+import Model.Configuration;
+import Model.Getter;
+import Model.Java2Html;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by ZMYang on 2017/3/1.
@@ -91,34 +96,30 @@ public class Actions {
         });
     }
 
-//    public static void comboBoxAction(ComboBox<String> showFileKind, File subFile,
-//                                      ArrayList<File> arrayList, TableView<MyFile> table,
-//                                      ObservableList<MyFile> data) {
-//        showFileKind.setOnAction(e -> {
-//
-//        });
-//    }
-//
-//    public static void showFileAction(File subFile, ArrayList<File> arrayList,
-//                                      ComboBox<String> showFileKind, TableView<MyFile> table,
-//                                      ObservableList<MyFile> data) {
-//        MyFile myFile = new MyFile(subFile, arrayList);
-//        data = FXCollections.observableArrayList();
-//        if (myFile.getType() != null) {
-//            if (showFileKind.getValue().equals("all") && (myFile.getType().matches("\\.java")
-//                    || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c"))) {
-//                data.add(myFile);
-//                table.setItems(data);
-//            } else if (showFileKind.getValue().equals(".java") && myFile.getType().matches("\\.java")) {
-//                data.add((myFile));
-//                table.setItems(data);
-//            } else if (showFileKind.getValue().equals(".c") && myFile.getType().matches("\\.c")) {
-//                data.add((myFile));
-//                table.setItems(data);
-//            } else if (showFileKind.getValue().equals(".h") && myFile.getType().matches("\\.h")) {
-//                data.add((myFile));
-//                table.setItems(data);
-//            }
-//        }
-//    }
+    public static void codeAction(Button button , ArrayList<File> arrayList) {
+        button.setOnAction(e -> {
+            if(arrayList.size() == 0){
+                Alert alert = new Alert(Alert.AlertType.NONE , "请选定要转换的文件!",ButtonType.OK);
+                alert.setTitle("通知");
+                alert.showAndWait();
+            }
+            for(int i = 0; i < arrayList.size() ; i++){
+                File file = arrayList.get(i);
+                String content = "";
+                try {
+                    Scanner in = new Scanner(file,"utf-8");
+                    while(in.hasNextLine()){
+                        content = content + in.nextLine();
+                    }
+                    Configuration config = new Configuration();
+                    Java2Html converter = new Java2Html();
+                    converter.set_config(config);
+                    converter.addGetter(new Getter());
+                    converter.convert(file.getName(),content);
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+    }
 }

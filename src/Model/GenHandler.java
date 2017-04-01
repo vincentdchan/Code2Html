@@ -92,6 +92,16 @@ public final class GenHandler implements Runnable{
             Token tok = new Token();
             tok.setSyntax(_tokenizer.tokenize(ss));
             tok.setContent(ss.popString());
+
+            if (result.size() > 0) {
+                Token top = result.get(result.size() - 1);
+                if (top.getSyntax().length == 1 &&
+                        tok.getSyntax().length == 1 &&
+                        top.getSyntax()[0].equals(tok.getSyntax()[0])) {
+                    top.setContent(top.getContent() + tok.getContent());
+                    continue;
+                }
+            }
             result.add(tok);
         }
 

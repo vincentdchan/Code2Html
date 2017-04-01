@@ -42,6 +42,14 @@ public final class StringStream {
         return false;
     }
 
+    public boolean swallow(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (getChar(ptr + i) != str.charAt(i)) return false;
+        }
+        ptr += str.length();
+        return true;
+    }
+
     public boolean test(Pattern pattern) {
         Matcher matcher = pattern.matcher(_content);
         return matcher.find(ptr);

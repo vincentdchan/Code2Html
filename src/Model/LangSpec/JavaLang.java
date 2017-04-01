@@ -61,6 +61,12 @@ public class JavaLang implements ITokenizer {
                     if (stream.getChar() == ' ') {
                         stream.eatSpace();
                         return new String[0];
+                    } else if (stream.swallow("/*")) {
+                        currentState = State.Comment;
+                        result.add("comment");
+                    } else if  (stream.swallow("\"")) {
+                        currentState = State.String;
+                        result.add("string");
                     } else if (stream.swallow(keywordsPattern)) {
                         result.add("keyword");
                     } else if (stream.swallow(operatorsPattern)) {
@@ -70,10 +76,22 @@ public class JavaLang implements ITokenizer {
                     }
                     break;
                 case String:
-                    stream.moveForward();
+                    result.add("string");
+                    if (stream.getChar() == '\\') { // escape
+                        stream.moveForward(2);
+                    } else if (stream.swallow("\"")) {
+                        currentState = State.Normal;
+                    } else {
+                        stream.moveForward();
+                    }
                     break;
                 case Comment:
-                    stream.moveForward();
+                    result.add("comment");
+                    if (stream.swallow("*/")) {
+                        currentState = State.Normal;
+                    } else {
+                        stream.moveForward();
+                    }
                     break;
             }
         }

@@ -17,6 +17,7 @@ public class Main implements IResultGetter {
                 "public class Main {\n" +
                 "\n" +
                 "    public static void main(String[] args) {\n" +
+                "       System.out.println(\"Hello world.\");\n" +
                 "    }\n" +
                 "\n" +
                 "}";

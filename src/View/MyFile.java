@@ -56,16 +56,18 @@ public class MyFile {
             btChoose.setStyle("-fx-background-color:null");
         }));
         btChoose.setOnAction(e -> {
+            btChoose.setDisable(true);
+            btChoose.setText("已选定");
             boolean flag = true;
             for (int i = 0; i < arrayList.size(); i++) {
                 if (file.getAbsolutePath().equals(arrayList.get(i).getAbsolutePath())) {
                     flag = false;
-//                    System.out.println("exist!");
                 }
             }
             if (flag) {
                 arrayList.add(file);
-                RightTable rightTable = new RightTable(file, arrayList, data);
+                RightTable rightTable = new RightTable(file);
+                rightTable.setButtonOnAction(file, arrayList, data, btChoose);
                 data.add(rightTable);
                 tableView.setItems(data);
             }

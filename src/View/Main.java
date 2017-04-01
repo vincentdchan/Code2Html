@@ -1,5 +1,6 @@
 package View;
 
+import Model.IResultGetter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,6 +48,20 @@ public class Main extends Application {
         Label labelCurrentPath = new Label("                CurrentPath:                   ");
         Label _null = new Label("                                                          ");
         currentPath.setDisable(true);
+//        ToolBar toolBar = new ToolBar(
+//                new Button("New"),
+//                new Button("Open"),
+//                new Button("Save"),
+////                new Separator(true),
+//                new Button("Clean"),
+//                new Button("Compile"),
+//                new Button("Run"),
+////                new Separator(true),
+//                new Button("Debug"),
+//                new Button("Profile")
+//        );
+//        topPane.setBottom(toolBar);
+
 //        currentPath.setPrefWidth(690);
         //关闭程序
         menuItemExit.setOnAction((ActionEvent t) -> {
@@ -127,6 +142,7 @@ public class Main extends Application {
 
         Label fileKind = new Label("Kind :");
         Button btStartCode = new Button("Start to Code");
+        Actions.codeAction(btStartCode , Code2HtmlFile);
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
         showFileKind.setPrefWidth(690);
@@ -138,6 +154,7 @@ public class Main extends Application {
         bottomPane.add(fileKind, 0, 1);
         bottomPane.add(showFileKind, 1, 1);
         bottomPane.add(btStartCode, 2, 1);
+
 
         Button computer = new Button(new File(System.getenv("COMPUTERNAME")).getName());
         computer.setStyle("-fx-background-color:null");

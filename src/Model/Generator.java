@@ -2,7 +2,8 @@ package Model;
 
 import Model.LangSpec.CLang;
 import Model.LangSpec.JavaLang;
-
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -24,14 +25,19 @@ public class Generator {
     private ThreadPoolExecutor _threadPool;
     private BlockingQueue _blockingQueue;
     private Lock _lock;
+    private String _styleCode;
 
     private List<IResultGetter> getters;
 
-    public Generator(Configuration config) {
+    public Generator(Configuration config) throws java.io.IOException {
         _config = config;
         _lock = new ReentrantLock();
         _blockingQueue = new LinkedBlockingQueue();
         _handlers = new LinkedList<>();
+
+        _styleCode = new String(
+                Files.readAllBytes(
+                        Paths.get("resources/test.css")));
     }
 
 
@@ -74,7 +80,12 @@ public class Generator {
         } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
             tokenizer = new CLang();
         }
-        GenHandler _handler = new GenHandler(this, _config, srcCode, tokenizer, getters);
+        GenHandler _handler = new GenHandler(this,
+                _config,
+                srcCode,
+                _styleCode,
+                tokenizer,
+                getters);
         addHandler(_handler);
         // _threadPool.execute(_handler);
         return _handler;

@@ -34,9 +34,10 @@ public final class StringStream {
     }
 
     public boolean swallow(Pattern pattern) {
-        Matcher matcher = pattern.matcher(_content);
-        if (matcher.find(ptr)) {
-            ptr = matcher.end();
+        String _tail = _content.substring(ptr);
+        Matcher matcher = pattern.matcher(_tail);
+        if (matcher.find()) {
+            ptr += matcher.end();
             return true;
         }
         return false;
@@ -132,6 +133,10 @@ public final class StringStream {
         } else {
             return 0;
         }
+    }
+
+    public void goToEnd() {
+        ptr = _content.length();
     }
 
     /**

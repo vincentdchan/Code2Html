@@ -13,12 +13,17 @@ public final class GenHandler implements Runnable{
     private Generator _generator;
     private Configuration _config;
     private String _srcCode;
+    private String _styleCode;
     private ITokenizer _tokenizer;
     private List<IResultGetter> _getters;
 
     private final String HTMLBegin = "<html>\n" +
             "   <head>\n" +
             "       <title>Java Code</title>\n" +
+            "       <style>\n";
+
+    private final String HTMLMid =
+            "       </style>\n" +
             "   </head>\n" +
             "   <body>\n";
 
@@ -29,11 +34,13 @@ public final class GenHandler implements Runnable{
     GenHandler(Generator generator,
                Configuration config,
                String srcCode,
+               String styleCode,
                ITokenizer tokenizer,
                List<IResultGetter> getters) {
         _generator = generator;
         _config = config;
         _srcCode = srcCode;
+        _styleCode = styleCode;
         _tokenizer = tokenizer;
         _getters = getters;
     }
@@ -42,6 +49,8 @@ public final class GenHandler implements Runnable{
     public void run() {
         StringBuilder sb = new StringBuilder();
         sb.append(HTMLBegin);
+        sb.append(_styleCode);
+        sb.append(HTMLMid);
         sb.append("<div>\n");
 
         sb.append(generateCodeHTML());
@@ -53,40 +62,46 @@ public final class GenHandler implements Runnable{
     }
 
     private String generateCodeHTML() {
-        List<Token> tokens = tokenize();
+        String[] lines = _srcCode.split("\n");
 
         StringBuilder sb = new StringBuilder();
-        for (Token tok : tokens) {
-            String[] _syntax = tok.getSyntax();
-            String content = escapeString(tok.getContent());
-            if (_syntax.length > 0) {
-                sb.append("<span class=\"");
-                for (String tokStr : tok.getSyntax()) {
-                    sb.append("jc-");
-                    sb.append(tokStr);
-                    sb.append(" ");
+        for (String line : lines) {
+            List<Token> tokens = tokenize(line);
+
+            for (Token tok : tokens) {
+                String[] _syntax = tok.getSyntax();
+                String content = escapeString(tok.getContent());
+                if (_syntax.length > 0) {
+                    sb.append("<span class=\"");
+                    for (String tokStr : tok.getSyntax()) {
+                        sb.append("jc-");
+                        sb.append(tokStr);
+                        sb.append(" ");
+                    }
+                    sb.deleteCharAt(sb.length() - 1); // remove the last space
+                    sb.append("\">");
+                    sb.append(content);
+                    sb.append("</span>");
+                } else {
+                    sb.append(content);
                 }
-                sb.deleteCharAt(sb.length() - 1); // remove the last space
-                sb.append("\">");
-                sb.append(content);
-                sb.append("</span>");
-            } else {
-                sb.append(content);
             }
+
+            sb.append("<br>\n");
         }
 
         return sb.toString();
     }
 
     private String escapeString(String code) {
-        String result = code.replaceAll("\n", "<br>\n");
-        result = result.replaceAll(" ", "&nbsp;");
+        // String result = code.replaceAll("\n", "<br>\n");
+        String result = code.replaceAll(" ", "&nbsp;");
         return result;
     }
 
-    private List<Token> tokenize() {
+    private List<Token> tokenize(String code) {
         ArrayList<Token> result = new ArrayList<>();
-        StringStream ss = new StringStream(_srcCode);
+        StringStream ss = new StringStream(code);
 
         while(!ss.reachEnd()) {
             Token tok = new Token();
@@ -148,6 +163,14 @@ public final class GenHandler implements Runnable{
 
     public Configuration get_config() {
         return _config;
+    }
+
+    public String get_srcCode() {
+        return _srcCode;
+    }
+
+    public String get_styleCode() {
+        return _styleCode;
     }
 
 }

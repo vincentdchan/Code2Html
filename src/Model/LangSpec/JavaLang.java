@@ -64,6 +64,9 @@ public class JavaLang implements ITokenizer {
                     } else if (stream.swallow("/*")) {
                         currentState = State.Comment;
                         result.add("comment");
+                    } else if (stream.swallow("//")) {
+                        stream.goToEnd();
+                        result.add("comment");
                     } else if  (stream.swallow("\"")) {
                         currentState = State.String;
                         result.add("string");
@@ -113,7 +116,7 @@ public class JavaLang implements ITokenizer {
         sortPrePatternStr(strs);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("(");
+        sb.append("^(");
         for (int i = 0; i < strs.length; i++) {
             sb.append(Pattern.quote(strs[i]));
             sb.append("|");

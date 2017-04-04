@@ -34,6 +34,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         ArrayList<File> Code2HtmlFile = new ArrayList<>();
         ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
+        ObservableList<MyFile> dataMiddle = FXCollections.observableArrayList();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
@@ -142,7 +143,7 @@ public class Main extends Application {
 
         Label fileKind = new Label("Kind :");
         Button btStartCode = new Button("Start to Code");
-        Actions.codeAction(btStartCode , Code2HtmlFile);
+        Actions.codeAction(btStartCode, Code2HtmlFile);
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
         showFileKind.setPrefWidth(690);
@@ -180,7 +181,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable,dataRight);
+            dataMiddle = Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
         }
         rootItem.setExpanded(true);
 

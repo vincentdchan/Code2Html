@@ -21,10 +21,13 @@ public class MyFile {
     private String length;
     private String type;
     private Button btChoose;
+    private String Path;
 
-    MyFile(File file, ArrayList<File> arrayList, TableView<RightTable> tableView, ObservableList<RightTable> data) {
+    MyFile(File file, ArrayList<File> arrayList, TableView<RightTable> tableView, ObservableList<RightTable> data, ObservableList<MyFile> dataMiddle) {
         this.file = file;
         fileName = file.getName();
+
+        Path = file.getAbsolutePath();
 
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(file.lastModified());
@@ -55,6 +58,12 @@ public class MyFile {
         btChoose.setOnMouseExited((e -> {
             btChoose.setStyle("-fx-background-color:null");
         }));
+        for (int j = 0; j < data.size(); j++) {
+            if (file.getAbsolutePath().equals(data.get(j).getPath())) {
+                btChoose.setDisable(true);
+                btChoose.setText("已选定");
+            }
+        }
         btChoose.setOnAction(e -> {
             btChoose.setDisable(true);
             btChoose.setText("已选定");
@@ -67,7 +76,7 @@ public class MyFile {
             if (flag) {
                 arrayList.add(file);
                 RightTable rightTable = new RightTable(file);
-                rightTable.setButtonOnAction(file, arrayList, data, btChoose);
+                rightTable.setButtonOnAction(file, arrayList, data, dataMiddle);
                 data.add(rightTable);
                 tableView.setItems(data);
             }
@@ -78,6 +87,13 @@ public class MyFile {
         });
     }
 
+    public String getPath() {
+        return Path;
+    }
+
+    public void setPath(String path) {
+        Path = path;
+    }
 
     public File getFile() {
         return file;

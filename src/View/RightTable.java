@@ -31,18 +31,23 @@ public class RightTable {
         }));
     }
 
-    public void setButtonOnAction(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> data, Button button) {
+    public void setButtonOnAction(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> dataRight, ObservableList<MyFile> dataMiddle) {
         btCancel.setOnAction(e -> {
-            button.setDisable(false);
-            button.setText("");
-            for (int i = 0; i < arrayList.size(); i++) {
-                if (arrayList.get(i).getAbsolutePath().equals(fileName.getAbsolutePath())) {
-                    arrayList.remove(i);
+            for (int j = 0; j < dataMiddle.size(); j++){
+                if(dataMiddle.get(j).getPath().equals(fileName.getAbsolutePath())){
+                    dataMiddle.get(j).getBtChoose().setDisable(false);
+                    dataMiddle.get(j).getBtChoose().setText("");
+                    break;
                 }
             }
-            for (int i = 0; i < data.size(); i++) {
-                if (data.get(i).path.equals(fileName.getAbsolutePath())) {
-                    data.remove(i);
+                for (int i = 0; i < arrayList.size(); i++) {
+                    if (arrayList.get(i).getAbsolutePath().equals(fileName.getAbsolutePath())) {
+                        arrayList.remove(i);
+                    }
+                }
+            for (int i = 0; i < dataRight.size(); i++) {
+                if (dataRight.get(i).path.equals(fileName.getAbsolutePath())) {
+                    dataRight.remove(i);
                 }
             }
             for (int i = 0; i < arrayList.size(); i++) {

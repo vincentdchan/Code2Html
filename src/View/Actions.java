@@ -35,8 +35,8 @@ public class Actions {
         child.setOnAction(e -> {
             label.setText(file.getAbsolutePath());
             File[] subFile = file.listFiles();
-            data.clear();
             dataMiddle.clear();
+            data.clear();
             table.setItems(null);
             parent.setExpanded(true);
             if (parent.isLeaf() && subFile != null) {

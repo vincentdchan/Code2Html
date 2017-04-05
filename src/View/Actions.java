@@ -127,7 +127,7 @@ public class Actions {
                     Configuration config = new Configuration();
                     Java2Html converter = new Java2Html();
                     converter.set_config(config);
-                    converter.addGetter(new Getter());
+                    converter.addGetter(new Getter(file.getName()));
                     try {
                         converter.convert(file.getName(), content);
                     } catch (IOException E) {

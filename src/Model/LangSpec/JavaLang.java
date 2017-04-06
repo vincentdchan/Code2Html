@@ -45,6 +45,7 @@ public class JavaLang implements ITokenizer {
     private Pattern operatorsPattern;
     private Pattern symbolsPattern = Pattern.compile("^[=><!~?:&|+\\-*\\/\\^%]+");
     private Pattern variablePattern = Pattern.compile("^([a-zA-Z][a-zA-Z0-9]*|_[a-zA-Z0-9]*|_)");
+    private Pattern numberPattern = Pattern.compile("^(0x[0-9]+|[0-9]+)");
 
     public JavaLang() {
         buildKeywordsPattern();
@@ -72,6 +73,8 @@ public class JavaLang implements ITokenizer {
                     } else if (stream.swallow("\"")) {
                         currentState = State.String;
                         result.add("string");
+                    } else if (stream.swallow(numberPattern)) {
+                        result.add("number");
                     } else if (stream.getChar() == '@') {
                         stream.moveForward();
                         stream.swallow(variablePattern);
@@ -87,6 +90,28 @@ public class JavaLang implements ITokenizer {
                         stream.moveForward(variableLen);
                     } else if (stream.swallow(operatorsPattern)) {
                         result.add("operators");
+                        String topString = stream.getTopString();
+                        if (topString.equals(";")) {
+                            result.add("semicolon");
+                        } else if (topString.equals("(")) {
+                            result.add("paren");
+                            result.add("left-paren");
+                        } else if (topString.equals(")")) {
+                            result.add("paren");
+                            result.add("right-paren");
+                        } else if (topString.equals("{")) {
+                            result.add("brace");
+                            result.add("left-brace");
+                        } else if (topString.equals("}")) {
+                            result.add("brace");
+                            result.add("right-brace");
+                        } else if (topString.equals("[")) {
+                            result.add("bracket");
+                            result.add("left-bracket");
+                        } else if (topString.equals("]")) {
+                            result.add("bracket");
+                            result.add("right-bracket");
+                        }
                     } else {
                         stream.moveForward();
                     }

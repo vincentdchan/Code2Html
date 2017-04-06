@@ -18,6 +18,18 @@ public final class StringStream {
         tmp_ptr = 0;
     }
 
+    public String getTopString() {
+        if (tmp_ptr < ptr) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = tmp_ptr; i < ptr; i++) {
+                sb.append(_content.charAt(i));
+            }
+            return sb.toString();
+        } else {
+            return "";
+        }
+    }
+
     public String popString() {
         if (tmp_ptr < ptr) {
             StringBuilder sb = new StringBuilder();

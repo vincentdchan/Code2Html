@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -116,7 +117,7 @@ public class Actions {
                     converter.set_config(config);
                     converter.addGetter(new Getter());
                     converter.convert(file.getName(),content);
-                } catch (FileNotFoundException e1) {
+                } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }

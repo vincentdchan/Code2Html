@@ -52,7 +52,7 @@ public final class GenHandler implements Runnable{
         sb.append(HTMLBegin);
         sb.append(_styleCode);
         sb.append(HTMLMid);
-        sb.append("<div>\n");
+        sb.append("<div id=\"code_area\">\n");
 
         sb.append(generateCodeHTML());
 
@@ -62,12 +62,22 @@ public final class GenHandler implements Runnable{
         dispatchGetter(sb.toString());
     }
 
+    private String generateLineNumber(int i) {
+        return "<span class=\"linenumber\">" + i + "</span>";
+    }
+
     private String generateCodeHTML() {
         String[] lines = _srcCode.split("\r?\n");
 
         StringBuilder sb = new StringBuilder();
+        int count = 1;
         for (String line : lines) {
             sb.append("<p>");
+
+            if (_config.is_showLineNumber()) {
+                sb.append(generateLineNumber(count++));
+            }
+
             List<Token> tokens = tokenize(line);
 
             for (Token tok : tokens) {

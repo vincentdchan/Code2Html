@@ -1,7 +1,5 @@
 package Model;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +16,18 @@ public final class StringStream {
         _content = content;
         ptr = 0;
         tmp_ptr = 0;
+    }
+
+    public String getTopString() {
+        if (tmp_ptr < ptr) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = tmp_ptr; i < ptr; i++) {
+                sb.append(_content.charAt(i));
+            }
+            return sb.toString();
+        } else {
+            return "";
+        }
     }
 
     public String popString() {
@@ -52,8 +62,41 @@ public final class StringStream {
     }
 
     public boolean test(Pattern pattern) {
-        Matcher matcher = pattern.matcher(_content);
+        String _tail = _content.substring(ptr);
+        Matcher matcher = pattern.matcher(_tail);
         return matcher.find(ptr);
+    }
+
+    /**
+     * A function similar to `test` function,
+     * but can return the length of the match string.
+     * And the method will not advance the ptr.
+     *
+     * @return length the match string.
+     */
+    public int match(Pattern pattern) {
+        String _tail = _content.substring(ptr);
+        Matcher matcher = pattern.matcher(_tail);
+        if (matcher.find()) {
+            return matcher.end();
+        }
+        return 0;
+    }
+
+    /**
+     * A function similar to `test` function,
+     * but can return the length of the match string.
+     * And the method will not advance the ptr.
+     *
+     * @return length the match string.
+     */
+    public int match(String str) {
+        String _tail = _content.substring(ptr);
+        for (int i = 0; i < str.length(); ++i) {
+            if (_content.charAt(ptr + i) != _tail.charAt(i))
+                return 0;
+        }
+        return str.length();
     }
 
     public char getChar() {

@@ -43,7 +43,9 @@ public class JavaLang implements ITokenizer {
     private Pattern keywordsPattern;
     private Pattern typeKeywordsPattern;
     private Pattern operatorsPattern;
-    private Pattern SymbolsPattern = Pattern.compile("[=><!~?:&|+\\-*\\/\\^%]+");
+    private Pattern symbolsPattern = Pattern.compile("^[=><!~?:&|+\\-*\\/\\^%]+");
+    private Pattern variablePattern = Pattern.compile("^([a-zA-Z][a-zA-Z0-9]*|_[a-zA-Z0-9]*|_)");
+    private Pattern numberPattern = Pattern.compile("^(0x[0-9]+|[0-9]+)");
 
     public JavaLang() {
         buildKeywordsPattern();
@@ -53,6 +55,7 @@ public class JavaLang implements ITokenizer {
 
     public String[] tokenize(StringStream stream) {
         List<String> result = new ArrayList<>();
+        int variableLen;
         if (stream.getChar() == '\n') {
             stream.moveForward();
         } else {
@@ -67,13 +70,48 @@ public class JavaLang implements ITokenizer {
                     } else if (stream.swallow("//")) {
                         stream.goToEnd();
                         result.add("comment");
-                    } else if  (stream.swallow("\"")) {
+                    } else if (stream.swallow("\"")) {
                         currentState = State.String;
                         result.add("string");
-                    } else if (stream.swallow(keywordsPattern)) {
-                        result.add("keyword");
+                    } else if (stream.swallow(numberPattern)) {
+                        result.add("number");
+                    } else if (stream.getChar() == '@') {
+                        stream.moveForward();
+                        stream.swallow(variablePattern);
+                        result.add("tag");
+                    } else if ((variableLen = stream.match(variablePattern)) > 0) {
+                        // maybe a variable or a keyword.
+                        int keywordLen = stream.match(keywordsPattern);
+                        if (variableLen == keywordLen) { // it's a keyword
+                            result.add("keyword");
+                        } else { // it's a variable
+                            result.add("variable");
+                        }
+                        stream.moveForward(variableLen);
                     } else if (stream.swallow(operatorsPattern)) {
                         result.add("operators");
+                        String topString = stream.getTopString();
+                        if (topString.equals(";")) {
+                            result.add("semicolon");
+                        } else if (topString.equals("(")) {
+                            result.add("paren");
+                            result.add("left-paren");
+                        } else if (topString.equals(")")) {
+                            result.add("paren");
+                            result.add("right-paren");
+                        } else if (topString.equals("{")) {
+                            result.add("brace");
+                            result.add("left-brace");
+                        } else if (topString.equals("}")) {
+                            result.add("brace");
+                            result.add("right-brace");
+                        } else if (topString.equals("[")) {
+                            result.add("bracket");
+                            result.add("left-bracket");
+                        } else if (topString.equals("]")) {
+                            result.add("bracket");
+                            result.add("right-bracket");
+                        }
                     } else {
                         stream.moveForward();
                     }
@@ -101,7 +139,6 @@ public class JavaLang implements ITokenizer {
 
         return result.toArray(new String[result.size()]);
     }
-
 
     /**
      * sort keywords from long to short
@@ -155,7 +192,7 @@ public class JavaLang implements ITokenizer {
     }
 
     public Pattern getSymbolsPattern() {
-        return SymbolsPattern;
+        return symbolsPattern;
     }
 
 }

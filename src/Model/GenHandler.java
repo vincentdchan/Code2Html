@@ -19,6 +19,7 @@ public final class GenHandler implements Runnable{
 
     private final String HTMLBegin = "<html>\n" +
             "   <head>\n" +
+            "       <meta charset=\"utf-8\">\n" +
             "       <title>Java Code</title>\n" +
             "       <style>\n";
 
@@ -62,10 +63,11 @@ public final class GenHandler implements Runnable{
     }
 
     private String generateCodeHTML() {
-        String[] lines = _srcCode.split("\n");
+        String[] lines = _srcCode.split("\r?\n");
 
         StringBuilder sb = new StringBuilder();
         for (String line : lines) {
+            sb.append("<p>");
             List<Token> tokens = tokenize(line);
 
             for (Token tok : tokens) {
@@ -87,7 +89,7 @@ public final class GenHandler implements Runnable{
                 }
             }
 
-            sb.append("<br>\n");
+            sb.append("</p>\n");
         }
 
         return sb.toString();

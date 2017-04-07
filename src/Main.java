@@ -33,7 +33,7 @@ public class Main implements IResultGetter {
             Java2Html converter = new Java2Html();
             converter.set_config(config);
             converter.addGetter(new Main());
-            converter.convert(filename, _code);
+            converter.convert(_name, _code);
 
             return;
         }

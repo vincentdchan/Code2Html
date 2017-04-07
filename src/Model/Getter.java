@@ -13,26 +13,27 @@ import java.util.ArrayList;
 public class Getter implements IResultGetter {
     ArrayList<File> arrayList;
     private String fileName;
+    private String filePath;
 
-    public Getter(ArrayList<File> arrayList , String fileName) {
+    public Getter(ArrayList<File> arrayList, String fileName, String filePath) {
         this.arrayList = arrayList;
         this.fileName = fileName;
+        this.filePath = filePath;
     }
 
     @Override
     public void getResult(String result) {
-            File file = new File(fileName + ".html");
-            try {
-                OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "utf-8");
-                out.write(result);
-                out.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-//        WebShow.happen(arrayList);
+        File file = new File(filePath + "/" + fileName + ".html");
+        try {
+            OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "utf-8");
+            out.write(result);
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

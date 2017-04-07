@@ -18,9 +18,10 @@ import java.util.ArrayList;
 
 public class WebShow extends Application {
 
-    public static ArrayList<File> Code2Html ;
+    public static ArrayList<File> Code2Html;
+    public static String FilePath;
 
-    public static void happen(ArrayList<File> arrayList){
+    public static void happen(ArrayList<File> arrayList, String filePath) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -28,6 +29,7 @@ public class WebShow extends Application {
             }
         });
         Code2Html = arrayList;
+        FilePath = filePath;
     }
 
     public static void main(String[] args) {
@@ -38,11 +40,14 @@ public class WebShow extends Application {
     public void start(Stage primaryStage) {
         BorderPane borderPane = new BorderPane();
 
-        File file = new File("file:///D:/Code2Html/test/1.java.html");
+        File file = new File(FilePath + "/" + Code2Html.get(0).getName() + ".html");
+//        System.out.println(file.getAbsolutePath());
+
 
         WebView browser = new WebView();
         WebEngine webEngine = browser.getEngine();
-        webEngine.load("file:///D:/Code2Html/test/1.java.html");
+        webEngine.load("file:///" + file.getAbsolutePath());
+//        System.out.println("file:///" + file.getAbsolutePath());
 
         borderPane.setCenter(browser);
 

@@ -51,10 +51,10 @@ public class RightTable {
                     dataRight.remove(i);
                 }
             }
-            for (int i = 0; i < arrayList.size(); i++) {
-                System.out.println(arrayList.get(i).getName());
-            }
-            System.out.println("finish!");
+//            for (int i = 0; i < arrayList.size(); i++) {
+//                System.out.println(arrayList.get(i).getName());
+//            }
+//            System.out.println("finish!");
         });
     }
 

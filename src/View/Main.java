@@ -32,6 +32,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        File srcPathFile = new File("file");
         ArrayList<File> Code2HtmlFile = new ArrayList<>();
         ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
         ObservableList<MyFile> dataMiddle = FXCollections.observableArrayList();
@@ -123,8 +124,9 @@ public class Main extends Application {
         bottomPane.setVgap(10);
         Label filePath = new Label("Path :");
         TextField showFilePath = new TextField();
+        showFilePath.setText(srcPathFile.getAbsolutePath());
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
-        showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(2));
+        showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Button btChoosePath = new Button("Save to ...");
         btChoosePath.setOnAction(e -> {
@@ -136,10 +138,10 @@ public class Main extends Application {
 
         Label fileKind = new Label("Kind :");
         Button btStartCode = new Button("Start to Code");
-        Actions.codeAction(btStartCode, Code2HtmlFile);
+        Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
-        showFileKind.setPrefWidth(690);
+        showFileKind.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         showFileKind.getItems().addAll("all", ".h", ".c", ".java");
         showFileKind.setValue("all");
         bottomPane.add(filePath, 0, 0);

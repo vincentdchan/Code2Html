@@ -81,10 +81,10 @@ public class MyFile {
                 data.add(rightTable);
                 tableView.setItems(data);
             }
-            for (int i = 0; i < arrayList.size(); i++) {
-                System.out.println(arrayList.get(i).getName());
-            }
-            System.out.println("finish!");
+//            for (int i = 0; i < arrayList.size(); i++) {
+//                System.out.println(arrayList.get(i).getName());
+//            }
+//            System.out.println("finish!");
         });
     }
 

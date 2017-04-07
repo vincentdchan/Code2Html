@@ -112,7 +112,7 @@ public class Actions {
         });
     }
 
-    public static void codeAction(Button button, ArrayList<File> arrayList) {
+    public static void codeAction(Button button, ArrayList<File> arrayList, String filePath) {
         button.setOnAction(e -> {
             if (arrayList.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
@@ -128,12 +128,13 @@ public class Actions {
                     Configuration config = new Configuration();
                     Java2Html converter = new Java2Html();
                     converter.set_config(config);
-                    converter.addGetter(new Getter(arrayList, arrayList.get(i).getName()));
+                    converter.addGetter(new Getter(arrayList, arrayList.get(i).getName(), filePath));
                     converter.convert(file.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
+            WebShow.happen(arrayList, filePath);
         });
     }
 

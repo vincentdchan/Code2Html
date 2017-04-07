@@ -31,10 +31,11 @@ public class RightTable {
         }));
     }
 
-    public void setButtonOnAction(File fileName, ArrayList<File> arrayList, ObservableList<RightTable> dataRight, ObservableList<MyFile> dataMiddle) {
+    public void setButtonOnAction(File fileName, ArrayList<File> arrayList,
+                                  ObservableList<RightTable> dataRight, ObservableList<MyFile> dataMiddle) {
         btCancel.setOnAction(e -> {
             for (int j = 0; j < dataMiddle.size(); j++){
-                if(dataMiddle.get(j).getPath().equals(fileName.getAbsolutePath())){
+                if(dataMiddle.get(j).getPath().equals(path)){
                     dataMiddle.get(j).getBtChoose().setDisable(false);
                     dataMiddle.get(j).getBtChoose().setText("");
                     break;

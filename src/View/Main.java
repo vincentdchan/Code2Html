@@ -181,7 +181,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            dataMiddle = Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
+            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
         }
         rootItem.setExpanded(true);
 

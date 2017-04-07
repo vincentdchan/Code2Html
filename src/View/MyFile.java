@@ -23,7 +23,8 @@ public class MyFile {
     private Button btChoose;
     private String Path;
 
-    MyFile(File file, ArrayList<File> arrayList, TableView<RightTable> tableView, ObservableList<RightTable> data, ObservableList<MyFile> dataMiddle) {
+    MyFile(File file, ArrayList<File> arrayList, TableView<RightTable> tableView,
+           ObservableList<RightTable> data, ObservableList<MyFile> dataMiddle) {
         this.file = file;
         fileName = file.getName();
 

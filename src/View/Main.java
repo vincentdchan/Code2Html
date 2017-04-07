@@ -115,13 +115,6 @@ public class Main extends Application {
         isCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
-//        Label labelIsChosen = new Label("           已选文件");
-//        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
-//        ListView list = new ListView();
-//        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        BorderPane rightBorderPane = new BorderPane();
-//        rightBorderPane.setTop(labelIsChosen);
-//        rightBorderPane.setLeft(list);
 
         GridPane bottomPane = new GridPane();
 //        bottomPane.setGridLinesVisible(true);
@@ -131,7 +124,7 @@ public class Main extends Application {
         Label filePath = new Label("Path :");
         TextField showFilePath = new TextField();
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
-        showFilePath.setPrefWidth(690);
+        showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(2));
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Button btChoosePath = new Button("Save to ...");
         btChoosePath.setOnAction(e -> {

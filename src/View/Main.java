@@ -1,6 +1,5 @@
 package View;
 
-import Model.IResultGetter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,10 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -129,15 +124,16 @@ public class Main extends Application {
         showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Button btChoosePath = new Button("Save to ...");
+        Button btStartCode = new Button("Start to Code");
         btChoosePath.setOnAction(e -> {
             File file = directoryChooser.showDialog(primaryStage);
             if (file != null) {
                 showFilePath.setText(file.getAbsolutePath());
+                Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
             }
         });
 
         Label fileKind = new Label("Kind :");
-        Button btStartCode = new Button("Start to Code");
         Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();

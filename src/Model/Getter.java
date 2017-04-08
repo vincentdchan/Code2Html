@@ -24,6 +24,7 @@ public class Getter implements IResultGetter {
     @Override
     public void getResult(String result) {
         File file = new File(filePath + "/" + fileName + ".html");
+//        System.out.println(filePath + "/" + fileName + ".html");
         try {
             OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "utf-8");
             out.write(result);

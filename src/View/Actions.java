@@ -114,6 +114,7 @@ public class Actions {
 
     public static void codeAction(Button button, ArrayList<File> arrayList, String filePath) {
         button.setOnAction(e -> {
+//            System.out.println(filePath);
             if (arrayList.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
                 alert.setTitle("通知");

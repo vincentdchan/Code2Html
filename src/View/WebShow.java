@@ -5,10 +5,12 @@ package View;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.layout.Border;
+import javafx.scene.control.Button;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -18,8 +20,8 @@ import java.util.ArrayList;
 
 public class WebShow extends Application {
 
-    public static ArrayList<File> Code2Html;
-    public static String FilePath;
+    private static ArrayList<File> Code2Html;
+    private static String FilePath;
 
     public static void happen(ArrayList<File> arrayList, String filePath) {
         Platform.runLater(new Runnable() {
@@ -47,9 +49,36 @@ public class WebShow extends Application {
         WebView browser = new WebView();
         WebEngine webEngine = browser.getEngine();
         webEngine.load("file:///" + file.getAbsolutePath());
+        primaryStage.setTitle(Code2Html.get(0).getName() + ".html");
 //        System.out.println("file:///" + file.getAbsolutePath());
 
+
+        VBox leftPane = new VBox();
+//        leftPane.setPadding(new Insets(5, 2, 5, 2));
+        leftPane.setSpacing(5);
+        for (int i = 0; i < Code2Html.size(); i++) {
+            int t = i;
+            Button button = new Button(Code2Html.get(i).getName() + ".html");
+            File anotherFile = new File(FilePath + "/" + Code2Html.get(i).getName() + ".html");
+            button.setStyle("-fx-background-color:null");
+            button.setOnMouseEntered(e -> {
+                button.setStyle("-fx-background-color:lightblue");
+            });
+            button.setOnMouseExited(e -> {
+                button.setStyle("-fx-background-color:null");
+            });
+            button.setOnAction(e -> {
+                webEngine.load("file:///" + anotherFile.getAbsolutePath());
+                primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
+            });
+            leftPane.getChildren().add(button);
+            Separator separator = new Separator();
+
+            leftPane.getChildren().add(separator);
+        }
+
         borderPane.setCenter(browser);
+        borderPane.setLeft(leftPane);
 
         Scene scene = new Scene(borderPane, 1280, 960);
         primaryStage.setScene(scene);

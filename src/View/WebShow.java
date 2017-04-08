@@ -15,7 +15,9 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
+import java.net.URI;
 import java.util.ArrayList;
 
 public class WebShow extends Application {
@@ -77,7 +79,22 @@ public class WebShow extends Application {
             leftPane.getChildren().add(separator);
         }
 
-        borderPane.setCenter(browser);
+        Button openWithBrowse = new Button("OpenWithBrowse");
+
+        openWithBrowse.setOnAction(e -> {
+            try {
+                String path = webEngine.getLocation();
+                path = path.replaceAll("\\\\","/");
+                Desktop.getDesktop().browse(new URI(path));
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(openWithBrowse,browser);
+
+        borderPane.setCenter(vbox);
         borderPane.setLeft(leftPane);
 
         Scene scene = new Scene(borderPane, 1280, 960);

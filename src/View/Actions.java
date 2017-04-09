@@ -11,6 +11,9 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +24,8 @@ public class Actions {
     public static void clickAction(Button child, TreeItem<Button> parent, File file,
                                    TableView<MyFile> table, ArrayList<File> arrayList,
                                    ComboBox<String> showFileKind, TextField label,
-                                   TableView tableView, ObservableList<RightTable> dataRight) {
+                                   TableView tableView, ObservableList<RightTable> dataRight,
+                                   ObservableList<MyFile> dataMiddle) {
         child.setStyle("-fx-background-color:null");
         child.setOnMouseEntered(e -> {
             child.setStyle("-fx-background-color:lightblue");
@@ -34,6 +38,7 @@ public class Actions {
             label.setText(file.getAbsolutePath());
             File[] subFile = file.listFiles();
             data.clear();
+            dataMiddle.clear();
             table.setItems(null);
             parent.setExpanded(true);
             if (parent.isLeaf() && subFile != null) {
@@ -42,7 +47,8 @@ public class Actions {
                         Button button1 = new Button(subFile[i].getName(), new ImageView("file:///../image/File.png"));
                         TreeItem<Button> button = new TreeItem<>(button1);
                         parent.getChildren().add(button);
-                        clickAction(button1, button, new File(subFile[i].getPath()), table, arrayList, showFileKind, label, tableView, dataRight);  //递归调用
+                        clickAction(button1, button, new File(subFile[i].getPath()), table, arrayList, showFileKind,
+                                label, tableView, dataRight, dataMiddle);  //递归调用
                     }
 
                 }
@@ -50,20 +56,24 @@ public class Actions {
             if (subFile != null) {
                 for (int i = 0; i < subFile.length; i++) {
                     if (subFile[i].isFile()) {
-                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight);
+                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight, dataMiddle);
                         if (myFile.getType() != null) {
                             if (showFileKind.getValue().equals("all") && (myFile.getType().matches("\\.java")
                                     || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c"))) {
                                 data.add(myFile);
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".java") && myFile.getType().matches("\\.java")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".c") && myFile.getType().matches("\\.c")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".h") && myFile.getType().matches("\\.h")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             }
                         }
@@ -72,22 +82,27 @@ public class Actions {
             }
             showFileKind.setOnAction(E -> {
                 data.clear();
+                dataMiddle.clear();
                 for (int i = 0; i < subFile.length; i++) {
                     if (subFile[i].isFile()) {
-                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight);
+                        MyFile myFile = new MyFile(subFile[i], arrayList, tableView, dataRight, dataMiddle);
                         if (myFile.getType() != null) {
                             if (showFileKind.getValue().equals("all") && (myFile.getType().matches("\\.java")
                                     || myFile.getType().matches("\\.h") || myFile.getType().matches("\\.c"))) {
                                 data.add(myFile);
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".java") && myFile.getType().matches("\\.java")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".c") && myFile.getType().matches("\\.c")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             } else if (showFileKind.getValue().equals(".h") && myFile.getType().matches("\\.h")) {
                                 data.add((myFile));
+                                dataMiddle.add(myFile);
                                 table.setItems(data);
                             }
                         }
@@ -97,30 +112,31 @@ public class Actions {
         });
     }
 
-    public static void codeAction(Button button , ArrayList<File> arrayList) {
+    public static void codeAction(Button button, ArrayList<File> arrayList, String filePath) {
         button.setOnAction(e -> {
-            if(arrayList.size() == 0){
-                Alert alert = new Alert(Alert.AlertType.NONE , "请选定要转换的文件!",ButtonType.OK);
+//            System.out.println(filePath);
+            if (arrayList.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
                 alert.setTitle("通知");
                 alert.showAndWait();
             }
-            for(int i = 0; i < arrayList.size() ; i++){
+            for (int i = 0; i < arrayList.size(); i++) {
                 File file = arrayList.get(i);
-                String content = "";
                 try {
-                    Scanner in = new Scanner(file,"utf-8");
-                    while(in.hasNextLine()){
-                        content = content + in.nextLine();
-                    }
+                    String content = new String(
+                            Files.readAllBytes(Paths.get(file.getAbsolutePath()))
+                    );
                     Configuration config = new Configuration();
                     Java2Html converter = new Java2Html();
                     converter.set_config(config);
-                    converter.addGetter(new Getter());
-                    converter.convert(file.getName(),content);
+                    converter.addGetter(new Getter(arrayList, arrayList.get(i).getName(), filePath));
+                    converter.convert(file.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
             }
+            WebShow.happen(arrayList, filePath);
         });
     }
+
 }

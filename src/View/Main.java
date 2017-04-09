@@ -1,6 +1,5 @@
 package View;
 
-import Model.IResultGetter;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,10 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
@@ -32,8 +27,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        File srcPathFile = new File("file");
         ArrayList<File> Code2HtmlFile = new ArrayList<>();
         ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
+        ObservableList<MyFile> dataMiddle = FXCollections.observableArrayList();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
@@ -114,13 +111,6 @@ public class Main extends Application {
         isCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
-//        Label labelIsChosen = new Label("           已选文件");
-//        labelIsChosen.setFont(Font.font("Times New Roman", FontWeight.BOLD, 27));
-//        ListView list = new ListView();
-//        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        BorderPane rightBorderPane = new BorderPane();
-//        rightBorderPane.setTop(labelIsChosen);
-//        rightBorderPane.setLeft(list);
 
         GridPane bottomPane = new GridPane();
 //        bottomPane.setGridLinesVisible(true);
@@ -129,23 +119,25 @@ public class Main extends Application {
         bottomPane.setVgap(10);
         Label filePath = new Label("Path :");
         TextField showFilePath = new TextField();
+        showFilePath.setText(srcPathFile.getAbsolutePath());
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
-        showFilePath.setPrefWidth(690);
+        showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         DirectoryChooser directoryChooser = new DirectoryChooser();
         Button btChoosePath = new Button("Save to ...");
+        Button btStartCode = new Button("Start to Code");
         btChoosePath.setOnAction(e -> {
             File file = directoryChooser.showDialog(primaryStage);
             if (file != null) {
                 showFilePath.setText(file.getAbsolutePath());
+                Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
             }
         });
 
         Label fileKind = new Label("Kind :");
-        Button btStartCode = new Button("Start to Code");
-        Actions.codeAction(btStartCode , Code2HtmlFile);
+        Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
-        showFileKind.setPrefWidth(690);
+        showFileKind.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         showFileKind.getItems().addAll("all", ".h", ".c", ".java");
         showFileKind.setValue("all");
         bottomPane.add(filePath, 0, 0);
@@ -180,7 +172,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
-            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable,dataRight);
+            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
         }
         rootItem.setExpanded(true);
 

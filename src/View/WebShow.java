@@ -165,6 +165,8 @@ public class WebShow extends Application {
                     converter.convert(addFile.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
+                } catch (Model.Generator.NotSupportedFiletypes e2) {
+                    e2.printStackTrace();
                 }
                 Button button = new Button(addFile.getName() + ".html");
                 File anotherFile = new File(FilePath + "/" + addFile.getName() + ".html");

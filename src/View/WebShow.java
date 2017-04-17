@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
@@ -65,8 +67,14 @@ public class WebShow extends Application {
         menu.getItems().addAll(openWithBrowse);
         menuBar.getMenus().addAll(menu);
 
-        Button btAdd = new Button("Add");
-
+        Button btAdd = new Button("Add", new ImageView(new Image("file:///../image/add.png")));
+        btAdd.setStyle("-fx-background-color:null");
+        btAdd.setOnMouseEntered(e -> {
+            btAdd.setStyle("-fx-background-color:lightblue");
+        });
+        btAdd.setOnMouseExited(e -> {
+            btAdd.setStyle("-fx-background-color:null");
+        });
         ToolBar toolBar = new ToolBar(
                 btAdd,
                 new Separator(),
@@ -92,6 +100,7 @@ public class WebShow extends Application {
         leftPane.setSpacing(5);
         for (int i = 0; i < Code2Html.size(); i++) {
             int t = i;
+            Separator separator = new Separator();
             Button button = new Button(Code2Html.get(i).getName() + ".html");
             File anotherFile = new File(FilePath + "/" + Code2Html.get(i).getName() + ".html");
             button.setStyle("-fx-background-color:null");
@@ -102,25 +111,45 @@ public class WebShow extends Application {
                 button.setStyle("-fx-background-color:null");
             });
             button.setOnAction(e -> {
-                webEngine.load("file:///" + anotherFile.getAbsolutePath());
-                primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
+                if (anotherFile.exists()) {
+                    webEngine.load("file:///" + anotherFile.getAbsolutePath());
+                    primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "找不到目标文件", ButtonType.OK);
+                    alert.showAndWait();
+                    for(int j = 0 ; j < Code2Html.size() ; j++){
+                        if(Code2Html.get(j).getAbsolutePath().equals(anotherFile)){
+                            Code2Html.remove(j);
+                            break;
+                        }
+                    }
+                    leftPane.getChildren().remove(button);
+                    leftPane.getChildren().remove(separator);
+                }
             });
             leftPane.getChildren().add(button);
-            Separator separator = new Separator();
 
             leftPane.getChildren().add(separator);
         }
 
         btAdd.setOnAction(e -> {
+            Separator separator = new Separator();
             File addFile;
             FileChooser fileChooser = new FileChooser();
             addFile = fileChooser.showOpenDialog(primaryStage);
-            if(addFile == null){
+            if (addFile == null) {
                 return;
             }
             if (!addFile.getName().matches(".*\\.java") && !addFile.getName().matches(".*\\.c") && !addFile.getName().matches(".*\\.h")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "不是java文件或者C文件", ButtonType.OK);
                 alert.showAndWait();
+            }
+            for(int i = 0; i < Code2Html.size() ; i++){
+                if(addFile.getAbsolutePath().equals(Code2Html.get(i).getAbsolutePath())){
+                    Alert alert = new Alert(Alert.AlertType.ERROR , "该文件已存在" , ButtonType.OK);
+                    alert.showAndWait();
+                    return;
+                }
             }
             if (addFile.getName().matches(".*\\.java") || addFile.getName().matches(".*\\.c") || addFile.getName().matches(".*\\.h")) {
                 final File FaddFile = addFile;
@@ -147,11 +176,23 @@ public class WebShow extends Application {
                     button.setStyle("-fx-background-color:null");
                 });
                 button.setOnAction(E -> {
-                    webEngine.load("file:///" + anotherFile.getAbsolutePath());
-                    primaryStage.setTitle(FaddFile.getName() + ".html");
+                    if (anotherFile.exists()) {
+                        webEngine.load("file:///" + anotherFile.getAbsolutePath());
+                        primaryStage.setTitle(FaddFile.getName() + ".html");
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR, "找不到目标文件", ButtonType.OK);
+                        alert.showAndWait();
+                        for(int i = 0 ; i < Code2Html.size(); i++){
+                            if(Code2Html.get(i).getAbsolutePath().equals(anotherFile)){
+                                Code2Html.remove(i);
+                                break;
+                            }
+                        }
+                        leftPane.getChildren().remove(button);
+                        leftPane.getChildren().remove(separator);
+                    }
                 });
                 leftPane.getChildren().add(button);
-                Separator separator = new Separator();
 
                 leftPane.getChildren().add(separator);
                 webEngine.load("file:///" + anotherFile.getAbsolutePath());

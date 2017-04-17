@@ -45,21 +45,7 @@ public class Main extends Application {
         Label labelCurrentPath = new Label("                CurrentPath:                   ");
         Label _null = new Label("                                                          ");
         currentPath.setDisable(true);
-//        ToolBar toolBar = new ToolBar(
-//                new Button("New"),
-//                new Button("Open"),
-//                new Button("Save"),
-////                new Separator(true),
-//                new Button("Clean"),
-//                new Button("Compile"),
-//                new Button("Run"),
-////                new Separator(true),
-//                new Button("Debug"),
-//                new Button("Profile")
-//        );
-//        topPane.setBottom(toolBar);
 
-//        currentPath.setPrefWidth(690);
         //关闭程序
         menuItemExit.setOnAction((ActionEvent t) -> {
             primaryStage.close();

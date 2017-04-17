@@ -119,7 +119,19 @@ public class Actions {
                 Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
                 alert.setTitle("通知");
                 alert.showAndWait();
+                return;
             }
+//            for(int j = 0 ; j < arrayList.size() ; j++){
+//                ArrayList<File> renameList = new ArrayList<>();
+//                for(int k = j ; k < arrayList.size() ; k++){
+//                    if(arrayList.get(j).getName().equals(arrayList.get(k).getName())){
+//                        renameList.add(arrayList.get(k));
+//                    }
+//                }
+//                for(int l = 0 ; l < renameList.size() ; l++){
+//                    renameList.get(l).set
+//                }
+//            }
             for (int i = 0; i < arrayList.size(); i++) {
                 File file = arrayList.get(i);
                 try {

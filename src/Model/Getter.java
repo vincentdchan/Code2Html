@@ -24,6 +24,10 @@ public class Getter implements IResultGetter {
     @Override
     public void getResult(String result) {
         File file = new File(filePath + "/" + fileName + ".html");
+        File path = new File(filePath);
+        if(!path.exists()){
+            path.mkdirs();
+        }
 //        System.out.println(filePath + "/" + fileName + ".html");
         try {
             OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(file), "utf-8");

@@ -108,6 +108,8 @@ public final class GenHandler implements Runnable{
     private String escapeString(String code) {
         // String result = code.replaceAll("\n", "<br>\n");
         String result = code.replaceAll(" ", "&nbsp;");
+        result = result.replaceAll("<", "&lt;");
+        result = result.replaceAll(">", "&gt;");
         return result;
     }
 

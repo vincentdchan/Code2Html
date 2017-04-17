@@ -18,38 +18,38 @@ public class CLang implements ITokenizer {
         Macro,
     }
 
-    public static Pattern NumberPattern = Pattern.compile("\\b((0(x|X)[0-9a-fA-F]*)|(0(b|B)[01]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b");
+    public static Pattern NumberPattern = Pattern.compile("^\\b((0(x|X)[0-9a-fA-F]*)|(0(b|B)[01]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b");
     public static Object RawOperatorsPatterns[][] = {
-            {Pattern.compile("(?<![\\w$])(sizeof)(?![\\w$])"), "sizeof"},
-            {Pattern.compile("--"), "decrement"},
-            {Pattern.compile("\\+\\+"), "increment"},
-            {Pattern.compile("%=|\\+=|-=|\\*=|(?<!\\()/="), "assignment"},
-            {Pattern.compile("&=|\\^=|<<=|>>=|\\|="), "assignment-compound-bitwise"},
-            {Pattern.compile("<<|>>"), "bitwise-shift"},
-            {Pattern.compile("!=|<=|>=|==|<|>"), "comparision"},
-            {Pattern.compile("&&|!|\\|\\|"), "logic"},
-            {Pattern.compile("&|\\||\\^|~"), ""},
-            {Pattern.compile("="), "assignment"},
-            {Pattern.compile("%|\\*|/|-|\\+"), ""},
+            {Pattern.compile("^(?<![\\w$])(sizeof)(?![\\w$])"), "sizeof"},
+            {Pattern.compile("^--"), "decrement"},
+            {Pattern.compile("^\\+\\+"), "increment"},
+            {Pattern.compile("^%=|\\+=|-=|\\*=|(?<!\\()/="), "assignment"},
+            {Pattern.compile("^&=|\\^=|<<=|>>=|\\|="), "assignment-compound-bitwise"},
+            {Pattern.compile("^<<|>>"), "bitwise-shift"},
+            {Pattern.compile("^!=|<=|>=|==|<|>"), "comparision"},
+            {Pattern.compile("^&&|!|\\|\\|"), "logic"},
+            {Pattern.compile("^&|\\||\\^|~"), ""},
+            {Pattern.compile("^="), "assignment"},
+            {Pattern.compile("^%|\\*|/|-|\\+"), ""},
     };
     public static Object PreservedPatterns[][] = {{
             Pattern.compile(
-                    "\\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|switch|while)\\b"),
+                    "^\\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|switch|while)\\b"),
             "control",
     }, {
-        Pattern.compile("\\b(asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\b"),
+        Pattern.compile("^\\b(asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\b"),
             "type",
     }, {
-        Pattern.compile("\\b(const|extern|register|restrict|static|volatile|inline)\\b"),
+        Pattern.compile("^\\b(const|extern|register|restrict|static|volatile|inline)\\b"),
             "modifier",
     }, {
-        Pattern.compile("\\b(NULL|true|false|TRUE|FALSE)\\b"),
+        Pattern.compile("^\\b(NULL|true|false|TRUE|FALSE)\\b"),
             "constant",
     }, {
-        Pattern.compile("\\b(u_char|u_short|u_int|u_long|ushort|uint|u_quad_t|quad_t|qaddr_t|caddr_t|daddr_t|dev_t|fixpt_t|blkcnt_t|blksize_t|gid_t|in_addr_t|in_port_t|ino_t|key_t|mode_t|nlink_t|id_t|pid_t|off_t|segsz_t|swblk_t|uid_t|id_t|clock_t|size_t|ssize_t|time_t|useconds_t|suseconds_t)\\b"),
+        Pattern.compile("^\\b(u_char|u_short|u_int|u_long|ushort|uint|u_quad_t|quad_t|qaddr_t|caddr_t|daddr_t|dev_t|fixpt_t|blkcnt_t|blksize_t|gid_t|in_addr_t|in_port_t|ino_t|key_t|mode_t|nlink_t|id_t|pid_t|off_t|segsz_t|swblk_t|uid_t|id_t|clock_t|size_t|ssize_t|time_t|useconds_t|suseconds_t)\\b"),
             "sys-types",
     }, {
-        Pattern.compile("(?x) \\b\n(int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|int_least8_t\n|int_least16_t|int_least32_t|int_least64_t|uint_least8_t|uint_least16_t|uint_least32_t\n|uint_least64_t|int_fast8_t|int_fast16_t|int_fast32_t|int_fast64_t|uint_fast8_t\n|uint_fast16_t|uint_fast32_t|uint_fast64_t|intptr_t|uintptr_t|intmax_t|intmax_t\n|uintmax_t|uintmax_t)\n\\b"),
+        Pattern.compile("^(?x) \\b\n(int8_t|int16_t|int32_t|int64_t|uint8_t|uint16_t|uint32_t|uint64_t|int_least8_t\n|int_least16_t|int_least32_t|int_least64_t|uint_least8_t|uint_least16_t|uint_least32_t\n|uint_least64_t|int_fast8_t|int_fast16_t|int_fast32_t|int_fast64_t|uint_fast8_t\n|uint_fast16_t|uint_fast32_t|uint_fast64_t|intptr_t|uintptr_t|intmax_t|intmax_t\n|uintmax_t|uintmax_t)\n\\b"),
             "stdint",
     }};
 

@@ -197,4 +197,12 @@ public final class StringStream {
         return ptr >= _content.length();
     }
 
+    public boolean isFirstChar() {
+        return ptr == 0;
+    }
+
+    public boolean isLastChar() {
+        return ptr == _content.length() - 1;
+    }
+
 }

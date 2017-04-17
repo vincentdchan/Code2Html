@@ -50,7 +50,7 @@ public class Generator {
      * @param entries
      * @param getters
      */
-    public void generate(Entry[] entries, List<IResultGetter> getters) {
+    public void generate(Entry[] entries, List<IResultGetter> getters) throws NotSupportedFiletypes {
         this.getters = getters;
 
         if (entries.length <= 3) {
@@ -72,13 +72,15 @@ public class Generator {
 
     }
 
-    private GenHandler generate(String filename, String srcCode) {
+    private GenHandler generate(String filename, String srcCode) throws NotSupportedFiletypes {
 
         ITokenizer tokenizer = null;
         if (filename.endsWith(".java")) {
             tokenizer = new JavaLang();
         } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
             tokenizer = new CLang();
+        } else {
+            throw new NotSupportedFiletypes(filename);
         }
         GenHandler _handler = new GenHandler(this,
                 _config,
@@ -119,6 +121,26 @@ public class Generator {
 
     public void set_config(Configuration _config) {
         this._config = _config;
+    }
+
+    public class NotSupportedFiletypes extends Exception {
+
+        private String filename;
+
+        public NotSupportedFiletypes(String filenam) {
+            super();
+            this.filename = filename;
+        }
+
+        public String getFilename() {
+            return filename;
+        }
+
+        @Override
+        public String toString() {
+            return this.filename;
+        }
+
     }
 
 }

@@ -133,6 +133,8 @@ public class Actions {
                     converter.convert(file.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
+                } catch (Model.Generator.NotSupportedFiletypes e2) {
+                    e2.printStackTrace();
                 }
             }
             WebShow.happen(arrayList, filePath);

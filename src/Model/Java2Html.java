@@ -38,7 +38,7 @@ public final class Java2Html {
      * @param filename identify the langurage of the code according to filename
      * @param srcCode the content of the code
      */
-    public void convert(String filename, String srcCode) throws IOException {
+    public void convert(String filename, String srcCode) throws IOException, Generator.NotSupportedFiletypes {
         Entry[] entries = new Entry[1];
         entries[0] = new Entry();
         entries[0].setFilename(filename);
@@ -46,7 +46,7 @@ public final class Java2Html {
         convert(entries);
     }
 
-    public void convert(Entry[] entries) throws IOException {
+    public void convert(Entry[] entries) throws IOException, Generator.NotSupportedFiletypes {
         Generator generator = new Generator(_config);
         generator.generate(entries, _getters);
     }

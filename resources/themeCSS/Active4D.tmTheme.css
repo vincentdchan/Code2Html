@@ -1,0 +1,112 @@
+body {
+    color: #3B3B3B;
+    background-color: #FFFFFF;
+} 
+.jc-text-html source-active4d {
+    background-color: #E2E9FF5E;
+} 
+.jc-text-xml {
+    color: #000000;
+} 
+.jc-comment-line {
+    color: #AF82D4;
+} 
+.jc-comment-block {
+    color: #AF82D4;
+} 
+.jc-string {
+    color: #666666;
+} 
+.jc-string-interpolated variable {
+    color: #66CCFF;
+} 
+.jc-constant-numeric {
+    color: #A8017E;
+} 
+.jc-constant-character {
+} 
+.jc-constant-other {
+} 
+.jc-constant-other-date {
+    color: #66CCFF;
+} 
+.jc-constant-other-time {
+    color: #66CCFF;
+} 
+.jc-constant-language {
+    color: #A535AE;
+} 
+.jc-variable-other-local {
+    color: #6392FF;
+} 
+.jc-variable {
+    color: #0053FF;
+} 
+.jc-variable-other-table-field {
+    color: #6988AE;
+} 
+.jc-keyword {
+    color: #006699;
+} 
+.jc-keyword-operator {
+} 
+.jc-storage {
+    color: #FF5600;
+} 
+.jc-entity-name-type {
+    color: #21439C;
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-function {
+    color: #21439C;
+} 
+.jc-variable-parameter {
+} 
+.jc-meta-tag {
+    color: #7A7A7A;
+} 
+.jc-entity-name-tag {
+    color: #016CFF;
+} 
+.jc-entity-other-attribute-name {
+    color: #963DFF;
+} 
+.jc-support-function {
+    color: #45AE34;
+} 
+.jc-support-constant {
+    color: #B7734C;
+} 
+.jc-support-type {
+    color: #A535AE;
+} 
+.jc-support-class {
+    color: #A535AE;
+} 
+.jc-support-variable {
+    color: #A535AE;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-meta-diff {
+    color: #FFFFFF;
+    background-color: #656565;
+} 
+.jc-meta-diff-range {
+    color: #FFFFFF;
+    background-color: #1B63FF;
+} 
+.jc-markup-deleted-diff {
+    color: #000000;
+    background-color: #FF7880;
+} 
+.jc-markup-inserted-diff {
+    color: #000000;
+    background-color: #98FF9A;
+} 
+.jc-source-diff {
+    color: #5E5E5E;
+} 

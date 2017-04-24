@@ -1,0 +1,155 @@
+body {
+    color: #F8F8F2;
+    background-color: #191919;
+} 
+.jc-comment {
+    color: #6d6d6d;
+} 
+.jc-string {
+    color: #fbe3bf;
+} 
+.jc-constant-numeric {
+    color: #fdb082;
+} 
+.jc-constant-language {
+    color: #ff8942;
+} 
+.jc-constant-character {
+    color: #fdb082;
+} 
+.jc-constant-other {
+    color: #fdb082;
+} 
+.jc-variable {
+    color: #e9fdac;
+} 
+.jc-keyword {
+    color: #ff5e5e;
+} 
+.jc-storage {
+    color: #ff5e5e;
+} 
+.jc-storage-type {
+    color: #fbdfb5;
+} 
+.jc-entity-name-class {
+    color: #8cdaff;
+} 
+.jc-entity-other-inherited-class {
+    color: #8cdaff;
+} 
+.jc-entity-name-function {
+    color: #8cdaff;
+} 
+.jc-variable-parameter {
+    color: #fc9354;
+} 
+.jc-entity-name-tag {
+    color: #ff5e5e;
+} 
+.jc-entity-other-attribute-name {
+    color: #97d8ea;
+} 
+.jc-support-function {
+    color: #6699cc;
+} 
+.jc-support-constant {
+    color: #ecfdb9;
+} 
+.jc-support-type {
+    color: #fbe3bf;
+} 
+.jc-support-class {
+    color: #fbe3bf;
+} 
+.jc-support-other-variable {
+} 
+.jc-support-other-namespace {
+    color: #FFB2F9;
+} 
+.jc-entity-name-type-namespace {
+    color: #FFB2F9;
+} 
+.jc-support-other-namespace-use-as-php {
+    color: #66D9EF;
+} 
+.jc-variable-language-namespace-php {
+    color: #D66990;
+} 
+.jc-punctuation-separator-inheritance-php {
+    color: #F92672;
+} 
+.jc-support-function-misc-css {
+    color: #fdb082;
+} 
+.jc-support-constant-property-value-css {
+    color: #fdb082;
+} 
+.jc-support-constant-font-name-css {
+    color: #fdb082;
+} 
+.jc-meta-tag-template-value-twig {
+    color: #CD5AC5;
+} 
+.jc-meta-tag-template-block-twig {
+    color: #CD5AC5;
+} 
+.jc-keyword-control-twig {
+    color: #E05D8C;
+} 
+.jc-variable-other-twig {
+    color: #E5A5E0;
+} 
+.jc-variable-other-property-twig {
+    color: #FFE1FC;
+} 
+.jc-constant-language-twig {
+    color: #FFD2A6;
+} 
+.jc-constant-numeric-twig {
+    color: #FFD0FB;
+} 
+.jc-support-function-twig {
+    color: #90E7F7;
+} 
+.jc-meta-function-call-other-twig {
+    color: #FAB85A;
+} 
+.jc-meta-function-call-twig {
+    color: #FAB85A;
+} 
+.jc-invalid {
+    color: #F8F8F0;
+    background-color: #f92649;
+} 
+.jc-invalid-deprecated {
+    color: #F8F8F0;
+    background-color: #ff9664;
+} 
+.jc-punctuation-definition-string {
+    color: #ffffff;
+} 
+.jc-punctuation-definition-variable {
+    color: #ffffff;
+} 
+.jc-punctuation-definition-string {
+    color: #ffffff;
+} 
+.jc-punctuation-definition-parameters {
+    color: #ffffff;
+} 
+.jc-punctuation-definition-string {
+    color: #ffffff;
+} 
+.jc-punctuation-definition-array {
+    color: #ffffff;
+} 
+.jc-variable-parameter-function {
+    color: #d0d0d0;
+} 
+.jc-entity-other-attribute-name-id {
+    color: #66a9ec;
+} 
+.jc-punctuation-definition-entity {
+    color: #66a9ec;
+} 

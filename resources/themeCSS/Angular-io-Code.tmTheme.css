@@ -1,0 +1,341 @@
+body {
+    color: #5C707A;
+    background-color: #F5F6F7;
+} 
+.jc-comment {
+    color: #969896;
+} 
+.jc-string {
+    color: #647F11;
+} 
+.jc-regexp-operator {
+    color: #D43669;
+} 
+.jc-string-regexp-characterclass punctuation-definition-string-begin {
+    color: #D43669;
+} 
+.jc-string-regexp-characterclass punctuation-definition-string-end {
+    color: #D43669;
+} 
+.jc-constant-numeric {
+    color: #647F11;
+} 
+.jc-constant-language {
+    color: #D43669;
+} 
+.jc-constant-character {
+    color: #D43669;
+} 
+.jc-constant-other {
+    color: #D43669;
+} 
+.jc-variable-other-constant {
+    color: #D43669;
+} 
+.jc-variable {
+    color: #D43669;
+} 
+.jc-keyword {
+    color: #D43669;
+} 
+.jc-bitwise-operator {
+    color: #D43669;
+} 
+.jc-storage {
+    color: #D43669;
+} 
+.jc-storage-type {
+    color: #D43669;
+} 
+.jc-entity-name-class {
+    color: #D43669;
+} 
+.jc-entity-other-inherited-class {
+    color: #D43669;
+} 
+.jc-entity-name-function {
+    color: #D43669;
+} 
+.jc-variable-parameter {
+    color: #5C707A;
+} 
+.jc-entity-name-tag {
+    color: #D43669;
+} 
+.jc-entity-other-attribute-name {
+    color: #647F11;
+} 
+.jc-support-function {
+    color: #D43669;
+} 
+.jc-support-constant {
+    color: #D43669;
+} 
+.jc-support-type {
+    color: #D43669;
+} 
+.jc-support-class {
+    color: #D43669;
+} 
+.jc-support-other-variable {
+    color: #D43669;
+} 
+.jc-invalid {
+    color: #D43669;
+    background-color: #f5f5f5;
+} 
+.jc-invalid-illegal {
+    color: #D43669;
+    background-color: #f5f5f5;
+} 
+.jc-invalid-deprecated {
+    color: #D43669;
+    background-color: #f5f5f5;
+} 
+.jc-entity-name-filename-find-in-files {
+    color: #5C707A;
+} 
+.jc-constant-numeric-line-number-find-in-files {
+    color: #969896;
+} 
+.jc-constant-numeric-line-number-match-find-in-files {
+    color: #969896;
+} 
+.jc-meta-diff-header {
+    color: #969896;
+    background-color: #ffffff;
+} 
+.jc-meta-diff-header punctuation-definition-from-file-diff {
+    color: #D43669;
+    background-color: #ffecec;
+} 
+.jc-meta-diff-header punctuation-definition-to-file-diff {
+    color: #647F11;
+    background-color: #eaffea;
+} 
+.jc-meta-diff-range {
+    color: #969896;
+} 
+.jc-markup-deleted {
+    background-color: #ffecec;
+} 
+.jc-markup-deleted punctuation-definition-inserted {
+    color: #D43669;
+} 
+.jc-markup-inserted {
+    background-color: #eaffea;
+} 
+.jc-markup-inserted punctuation-definition-inserted {
+    color: #647F11;
+} 
+.jc-markup-deleted-git_gutter {
+    color: #D43669;
+} 
+.jc-markup-inserted-git_gutter {
+    color: #647F11;
+} 
+.jc-markup-changed-git_gutter {
+    color: #969896;
+} 
+.jc-markup-ignored-git_gutter {
+    color: #b3b3b3;
+} 
+.jc-markup-untracked-git_gutter {
+    color: #b3b3b3;
+} 
+.jc-source-css punctuation-definition-entity {
+    color: #5C707A;
+} 
+.jc-source-css entity-other-attribute-name-pseudo-class {
+    color: #D43669;
+} 
+.jc-source-css entity-other-attribute-name-pseudo-element {
+    color: #D43669;
+} 
+.jc-source-css meta-value {
+    color: #647F11;
+} 
+.jc-source-css support-constant {
+    color: #647F11;
+} 
+.jc-source-css support-function {
+    color: #647F11;
+} 
+.jc-source-css constant-other-color {
+    color: #647F11;
+} 
+.jc-source-scss punctuation-definition-entity {
+    color: #5C707A;
+} 
+.jc-source-scss entity-other-attribute-name-pseudo-class {
+    color: #D43669;
+} 
+.jc-source-scss entity-other-attribute-name-pseudo-element {
+    color: #D43669;
+} 
+.jc-source-scss support-constant-property-value {
+    color: #647F11;
+} 
+.jc-source-scss support-function {
+    color: #647F11;
+} 
+.jc-source-scss variable {
+    color: #D43669;
+} 
+.jc-variable-language-this-js {
+    color: #D43669;
+} 
+.jc-source-js entity-name-function {
+    color: #D43669;
+} 
+.jc-source-js meta-function entity-name-function {
+    color: #D43669;
+} 
+.jc-source-js entity-name-function meta-function {
+    color: #D43669;
+} 
+.jc-entity-name-type-new-js {
+    color: #D43669;
+} 
+.jc-variable-language-prototype-js {
+    color: #D43669;
+} 
+.jc-source-js support-function {
+    color: #647F11;
+} 
+.jc-support-type-object-console-js {
+    color: #D43669;
+} 
+.jc-meta-structure-dictionary-json string-quoted-double-json {
+    color: #5C707A;
+} 
+.jc-meta-structure-dictionary-json meta-structure-dictionary-value-json string-quoted-double-json {
+    color: #647F11;
+} 
+.jc-source-python keyword {
+    color: #D43669;
+} 
+.jc-source-python storage {
+    color: #D43669;
+} 
+.jc-source-python storage-type {
+    color: #D43669;
+} 
+.jc-source-python entity-name-function {
+    color: #D43669;
+} 
+.jc-source-php entity-name-type-class {
+    color: #D43669;
+} 
+.jc-variable-language-ruby {
+    color: #D43669;
+} 
+.jc-entity-name-type-module-ruby {
+    color: #D43669;
+} 
+.jc-entity-name-type-class-ruby {
+    color: #D43669;
+} 
+.jc-entity-other-inherited-class-ruby {
+    color: #D43669;
+} 
+.jc-punctuation-definition-heading-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-italic-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-bold-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-string-begin-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-string-end-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-metadata-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-link-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-blockquote-markdown {
+    color: #D43669;
+} 
+.jc-punctuation-definition-raw-markdown {
+    color: #D43669;
+} 
+.jc-text-html-markdown meta-separator {
+    color: #5C707A;
+} 
+.jc-text-html-markdown markup-heading {
+} 
+.jc-text-html-markdown markup-raw-block {
+    color: #5C707A;
+} 
+.jc-text-html-markdown markup-raw-inline {
+    color: #5C707A;
+} 
+.jc-text-html-markdown meta-link {
+    color: #647F11;
+} 
+.jc-text-html-markdown meta-image {
+    color: #647F11;
+} 
+.jc-text-html-markdown markup-underline-link {
+    color: #647F11;
+} 
+.jc-text-html-markdown constant-other-reference {
+    color: #647F11;
+} 
+.jc-text-html-markdown markup-list {
+    color: #D43669;
+} 
+.jc-text-html-markdown markup-bold {
+} 
+.jc-text-html-markdown markup-italic {
+} 
+.jc-text-html-markdown markup-bold markup-italic {
+} 
+.jc-text-html-markdown markup-italic markup-bold {
+} 
+.jc-tag-decorator-js entity-name-tag-js {
+    color: #647F11;
+} 
+.jc-tag-decorator-js punctuation-definition-tag-js {
+    color: #647F11;
+} 
+.jc-tag-decorator-ts entity-name-tag-ts {
+    color: #647F11;
+} 
+.jc-tag-decorator-ts punctuation-definition-tag-ts {
+    color: #647F11;
+} 
+.jc-meta-return-type {
+    color: #D43669;
+} 
+.jc-meta-return-type {
+    color: #D43669;
+} 
+.jc-meta-cast {
+    color: #D43669;
+} 
+.jc-meta-type-annotation {
+    color: #D43669;
+} 
+.jc-support-type {
+    color: #D43669;
+} 
+.jc-entity-name-class {
+    color: #D43669;
+} 
+.jc-entity-name-type {
+    color: #D43669;
+} 
+.jc-storage-type-cs {
+    color: #D43669;
+} 
+.jc-storage-type-java {
+    color: #D43669;
+} 

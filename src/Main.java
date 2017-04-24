@@ -59,6 +59,7 @@ public class Main implements IResultGetter {
                 "}\n";
 
         Configuration config = new Configuration();
+        config.set_styleName("3024_Day");
         Java2Html converter = new Java2Html();
         converter.set_config(config);
         converter.addGetter(new Main());

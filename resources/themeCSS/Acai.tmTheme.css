@@ -1,0 +1,261 @@
+body {
+    color: #B553BF;
+    background-color: #1E1E1E;
+} 
+.jc-text {
+    color: #F9F9F9;
+} 
+.jc-source {
+    color: #F9F9F9;
+} 
+.jc-comment {
+    color: #8A8076;
+} 
+.jc-string {
+    color: #FBA856;
+} 
+.jc-variable {
+    color: #47515D;
+} 
+.jc-support-other-variable {
+    color: #47515D;
+} 
+.jc-string-other-link {
+    color: #47515D;
+} 
+.jc-string-regexp {
+    color: #47515D;
+} 
+.jc-entity-name-tag {
+    color: #47515D;
+} 
+.jc-meta-tag {
+    color: #47515D;
+} 
+.jc-declaration-tag {
+    color: #47515D;
+} 
+.jc-constant-numeric {
+    color: #93A3BF;
+} 
+.jc-constant-language {
+    color: #93A3BF;
+} 
+.jc-constant-character {
+    color: #448AA9;
+} 
+.jc-constant-other {
+    color: #448AA9;
+} 
+.jc-variable {
+    color: #A974AB;
+} 
+.jc-keyword {
+    color: #FBA856;
+} 
+.jc-storage {
+    color: #448AA9;
+} 
+.jc-storage-type {
+    color: #B553BF;
+} 
+.jc-entity-name-class {
+    color: #748096;
+} 
+.jc-entity-other-inherited-class {
+    color: #748096;
+} 
+.jc-entity-name-function {
+    color: #70807B;
+} 
+.jc-variable-parameter {
+    color: #EDEBE6;
+} 
+.jc-entity-name-tag {
+    color: #748096;
+} 
+.jc-entity-other-attribute-name-html {
+    color: #93A3BF;
+} 
+.jc-entity-other-attribute-name-id-html {
+    color: #93A3BF;
+} 
+.jc-support-function {
+    color: #448AA9;
+} 
+.jc-support-constant {
+    color: #80E045;
+} 
+.jc-support-type {
+    color: #748096;
+} 
+.jc-support-class {
+    color: #748096;
+} 
+.jc-support-other-variable {
+} 
+.jc-invalid {
+    color: #f8f8f0;
+    background-color: #00a8c6;
+} 
+.jc-invalid-deprecated {
+    color: #f8f8f0;
+    background-color: #00a8c6;
+} 
+.jc-meta-structure-dictionary-json string-quoted-double-json {
+    color: #93A3BF;
+} 
+.jc-meta-diff {
+    color: #75715E;
+} 
+.jc-meta-diff-header {
+    color: #75715E;
+} 
+.jc-markup-deleted {
+    color: #00A8C6;
+} 
+.jc-markup-inserted {
+    color: #A6E22E;
+} 
+.jc-markup-changed {
+    color: #E6DB74;
+} 
+body {
+    color: #8FBE00A0;
+} 
+body {
+    color: #E6DB74;
+} 
+body {
+    color: #605852;
+} 
+body {
+    color: #93A3BF;
+} 
+body {
+    color: #586072;
+} 
+body {
+    color: #0CABC7;
+} 
+.jc-meta-property-name support-type-property-name {
+    color: #748096;
+} 
+.jc-meta-property-value punctuation-separator-key-value {
+    color: #748096;
+} 
+.jc-keyword-other-use {
+    color: #93A3BF;
+} 
+.jc-keyword-other-function-use {
+    color: #93A3BF;
+} 
+.jc-keyword-other-namespace {
+    color: #93A3BF;
+} 
+.jc-keyword-other-new {
+    color: #93A3BF;
+} 
+.jc-keyword-other-special-method {
+    color: #93A3BF;
+} 
+.jc-keyword-other-unit {
+    color: #93A3BF;
+} 
+.jc-keyword-other-use-as {
+    color: #93A3BF;
+} 
+.jc-meta-use support-class-builtin {
+    color: #EDEBE6;
+} 
+.jc-meta-other-inherited-class support-class-builtin {
+    color: #EDEBE6;
+} 
+.jc-variable-other {
+    color: #EDEBE6;
+} 
+.jc-variable-parameter-function-coffee {
+    color: #a5e3d0;
+} 
+.jc-entity-name-section-markdown {
+    color: #748096;
+} 
+.jc-punctuation-definition-heading-markdown {
+    color: #A2A797;
+} 
+.jc-markup-raw-inline-markdown {
+    color: #a5e3d0;
+} 
+.jc-punctuation-definition-bold-markdown {
+    color: #A2A797;
+} 
+.jc-punctuation-definition-italic-markdown {
+    color: #A2A797;
+} 
+.jc-punctuation-definition-string-begin-markdown {
+    color: #A2A797;
+} 
+.jc-punctuation-definition-string-end-markdown {
+    color: #A2A797;
+} 
+.jc-punctuation-definition-metadata-markdown {
+    color: #A2A797;
+} 
+.jc-markup-underline-link-markdown {
+    color: #A2A797;
+} 
+.jc-markup-underline-link-image-markdown {
+    color: #A2A797;
+} 
+.jc-meta-image-inline-markdown {
+    color: #A2A797;
+} 
+.jc-markup-bold-markdown {
+    color: #A2A797;
+} 
+.jc-markup-italic-markdown {
+    color: #A2A797;
+} 
+.jc-markup-italic-markdown {
+} 
+.jc-markup-bold-markdown {
+} 
+.jc-markup-raw-block-markdown {
+    color: #00a8c6;
+} 
+.jc-markup-deleted-git_gutter {
+    color: #e61f44;
+} 
+.jc-markup-inserted-git_gutter {
+    color: #a7da1e;
+} 
+.jc-markup-changed-git_gutter {
+    color: #f7b83d;
+} 
+.jc-entity-class-css {
+    color: #F9f9f9;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #F9f9f9;
+} 
+.jc-entity-name-tag-scss {
+    color: #F9f9f9;
+} 
+.jc-entity-other-attribute-name-pseudo-element-css {
+    color: #F9f9f9;
+} 
+.jc-entity-name-tag-reference {
+    color: #F9f9f9;
+} 
+.jc-entity-other-attribute-name-placeholder {
+    color: #B553BF;
+} 
+.jc-property-name-scss {
+    color: #748096;
+} 
+.jc-property-name-css {
+    color: #748096;
+} 
+.jc-punctuation-section-property-list-begin-scss {
+    color: #E3EDFF;
+} 

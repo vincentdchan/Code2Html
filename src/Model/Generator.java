@@ -2,6 +2,8 @@ package Model;
 
 import Model.LangSpec.CLang;
 import Model.LangSpec.JavaLang;
+
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -35,9 +37,27 @@ public class Generator {
         _blockingQueue = new LinkedBlockingQueue();
         _handlers = new LinkedList<>();
 
-        _styleCode = new String(
+        String _stylePath = searchStyleFileByName(config.get_styleName());
+        _styleCode = "body {\n" +
+                "   font-size: " + _config.get_fontSize() + "px;\n" +
+                "}\n";
+
+        _styleCode += new String(
                 Files.readAllBytes(
-                        Paths.get("resources/test.css")));
+                        Paths.get(_stylePath)));
+
+        _styleCode += new String(Files.readAllBytes(Paths.get("resources/test.css")));
+    }
+
+    private String searchStyleFileByName(String name) {
+        File path = new File("resources/themeCSS");
+        for (File child : path.listFiles()) {
+            if (!child.isFile()) continue;
+            if (child.getName().startsWith(name)) {
+                return child.getAbsolutePath();
+            }
+        }
+        return null;
     }
 
 

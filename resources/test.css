@@ -1,20 +1,4 @@
 
-.jc-keyword {
-    color: cornflowerblue;
-}
-
-.jc-comment {
-    color: green;
-}
-
-.jc-string {
-    color: purple;
-}
-
-.jc-tag {
-    color: #cece00;
-}
-
 .linenumber {
     display: inline-block;
     width: 30px;

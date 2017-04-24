@@ -10,6 +10,7 @@ public class Configuration {
     private int _tab2spaceCount = 4;
     private boolean _showJavaHint = true;
     private boolean _enableNav = true;
+    private int _fontSize = 14;
 
     @Override
     public Object clone() {
@@ -62,4 +63,11 @@ public class Configuration {
         this._enableNav = _enableNav;
     }
 
+    public int get_fontSize() {
+        return _fontSize;
+    }
+
+    public void set_fontSize(int _fontSize) {
+        this._fontSize = _fontSize;
+    }
 }

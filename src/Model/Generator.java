@@ -38,7 +38,11 @@ public class Generator {
         _handlers = new LinkedList<>();
 
         String _stylePath = searchStyleFileByName(config.get_styleName());
-        _styleCode = new String(
+        _styleCode = "body {\n" +
+                "   font-size: " + _config.get_fontSize() + "px;\n" +
+                "}\n";
+
+        _styleCode += new String(
                 Files.readAllBytes(
                         Paths.get(_stylePath)));
 

@@ -6,7 +6,7 @@ package Model;
 public class Configuration {
 
     private boolean _showLineNumber = true;
-    private String _styleFileName = "default.css";
+    private String _styleName = "1337";
     private int _tab2spaceCount = 4;
     private boolean _showJavaHint = true;
     private boolean _enableNav = true;
@@ -15,7 +15,7 @@ public class Configuration {
     public Object clone() {
         Configuration that = new Configuration();
         that._showLineNumber = _showLineNumber;
-        that._styleFileName = _styleFileName;
+        that._styleName = _styleName;
         that._tab2spaceCount = _tab2spaceCount;
         that._showJavaHint = _showJavaHint;
         that._enableNav = _enableNav;
@@ -30,12 +30,12 @@ public class Configuration {
         this._showLineNumber = _showLineNumber;
     }
 
-    public String get_styleFileName() {
-        return _styleFileName;
+    public String get_styleName() {
+        return _styleName;
     }
 
-    public void set_styleFileName(String _styleFileName) {
-        this._styleFileName = _styleFileName;
+    public void set_styleName(String _styleName) {
+        this._styleName = _styleName;
     }
 
     public int get_tab2spaceCount() {

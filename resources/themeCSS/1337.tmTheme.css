@@ -2,154 +2,154 @@ body {
     color: #F8F8F2;
     background-color: #191919;
 } 
-.comment {
+.jc-comment {
     color: #6d6d6d;
 } 
-.string {
+.jc-string {
     color: #fbe3bf;
 } 
-.constant-numeric {
+.jc-constant-numeric {
     color: #fdb082;
 } 
-.constant-language {
+.jc-constant-language {
     color: #ff8942;
 } 
-.constant-character {
+.jc-constant-character {
     color: #fdb082;
 } 
-.constant-other {
+.jc-constant-other {
     color: #fdb082;
 } 
-.variable {
+.jc-variable {
     color: #e9fdac;
 } 
-.keyword {
+.jc-keyword {
     color: #ff5e5e;
 } 
-.storage {
+.jc-storage {
     color: #ff5e5e;
 } 
-.storage-type {
+.jc-storage-type {
     color: #fbdfb5;
 } 
-.entity-name-class {
+.jc-entity-name-class {
     color: #8cdaff;
 } 
-.entity-other-inherited-class {
+.jc-entity-other-inherited-class {
     color: #8cdaff;
 } 
-.entity-name-function {
+.jc-entity-name-function {
     color: #8cdaff;
 } 
-.variable-parameter {
+.jc-variable-parameter {
     color: #fc9354;
 } 
-.entity-name-tag {
+.jc-entity-name-tag {
     color: #ff5e5e;
 } 
-.entity-other-attribute-name {
+.jc-entity-other-attribute-name {
     color: #97d8ea;
 } 
-.support-function {
+.jc-support-function {
     color: #6699cc;
 } 
-.support-constant {
+.jc-support-constant {
     color: #ecfdb9;
 } 
-.support-type {
+.jc-support-type {
     color: #fbe3bf;
 } 
-.support-class {
+.jc-support-class {
     color: #fbe3bf;
 } 
-.support-other-variable {
+.jc-support-other-variable {
 } 
-.support-other-namespace {
+.jc-support-other-namespace {
     color: #FFB2F9;
 } 
-.entity-name-type-namespace {
+.jc-entity-name-type-namespace {
     color: #FFB2F9;
 } 
-.support-other-namespace-use-as-php {
+.jc-support-other-namespace-use-as-php {
     color: #66D9EF;
 } 
-.variable-language-namespace-php {
+.jc-variable-language-namespace-php {
     color: #D66990;
 } 
-.punctuation-separator-inheritance-php {
+.jc-punctuation-separator-inheritance-php {
     color: #F92672;
 } 
-.support-function-misc-css {
+.jc-support-function-misc-css {
     color: #fdb082;
 } 
-.support-constant-property-value-css {
+.jc-support-constant-property-value-css {
     color: #fdb082;
 } 
-.support-constant-font-name-css {
+.jc-support-constant-font-name-css {
     color: #fdb082;
 } 
-.meta-tag-template-value-twig {
+.jc-meta-tag-template-value-twig {
     color: #CD5AC5;
 } 
-.meta-tag-template-block-twig {
+.jc-meta-tag-template-block-twig {
     color: #CD5AC5;
 } 
-.keyword-control-twig {
+.jc-keyword-control-twig {
     color: #E05D8C;
 } 
-.variable-other-twig {
+.jc-variable-other-twig {
     color: #E5A5E0;
 } 
-.variable-other-property-twig {
+.jc-variable-other-property-twig {
     color: #FFE1FC;
 } 
-.constant-language-twig {
+.jc-constant-language-twig {
     color: #FFD2A6;
 } 
-.constant-numeric-twig {
+.jc-constant-numeric-twig {
     color: #FFD0FB;
 } 
-.support-function-twig {
+.jc-support-function-twig {
     color: #90E7F7;
 } 
-.meta-function-call-other-twig {
+.jc-meta-function-call-other-twig {
     color: #FAB85A;
 } 
-.meta-function-call-twig {
+.jc-meta-function-call-twig {
     color: #FAB85A;
 } 
-.invalid {
+.jc-invalid {
     color: #F8F8F0;
     background-color: #f92649;
 } 
-.invalid-deprecated {
+.jc-invalid-deprecated {
     color: #F8F8F0;
     background-color: #ff9664;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #ffffff;
 } 
-.punctuation-definition-variable {
+.jc-punctuation-definition-variable {
     color: #ffffff;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #ffffff;
 } 
-.punctuation-definition-parameters {
+.jc-punctuation-definition-parameters {
     color: #ffffff;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #ffffff;
 } 
-.punctuation-definition-array {
+.jc-punctuation-definition-array {
     color: #ffffff;
 } 
-.variable-parameter-function {
+.jc-variable-parameter-function {
     color: #d0d0d0;
 } 
-.entity-other-attribute-name-id {
+.jc-entity-other-attribute-name-id {
     color: #66a9ec;
 } 
-.punctuation-definition-entity {
+.jc-punctuation-definition-entity {
     color: #66a9ec;
 } 

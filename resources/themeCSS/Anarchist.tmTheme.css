@@ -1,0 +1,165 @@
+body {
+    color: #CAD9E3;
+    background-color: #2b303b;
+} 
+.jc-comment {
+    color: #515E66;
+} 
+.jc-string {
+    color: #3790DE;
+} 
+.jc-constant-numeric {
+    color: #2E6FD9;
+} 
+.jc-constant-language {
+    color: #2E6FD9;
+} 
+.jc-constant-character {
+    color: #DE333C;
+} 
+.jc-constant-other {
+    color: #DE333C;
+} 
+.jc-variable {
+} 
+.jc-keyword {
+    color: #FFFFFF;
+} 
+.jc-storage {
+    color: #2E6FD9;
+} 
+.jc-storage-type {
+    color: #de333c;
+} 
+.jc-entity-name-class {
+    color: #2E6FD9;
+} 
+.jc-entity-other-inherited-class {
+    color: #2E6FD9;
+} 
+.jc-entity-name-function {
+    color: #ffffff;
+} 
+.jc-variable-parameter {
+    color: #00A8C6;
+} 
+.jc-entity-name-tag {
+    color: #DE333C;
+} 
+.jc-entity-other-attribute-name {
+    color: #2e6fd9;
+} 
+.jc-support-function {
+    color: #DE333C;
+} 
+.jc-support-constant {
+    color: #2E6FD9;
+} 
+.jc-support-type {
+    color: #00a8c6;
+} 
+.jc-support-class {
+    color: #00a8c6;
+} 
+.jc-support-other-variable {
+} 
+.jc-invalid {
+    color: #f8f8f0;
+    background-color: #00a8c6;
+} 
+.jc-invalid-deprecated {
+    color: #f8f8f0;
+    background-color: #00a8c6;
+} 
+.jc-meta-structure-dictionary-json string-quoted-double-json {
+    color: #3790DE;
+} 
+.jc-meta-diff {
+    color: #75715E;
+} 
+.jc-meta-diff-header {
+    color: #75715E;
+} 
+.jc-markup-deleted {
+    color: #00A8C6;
+} 
+.jc-markup-inserted {
+    color: #A6E22E;
+} 
+.jc-markup-changed {
+    color: #E6DB74;
+} 
+body {
+    color: #8FBE00A0;
+} 
+body {
+    color: #E6DB74;
+} 
+body {
+    color: #798b96;
+} 
+body {
+    color: #3790DE;
+} 
+body {
+    color: #2E6FD9;
+} 
+body {
+    color: #3790DE;
+} 
+.jc-meta-property-name support-type-property-name {
+} 
+.jc-meta-property-value punctuation-separator-key-value {
+    color: #CAD9E3;
+} 
+.jc-keyword-other-use {
+    color: #DE333C;
+} 
+.jc-keyword-other-function-use {
+    color: #DE333C;
+} 
+.jc-keyword-other-namespace {
+    color: #DE333C;
+} 
+.jc-keyword-other-new {
+    color: #DE333C;
+} 
+.jc-keyword-other-special-method {
+    color: #DE333C;
+} 
+.jc-keyword-other-unit {
+    color: #DE333C;
+} 
+.jc-meta-use support-class-builtin {
+    color: #CAD9E3;
+} 
+.jc-meta-other-inherited-class support-class-builtin {
+    color: #CAD9E3;
+} 
+.jc-variable-other {
+} 
+.jc-markup-bold {
+    color: #00A8C6;
+} 
+.jc-markup-italic {
+} 
+.jc-markup-underline {
+} 
+.jc-markup-underline-link {
+    color: #00A8C6;
+} 
+.jc-markup-heading {
+    color: #FFFFFF;
+} 
+.jc-markup-list {
+    color: #DE333C;
+} 
+.jc-markup-raw {
+    color: #CAD9E3;
+} 
+.jc-markup-quote {
+    color: #75715E;
+} 
+.jc-meta-separator {
+    background-color: #515E66;
+} 

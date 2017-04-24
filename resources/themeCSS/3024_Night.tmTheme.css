@@ -2,182 +2,182 @@ body {
     color: #a5a2a2;
     background-color: #090300;
 } 
-.variable-parameter-function {
+.jc-variable-parameter-function {
     color: #a5a2a2;
 } 
-.comment {
+.jc-comment {
     color: #5c5855;
 } 
-.punctuation-definition-comment {
+.jc-punctuation-definition-comment {
     color: #5c5855;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #a5a2a2;
 } 
-.punctuation-definition-variable {
+.jc-punctuation-definition-variable {
     color: #a5a2a2;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #a5a2a2;
 } 
-.punctuation-definition-parameters {
+.jc-punctuation-definition-parameters {
     color: #a5a2a2;
 } 
-.punctuation-definition-string {
+.jc-punctuation-definition-string {
     color: #a5a2a2;
 } 
-.punctuation-definition-array {
+.jc-punctuation-definition-array {
     color: #a5a2a2;
 } 
-.none {
+.jc-none {
     color: #a5a2a2;
 } 
-.keyword-operator {
+.jc-keyword-operator {
     color: #a5a2a2;
 } 
-.keyword {
+.jc-keyword {
     color: #a16a94;
 } 
-.keyword-control {
+.jc-keyword-control {
     color: #a16a94;
 } 
-.variable {
+.jc-variable {
     color: #db2d20;
 } 
-.entity-name-function {
+.jc-entity-name-function {
     color: #01a0e4;
 } 
-.meta-require {
+.jc-meta-require {
     color: #01a0e4;
 } 
-.support-function-any-method {
+.jc-support-function-any-method {
     color: #01a0e4;
 } 
-.meta-class {
+.jc-meta-class {
     color: #fded02;
 } 
-.support-class {
+.jc-support-class {
     color: #fded02;
 } 
-.entity-name-class {
+.jc-entity-name-class {
     color: #fded02;
 } 
-.entity-name-type-class {
+.jc-entity-name-type-class {
     color: #fded02;
 } 
-.keyword-other-special-method {
+.jc-keyword-other-special-method {
     color: #01a0e4;
 } 
-.storage {
+.jc-storage {
     color: #a16a94;
 } 
-.support-function {
+.jc-support-function {
     color: #b5e4f4;
 } 
-.string {
+.jc-string {
     color: #01a252;
 } 
-.constant-other-symbol {
+.jc-constant-other-symbol {
     color: #01a252;
 } 
-.entity-other-inherited-class {
+.jc-entity-other-inherited-class {
     color: #01a252;
 } 
-.constant-numeric {
+.jc-constant-numeric {
     color: #e8bbd0;
 } 
-.none {
+.jc-none {
     color: #e8bbd0;
 } 
-.none {
+.jc-none {
     color: #e8bbd0;
 } 
-.constant {
+.jc-constant {
     color: #e8bbd0;
 } 
-.entity-name-tag {
+.jc-entity-name-tag {
     color: #db2d20;
 } 
-.entity-other-attribute-name {
+.jc-entity-other-attribute-name {
     color: #e8bbd0;
 } 
-.entity-other-attribute-name-id {
+.jc-entity-other-attribute-name-id {
     color: #01a0e4;
 } 
-.punctuation-definition-entity {
+.jc-punctuation-definition-entity {
     color: #01a0e4;
 } 
-.meta-selector {
+.jc-meta-selector {
     color: #a16a94;
 } 
-.none {
+.jc-none {
     color: #e8bbd0;
 } 
-.markup-heading punctuation-definition-heading {
+.jc-markup-heading punctuation-definition-heading {
     color: #01a0e4;
 } 
-.entity-name-section {
+.jc-entity-name-section {
     color: #01a0e4;
 } 
-.keyword-other-unit {
+.jc-keyword-other-unit {
     color: #e8bbd0;
 } 
-.markup-bold {
+.jc-markup-bold {
     color: #fded02;
 } 
-.punctuation-definition-bold {
+.jc-punctuation-definition-bold {
     color: #fded02;
 } 
-.markup-italic {
+.jc-markup-italic {
     color: #a16a94;
 } 
-.punctuation-definition-italic {
+.jc-punctuation-definition-italic {
     color: #a16a94;
 } 
-.markup-raw-inline {
+.jc-markup-raw-inline {
     color: #01a252;
 } 
-.string-other-link {
+.jc-string-other-link {
     color: #db2d20;
 } 
-.meta-link {
+.jc-meta-link {
     color: #e8bbd0;
 } 
-.markup-list {
+.jc-markup-list {
     color: #db2d20;
 } 
-.markup-quote {
+.jc-markup-quote {
     color: #e8bbd0;
 } 
-.meta-separator {
+.jc-meta-separator {
     color: #a5a2a2;
     background-color: #4a4543;
 } 
-.markup-inserted {
+.jc-markup-inserted {
     color: #01a252;
 } 
-.markup-deleted {
+.jc-markup-deleted {
     color: #db2d20;
 } 
-.markup-changed {
+.jc-markup-changed {
     color: #a16a94;
 } 
-.constant-other-color {
+.jc-constant-other-color {
     color: #b5e4f4;
 } 
-.string-regexp {
+.jc-string-regexp {
     color: #b5e4f4;
 } 
-.constant-character-escape {
+.jc-constant-character-escape {
     color: #b5e4f4;
 } 
-.punctuation-section-embedded {
+.jc-punctuation-section-embedded {
     color: #cdab53;
 } 
-.variable-interpolation {
+.jc-variable-interpolation {
     color: #cdab53;
 } 
-.invalid-illegal {
+.jc-invalid-illegal {
     color: #090300;
     background-color: #db2d20;
 } 

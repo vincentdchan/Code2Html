@@ -60,6 +60,7 @@ public class WebShow extends Application {
 
         BorderPane borderPane = new BorderPane();
 
+        File filePath = new File(FilePath);
         File file = new File(FilePath + "/" + Code2Html.get(0).getName() + ".html");
         VBox topPane = new VBox();
 
@@ -131,7 +132,6 @@ public class WebShow extends Application {
 //        leftPane.setPadding(new Insets(5, 2, 5, 2));
         leftPane.setSpacing(5);
         for (int i = 0; i < Code2Html.size(); i++) {
-            final int t = i;
             Separator separator = new Separator();
             Button button = new Button(Code2Html.get(i).getName() + ".html");
             Button btDelete = new Button("", new ImageView(new Image("file:///../image/NO2.png")));
@@ -164,11 +164,6 @@ public class WebShow extends Application {
                         break;
                     }
                 }
-//                for(int q = 0 ; q < Code2Html.size() ; q++){
-//                    System.out.println(Code2Html.get(q).getName());
-//                    System.out.println(buttonList.get(q).getText());
-//                    System.out.println("finished!");
-//                }
             });
             btDelete.setPrefHeight(comboButton.getPrefHeight());
             comboButton.setStyle("-fx-background-color:null");
@@ -204,6 +199,7 @@ public class WebShow extends Application {
             Separator separator = new Separator();
             File addFile;
             FileChooser fileChooser = new FileChooser();
+            fileChooser.setInitialDirectory(filePath);
             addFile = fileChooser.showOpenDialog(primaryStage);
             if (addFile == null) {
                 return;

@@ -32,6 +32,8 @@ public final class GenHandler implements Runnable{
             "   </body>\n" +
             "</html>\n";
 
+    private String _spaces = "";
+
     GenHandler(Generator generator,
                Configuration config,
                String srcCode,
@@ -44,6 +46,11 @@ public final class GenHandler implements Runnable{
         _styleCode = styleCode;
         _tokenizer = tokenizer;
         _getters = getters;
+
+        int tab2SpaceCount = _generator.get_config().get_tab2spaceCount();
+        for (int i = 0; i < tab2SpaceCount; ++i) {
+            _spaces += " ";
+        }
     }
 
     @Override
@@ -105,11 +112,16 @@ public final class GenHandler implements Runnable{
         return sb.toString();
     }
 
+    /**
+     * Turn the tab into spaces,
+     * and then escape the string
+     */
     private String escapeString(String code) {
-        // String result = code.replaceAll("\n", "<br>\n");
-        String result = code.replaceAll(" ", "&nbsp;");
+        String result = code.replaceAll("\t", _spaces);
+        result = result.replaceAll(" ", "&nbsp;");
         result = result.replaceAll("<", "&lt;");
         result = result.replaceAll(">", "&gt;");
+
         return result;
     }
 

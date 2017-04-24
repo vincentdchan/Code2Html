@@ -1,0 +1,75 @@
+body {
+    color: #C3DDF7;
+    background-color: #21201E;
+} 
+.comment {
+    color: #5A5179;
+} 
+.string {
+    color: #EBC094;
+} 
+.constant-numeric {
+    color: #EBC094;
+} 
+.constant-language {
+    color: #6B56D7;
+} 
+.constant-character {
+    color: #6B56D7;
+} 
+.constant-other {
+    color: #6B56D7;
+} 
+.variable {
+    color: #C74344;
+} 
+.keyword {
+    color: #C74344;
+} 
+.storage {
+    color: #C74344;
+} 
+.storage-type {
+    color: #7399ED;
+} 
+.entity-name-class {
+    color: #C74344;
+} 
+.entity-other-inherited-class {
+    color: #C74344;
+} 
+.entity-name-function {
+    color: #6B56D7;
+} 
+.variable-parameter {
+    color: #C74344;
+} 
+.entity-name-tag {
+    color: #C74344;
+} 
+.entity-other-attribute-name {
+    color: #6B56D7;
+} 
+.support-function {
+    color: #7399ED;
+} 
+.support-constant {
+    color: #C74344;
+} 
+.support-type {
+    color: #7399ED;
+} 
+.support-class {
+    color: #7399ED;
+} 
+.support-other-variable {
+    color: #EBC094;
+} 
+.invalid {
+    color: #F8F8F0;
+    background-color: #C74344;
+} 
+.invalid-deprecated {
+    color: #F8F8F0;
+    background-color: #7399ED;
+} 

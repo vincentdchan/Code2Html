@@ -1,0 +1,155 @@
+body {
+    color: #F8F8F2;
+    background-color: #191919;
+} 
+.comment {
+    color: #6d6d6d;
+} 
+.string {
+    color: #fbe3bf;
+} 
+.constant-numeric {
+    color: #fdb082;
+} 
+.constant-language {
+    color: #ff8942;
+} 
+.constant-character {
+    color: #fdb082;
+} 
+.constant-other {
+    color: #fdb082;
+} 
+.variable {
+    color: #e9fdac;
+} 
+.keyword {
+    color: #ff5e5e;
+} 
+.storage {
+    color: #ff5e5e;
+} 
+.storage-type {
+    color: #fbdfb5;
+} 
+.entity-name-class {
+    color: #8cdaff;
+} 
+.entity-other-inherited-class {
+    color: #8cdaff;
+} 
+.entity-name-function {
+    color: #8cdaff;
+} 
+.variable-parameter {
+    color: #fc9354;
+} 
+.entity-name-tag {
+    color: #ff5e5e;
+} 
+.entity-other-attribute-name {
+    color: #97d8ea;
+} 
+.support-function {
+    color: #6699cc;
+} 
+.support-constant {
+    color: #ecfdb9;
+} 
+.support-type {
+    color: #fbe3bf;
+} 
+.support-class {
+    color: #fbe3bf;
+} 
+.support-other-variable {
+} 
+.support-other-namespace {
+    color: #FFB2F9;
+} 
+.entity-name-type-namespace {
+    color: #FFB2F9;
+} 
+.support-other-namespace-use-as-php {
+    color: #66D9EF;
+} 
+.variable-language-namespace-php {
+    color: #D66990;
+} 
+.punctuation-separator-inheritance-php {
+    color: #F92672;
+} 
+.support-function-misc-css {
+    color: #fdb082;
+} 
+.support-constant-property-value-css {
+    color: #fdb082;
+} 
+.support-constant-font-name-css {
+    color: #fdb082;
+} 
+.meta-tag-template-value-twig {
+    color: #CD5AC5;
+} 
+.meta-tag-template-block-twig {
+    color: #CD5AC5;
+} 
+.keyword-control-twig {
+    color: #E05D8C;
+} 
+.variable-other-twig {
+    color: #E5A5E0;
+} 
+.variable-other-property-twig {
+    color: #FFE1FC;
+} 
+.constant-language-twig {
+    color: #FFD2A6;
+} 
+.constant-numeric-twig {
+    color: #FFD0FB;
+} 
+.support-function-twig {
+    color: #90E7F7;
+} 
+.meta-function-call-other-twig {
+    color: #FAB85A;
+} 
+.meta-function-call-twig {
+    color: #FAB85A;
+} 
+.invalid {
+    color: #F8F8F0;
+    background-color: #f92649;
+} 
+.invalid-deprecated {
+    color: #F8F8F0;
+    background-color: #ff9664;
+} 
+.punctuation-definition-string {
+    color: #ffffff;
+} 
+.punctuation-definition-variable {
+    color: #ffffff;
+} 
+.punctuation-definition-string {
+    color: #ffffff;
+} 
+.punctuation-definition-parameters {
+    color: #ffffff;
+} 
+.punctuation-definition-string {
+    color: #ffffff;
+} 
+.punctuation-definition-array {
+    color: #ffffff;
+} 
+.variable-parameter-function {
+    color: #d0d0d0;
+} 
+.entity-other-attribute-name-id {
+    color: #66a9ec;
+} 
+.punctuation-definition-entity {
+    color: #66a9ec;
+} 

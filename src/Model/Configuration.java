@@ -7,7 +7,7 @@ public class Configuration {
 
     private boolean _showLineNumber = true;
     private String _styleFileName = "default.css";
-    private int _spaceCount = 4;
+    private int _tab2spaceCount = 4;
     private boolean _showJavaHint = true;
     private boolean _enableNav = true;
 
@@ -16,7 +16,7 @@ public class Configuration {
         Configuration that = new Configuration();
         that._showLineNumber = _showLineNumber;
         that._styleFileName = _styleFileName;
-        that._spaceCount = _spaceCount;
+        that._tab2spaceCount = _tab2spaceCount;
         that._showJavaHint = _showJavaHint;
         that._enableNav = _enableNav;
         return that;
@@ -38,12 +38,12 @@ public class Configuration {
         this._styleFileName = _styleFileName;
     }
 
-    public int get_spaceCount() {
-        return _spaceCount;
+    public int get_tab2spaceCount() {
+        return _tab2spaceCount;
     }
 
-    public void set_spaceCount(int _spaceCount) {
-        this._spaceCount = _spaceCount;
+    public void set_tab2spaceCount(int _tab2spaceCount) {
+        this._tab2spaceCount = _tab2spaceCount;
     }
 
     public boolean is_showJavaHint() {

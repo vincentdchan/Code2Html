@@ -2,111 +2,111 @@ body {
     color: #3B3B3B;
     background-color: #FFFFFF;
 } 
-.text-html source-active4d {
+.jc-text-html source-active4d {
     background-color: #E2E9FF5E;
 } 
-.text-xml {
+.jc-text-xml {
     color: #000000;
 } 
-.comment-line {
+.jc-comment-line {
     color: #AF82D4;
 } 
-.comment-block {
+.jc-comment-block {
     color: #AF82D4;
 } 
-.string {
+.jc-string {
     color: #666666;
 } 
-.string-interpolated variable {
+.jc-string-interpolated variable {
     color: #66CCFF;
 } 
-.constant-numeric {
+.jc-constant-numeric {
     color: #A8017E;
 } 
-.constant-character {
+.jc-constant-character {
 } 
-.constant-other {
+.jc-constant-other {
 } 
-.constant-other-date {
+.jc-constant-other-date {
     color: #66CCFF;
 } 
-.constant-other-time {
+.jc-constant-other-time {
     color: #66CCFF;
 } 
-.constant-language {
+.jc-constant-language {
     color: #A535AE;
 } 
-.variable-other-local {
+.jc-variable-other-local {
     color: #6392FF;
 } 
-.variable {
+.jc-variable {
     color: #0053FF;
 } 
-.variable-other-table-field {
+.jc-variable-other-table-field {
     color: #6988AE;
 } 
-.keyword {
+.jc-keyword {
     color: #006699;
 } 
-.keyword-operator {
+.jc-keyword-operator {
 } 
-.storage {
+.jc-storage {
     color: #FF5600;
 } 
-.entity-name-type {
+.jc-entity-name-type {
     color: #21439C;
 } 
-.entity-other-inherited-class {
+.jc-entity-other-inherited-class {
 } 
-.entity-name-function {
+.jc-entity-name-function {
     color: #21439C;
 } 
-.variable-parameter {
+.jc-variable-parameter {
 } 
-.meta-tag {
+.jc-meta-tag {
     color: #7A7A7A;
 } 
-.entity-name-tag {
+.jc-entity-name-tag {
     color: #016CFF;
 } 
-.entity-other-attribute-name {
+.jc-entity-other-attribute-name {
     color: #963DFF;
 } 
-.support-function {
+.jc-support-function {
     color: #45AE34;
 } 
-.support-constant {
+.jc-support-constant {
     color: #B7734C;
 } 
-.support-type {
+.jc-support-type {
     color: #A535AE;
 } 
-.support-class {
+.jc-support-class {
     color: #A535AE;
 } 
-.support-variable {
+.jc-support-variable {
     color: #A535AE;
 } 
-.invalid {
+.jc-invalid {
     color: #FFFFFF;
     background-color: #990000;
 } 
-.meta-diff {
+.jc-meta-diff {
     color: #FFFFFF;
     background-color: #656565;
 } 
-.meta-diff-range {
+.jc-meta-diff-range {
     color: #FFFFFF;
     background-color: #1B63FF;
 } 
-.markup-deleted-diff {
+.jc-markup-deleted-diff {
     color: #000000;
     background-color: #FF7880;
 } 
-.markup-inserted-diff {
+.jc-markup-inserted-diff {
     color: #000000;
     background-color: #98FF9A;
 } 
-.source-diff {
+.jc-source-diff {
     color: #5E5E5E;
 } 

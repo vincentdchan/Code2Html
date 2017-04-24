@@ -2,423 +2,423 @@ body {
     color: #ffffff;
     background-color: #000000;
 } 
-.comment {
+.jc-comment {
     color: #bfbfbf;
 } 
-.string {
+.jc-string {
     color: #a77e03;
 } 
-.string {
+.jc-string {
     color: #a77e03;
 } 
-.string punctuation {
+.jc-string punctuation {
     color: #a77e03;
 } 
-.string-regexp {
+.jc-string-regexp {
     color: #a77e03;
 } 
-.constant-numeric {
+.jc-constant-numeric {
     color: #a77e03;
 } 
-.variable-language {
+.jc-variable-language {
     color: #ffffff;
 } 
-.variable-other {
+.jc-variable-other {
     color: #ffffff;
 } 
-.keyword {
+.jc-keyword {
     color: #438fdc;
 } 
-.storage {
+.jc-storage {
     color: #438fdc;
 } 
-.entity-name-class {
+.jc-entity-name-class {
     color: #ffffff;
 } 
-.entity-name-type-class {
+.jc-entity-name-type-class {
     color: #ffffff;
 } 
-.entity-name-function {
+.jc-entity-name-function {
     color: #ffffff;
 } 
-.punctuation-definition-variable {
+.jc-punctuation-definition-variable {
     color: #ffffff;
 } 
-.punctuation-section-embedded-begin {
+.jc-punctuation-section-embedded-begin {
     color: #438fdc;
 } 
-.punctuation-section-embedded-end {
+.jc-punctuation-section-embedded-end {
     color: #438fdc;
 } 
-.constant-language {
+.jc-constant-language {
     color: #ffffff;
 } 
-.meta-preprocessor {
+.jc-meta-preprocessor {
     color: #ffffff;
 } 
-.support-function-construct {
+.jc-support-function-construct {
     color: #438fdc;
 } 
-.keyword-other-new {
+.jc-keyword-other-new {
     color: #438fdc;
 } 
-.constant-character {
+.jc-constant-character {
     color: #ffffff;
 } 
-.constant-other {
+.jc-constant-other {
     color: #ffffff;
 } 
-.entity-other-inherited-class {
+.jc-entity-other-inherited-class {
     color: #438fdc;
 } 
-.variable-parameter {
+.jc-variable-parameter {
     color: #438fdc;
 } 
-.entity-name-tag {
+.jc-entity-name-tag {
     color: #438fdc;
 } 
-.punctuation-definition-tag-html {
+.jc-punctuation-definition-tag-html {
     color: #438fdc;
 } 
-.punctuation-definition-tag-begin {
+.jc-punctuation-definition-tag-begin {
     color: #438fdc;
 } 
-.punctuation-definition-tag-end {
+.jc-punctuation-definition-tag-end {
     color: #438fdc;
 } 
-.entity-other-attribute-name {
+.jc-entity-other-attribute-name {
     color: #438fdc;
 } 
-.support-function {
+.jc-support-function {
     color: #438fdc;
 } 
-.punctuation-separator-continuation {
+.jc-punctuation-separator-continuation {
     color: #438fdc;
 } 
-.support-constant {
+.jc-support-constant {
     color: #438fdc;
 } 
-.support-type {
+.jc-support-type {
     color: #438fdc;
 } 
-.support-class {
+.jc-support-class {
     color: #438fdc;
 } 
-.support-type-exception {
+.jc-support-type-exception {
     color: #FF2323;
 } 
-.keyword-other-special-method {
+.jc-keyword-other-special-method {
     color: #438fdc;
 } 
-.support-other-variable {
+.jc-support-other-variable {
     color: #438fdc;
 } 
-.invalid {
+.jc-invalid {
     color: #FF2323;
 } 
-.string-quoted-double {
+.jc-string-quoted-double {
     color: #a77e03;
 } 
-.string-quoted-single {
+.jc-string-quoted-single {
     color: #a77e03;
 } 
-.punctuation-definition-string-begin {
+.jc-punctuation-definition-string-begin {
     color: #a77e03;
 } 
-.punctuation-definition-string-end {
+.jc-punctuation-definition-string-end {
     color: #a77e03;
 } 
-.entity-name-tag-css {
+.jc-entity-name-tag-css {
     color: #438fdc;
 } 
-.support-type-property-name-css {
+.jc-support-type-property-name-css {
     color: #438fdc;
 } 
-.meta-property-name-css {
+.jc-meta-property-name-css {
     color: #438fdc;
 } 
-.source-css {
+.jc-source-css {
     color: #438fdc;
 } 
-.meta-selector-css {
+.jc-meta-selector-css {
     color: #438fdc;
 } 
-.punctuation-section-property-list-css {
+.jc-punctuation-section-property-list-css {
     color: #438fdc;
 } 
-.meta-property-value-css constant-numeric-css {
+.jc-meta-property-value-css constant-numeric-css {
     color: #a77e03;
 } 
-.keyword-other-unit-css {
+.jc-keyword-other-unit-css {
     color: #a77e03;
 } 
-.constant-other-color-rgb-value-css {
+.jc-constant-other-color-rgb-value-css {
     color: #a77e03;
 } 
-.meta-property-value-css {
+.jc-meta-property-value-css {
     color: #a77e03;
 } 
-.keyword-other-important-css {
+.jc-keyword-other-important-css {
     color: #FF2323;
 } 
-.support-constant-color {
+.jc-support-constant-color {
     color: #a77e03;
 } 
-.entity-name-tag-css {
+.jc-entity-name-tag-css {
     color: #438fdc;
 } 
-.punctuation-separator-key-value-css {
+.jc-punctuation-separator-key-value-css {
     color: #438fdc;
 } 
-.punctuation-terminator-rule-css {
+.jc-punctuation-terminator-rule-css {
     color: #438fdc;
 } 
-.entity-other-attribute-name-class-css {
+.jc-entity-other-attribute-name-class-css {
     color: #438fdc;
 } 
-.entity-other-attribute-name-pseudo-element-css {
+.jc-entity-other-attribute-name-pseudo-element-css {
     color: #438fdc;
 } 
-.entity-other-attribute-name-pseudo-class-css {
+.jc-entity-other-attribute-name-pseudo-class-css {
     color: #438fdc;
 } 
-.entity-other-attribute-name-id-css {
+.jc-entity-other-attribute-name-id-css {
     color: #438fdc;
 } 
-.meta-function-js {
+.jc-meta-function-js {
     color: #ffffff;
 } 
-.entity-name-function-js {
+.jc-entity-name-function-js {
     color: #ffffff;
 } 
-.support-function-dom-js {
+.jc-support-function-dom-js {
     color: #ffffff;
 } 
-.text-html-basic source-js-embedded-html {
+.jc-text-html-basic source-js-embedded-html {
     color: #438fdc;
 } 
-.storage-type-function-js {
+.jc-storage-type-function-js {
     color: #438fdc;
 } 
-.constant-numeric-js {
+.jc-constant-numeric-js {
     color: #a77e03;
 } 
-.meta-brace-square-js {
+.jc-meta-brace-square-js {
     color: #438fdc;
 } 
-.storage-type-js {
+.jc-storage-type-js {
     color: #438fdc;
 } 
-.meta-brace-round {
+.jc-meta-brace-round {
     color: #ffffff;
 } 
-.punctuation-definition-parameters-begin-js {
+.jc-punctuation-definition-parameters-begin-js {
     color: #ffffff;
 } 
-.punctuation-definition-parameters-end-js {
+.jc-punctuation-definition-parameters-end-js {
     color: #ffffff;
 } 
-.meta-brace-curly-js {
+.jc-meta-brace-curly-js {
     color: #ffffff;
 } 
-.entity-name-tag-doctype-html {
+.jc-entity-name-tag-doctype-html {
     color: #bfbfbf;
 } 
-.meta-tag-sgml-html {
+.jc-meta-tag-sgml-html {
     color: #bfbfbf;
 } 
-.string-quoted-double-doctype-identifiers-and-DTDs-html {
+.jc-string-quoted-double-doctype-identifiers-and-DTDs-html {
     color: #bfbfbf;
 } 
-.comment-block-html {
+.jc-comment-block-html {
     color: #bfbfbf;
 } 
-.entity-name-tag-script-html {
+.jc-entity-name-tag-script-html {
     color: #438fdc;
 } 
-.source-css-embedded-html string-quoted-double-html {
+.jc-source-css-embedded-html string-quoted-double-html {
     color: #438fdc;
 } 
-.text-html-ruby {
+.jc-text-html-ruby {
     color: #ffffff;
 } 
-.text-html-basic meta-tag-other-html {
+.jc-text-html-basic meta-tag-other-html {
     color: #ffffff;
 } 
-.text-html-basic meta-tag-any-html {
+.jc-text-html-basic meta-tag-any-html {
     color: #ffffff;
 } 
-.text-html-basic meta-tag-block-any {
+.jc-text-html-basic meta-tag-block-any {
     color: #ffffff;
 } 
-.text-html-basic meta-tag-inline-any {
+.jc-text-html-basic meta-tag-inline-any {
     color: #ffffff;
 } 
-.text-html-basic meta-tag-structure-any-html {
+.jc-text-html-basic meta-tag-structure-any-html {
     color: #ffffff;
 } 
-.text-html-basic source-js-embedded-html {
+.jc-text-html-basic source-js-embedded-html {
     color: #ffffff;
 } 
-.punctuation-separator-key-value-html {
+.jc-punctuation-separator-key-value-html {
     color: #ffffff;
 } 
-.text-html-basic entity-other-attribute-name-html {
+.jc-text-html-basic entity-other-attribute-name-html {
     color: #438fdc;
 } 
-.text-html-basic meta-tag-structure-any-html punctuation-definition-string-begin-html {
+.jc-text-html-basic meta-tag-structure-any-html punctuation-definition-string-begin-html {
     color: #a77e03;
 } 
-.punctuation-definition-string-begin-html {
+.jc-punctuation-definition-string-begin-html {
     color: #a77e03;
 } 
-.punctuation-definition-string-end-html {
+.jc-punctuation-definition-string-end-html {
     color: #a77e03;
 } 
-.entity-name-tag-block-any-html {
+.jc-entity-name-tag-block-any-html {
     color: #438fdc;
 } 
-.source-css-embedded-html entity-name-tag-style-html {
+.jc-source-css-embedded-html entity-name-tag-style-html {
 } 
-.entity-name-tag-style-html {
+.jc-entity-name-tag-style-html {
 } 
-.text-html-basic punctuation-section-property-list-css {
+.jc-text-html-basic punctuation-section-property-list-css {
 } 
-.source-css-embedded-html {
+.jc-source-css-embedded-html {
     color: #bfbfbf;
 } 
-.comment-block-html {
+.jc-comment-block-html {
     color: #bfbfbf;
 } 
-.meta-diff {
+.jc-meta-diff {
     color: #ffffff;
     background-color: #a77e03;
 } 
-.meta-diff-header {
+.jc-meta-diff-header {
     color: #ffffff;
     background-color: #a77e03;
 } 
-.markup-deleted {
+.jc-markup-deleted {
     color: #FF2323;
     background-color: #ffffff;
 } 
-.markup-changed {
+.jc-markup-changed {
     color: #FF2323;
     background-color: #ffffff;
 } 
-.markup-inserted {
+.jc-markup-inserted {
     color: #00aa00;
     background-color: #ffffff;
 } 
-.text-html-markdown meta-dummy-line-break {
+.jc-text-html-markdown meta-dummy-line-break {
     color: #ffffff;
     background-color: #a77e03;
 } 
-.text-html-markdown markup-raw-inline {
+.jc-text-html-markdown markup-raw-inline {
     color: #00aa00;
 } 
-.text-restructuredtext markup-raw {
+.jc-text-restructuredtext markup-raw {
     color: #00aa00;
 } 
-.other-package-exclude {
+.jc-other-package-exclude {
     color: #FF2323;
 } 
-.other-remove {
+.jc-other-remove {
     color: #FF2323;
 } 
-.other-add {
+.jc-other-add {
     color: #00aa00;
 } 
-.support-function-builtin-shell {
+.jc-support-function-builtin-shell {
     color: #438fdc;
 } 
-.variable-other-normal-shell {
+.jc-variable-other-normal-shell {
     color: #438fdc;
 } 
-.source-shell {
+.jc-source-shell {
     color: #438fdc;
 } 
-.meta-scope-for-in-loop-shell {
+.jc-meta-scope-for-in-loop-shell {
     color: #438fdc;
 } 
-.variable-other-loop-shell {
+.jc-variable-other-loop-shell {
     color: #438fdc;
 } 
-.punctuation-definition-string-end-shell {
+.jc-punctuation-definition-string-end-shell {
     color: #a77e03;
 } 
-.punctuation-definition-string-begin-shell {
+.jc-punctuation-definition-string-begin-shell {
     color: #a77e03;
 } 
-.meta-scope-case-block-shell {
+.jc-meta-scope-case-block-shell {
     color: #bfbfbf;
 } 
-.meta-scope-case-body-shell {
+.jc-meta-scope-case-body-shell {
     color: #bfbfbf;
 } 
-.punctuation-definition-logical-expression-shell {
+.jc-punctuation-definition-logical-expression-shell {
     color: #438fdc;
 } 
-.comment-line-number-sign-shell {
+.jc-comment-line-number-sign-shell {
     color: #bfbfbf;
 } 
-.block_cursor {
+.jc-block_cursor {
     color: #a77e03;
     background-color: #a77e03;
 } 
-.text-html-markdown markup-raw-inline {
+.jc-text-html-markdown markup-raw-inline {
     color: #438fdc;
 } 
-.markup-heading {
+.jc-markup-heading {
     color: #438fdc;
 } 
-.markup-italic {
+.jc-markup-italic {
     color: #438fdc;
 } 
-.markup-bold {
+.jc-markup-bold {
     color: #438fdc;
 } 
-.markup-underline {
+.jc-markup-underline {
     color: #438fdc;
 } 
-.markup-quote {
+.jc-markup-quote {
     color: #438fdc;
 } 
-.markup-list {
+.jc-markup-list {
     color: #a77e03;
 } 
-.markup-raw {
+.jc-markup-raw {
     color: #a77e03;
 } 
-.sublimelinter-annotations {
+.jc-sublimelinter-annotations {
     color: #ffffff;
     background-color: #FF2323;
 } 
-.sublimelinter-outline-illegal {
+.jc-sublimelinter-outline-illegal {
     color: #FF2323;
 } 
-.sublimelinter-underline-illegal {
+.jc-sublimelinter-underline-illegal {
     color: #FF2323;
 } 
-.sublimelinter-outline-warning {
+.jc-sublimelinter-outline-warning {
     color: #a77e03;
 } 
-.sublimelinter-underline-warning {
+.jc-sublimelinter-underline-warning {
     color: #a77e03;
 } 
-.sublimelinter-outline-violation {
+.jc-sublimelinter-outline-violation {
     color: #a77e03;
 } 
-.sublimelinter-underline-violation {
+.jc-sublimelinter-underline-violation {
     color: #ffffff;
     background-color: #a77e03;
 } 
-.markup-deleted-git_gutter {
+.jc-markup-deleted-git_gutter {
     color: #FF2323;
 } 
-.markup-inserted-git_gutter {
+.jc-markup-inserted-git_gutter {
     color: #00aa00;
 } 
-.markup-changed-git_gutter {
+.jc-markup-changed-git_gutter {
     color: #a77e03;
 } 

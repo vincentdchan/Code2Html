@@ -26,6 +26,19 @@ public final class Java2Html {
     private ArrayList<IResultGetter> _getters;
     private Configuration _config;
 
+    public static String[] getStylesNameList() {
+        ArrayList<String> result = new ArrayList<>();
+        File file = new File("resources/themeCSS");
+        for (File child : file.listFiles()) {
+            if (!child.isFile()) continue;
+            String filename = child.getName();
+            if (!filename.endsWith(".css")) continue;
+            String[] slices = filename.split(".");
+            result.add(slices[0]);
+        }
+        return result.toArray(new String[result.size()]);
+    }
+
     public Java2Html() {
         _getters = new ArrayList<IResultGetter>();
     }

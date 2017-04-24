@@ -1,0 +1,148 @@
+body {
+    color: #f8f8f2;
+    background-color: #354551;
+} 
+.jc-comment {
+    color: #969896;
+} 
+.jc-keyword-operator-class {
+    color: #EEEEEE;
+} 
+.jc-source-php-embedded-line {
+    color: #EEEEEE;
+} 
+.jc-support-other-variable {
+    color: #D54E53;
+} 
+.jc-string-other-link {
+    color: #D54E53;
+} 
+.jc-string-regexp {
+    color: #D54E53;
+} 
+.jc-entity-name-tag {
+    color: #D54E53;
+} 
+.jc-meta-tag {
+    color: #D54E53;
+} 
+.jc-declaration-tag {
+    color: #D54E53;
+} 
+.jc-punctuation-definition-tag {
+    color: #D54E53;
+} 
+.jc-constant-numeric {
+    color: #E78C45;
+} 
+.jc-constant-language {
+    color: #E78C45;
+} 
+.jc-support-constant {
+    color: #E78C45;
+} 
+.jc-constant-character {
+    color: #E78C45;
+} 
+.jc-punctuation-section-embedded {
+    color: #E78C45;
+} 
+.jc-keyword-other-unit {
+    color: #E78C45;
+} 
+.jc-keyword-other-important {
+    color: #E78C45;
+} 
+.jc-constant-other-color {
+    color: #E78C45;
+} 
+.jc-entity-name-class {
+    color: #E7C547;
+} 
+.jc-entity-name-type-class {
+    color: #E7C547;
+} 
+.jc-support-type {
+    color: #E7C547;
+} 
+.jc-support-class {
+    color: #E7C547;
+} 
+.jc-string {
+    color: #B9CA4A;
+} 
+.jc-constant-other-symbol {
+    color: #B9CA4A;
+} 
+.jc-entity-other-inherited-class {
+    color: #B9CA4A;
+} 
+.jc-markup-heading {
+    color: #B9CA4A;
+} 
+.jc-keyword-control-at-rule {
+    color: #B9CA4A;
+} 
+.jc-keyword-operator {
+    color: #70C0B1;
+} 
+.jc-punctuation-separator-key-value {
+    color: #70C0B1;
+} 
+.jc-entity-name-function {
+    color: #7AA6DA;
+} 
+.jc-support-function {
+    color: #7AA6DA;
+} 
+.jc-keyword-other-special-method {
+    color: #7AA6DA;
+} 
+.jc-meta-block-level {
+    color: #7AA6DA;
+} 
+.jc-keyword {
+    color: #C397D8;
+} 
+.jc-storage {
+    color: #C397D8;
+} 
+.jc-storage-type {
+    color: #C397D8;
+} 
+.jc-entity-name-tag-css {
+    color: #C397D8;
+} 
+.jc-keyword-other-unit {
+    color: #C397D8;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #C397D8;
+} 
+.jc-invalid {
+    color: #CED2CF;
+    background-color: #DF5F5F;
+} 
+.jc-meta-separator {
+    color: #CED2CF;
+    background-color: #82A3BF;
+} 
+.jc-invalid-deprecated {
+    color: #CED2CF;
+    background-color: #B798BF;
+} 
+.jc-entity-other-attribute-name {
+    color: #D54E53;
+} 
+.jc-entity-name-tag-css {
+    color: #f8f8f2;
+} 
+.jc-punctuation-separator-key-value-css {
+    color: #f8f8f2;
+} 
+.jc-support-type-vendor-prefix {
+    color: #f8f8f2;
+} 
+.jc-support-type-property-vendor {
+    color: #f8f8f2;
+} 

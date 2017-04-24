@@ -74,7 +74,7 @@ public class JavaLang implements ITokenizer {
                         currentState = State.String;
                         result.add("string");
                     } else if (stream.swallow(numberPattern)) {
-                        result.add("number");
+                        result.add("constant-numeric");
                     } else if (stream.getChar() == '@') {
                         stream.moveForward();
                         stream.swallow(variablePattern);

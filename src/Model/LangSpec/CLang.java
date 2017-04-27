@@ -30,7 +30,7 @@ public class CLang implements ITokenizer {
             {Pattern.compile("^&&|!|\\|\\|"), "logic"},
             {Pattern.compile("^&|\\||\\^|~"), ""},
             {Pattern.compile("^="), "assignment"},
-            {Pattern.compile("^%|\\*|/|-|\\+"), ""},
+            // {Pattern.compile("^%|\\*|/|-|\\+"), ""},
     };
     public static Object PreservedPatterns[][] = {{
             Pattern.compile(
@@ -62,11 +62,13 @@ public class CLang implements ITokenizer {
             case Normal:
                 if (ss.isFirstChar() && ss.getChar() == '#') {
                     state = State.Macro;
+                    result.add("macro");
                     ss.moveForward();
                 } else if (ss.swallow("//")) {
                     result.add("comment");
                     ss.goToEnd();
                 } else if (ss.swallow("/*")) {
+                    result.add("comment");
                     state = State.Comment;
                 } else if (ss.swallow("\"")) {
                     state = State.StringConstant;
@@ -77,6 +79,7 @@ public class CLang implements ITokenizer {
                 } else if (ss.swallow(NumberPattern)) {
                     result.add("constant-numeric");
                 } else if (ss.swallow("#")) {
+                    state = State.Macro;
                     result.add("macro");
                 } else {
                     ss.moveForward();
@@ -88,9 +91,8 @@ public class CLang implements ITokenizer {
                     if (ss.getChar() != '\\') {
                         state = State.Normal;
                     }
-                } else {
-                    ss.moveForward();
                 }
+                ss.moveForward();
                 break;
             case Comment:
                 result.add("comment");

@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -79,6 +80,7 @@ public class Main extends Application {
         tableLength.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableType.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableBottom.prefWidthProperty().bind(borderPane.widthProperty().divide(8));
+
 //        tableName.setPrefWidth(195);
 //        tableDate.setPrefWidth(195);
 //        tableLength.setPrefWidth(150);

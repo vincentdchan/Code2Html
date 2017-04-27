@@ -21,7 +21,7 @@ public class RightTable {
 
         path = fileName.getAbsolutePath();
 
-        btCancel = new Button(" ", new ImageView(new Image("file:///../image/NO2.png")));
+        btCancel = new Button("", new ImageView(new Image("file:///../image/NO2.png")));
         btCancel.setStyle("-fx-background-color:null");
         btCancel.setOnMouseEntered(e -> {
             btCancel.setStyle("-fx-background-color:lightblue");
@@ -37,7 +37,8 @@ public class RightTable {
             for (int j = 0; j < dataMiddle.size(); j++){
                 if(dataMiddle.get(j).getPath().equals(path)){
                     dataMiddle.get(j).getBtChoose().setDisable(false);
-                    dataMiddle.get(j).getBtChoose().setText("");
+                    dataMiddle.get(j).getBtChoose().setText("点击选择");
+                    dataMiddle.get(j).getBtChoose().setGraphic(new ImageView(new Image("file:///../image/YES3.png")));
                     break;
                 }
             }

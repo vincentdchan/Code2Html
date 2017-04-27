@@ -51,7 +51,7 @@ public class MyFile {
         }
 
 
-        btChoose = new Button(" ", new ImageView(new Image("file:///../image/YES2.png")));
+        btChoose = new Button("点击选择", new ImageView(new Image("file:///../image/YES3.png")));
         btChoose.setStyle("-fx-background-color:null");
         btChoose.setOnMouseEntered(e -> {
             btChoose.setStyle("-fx-background-color:lightblue");
@@ -62,11 +62,13 @@ public class MyFile {
         for (int j = 0; j < data.size(); j++) {
             if (file.getAbsolutePath().equals(data.get(j).getPath())) {
                 btChoose.setDisable(true);
+                btChoose.setGraphic(new ImageView(new Image("file:///../image/YES2.png")));
                 btChoose.setText("已选定");
             }
         }
         btChoose.setOnAction(e -> {
             btChoose.setDisable(true);
+            btChoose.setGraphic(new ImageView(new Image("file:///../image/YES2.png")));
             btChoose.setText("已选定");
             boolean flag = true;
             for (int i = 0; i < arrayList.size(); i++) {

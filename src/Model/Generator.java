@@ -104,6 +104,7 @@ public class Generator {
         }
         GenHandler _handler = new GenHandler(this,
                 _config,
+                filename,
                 srcCode,
                 _styleCode,
                 tokenizer,

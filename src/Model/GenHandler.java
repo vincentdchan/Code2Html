@@ -20,10 +20,12 @@ public final class GenHandler implements Runnable{
     private final String HTMLBegin = "<html>\n" +
             "   <head>\n" +
             "       <meta charset=\"utf-8\">\n" +
-            "       <title>Java Code</title>\n" +
+            "       <title>";
+
+    private final String HTMLMid1 = "</title>\n" +
             "       <style>\n";
 
-    private final String HTMLMid =
+    private final String HTMLMid2 =
             "       </style>\n" +
             "   </head>\n" +
             "   <body>\n";
@@ -33,15 +35,18 @@ public final class GenHandler implements Runnable{
             "</html>\n";
 
     private String _spaces = "";
+    private String _filename;
 
     GenHandler(Generator generator,
                Configuration config,
+               String filename,
                String srcCode,
                String styleCode,
                ITokenizer tokenizer,
                List<IResultGetter> getters) {
         _generator = generator;
         _config = config;
+        _filename = filename;
         _srcCode = srcCode;
         _styleCode = styleCode;
         _tokenizer = tokenizer;
@@ -57,8 +62,10 @@ public final class GenHandler implements Runnable{
     public void run() {
         StringBuilder sb = new StringBuilder();
         sb.append(HTMLBegin);
+        sb.append(_filename);
+        sb.append(HTMLMid1);
         sb.append(_styleCode);
-        sb.append(HTMLMid);
+        sb.append(HTMLMid2);
         sb.append("<div id=\"code_area\">\n");
 
         sb.append(generateCodeHTML());

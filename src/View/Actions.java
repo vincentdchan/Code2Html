@@ -5,16 +5,20 @@ import Model.Getter;
 import Model.Java2Html;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -114,24 +118,37 @@ public class Actions {
 
     public static void codeAction(Button button, ArrayList<File> arrayList, String filePath) {
         button.setOnAction(e -> {
-//            System.out.println(filePath);
             if (arrayList.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
                 alert.setTitle("通知");
                 alert.showAndWait();
                 return;
             }
-//            for(int j = 0 ; j < arrayList.size() ; j++){
-//                ArrayList<File> renameList = new ArrayList<>();
-//                for(int k = j ; k < arrayList.size() ; k++){
-//                    if(arrayList.get(j).getName().equals(arrayList.get(k).getName())){
-//                        renameList.add(arrayList.get(k));
-//                    }
-//                }
-//                for(int l = 0 ; l < renameList.size() ; l++){
-//                    renameList.get(l).set
-//                }
-//            }
+            String[] Name = new String[100];
+            for (int i = 0; i < arrayList.size(); i++) {
+                Name[i] = arrayList.get(i).getName();
+            }
+            String[] add = new String[10];
+            add[0] = "(1)";
+            add[1] = "(2)";
+            add[2] = "(3)";
+            add[3] = "(4)";
+            add[4] = "(5)";
+            add[5] = "(6)";
+            add[6] = "(7)";
+            add[7] = "(8)";
+            add[8] = "(9)";
+            add[9] = "(10)";
+            int t = 0;
+            for (int i = 0; i < arrayList.size(); i++) {
+                t = 0;
+                for (int j = i + 1; j < arrayList.size(); j++) {
+                    if (Name[i].equals(arrayList.get(j).getName())) {
+                        Name[j] = Name[i] + add[t];
+                        t++;
+                    }
+                }
+            }
             for (int i = 0; i < arrayList.size(); i++) {
                 File file = arrayList.get(i);
                 try {
@@ -141,7 +158,7 @@ public class Actions {
                     Configuration config = new Configuration();
                     Java2Html converter = new Java2Html();
                     converter.set_config(config);
-                    converter.addGetter(new Getter(arrayList, arrayList.get(i).getName(), filePath));
+                    converter.addGetter(new Getter(arrayList, Name[i], filePath));
                     converter.convert(file.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -149,8 +166,58 @@ public class Actions {
                     e2.printStackTrace();
                 }
             }
-            WebShow.happen(arrayList, filePath);
+            WebShow.happen(arrayList, filePath, Name);
         });
+    }
+
+    public static void sortArrayList(ArrayList<File> Code2Html, ArrayList<Button> buttonList, String[] strings, VBox leftPane, boolean choose) {
+        File[] files = new File[Code2Html.size()];
+        Button[] buttons = new Button[buttonList.size()];
+        Node[] toolBars = new Node[leftPane.getChildren().size()];
+//        System.out.println(Code2Html.size());
+        for (int i = 0; i < Code2Html.size(); i++) {
+            files[i] = Code2Html.get(i);
+            buttons[i] = buttonList.get(i);
+            toolBars[i] = leftPane.getChildren().get(2 * i + 1);
+        }
+        for (int i = files.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (files[j + 1].getName().compareTo(files[j].getName()) <= 0) {
+                    File tf = files[j];
+                    files[j] = files[j + 1];
+                    files[j + 1] = tf;
+
+                    Button bf = buttons[j];
+                    buttons[j] = buttons[j + 1];
+                    buttons[j + 1] = bf;
+
+                    String ts = strings[j];
+                    strings[j] = strings[j + 1];
+                    strings[j + 1] = ts;
+
+                    Node nt = toolBars[j];
+                    toolBars[j] = toolBars[j + 1];
+                    toolBars[j + 1] = nt;
+                }
+            }
+        }
+        Code2Html.clear();
+        buttonList.clear();
+        leftPane.getChildren().remove(1, leftPane.getChildren().size());
+        if (choose) {
+            for (int i = 0; i < files.length; i++) {
+                Code2Html.add(files[i]);
+                buttonList.add(buttons[i]);
+                leftPane.getChildren().addAll(toolBars[i], new Separator());
+//            System.out.println(toolBars[i]);
+            }
+        } else {
+            for (int i = files.length - 1; i >= 0; i--) {
+                Code2Html.add(files[i]);
+                buttonList.add(buttons[i]);
+                leftPane.getChildren().addAll(toolBars[i], new Separator());
+            }
+        }
     }
 
 }

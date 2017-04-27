@@ -37,26 +37,26 @@ public class Main extends Application {
 //        backpane.setStyle("-fx-background-color:cyan");
 
         BorderPane topPane = new BorderPane();
-        MenuBar menuBar = new MenuBar();
-        Menu menuFile = new Menu("File");
-        MenuItem menuItemAbout = new MenuItem("About");
-        MenuItem menuItemExit = new MenuItem("Exit");
+//        MenuBar menuBar = new MenuBar();
+//        Menu menuFile = new Menu("File");
+//        MenuItem menuItemAbout = new MenuItem("About");
+//        MenuItem menuItemExit = new MenuItem("Exit");
         TextField currentPath = new TextField();
-        Label labelCurrentPath = new Label("                CurrentPath:                   ");
+        Label labelCurrentPath = new Label("                当前目录:                   ");
         Label _null = new Label("                                                          ");
         currentPath.setDisable(true);
 
-        //关闭程序
-        menuItemExit.setOnAction((ActionEvent t) -> {
-            primaryStage.close();
-        });
-
-        menuFile.getItems().addAll(menuItemAbout, menuItemExit);
-        Menu menuHelp = new Menu("Help");
-
-        menuBar.getMenus().addAll(menuFile, menuHelp);
+//        //关闭程序
+//        menuItemExit.setOnAction((ActionEvent t) -> {
+//            primaryStage.close();
+//        });
+//
+//        menuFile.getItems().addAll(menuItemAbout, menuItemExit);
+//        Menu menuHelp = new Menu("Help");
+//
+//        menuBar.getMenus().addAll(menuFile, menuHelp);
         topPane.setLeft(labelCurrentPath);
-        topPane.setTop(menuBar);
+//        topPane.setTop(menuBar);
         topPane.setCenter(currentPath);
         topPane.setRight(_null);
 
@@ -64,15 +64,15 @@ public class Main extends Application {
         BorderPane borderPane = new BorderPane();
 
         TableView<MyFile> table = new TableView<>();
-        TableColumn tableName = new TableColumn("FileName");
+        TableColumn tableName = new TableColumn("文件名");
         tableName.setCellValueFactory(new PropertyValueFactory<>("fileName"));
-        TableColumn tableDate = new TableColumn("LastModified");
+        TableColumn tableDate = new TableColumn("最后修改日期");
         tableDate.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
-        TableColumn tableLength = new TableColumn("Length");
+        TableColumn tableLength = new TableColumn("文件大小");
         tableLength.setCellValueFactory(new PropertyValueFactory<>("length"));
-        TableColumn tableType = new TableColumn("Type");
+        TableColumn tableType = new TableColumn("类型");
         tableType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        TableColumn tableBottom = new TableColumn("isChoose");
+        TableColumn tableBottom = new TableColumn("选择");
         tableBottom.setCellValueFactory(new PropertyValueFactory<>("btChoose"));
         tableName.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableDate.prefWidthProperty().bind(borderPane.widthProperty().divide(8.3));
@@ -90,10 +90,10 @@ public class Main extends Application {
 
         StackPane rightPane = new StackPane();
         TableView<MyFile> rightTable = new TableView<>();
-        TableColumn chooseFile = new TableColumn("ChoosedFile");
+        TableColumn chooseFile = new TableColumn("已选文件");
         chooseFile.setPrefWidth(195);
         chooseFile.setCellValueFactory(new PropertyValueFactory<>("choosedFile"));
-        TableColumn isCancel = new TableColumn("isCancel");
+        TableColumn isCancel = new TableColumn("取消");
         isCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
@@ -103,14 +103,14 @@ public class Main extends Application {
         bottomPane.setPadding(new Insets(5, 0, 5, 250));
         bottomPane.setHgap(25);
         bottomPane.setVgap(10);
-        Label filePath = new Label("Path :");
+        Label filePath = new Label("保存路径 :");
         TextField showFilePath = new TextField();
         showFilePath.setText(srcPathFile.getAbsolutePath());
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
         showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        Button btChoosePath = new Button("Save to ...");
-        Button btStartCode = new Button("Start to Code");
+        Button btChoosePath = new Button("保存在…");
+        Button btStartCode = new Button("开始转换");
         btChoosePath.setOnAction(e -> {
             File file = directoryChooser.showDialog(primaryStage);
             if (file != null) {
@@ -119,7 +119,7 @@ public class Main extends Application {
             }
         });
 
-        Label fileKind = new Label("Kind :");
+        Label fileKind = new Label("类型 :");
         Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();

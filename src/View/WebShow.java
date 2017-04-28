@@ -12,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -19,6 +20,7 @@ import javafx.scene.image.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.*;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -54,10 +56,11 @@ public class WebShow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        ArrayList<Button> buttonList = new ArrayList<>();
+
         BorderPane borderPane = new BorderPane();
 
         File file = new File(FilePath + "/" + Code2Html.get(0).getName() + ".html");
-//        System.out.println(file.getAbsolutePath());
         VBox topPane = new VBox();
 
         MenuBar menuBar = new MenuBar();
@@ -75,14 +78,28 @@ public class WebShow extends Application {
         btAdd.setOnMouseExited(e -> {
             btAdd.setStyle("-fx-background-color:null");
         });
+
+        Button btDeleteAll = new Button("DeleteAll", new ImageView(new Image("file:///../image/Delete.png")));
+        btDeleteAll.setStyle("-fx-background-color:null");
+        btDeleteAll.setOnMouseEntered(e -> {
+            btDeleteAll.setStyle("-fx-background-color:lightblue");
+        });
+        btDeleteAll.setOnMouseExited(e -> {
+            btDeleteAll.setStyle("-fx-background-color:null");
+        });
+
+        ComboBox<Integer> sizeOfFont = new ComboBox<>();
+        for (int i = 10; i <= 48; i += 2) {
+            sizeOfFont.getItems().add(i);
+        }
+        sizeOfFont.setValue(10);
+
         ToolBar toolBar = new ToolBar(
                 btAdd,
+                btDeleteAll,
                 new Separator(),
-                new Button("Very Small"),
-                new Button("Small"),
-                new Button("Middle"),
-                new Button("Big"),
-                new Button("Very Big")
+                new Label("字号："),
+                sizeOfFont
         );
 
 
@@ -92,43 +109,94 @@ public class WebShow extends Application {
         WebEngine webEngine = browser.getEngine();
         webEngine.load("file:///" + file.getAbsolutePath());
         primaryStage.setTitle(Code2Html.get(0).getName() + ".html");
-//        System.out.println("file:///" + file.getAbsolutePath());
 
 
         VBox leftPane = new VBox();
+        Button ascending = new Button("升");
+        Button descending = new Button("降");
+        Button kind = new Button("类型");
+        ToolBar leftToolBar = new ToolBar(
+                ascending,
+                descending,
+                kind
+        );
+        leftPane.getChildren().add(leftToolBar);
+        btDeleteAll.setOnAction(e -> {
+            leftPane.getChildren().clear();
+            leftPane.getChildren().add(leftToolBar);
+            webEngine.load(null);
+            Code2Html.clear();
+            buttonList.clear();
+        });
 //        leftPane.setPadding(new Insets(5, 2, 5, 2));
         leftPane.setSpacing(5);
         for (int i = 0; i < Code2Html.size(); i++) {
-            int t = i;
+            final int t = i;
             Separator separator = new Separator();
             Button button = new Button(Code2Html.get(i).getName() + ".html");
+            Button btDelete = new Button("", new ImageView(new Image("file:///../image/NO2.png")));
             File anotherFile = new File(FilePath + "/" + Code2Html.get(i).getName() + ".html");
-            button.setStyle("-fx-background-color:null");
-            button.setOnMouseEntered(e -> {
+            if (i == 0) {
                 button.setStyle("-fx-background-color:lightblue");
-            });
-            button.setOnMouseExited(e -> {
+            } else {
                 button.setStyle("-fx-background-color:null");
+            }
+            btDelete.setStyle("-fx-background-color:null");
+            btDelete.setOnMouseEntered(e -> {
+                btDelete.setStyle("-fx-background-color:lightblue");
             });
+            btDelete.setOnMouseExited(e -> {
+                btDelete.setStyle("-fx-background-color:null");
+            });
+            ToolBar comboButton = new ToolBar(
+                    button,
+                    btDelete
+            );
+            btDelete.setOnAction(e -> {
+//                final int p = t;
+                leftPane.getChildren().remove(comboButton);
+                leftPane.getChildren().remove(separator);
+                webEngine.load(null);
+                for (int j = 0; j < Code2Html.size(); j++) {
+                    if (Code2Html.get(j).getName().equals(anotherFile.getName().substring(0, anotherFile.getName().indexOf(".html")))) {
+                        Code2Html.remove(j);
+                        buttonList.remove(j);
+                        break;
+                    }
+                }
+//                for(int q = 0 ; q < Code2Html.size() ; q++){
+//                    System.out.println(Code2Html.get(q).getName());
+//                    System.out.println(buttonList.get(q).getText());
+//                    System.out.println("finished!");
+//                }
+            });
+            btDelete.setPrefHeight(comboButton.getPrefHeight());
+            comboButton.setStyle("-fx-background-color:null");
+            buttonList.add(button);
             button.setOnAction(e -> {
+                for (int j = 0; j < buttonList.size(); j++) {
+                    buttonList.get(j).setStyle("-fx-background-color:null");
+                }
+                button.setStyle("-fx-background-color:lightblue");
+//                System.out.println(button.getTextFill());
                 if (anotherFile.exists()) {
                     webEngine.load("file:///" + anotherFile.getAbsolutePath());
-                    primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
+//                    primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR, "找不到目标文件", ButtonType.OK);
                     alert.showAndWait();
-                    for(int j = 0 ; j < Code2Html.size() ; j++){
-                        if(Code2Html.get(j).getAbsolutePath().equals(anotherFile)){
+                    for (int j = 0; j < Code2Html.size(); j++) {
+                        if (Code2Html.get(j).getName().equals(anotherFile.getName().substring(0, anotherFile.getName().indexOf(".html")))) {
                             Code2Html.remove(j);
+                            buttonList.remove(j);
                             break;
                         }
                     }
-                    leftPane.getChildren().remove(button);
+                    leftPane.getChildren().remove(comboButton);
                     leftPane.getChildren().remove(separator);
                 }
             });
-            leftPane.getChildren().add(button);
-
+            leftPane.getChildren().add(comboButton);
             leftPane.getChildren().add(separator);
         }
 
@@ -144,9 +212,9 @@ public class WebShow extends Application {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "不是java文件或者C文件", ButtonType.OK);
                 alert.showAndWait();
             }
-            for(int i = 0; i < Code2Html.size() ; i++){
-                if(addFile.getAbsolutePath().equals(Code2Html.get(i).getAbsolutePath())){
-                    Alert alert = new Alert(Alert.AlertType.ERROR , "该文件已存在" , ButtonType.OK);
+            for (int i = 0; i < Code2Html.size(); i++) {
+                if (addFile.getAbsolutePath().equals(Code2Html.get(i).getAbsolutePath())) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "该文件已存在", ButtonType.OK);
                     alert.showAndWait();
                     return;
                 }
@@ -169,33 +237,61 @@ public class WebShow extends Application {
                     e2.printStackTrace();
                 }
                 Button button = new Button(addFile.getName() + ".html");
+                Button btDelete = new Button("", new ImageView(new Image("file:///../image/NO2.png")));
                 File anotherFile = new File(FilePath + "/" + addFile.getName() + ".html");
-                button.setStyle("-fx-background-color:null");
-                button.setOnMouseEntered(E -> {
-                    button.setStyle("-fx-background-color:lightblue");
+                for (int j = 0; j < buttonList.size(); j++) {
+                    buttonList.get(j).setStyle("-fx-background-color:null");
+                }
+                btDelete.setStyle("-fx-background-color:null");
+                button.setStyle("-fx-background-color:lightblue");
+                btDelete.setOnMouseEntered(E -> {
+                    btDelete.setStyle("-fx-background-color:lightblue");
                 });
-                button.setOnMouseExited(E -> {
-                    button.setStyle("-fx-background-color:null");
+                btDelete.setOnMouseExited(E -> {
+                    btDelete.setStyle("-fx-background-color:null");
                 });
+                ToolBar comboButton = new ToolBar(
+                        button,
+                        btDelete
+                );
+                btDelete.setOnAction(E -> {
+//                    final int p = Code2Html.size() - 1;
+                    leftPane.getChildren().remove(comboButton);
+                    leftPane.getChildren().remove(separator);
+                    webEngine.load(null);
+                    for (int j = 0; j < Code2Html.size(); j++) {
+                        if (Code2Html.get(j).getName().equals(anotherFile.getName().substring(0, anotherFile.getName().indexOf(".html")))) {
+                            Code2Html.remove(j);
+                            buttonList.remove(j);
+                            break;
+                        }
+                    }
+                });
+                buttonList.add(button);
                 button.setOnAction(E -> {
+                    for (int j = 0; j < buttonList.size(); j++) {
+                        buttonList.get(j).setStyle("-fx-background-color:null");
+                    }
+                    button.setStyle("-fx-background-color:lightblue");
                     if (anotherFile.exists()) {
                         webEngine.load("file:///" + anotherFile.getAbsolutePath());
-                        primaryStage.setTitle(FaddFile.getName() + ".html");
+//                        primaryStage.setTitle(FaddFile.getName() + ".html");
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR, "找不到目标文件", ButtonType.OK);
                         alert.showAndWait();
-                        for(int i = 0 ; i < Code2Html.size(); i++){
-                            if(Code2Html.get(i).getAbsolutePath().equals(anotherFile)){
+                        for (int i = 0; i < Code2Html.size(); i++) {
+                            if (Code2Html.get(i).getName().equals(anotherFile.getName().substring(0, anotherFile.getName().indexOf(".html")))) {
                                 Code2Html.remove(i);
+                                buttonList.remove(i);
                                 break;
                             }
                         }
-                        leftPane.getChildren().remove(button);
+                        leftPane.getChildren().remove(comboButton);
                         leftPane.getChildren().remove(separator);
                     }
                 });
-                leftPane.getChildren().add(button);
-
+                comboButton.setStyle("-fx-background-color:null");
+                leftPane.getChildren().add(comboButton);
                 leftPane.getChildren().add(separator);
                 webEngine.load("file:///" + anotherFile.getAbsolutePath());
                 primaryStage.setTitle(FaddFile.getName() + ".html");
@@ -221,6 +317,7 @@ public class WebShow extends Application {
         primaryStage.setScene(scene);
         scene.setFill(null);
 
+        primaryStage.setTitle("内置浏览器");
         primaryStage.show();
     }
 }

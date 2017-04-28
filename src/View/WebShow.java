@@ -47,9 +47,10 @@ public class WebShow extends Application {
                 new WebShow().start(new Stage());
             }
         });
-        Code2Html = arrayList;
-        FilePath = filePath;
-        codeName = name;
+        Code2Html = arrayList;//存要转换的项目
+        FilePath = filePath;//存保存路径
+        codeName = name;//存项目的名字，因为有些文件重名，所以重名的文件的名字在这个数组会不同
+        //下面还定义了一个存按钮的ArrayList， 除了FilePath，这个3个数组的元素一一对应
     }
 
     public static void main(String[] args) {
@@ -58,7 +59,7 @@ public class WebShow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        ArrayList<Button> buttonList = new ArrayList<>();
+        ArrayList<Button> buttonList = new ArrayList<>();//存左边的按钮
 
         BorderPane borderPane = new BorderPane();
 
@@ -209,22 +210,6 @@ public class WebShow extends Application {
                 button.setStyle("-fx-background-color:lightblue");
 //                System.out.println(button.getTextFill());
                 if (anotherFile.exists()) {
-//                    try {
-//                        String content = new String(
-//                                Files.readAllBytes(Paths.get(Code2Html.get(t).getAbsolutePath()))
-//                        );
-//                        Configuration config = new Configuration();
-//                        config.set_fontSize(sizeOfFont.getValue());
-//                        config.set_styleName(styleOfTheme.getValue() + ".css");
-//                        Java2Html converter = new Java2Html();
-//                        converter.set_config(config);
-//                        converter.addGetter(new Getter(Code2Html, Code2Html.get(t).getName(), FilePath));
-//                        converter.convert(Code2Html.get(t).getName(), content);
-//                    } catch (IOException e1) {
-//                        e1.printStackTrace();
-//                    } catch (Model.Generator.NotSupportedFiletypes e2) {
-//                        e2.printStackTrace();
-//                    }
                     webEngine.load("file:///" + anotherFile.getAbsolutePath());
 //                    primaryStage.setTitle(Code2Html.get(t).getName() + ".html");
                 } else {
@@ -324,14 +309,19 @@ public class WebShow extends Application {
             }
             webEngine.load(webEngine.getLocation());
         });
+
+
         FileChooser fileChooser = new FileChooser();
         btAdd.setOnAction(e -> {
             Separator separator = new Separator();
             File addFile;
             fileChooser.setInitialDirectory(new File("file:///../test"));
-            addFile = fileChooser.showOpenDialog(primaryStage);
+            addFile = fileChooser.showOpenDialog(primaryStage);           //选择文件
 //            File p = new File(addFile.getAbsolutePath());
 //            fileChooser.setInitialDirectory(p);
+
+
+            //下面是判断文件选择错误情况
             if (addFile == null) {
                 return;
             }
@@ -413,22 +403,6 @@ public class WebShow extends Application {
                     }
                     button.setStyle("-fx-background-color:lightblue");
                     if (anotherFile.exists()) {
-//                        try {
-//                            String content = new String(
-//                                    Files.readAllBytes(Paths.get(Code2Html.get(t).getAbsolutePath()))
-//                            );
-//                            Configuration config = new Configuration();
-//                            config.set_fontSize(sizeOfFont.getValue());
-//                            config.set_styleName(styleOfTheme.getValue() + ".css");
-//                            Java2Html converter = new Java2Html();
-//                            converter.set_config(config);
-//                            converter.addGetter(new Getter(Code2Html, Code2Html.get(t).getName(), FilePath));
-//                            converter.convert(Code2Html.get(t).getName(), content);
-//                        } catch (IOException e1) {
-//                            e1.printStackTrace();
-//                        } catch (Model.Generator.NotSupportedFiletypes e2) {
-//                            e2.printStackTrace();
-//                        }
                         webEngine.load("file:///" + anotherFile.getAbsolutePath());
 //                        primaryStage.setTitle(FaddFile.getName() + ".html");
                     } else {
@@ -452,7 +426,7 @@ public class WebShow extends Application {
                 primaryStage.setTitle(FaddFile.getName() + ".html");
             }
         });
-
+        //陈晓叔叔写的↓
         openWithBrowse.setOnAction(e -> {
             try {
                 String path = webEngine.getLocation();
@@ -464,24 +438,10 @@ public class WebShow extends Application {
         });
 
         ascending.setOnAction(e -> {
-//            File[] files = (File[])Code2Html.toArray();
-            Actions.sortArrayList(Code2Html, buttonList, codeName, leftPane, true);
-
-//            for (int i = 0; i < Code2Html.size(); i++) {
-//                System.out.println(Code2Html.get(i).getName());
-//                System.out.println(buttonList.get(i).getText());
-//                System.out.println(codeName[i]);
-//            }
-//            System.out.println("finished!");
+            Actions.sortArrayList(Code2Html, buttonList, codeName, leftPane, true);//冒泡升序
         });
         descending.setOnAction(e -> {
-            Actions.sortArrayList(Code2Html, buttonList, codeName, leftPane, false);
-//            for (int i = 0; i < Code2Html.size(); i++) {
-//                System.out.println(Code2Html.get(i).getName());
-//                System.out.println(buttonList.get(i).getText());
-//                System.out.println(codeName[i]);
-//            }
-//            System.out.println("finished!");
+            Actions.sortArrayList(Code2Html, buttonList, codeName, leftPane, false);//冒泡降序
         });
 
         borderPane.setCenter(browser);

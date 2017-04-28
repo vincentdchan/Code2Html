@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -28,24 +29,29 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        File srcPathFile = new File("file");
-        ArrayList<File> Code2HtmlFile = new ArrayList<>();
-        ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
-        ObservableList<MyFile> dataMiddle = FXCollections.observableArrayList();
+        File srcPathFile = new File("file");//默认保存路径
+        ArrayList<File> Code2HtmlFile = new ArrayList<>();//存要转换目标项目
+        ObservableList<RightTable> dataRight = FXCollections.observableArrayList();//存选定好的项目
+        ObservableList<MyFile> dataMiddle = FXCollections.observableArrayList();//存文件中的项目
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
 //        backpane.setStyle("-fx-background-color:cyan");
 
         BorderPane topPane = new BorderPane();
+//        HBox topPane = new HBox();
 //        MenuBar menuBar = new MenuBar();
 //        Menu menuFile = new Menu("File");
 //        MenuItem menuItemAbout = new MenuItem("About");
 //        MenuItem menuItemExit = new MenuItem("Exit");
         TextField currentPath = new TextField();
-        Label labelCurrentPath = new Label("                当前目录:                   ");
-        Label _null = new Label("                                                          ");
-        currentPath.setDisable(true);
+//        currentPath.setPrefHeight(1);
+//        Label labelCurrentPath = new Label("                  当前目录:                       ");
+        Button labelCurrentPath = new Button("                当前目录:                     ");
+        labelCurrentPath.setStyle("-fx-background-color:null");
+//        labelCurrentPath.setContentDisplay(ContentDisplay.CENTER);
+        Label _null = new Label("                                                              ");
+//        currentPath.setDisable(true);
 
 //        //关闭程序
 //        menuItemExit.setOnAction((ActionEvent t) -> {
@@ -56,8 +62,9 @@ public class Main extends Application {
 //        Menu menuHelp = new Menu("Help");
 //
 //        menuBar.getMenus().addAll(menuFile, menuHelp);
+//        topPane.getChildren().addAll(labelCurrentPath , currentPath , _null);
         topPane.setLeft(labelCurrentPath);
-//        topPane.setTop(menuBar);
+////        topPane.setTop(menuBar);
         topPane.setCenter(currentPath);
         topPane.setRight(_null);
 
@@ -111,18 +118,18 @@ public class Main extends Application {
         showFilePath.setAlignment(Pos.BASELINE_LEFT);
         showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        Button btChoosePath = new Button("保存在…");
-        Button btStartCode = new Button("开始转换");
+        Button btChoosePath = new Button("  保存在…  ");
+        Button btStartCode = new Button("  开始转换  ");
         btChoosePath.setOnAction(e -> {
             File file = directoryChooser.showDialog(primaryStage);
             if (file != null) {
                 showFilePath.setText(file.getAbsolutePath());
-                Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
+                Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());//设定开始转换按钮的功能
             }
         });
 
         Label fileKind = new Label("类型 :");
-        Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
+        Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());//设定开始转换按钮的功能
 //        btStartCode.setDefaultButton(true);
         ComboBox<String> showFileKind = new ComboBox<>();
         showFileKind.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
@@ -150,7 +157,7 @@ public class Main extends Application {
         });
 
         for (File file : File.listRoots()) {
-            Button button = new Button(file.getPath() + "                              ", new ImageView(new Image("file:///../image/Disk.png")));
+            Button button = new Button(file.getPath() + "                              ", new ImageView(new Image("file:///../image/Disk2.png")));
             button.setStyle("-fx-background-color:null");
             button.setOnMouseEntered(e -> {
                 button.setStyle("-fx-background-color:lightblue");
@@ -160,6 +167,7 @@ public class Main extends Application {
             });
             TreeItem<Button> root = new TreeItem<>(button);
             rootItem.getChildren().add(root);
+            //下面函数递归调用，生成右边的目录树，把右边的按钮设定功能，在中间显示项目
             Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
         }
         rootItem.setExpanded(true);
@@ -171,6 +179,7 @@ public class Main extends Application {
 //        webEngine.load("http://www.baidu.com");
 
         borderPane.setLeft(tree);
+//        borderPane.setTop(labelCurrentPath);
         borderPane.setTop(topPane);
         borderPane.setCenter(table);
         borderPane.setRight(rightTable);

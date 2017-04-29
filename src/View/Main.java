@@ -166,10 +166,13 @@ public class Main extends Application {
 
         // TreeView<Button> tree = new TreeView<>(rootItem);
 
+        SplitPane middlePane = new SplitPane(middleTable, rightTable);
+        middlePane.setDividerPosition(0, 0.7);
         // borderPane.setLeft(tree);
         borderPane.setTop(topPane);
-        borderPane.setCenter(middleTable);
-        borderPane.setRight(rightTable);
+        borderPane.setCenter(middlePane);
+        // borderPane.setCenter(middleTable);
+        // borderPane.setRight(rightTable);
         borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);

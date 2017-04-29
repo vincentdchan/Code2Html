@@ -192,7 +192,7 @@ public class Main extends Application {
      * @param event
      */
     private void handleFileItemChecked(CheckBox checkBox, FileItem fileItem, Event event) {
-        fileItem.setChecked(true);
+        fileItem.setChecked(!checkBox.isSelected());
         if (dataRight == null) {
             dataRight = FXCollections.observableArrayList();
             rightTable.setItems(dataRight);

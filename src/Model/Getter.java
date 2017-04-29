@@ -6,16 +6,17 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ZMYang on 2017/4/1.
  */
 public class Getter implements IResultGetter {
-    ArrayList<File> arrayList;
+    List<File> arrayList;
     private String fileName;
     private String filePath;
 
-    public Getter(ArrayList<File> arrayList, String fileName, String filePath) {
+    public Getter(List<File> arrayList, String fileName, String filePath) {
         this.arrayList = arrayList;
         this.fileName = fileName;
         this.filePath = filePath;

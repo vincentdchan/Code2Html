@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -112,10 +113,14 @@ public class Actions {
         });
     }
 
-    public static void codeAction(Button button, ArrayList<File> arrayList, String filePath) {
+    public static void codeAction(Button button, List<FileItem> fileItemList, String filePath) {
+        ArrayList<File> fileList = new ArrayList<>();
+        for (FileItem fileItem : fileItemList) {
+            fileList.add(fileItem.getFile());
+        }
         button.setOnAction(e -> {
 //            System.out.println(filePath);
-            if (arrayList.size() == 0) {
+            if (fileItemList.size() == 0) {
                 Alert alert = new Alert(Alert.AlertType.NONE, "请选定要转换的文件!", ButtonType.OK);
                 alert.setTitle("通知");
                 alert.showAndWait();
@@ -132,8 +137,7 @@ public class Actions {
 //                    renameList.get(l).set
 //                }
 //            }
-            for (int i = 0; i < arrayList.size(); i++) {
-                File file = arrayList.get(i);
+            for (File file : fileList) {
                 try {
                     String content = new String(
                             Files.readAllBytes(Paths.get(file.getAbsolutePath()))
@@ -141,7 +145,7 @@ public class Actions {
                     Configuration config = new Configuration();
                     Java2Html converter = new Java2Html();
                     converter.set_config(config);
-                    converter.addGetter(new Getter(arrayList, arrayList.get(i).getName(), filePath));
+                    converter.addGetter(new Getter(fileList, file.getName(), filePath));
                     converter.convert(file.getName(), content);
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -149,7 +153,7 @@ public class Actions {
                     e2.printStackTrace();
                 }
             }
-            WebShow.happen(arrayList, filePath);
+            // WebShow.happen(arrayList, filePath);
         });
     }
 

@@ -33,13 +33,14 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WebShow extends Application {
 
-    private static ArrayList<File> Code2Html;
+    private static List<File> Code2Html;
     private static String FilePath;
 
-    public static void happen(ArrayList<File> arrayList, String filePath) {
+    public static void happen(List<File> arrayList, String filePath) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {

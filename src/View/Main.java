@@ -31,7 +31,6 @@ public class Main extends Application {
     private TextField currentPathTextField;
     private File srcPathFile;
     private BorderPane borderPane;
-    private ArrayList<File> Code2HtmlFile;
     private ComboBox<String> showFileKindComboBox;
     private TableView<FileItem> middleTable;
     private TableView<FileItem> rightTable;
@@ -43,7 +42,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         srcPathFile = new File("file");
-        Code2HtmlFile = new ArrayList<>();
         // ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
@@ -316,12 +314,12 @@ public class Main extends Application {
             File file = directoryChooser.showDialog(primaryStage);
             if (file != null) {
                 showFilePath.setText(file.getAbsolutePath());
-                Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
+                btStartCode.setOnAction(new ConvertActionHandler(this, showFilePath.getText()));
             }
         });
 
         Label fileKind = new Label("Kind :");
-        Actions.codeAction(btStartCode, Code2HtmlFile, showFilePath.getText());
+        btStartCode.setOnAction(new ConvertActionHandler(this, showFilePath.getText()));
 //        btStartCode.setDefaultButton(true);
         showFileKindComboBox = new ComboBox<>();
         showFileKindComboBox.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
@@ -336,6 +334,14 @@ public class Main extends Application {
 
         result.getChildren().add(bottomPane);
         return result;
+    }
+
+    public ObservableList<FileItem> getDataMiddle() {
+        return dataMiddle;
+    }
+
+    public ObservableList<FileItem> getDataRight() {
+        return dataRight;
     }
 
 }

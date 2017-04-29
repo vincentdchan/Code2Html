@@ -21,6 +21,7 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -242,8 +243,17 @@ public class Main extends Application {
         menuBar.getMenus().addAll(menuFile, menuHelp);
 
         HBox buttonBars = new HBox();
-        Button openBtn = new Button("Open Folder");
-        Button settingBtn = new Button("Setting");
+        ImageView openImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-folder-open.png"));
+        Button openBtn = new Button();
+        openImgView.setFitHeight(36);
+        openImgView.setFitWidth(36);
+        openBtn.setGraphic(openImgView);
+
+        ImageView settingImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-gear.png"));
+        settingImgView.setFitWidth(36);
+        settingImgView.setFitHeight(36);
+        Button settingBtn = new Button();
+        settingBtn.setGraphic(settingImgView);
         buttonBars.getChildren().addAll(openBtn, settingBtn);
 
         // Binding events

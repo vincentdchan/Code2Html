@@ -1,5 +1,7 @@
 package View;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.Button;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -17,7 +19,7 @@ public class FileItem {
     private String lastModified;
     private String length;
     private String type;
-    private Button btChoose;
+    private BooleanProperty check;
     private String path;
     private File basePath;
 
@@ -27,6 +29,8 @@ public class FileItem {
         fileName = file.getName();
 
         path = file.getAbsolutePath();
+        check = new SimpleBooleanProperty();
+        check.setValue(false);
 
         SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date = new Date(file.lastModified());
@@ -51,6 +55,18 @@ public class FileItem {
 
     }
 
+    public boolean isChecked() {
+        return check.get();
+    }
+
+    public BooleanProperty isCheckedProperty() {
+        return check;
+    }
+
+    public void setChecked(boolean checked) {
+        check.setValue(checked);
+    }
+
     public String getPath() {
         String baseStr = basePath.getAbsolutePath();
         return path.replaceFirst(Pattern.quote(baseStr), "");
@@ -66,14 +82,6 @@ public class FileItem {
 
     public void setFile(File file) {
         this.file = file;
-    }
-
-    public Button getBtChoose() {
-        return btChoose;
-    }
-
-    public void setBtChoose(Button btChoose) {
-        this.btChoose = btChoose;
     }
 
     public void setFileName(String fileName) {

@@ -4,17 +4,21 @@ import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,8 +34,10 @@ public class Main extends Application {
     private ArrayList<File> Code2HtmlFile;
     private ComboBox<String> showFileKindComboBox;
     private TableView<FileItem> middleTable;
+    private TableView<FileItem> rightTable;
 
     private ObservableList<FileItem> dataMiddle;
+    private ObservableList<FileItem> dataRight;
     private File searchingPath;
 
     @Override
@@ -55,23 +61,55 @@ public class Main extends Application {
         // topPane.setRight(_null);
 
         middleTable = new TableView<>();
-        TableColumn tableName = new TableColumn("FileName");
+        middleTable.setEditable(true);
+        TableColumn<FileItem, Boolean> tableCheck = new TableColumn("Check");
+        tableCheck.setCellValueFactory(new PropertyValueFactory<>("checked"));
+        TableColumn<FileItem, String> tableName = new TableColumn("FileName");
         tableName.setCellValueFactory(new PropertyValueFactory<>("fileName"));
-        TableColumn tableDate = new TableColumn("LastModified");
+        TableColumn<FileItem, String> tableDate = new TableColumn("LastModified");
         tableDate.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
-        TableColumn tableLength = new TableColumn("Length");
+        TableColumn<FileItem, String> tableLength = new TableColumn("Length");
         tableLength.setCellValueFactory(new PropertyValueFactory<>("length"));
-        TableColumn tableType = new TableColumn("Type");
+        TableColumn<FileItem, String> tableType = new TableColumn("Type");
         tableType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        TableColumn tablePath = new TableColumn("Path");
+        TableColumn<FileItem, String> tablePath = new TableColumn("Path");
         tablePath.setCellValueFactory(new PropertyValueFactory<>("path"));
-        TableColumn tableBottom = new TableColumn("isChoose");
-        tableBottom.setCellValueFactory(new PropertyValueFactory<>("btChoose"));
+        tableCheck.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableName.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableDate.prefWidthProperty().bind(borderPane.widthProperty().divide(8.3));
         tableLength.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
         tableType.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
-        tableBottom.prefWidthProperty().bind(borderPane.widthProperty().divide(8));
+
+        tableCheck.setCellFactory(p -> {
+            CheckBox checkBox = new CheckBox();
+            TableCell<FileItem, Boolean> tableCell = new TableCell<FileItem, Boolean>() {
+
+                @Override
+                protected void updateItem(Boolean item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (empty || item == null)
+                        setGraphic(null);
+                    else {
+                        setGraphic(checkBox);
+                        checkBox.setSelected(item);
+                    }
+                }
+
+            };
+            checkBox.addEventFilter(MouseEvent.MOUSE_PRESSED, (event) -> {
+                handleFileItemChecked(checkBox, (FileItem)tableCell.getTableRow().getItem(), event);
+            });
+
+            checkBox.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+                handleFileItemChecked(checkBox, (FileItem)tableCell.getTableRow().getItem(), event);
+            });
+
+            tableCell.setAlignment(Pos.CENTER);
+            tableCell.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+            return tableCell;
+        });
+        tableCheck.setEditable(true);
+        tableCheck.setMaxWidth(50);
 
 //        tableName.setPrefWidth(195);
 //        tableDate.setPrefWidth(195);
@@ -80,20 +118,20 @@ public class Main extends Application {
 //        tableBottom.setPrefWidth(91);
 
 
-        middleTable.getColumns().addAll(tableName,
+        middleTable.getColumns().addAll(tableCheck,
+                tableName,
                 tableDate,
                 tableLength,
                 tablePath,
-                tableType,
-                tableBottom);
+                tableType);
 
         StackPane rightPane = new StackPane();
-        TableView<MyFile> rightTable = new TableView<>();
-        TableColumn chooseFile = new TableColumn("ChoosedFile");
-        chooseFile.setPrefWidth(195);
-        chooseFile.setCellValueFactory(new PropertyValueFactory<>("choosedFile"));
-        TableColumn isCancel = new TableColumn("isCancel");
-        isCancel.setCellValueFactory(new PropertyValueFactory<>("btCancel"));
+        rightTable = new TableView<>();
+        TableColumn chooseFile = new TableColumn("File Name");
+        chooseFile.setPrefWidth(150);
+        chooseFile.setCellValueFactory(new PropertyValueFactory<>("fileName"));
+        TableColumn isCancel = new TableColumn("Path");
+        isCancel.setCellValueFactory(new PropertyValueFactory<>("path"));
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
 
@@ -129,10 +167,6 @@ public class Main extends Application {
 
         // TreeView<Button> tree = new TreeView<>(rootItem);
 
-//        WebView browser = new WebView();
-//        WebEngine webEngine = browser.getEngine();
-//        webEngine.load("http://www.baidu.com");
-
         // borderPane.setLeft(tree);
         borderPane.setTop(topPane);
         borderPane.setCenter(middleTable);
@@ -149,6 +183,29 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("file:///../image/2.jpg"));
 
         primaryStage.show();
+    }
+
+    /**
+     * Check if the list contains value
+     * clear it if it contains value
+     * if it's null, then create one.
+     * @param checkBox
+     * @param fileItem
+     * @param event
+     */
+    private void handleFileItemChecked(CheckBox checkBox, FileItem fileItem, Event event) {
+        fileItem.setChecked(true);
+        if (dataRight == null) {
+            dataRight = FXCollections.observableArrayList();
+            rightTable.setItems(dataRight);
+        } else {
+            dataRight.clear();
+        }
+        for (FileItem fileItem1 : dataMiddle) {
+            if (fileItem1.isChecked()) {
+                dataRight.add(fileItem1);
+            }
+        }
     }
 
     /**
@@ -239,11 +296,14 @@ public class Main extends Application {
     }
 
     private Pane generateBottomPane(Stage primaryStage) {
+        VBox result = new VBox();
+        result.setAlignment(Pos.CENTER);
+        result.setMaxHeight(Double.MAX_VALUE);
+        result.setMaxWidth(Double.MAX_VALUE);
+        result.setPadding(new Insets(5, 16,5, 16));
+
         GridPane bottomPane = new GridPane();
-//        bottomPane.setGridLinesVisible(true);
-        // bottomPane.setPadding(new Insets(5, 0, 5, 250));
-        // bottomPane.setHgap(25);
-        // bottomPane.setVgap(10);
+        bottomPane.setAlignment(Pos.CENTER);
         Label filePath = new Label("Path :");
         TextField showFilePath = new TextField();
         showFilePath.setText(srcPathFile.getAbsolutePath());
@@ -274,7 +334,8 @@ public class Main extends Application {
         bottomPane.add(showFileKindComboBox, 1, 1);
         bottomPane.add(btStartCode, 2, 1);
 
-        return bottomPane;
+        result.getChildren().add(bottomPane);
+        return result;
     }
 
 }

@@ -314,7 +314,7 @@ public class WebShow extends Application {
         borderPane.setLeft(leftPane);
         borderPane.setTop(topPane);
 
-        Scene scene = new Scene(borderPane, 1280, 960);
+        Scene scene = new Scene(borderPane, 800, 600);
         primaryStage.setScene(scene);
         scene.setFill(null);
 

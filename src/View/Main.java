@@ -1,5 +1,6 @@
 package View;
 
+import Model.TreeFileItem;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -33,7 +35,8 @@ public class Main extends Application {
     private File srcPathFile;
     private BorderPane borderPane;
     private ComboBox<String> showFileKindComboBox;
-    private TableView<FileItem> middleTable;
+    // private TableView<FileItem> middleTable;
+    private FileTreeControl middleTreeView;
     private TableView<FileItem> rightTable;
 
     private ObservableList<FileItem> dataMiddle;
@@ -59,6 +62,9 @@ public class Main extends Application {
         // topPane.setBottom(currentPath);
         // topPane.setRight(_null);
 
+        middleTreeView = new FileTreeControl();
+
+        /*
         middleTable = new TableView<>();
         middleTable.setEditable(true);
         TableColumn<FileItem, Boolean> tableCheck = new TableColumn("Check");
@@ -123,6 +129,7 @@ public class Main extends Application {
                 tableLength,
                 tablePath,
                 tableType);
+                */
 
         StackPane rightPane = new StackPane();
         rightTable = new TableView<>();
@@ -166,7 +173,7 @@ public class Main extends Application {
 
         // TreeView<Button> tree = new TreeView<>(rootItem);
 
-        SplitPane middlePane = new SplitPane(middleTable, rightTable);
+        SplitPane middlePane = new SplitPane(middleTreeView, rightTable);
         middlePane.setDividerPosition(0, 0.7);
         // borderPane.setLeft(tree);
         borderPane.setTop(topPane);
@@ -250,14 +257,31 @@ public class Main extends Application {
         Button openBtn = new Button();
         openImgView.setFitHeight(36);
         openImgView.setFitWidth(36);
+        openBtn.setTooltip(new Tooltip("Open directory"));
         openBtn.setGraphic(openImgView);
+
+        ImageView convertImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-triangle-right.png"));
+        convertImgView.setFitHeight(36);
+        convertImgView.setFitWidth(36);
+        Button convertBtn = new Button();
+        convertBtn.setTooltip(new Tooltip("Begin Convert"));
+        convertBtn.setGraphic(convertImgView);
+
+        ImageView previewImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-view.png"));
+        previewImgView.setFitWidth(36);
+        previewImgView.setFitHeight(36);
+        Button previewBtn = new Button();
+        previewBtn.setTooltip(new Tooltip("Preview"));
+        previewBtn.setGraphic(previewImgView);
 
         ImageView settingImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-gear.png"));
         settingImgView.setFitWidth(36);
         settingImgView.setFitHeight(36);
         Button settingBtn = new Button();
+        settingBtn.setTooltip(new Tooltip("Setting"));
         settingBtn.setGraphic(settingImgView);
-        buttonBars.getChildren().addAll(openBtn, settingBtn);
+
+        buttonBars.getChildren().addAll(openBtn, convertBtn, previewBtn, settingBtn);
 
         // Binding events
         openBtn.setOnAction(e -> {
@@ -282,9 +306,10 @@ public class Main extends Application {
             currentPathTextField.setText(selectedDirecotry.getAbsolutePath());
 
             // clear the data and search again
-            dataMiddle = FXCollections.observableArrayList();
-            searchDirectory(selectedDirecotry);
-            middleTable.setItems(dataMiddle);
+            // dataMiddle = FXCollections.observableArrayList();
+            // searchDirectory(selectedDirecotry);
+            // middleTable.setItems(dataMiddle);
+            middleTreeView.setRootFileItem(new TreeFileItem(selectedDirecotry, new String[]{".c", ".java", ".h"}));
         }
     }
 

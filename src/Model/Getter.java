@@ -1,11 +1,6 @@
 package Model;
 
-import View.WebShow;
-import javafx.application.Platform;
-import javafx.stage.Stage;
-
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

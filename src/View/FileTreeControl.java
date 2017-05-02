@@ -88,7 +88,7 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
         */
     }
 
-    private final class MyTreeItem extends CheckBoxTreeItem<TreeFileItem> {
+    public final class MyTreeItem extends CheckBoxTreeItem<TreeFileItem> {
 
         public MyTreeItem(TreeFileItem treeFileItem) {
             super(treeFileItem);

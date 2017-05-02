@@ -60,7 +60,7 @@ public class ConvertActionHandler implements EventHandler<ActionEvent> {
                 e2.printStackTrace();
             }
         }
-        WebShow.happen(fileList, filePath);
+        // WebShow.happen(fileList, filePath);
     }
 
 }

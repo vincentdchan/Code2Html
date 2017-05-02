@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * Created by duzhong on 17-3-4.
@@ -33,7 +34,7 @@ public final class Java2Html {
             if (!child.isFile()) continue;
             String filename = child.getName();
             if (!filename.endsWith(".css")) continue;
-            String[] slices = filename.split(".");
+            String[] slices = filename.split(Pattern.quote("."));
             result.add(slices[0]);
         }
         return result.toArray(new String[result.size()]);

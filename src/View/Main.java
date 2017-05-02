@@ -1,5 +1,7 @@
 package View;
 
+import Model.Configuration;
+import Model.Java2Html;
 import Model.TreeFileItem;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -14,22 +16,22 @@ import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public static int TitleBarIconSize = 24;
 
     private TextField currentPathTextField;
     private File srcPathFile;
@@ -38,13 +40,20 @@ public class Main extends Application {
     // private TableView<FileItem> middleTable;
     private FileTreeControl middleTreeView;
     private TableView<FileItem> rightTable;
+    private WebView previewWebView;
 
     private ObservableList<FileItem> dataMiddle;
     private ObservableList<FileItem> dataRight;
     private File searchingPath;
 
+    private TreeFileItem previewFileItem;
+
+    private Configuration config;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        config = new Configuration();
+
         srcPathFile = new File("file");
         // ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
 //        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
@@ -56,80 +65,14 @@ public class Main extends Application {
         Pane topPane = generateTopPane(primaryStage);
         Pane bottomPane = generateBottomPane(primaryStage);
 
-        // topPane.setLeft(labelCurrentPath);
-        // topPane.setTop(menuBar);
-        // topPane.setCenter(buttonsPaneBar);
-        // topPane.setBottom(currentPath);
-        // topPane.setRight(_null);
-
         middleTreeView = new FileTreeControl();
-
-        /*
-        middleTable = new TableView<>();
-        middleTable.setEditable(true);
-        TableColumn<FileItem, Boolean> tableCheck = new TableColumn("Check");
-        tableCheck.setCellValueFactory(new PropertyValueFactory<>("checked"));
-        TableColumn<FileItem, String> tableName = new TableColumn("FileName");
-        tableName.setCellValueFactory(new PropertyValueFactory<>("fileName"));
-        TableColumn<FileItem, String> tableDate = new TableColumn("LastModified");
-        tableDate.setCellValueFactory(new PropertyValueFactory<>("lastModified"));
-        TableColumn<FileItem, String> tableLength = new TableColumn("Length");
-        tableLength.setCellValueFactory(new PropertyValueFactory<>("length"));
-        TableColumn<FileItem, String> tableType = new TableColumn("Type");
-        tableType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        TableColumn<FileItem, String> tablePath = new TableColumn("Path");
-        tablePath.setCellValueFactory(new PropertyValueFactory<>("path"));
-        tableCheck.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
-        tableName.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
-        tableDate.prefWidthProperty().bind(borderPane.widthProperty().divide(8.3));
-        tableLength.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
-        tableType.prefWidthProperty().bind(borderPane.widthProperty().divide(8.5));
-
-        tableCheck.setCellFactory(p -> {
-            CheckBox checkBox = new CheckBox();
-            TableCell<FileItem, Boolean> tableCell = new TableCell<FileItem, Boolean>() {
-
-                @Override
-                protected void updateItem(Boolean item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty || item == null)
-                        setGraphic(null);
-                    else {
-                        setGraphic(checkBox);
-                        checkBox.setSelected(item);
-                    }
-                }
-
-            };
-            checkBox.addEventFilter(MouseEvent.MOUSE_PRESSED, (event) -> {
-                handleFileItemChecked(checkBox, (FileItem)tableCell.getTableRow().getItem(), event);
-            });
-
-            checkBox.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
-                handleFileItemChecked(checkBox, (FileItem)tableCell.getTableRow().getItem(), event);
-            });
-
-            tableCell.setAlignment(Pos.CENTER);
-            tableCell.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-            return tableCell;
+        middleTreeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            FileTreeControl.MyTreeItem item = (FileTreeControl.MyTreeItem)newVal;
+            if (!item.getValue().isDirectory()) {
+                previewFileItem = item.getValue();
+                refreshPreview();
+            }
         });
-        tableCheck.setEditable(true);
-        tableCheck.setMaxWidth(50);
-
-//        tableName.setPrefWidth(195);
-//        tableDate.setPrefWidth(195);
-//        tableLength.setPrefWidth(150);
-//        tableType.setPrefWidth(150);
-//        tableBottom.setPrefWidth(91);
-
-
-        middleTable.getColumns().addAll(tableCheck,
-                tableName,
-                tableDate,
-                tableLength,
-                tablePath,
-                tableType);
-                */
 
         StackPane rightPane = new StackPane();
         rightTable = new TableView<>();
@@ -141,45 +84,14 @@ public class Main extends Application {
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
 
-        /*
-        Button computer = new Button(new File(System.getenv("COMPUTERNAME")).getName());
-        computer.setStyle("-fx-background-color:null");
-        computer.setOnMouseEntered(e -> {
-            computer.setStyle("-fx-background-color:lightblue");
-        });
-        computer.setOnMouseExited(e -> {
-            computer.setStyle("-fx-background-color:null");
-        });
-        // TreeItem<Button> rootItem = new TreeItem<>(computer, new ImageView(new Image("file:///../image/MyComputer.png")));
-        computer.setOnAction(e -> {
-            rootItem.setExpanded(true);
-        });
+        VBox rightLayout = new VBox();
+        previewWebView = new WebView();
+        rightLayout.getChildren().addAll(generatePreviewToolbar(), previewWebView);
 
-        for (File file : File.listRoots()) {
-            Button button = new Button(file.getPath() + "                              ", new ImageView(new Image("file:///../image/Disk.png")));
-            button.setStyle("-fx-background-color:null");
-            button.setOnMouseEntered(e -> {
-                button.setStyle("-fx-background-color:lightblue");
-            });
-            button.setOnMouseExited(e -> {
-                button.setStyle("-fx-background-color:null");
-            });
-            TreeItem<Button> root = new TreeItem<>(button);
-            rootItem.getChildren().add(root);
-            Actions.clickAction(button, root, file, table, Code2HtmlFile, showFileKind, currentPath, rightTable, dataRight, dataMiddle);
-        }
-        rootItem.setExpanded(true);
-        */
-
-        // TreeView<Button> tree = new TreeView<>(rootItem);
-
-        SplitPane middlePane = new SplitPane(middleTreeView, rightTable);
-        middlePane.setDividerPosition(0, 0.7);
-        // borderPane.setLeft(tree);
+        SplitPane middlePane = new SplitPane(middleTreeView, rightLayout);
+        middlePane.setDividerPosition(0, 0.3);
         borderPane.setTop(topPane);
         borderPane.setCenter(middlePane);
-        // borderPane.setCenter(middleTable);
-        // borderPane.setRight(rightTable);
         borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);
@@ -192,6 +104,30 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("file:///../image/2.jpg"));
 
         primaryStage.show();
+    }
+
+    private void refreshPreview() {
+        if (previewFileItem == null) return;
+        Java2Html j2h = new Java2Html();
+        j2h.set_config(config);
+        j2h.addGetter((String reseult) -> {
+            previewWebView.getEngine().loadContent(reseult);
+        });
+        File file = previewFileItem.getBaseFile();
+        try {
+            j2h.convert(file.getName(), new String(
+                    Files.readAllBytes(
+                            Paths.get(file.getAbsolutePath()))));
+        } catch (IOException ioexcp) {
+            ioexcp.printStackTrace();
+        } catch (Exception fuck) {
+            fuck.printStackTrace();
+        }
+    }
+
+    private void preview(TreeFileItem treeFileItem) {
+        previewFileItem = treeFileItem;
+        refreshPreview();
     }
 
     /**
@@ -215,6 +151,48 @@ public class Main extends Application {
                 dataRight.add(fileItem1);
             }
         }
+    }
+
+    private Pane generatePreviewToolbar() {
+        HBox result = new HBox();
+
+        Label themeSelectorLabel = new Label("Theme:");
+        String[] stylesList = Java2Html.getStylesNameList();
+        ComboBox<String> themeSelector = new ComboBox<String>(
+                FXCollections.observableArrayList(stylesList)
+        );
+        themeSelector.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            config.set_styleName(newVal);
+            refreshPreview();
+        });
+        themeSelector.setValue(config.get_styleName());
+
+        Label showLineNumberLabel = new Label("Show Line Number:");
+        CheckBox showLineNumberCheckBox = new CheckBox();
+        showLineNumberCheckBox.setSelected(true);
+        showLineNumberCheckBox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            config.set_showLineNumber(newVal);
+            refreshPreview();
+        });
+
+        Label fontSizeLabel = new Label("Font size:");
+        TextField fontSizeTextField = new TextField(Integer.toString(config.get_fontSize()));
+        fontSizeTextField.setPrefWidth(36);
+        fontSizeTextField.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal.length() == 0) return;
+            int value = Integer.parseInt(newVal);
+            if (value >= 8 && value <= 48) {
+                System.out.println(value);
+                config.set_fontSize(value);
+                refreshPreview();
+            }
+        });
+
+        result.getChildren().addAll(themeSelectorLabel, themeSelector,
+                showLineNumberLabel, showLineNumberCheckBox,
+                fontSizeLabel, fontSizeTextField);
+
+        return result;
     }
 
     /**
@@ -255,28 +233,28 @@ public class Main extends Application {
         HBox buttonBars = new HBox();
         ImageView openImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-folder-open.png"));
         Button openBtn = new Button();
-        openImgView.setFitHeight(36);
-        openImgView.setFitWidth(36);
+        openImgView.setFitHeight(TitleBarIconSize);
+        openImgView.setFitWidth(TitleBarIconSize);
         openBtn.setTooltip(new Tooltip("Open directory"));
         openBtn.setGraphic(openImgView);
 
         ImageView convertImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-triangle-right.png"));
-        convertImgView.setFitHeight(36);
-        convertImgView.setFitWidth(36);
+        convertImgView.setFitHeight(TitleBarIconSize);
+        convertImgView.setFitWidth(TitleBarIconSize);
         Button convertBtn = new Button();
         convertBtn.setTooltip(new Tooltip("Begin Convert"));
         convertBtn.setGraphic(convertImgView);
 
         ImageView previewImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-view.png"));
-        previewImgView.setFitWidth(36);
-        previewImgView.setFitHeight(36);
+        previewImgView.setFitWidth(TitleBarIconSize);
+        previewImgView.setFitHeight(TitleBarIconSize);
         Button previewBtn = new Button();
         previewBtn.setTooltip(new Tooltip("Preview"));
         previewBtn.setGraphic(previewImgView);
 
         ImageView settingImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-gear.png"));
-        settingImgView.setFitWidth(36);
-        settingImgView.setFitHeight(36);
+        settingImgView.setFitWidth(TitleBarIconSize);
+        settingImgView.setFitHeight(TitleBarIconSize);
         Button settingBtn = new Button();
         settingBtn.setTooltip(new Tooltip("Setting"));
         settingBtn.setGraphic(settingImgView);

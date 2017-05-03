@@ -33,9 +33,18 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
         setCellFactory(CheckBoxTreeCell.<TreeFileItem>forTreeView());
     }
 
-    public void expandAll() {
+    /**
+     *
+     * @return true if expand successfully
+     */
+    public boolean expandAll() {
         MyTreeItem myTreeItem = (MyTreeItem)getRoot();
-        expandAll(myTreeItem);
+        if (myTreeItem != null) {
+            expandAll(myTreeItem);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void expandAll(MyTreeItem myTreeItem) {
@@ -45,9 +54,18 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
         }
     }
 
-    public void collapseAll() {
+    /**
+     *
+     * @return true if collapse successfully
+     */
+    public boolean collapseAll() {
         MyTreeItem myTreeItem = (MyTreeItem)getRoot();
-        collapseAll(myTreeItem);
+        if (myTreeItem != null) {
+            collapseAll(myTreeItem);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private void collapseAll(MyTreeItem myTreeItem) {

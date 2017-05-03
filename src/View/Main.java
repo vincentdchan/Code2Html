@@ -34,6 +34,7 @@ public class Main extends Application {
     public static int TitleBarIconSize = 24;
 
     private TextField currentPathTextField;
+    private TextField targetPathTextField;
     private File srcPathFile;
     private BorderPane borderPane;
     private ComboBox<String> showFileKindComboBox;
@@ -63,7 +64,7 @@ public class Main extends Application {
 
         borderPane = new BorderPane();
         Pane topPane = generateTopPane(primaryStage);
-        Pane bottomPane = generateBottomPane(primaryStage);
+        // Pane bottomPane = generateBottomPane(primaryStage);
 
         middleTreeView = new FileTreeControl();
         middleTreeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
@@ -92,7 +93,7 @@ public class Main extends Application {
         middlePane.setDividerPosition(0, 0.3);
         borderPane.setTop(topPane);
         borderPane.setCenter(middlePane);
-        borderPane.setBottom(bottomPane);
+        // borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);
 
@@ -254,13 +255,29 @@ public class Main extends Application {
             handleOpenDirectory(primaryStage);
         });
 
-        HBox pathDisplayer = new HBox();
-        Label labelCurrentPath = new Label("CurrentPath:");
+        BorderPane pathDisplayer = new BorderPane();
+        Label labelCurrentPath = new Label("Current Path:");
         currentPathTextField = new TextField();
         currentPathTextField.setDisable(true);
-        pathDisplayer.getChildren().addAll(labelCurrentPath, currentPathTextField);
+        // pathDisplayer.getChildren().addAll(labelCurrentPath, currentPathTextField);
+        pathDisplayer.setLeft(labelCurrentPath);
+        pathDisplayer.setCenter(currentPathTextField);
 
-        result.getChildren().addAll(buttonBars, pathDisplayer);
+        BorderPane targetPathPane = new BorderPane();
+        Label targetPathLabel = new Label("Target Path:");
+        targetPathTextField = new TextField();
+        targetPathTextField.setEditable(true);
+        Button openTargetPathBtn = new Button("Open");
+        targetPathPane.setLeft(targetPathLabel);
+        targetPathPane.setCenter(targetPathTextField);
+        targetPathPane.setRight(openTargetPathBtn);
+
+        File currentPath = new File("file");
+        targetPathTextField.textProperty().setValue(currentPath.getAbsolutePath());
+
+        result.getChildren().addAll(buttonBars,
+                pathDisplayer,
+                targetPathPane);
         return result;
     }
 

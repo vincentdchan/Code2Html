@@ -119,7 +119,7 @@ public class Main extends Application {
         try {
             j2h.convert(file.getName(), new String(
                     Files.readAllBytes(
-                            Paths.get(file.getAbsolutePath()))));
+                            Paths.get(file.getAbsolutePath())), "utf8"));
         } catch (IOException ioexcp) {
             ioexcp.printStackTrace();
         } catch (Exception fuck) {

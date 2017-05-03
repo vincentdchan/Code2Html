@@ -18,6 +18,7 @@ import javafx.scene.layout.*;
 import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.tools.Tool;
 import java.io.File;
@@ -34,6 +35,7 @@ public class Main extends Application {
 
     public static int TitleBarIconSize = 24;
     public static int ToolbarIconSize = 12;
+    public static String[] FileFilters = {".c", ".java", ".h"};
 
     private TextField currentPathTextField;
     private TextField targetPathTextField;
@@ -95,7 +97,7 @@ public class Main extends Application {
         Scene scene = new Scene(backpane, 800, 600);
         primaryStage.setScene(scene);
         scene.setFill(null);
-        // scene.getStylesheets().add("styles/test.css");
+        scene.getStylesheets().add("/resources/ui.css");
 
         //窗口图标
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/2.jpg")));
@@ -113,6 +115,7 @@ public class Main extends Application {
         expandIM.setFitWidth(ToolbarIconSize);
         expandIM.setFitHeight(ToolbarIconSize);
         Button expandAllBtn = new Button();
+        expandAllBtn.setOnAction(event -> treeView.expandAll());
         expandAllBtn.setGraphic(expandIM);
         expandAllBtn.setTooltip(new Tooltip("Expand All"));
 
@@ -121,6 +124,7 @@ public class Main extends Application {
         collapseIM.setFitHeight(ToolbarIconSize);
         collapseIM.setFitWidth(ToolbarIconSize);
         Button collapseAllBtn = new Button();
+        collapseAllBtn.setOnAction(event -> treeView.collapseAll());
         collapseAllBtn.setGraphic(collapseIM);
         collapseAllBtn.setTooltip(new Tooltip("Collapse All"));
 
@@ -129,6 +133,12 @@ public class Main extends Application {
         refreshIM.setFitHeight(ToolbarIconSize);
         refreshIM.setFitWidth(ToolbarIconSize);
         Button refreshBtn = new Button();
+        refreshBtn.setOnAction(event -> {
+            if (treeView.getRoot() != null) {
+                TreeFileItem treeItem = treeView.getRoot().getValue();
+                treeView.setRootFileItem(new TreeFileItem(treeItem.getBaseFile(), FileFilters));
+            }
+        });
         refreshBtn.setGraphic(refreshIM);
         refreshBtn.setTooltip(new Tooltip("Refresh"));
         toolbar.getChildren().addAll(expandAllBtn, collapseAllBtn, refreshBtn);
@@ -211,6 +221,7 @@ public class Main extends Application {
         HBox result = new HBox();
 
         Label themeSelectorLabel = new Label("Theme:");
+        themeSelectorLabel.setPadding(new Insets(2, 3, 2, 3));
         ComboBox<String> themeSelector = new ComboBox<String>(
                 FXCollections.observableArrayList(StyleFileList.names)
         );
@@ -221,6 +232,7 @@ public class Main extends Application {
         themeSelector.setValue(config.get_styleName());
 
         Label showLineNumberLabel = new Label("Show Line Number:");
+        showLineNumberLabel.setPadding(new Insets(2, 3, 2, 3));
         CheckBox showLineNumberCheckBox = new CheckBox();
         showLineNumberCheckBox.setSelected(true);
         showLineNumberCheckBox.selectedProperty().addListener((obs, oldVal, newVal) -> {
@@ -229,6 +241,7 @@ public class Main extends Application {
         });
 
         Label fontSizeLabel = new Label("Font size:");
+        fontSizeLabel.setPadding(new Insets(2, 3, 2, 3));
         TextField fontSizeTextField = new TextField(Integer.toString(config.get_fontSize()));
         fontSizeTextField.setPrefWidth(36);
         fontSizeTextField.textProperty().addListener((obs, oldVal, newVal) -> {
@@ -353,10 +366,7 @@ public class Main extends Application {
             currentPathTextField.setText(selectedDirecotry.getAbsolutePath());
 
             // clear the data and search again
-            // dataMiddle = FXCollections.observableArrayList();
-            // searchDirectory(selectedDirecotry);
-            // middleTable.setItems(dataMiddle);
-            treeView.setRootFileItem(new TreeFileItem(selectedDirecotry, new String[]{".c", ".java", ".h"}));
+            treeView.setRootFileItem(new TreeFileItem(selectedDirecotry, FileFilters));
         }
     }
 

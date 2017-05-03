@@ -30,20 +30,31 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
 
         loadResources();
         setEditable(false);
-        /*
-        setCellFactory(new Callback<TreeView<TreeFileItem>, TreeCell<TreeFileItem>>() {
-            @Override
-            public TreeCell<TreeFileItem> call(TreeView<TreeFileItem> param) {
-                MyTreeCellImpl fuck = new MyTreeCellImpl();
-                fuck.selectedProperty().addListener((obs, oldVal, newVal) -> {
-                    System.out.println("change");
-                    System.out.println(newVal);
-                });
-                return fuck;
-            }
-        });
-        */
         setCellFactory(CheckBoxTreeCell.<TreeFileItem>forTreeView());
+    }
+
+    public void expandAll() {
+        MyTreeItem myTreeItem = (MyTreeItem)getRoot();
+        expandAll(myTreeItem);
+    }
+
+    private void expandAll(MyTreeItem myTreeItem) {
+        myTreeItem.setExpanded(true);
+        for (TreeItem<TreeFileItem> ti: myTreeItem.getChildren()) {
+            expandAll((MyTreeItem)ti);
+        }
+    }
+
+    public void collapseAll() {
+        MyTreeItem myTreeItem = (MyTreeItem)getRoot();
+        collapseAll(myTreeItem);
+    }
+
+    private void collapseAll(MyTreeItem myTreeItem) {
+        myTreeItem.setExpanded(false);
+        for (TreeItem<TreeFileItem> ti: myTreeItem.getChildren()) {
+            collapseAll((MyTreeItem)ti);
+        }
     }
 
     private void loadResources() {

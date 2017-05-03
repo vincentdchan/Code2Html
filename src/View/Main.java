@@ -19,6 +19,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
+import javax.tools.Tool;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -32,6 +33,7 @@ public class Main extends Application {
     }
 
     public static int TitleBarIconSize = 24;
+    public static int ToolbarIconSize = 12;
 
     private TextField currentPathTextField;
     private TextField targetPathTextField;
@@ -39,7 +41,7 @@ public class Main extends Application {
     private BorderPane borderPane;
     private ComboBox<String> showFileKindComboBox;
     // private TableView<FileItem> middleTable;
-    private FileTreeControl middleTreeView;
+    private FileTreeControl treeView;
     private TableView<FileItem> rightTable;
     private WebView previewWebView;
 
@@ -66,17 +68,6 @@ public class Main extends Application {
         Pane topPane = generateTopPane(primaryStage);
         // Pane bottomPane = generateBottomPane(primaryStage);
 
-        middleTreeView = new FileTreeControl();
-        middleTreeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal != null) {
-                FileTreeControl.MyTreeItem item = (FileTreeControl.MyTreeItem)newVal;
-                if (!item.getValue().isDirectory()) {
-                    previewFileItem = item.getValue();
-                    refreshPreview();
-                }
-            }
-        });
-
         StackPane rightPane = new StackPane();
         rightTable = new TableView<>();
         TableColumn chooseFile = new TableColumn("File Name");
@@ -87,11 +78,13 @@ public class Main extends Application {
         rightTable.getColumns().addAll(chooseFile, isCancel);
         rightPane.getChildren().add(rightTable);
 
-        VBox rightLayout = new VBox();
+        BorderPane rightLayout = new BorderPane();
         previewWebView = new WebView();
-        rightLayout.getChildren().addAll(generatePreviewToolbar(), previewWebView);
+        rightLayout.setTop(generatePreviewToolbar());
+        rightLayout.setCenter(previewWebView);
 
-        SplitPane middlePane = new SplitPane(middleTreeView, rightLayout);
+        SplitPane middlePane = new SplitPane(generateLeftPane(primaryStage),
+                rightLayout);
         middlePane.setDividerPosition(0, 0.3);
         borderPane.setTop(topPane);
         borderPane.setCenter(middlePane);
@@ -108,6 +101,52 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/2.jpg")));
 
         primaryStage.show();
+    }
+
+    private Pane generateLeftPane(Stage primaryStage) {
+        BorderPane result = new BorderPane();
+
+        HBox toolbar = new HBox();
+
+        ImageView expandIM = new ImageView(new Image(
+                getClass().getResourceAsStream("/resources/icons/si-glyph-arrow-resize-2.png")));
+        expandIM.setFitWidth(ToolbarIconSize);
+        expandIM.setFitHeight(ToolbarIconSize);
+        Button expandAllBtn = new Button();
+        expandAllBtn.setGraphic(expandIM);
+        expandAllBtn.setTooltip(new Tooltip("Expand All"));
+
+        ImageView collapseIM = new ImageView(new Image(
+                getClass().getResourceAsStream("/resources/icons/si-glyph-arrow-resize-4.png")));
+        collapseIM.setFitHeight(ToolbarIconSize);
+        collapseIM.setFitWidth(ToolbarIconSize);
+        Button collapseAllBtn = new Button();
+        collapseAllBtn.setGraphic(collapseIM);
+        collapseAllBtn.setTooltip(new Tooltip("Collapse All"));
+
+        ImageView refreshIM = new ImageView(new Image(
+                getClass().getResourceAsStream("/resources/icons/si-glyph-arrow-reload.png")));
+        refreshIM.setFitHeight(ToolbarIconSize);
+        refreshIM.setFitWidth(ToolbarIconSize);
+        Button refreshBtn = new Button();
+        refreshBtn.setGraphic(refreshIM);
+        refreshBtn.setTooltip(new Tooltip("Refresh"));
+        toolbar.getChildren().addAll(expandAllBtn, collapseAllBtn, refreshBtn);
+
+        treeView = new FileTreeControl();
+        treeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                FileTreeControl.MyTreeItem item = (FileTreeControl.MyTreeItem)newVal;
+                if (!item.getValue().isDirectory()) {
+                    previewFileItem = item.getValue();
+                    refreshPreview();
+                }
+            }
+        });
+
+        result.setTop(toolbar);
+        result.setCenter(treeView);
+        return result;
     }
 
     private void refreshPreview() {
@@ -317,7 +356,7 @@ public class Main extends Application {
             // dataMiddle = FXCollections.observableArrayList();
             // searchDirectory(selectedDirecotry);
             // middleTable.setItems(dataMiddle);
-            middleTreeView.setRootFileItem(new TreeFileItem(selectedDirecotry, new String[]{".c", ".java", ".h"}));
+            treeView.setRootFileItem(new TreeFileItem(selectedDirecotry, new String[]{".c", ".java", ".h"}));
         }
     }
 

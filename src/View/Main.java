@@ -68,10 +68,12 @@ public class Main extends Application {
 
         middleTreeView = new FileTreeControl();
         middleTreeView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            FileTreeControl.MyTreeItem item = (FileTreeControl.MyTreeItem)newVal;
-            if (!item.getValue().isDirectory()) {
-                previewFileItem = item.getValue();
-                refreshPreview();
+            if (newVal != null) {
+                FileTreeControl.MyTreeItem item = (FileTreeControl.MyTreeItem)newVal;
+                if (!item.getValue().isDirectory()) {
+                    previewFileItem = item.getValue();
+                    refreshPreview();
+                }
             }
         });
 
@@ -122,9 +124,20 @@ public class Main extends Application {
                             Paths.get(file.getAbsolutePath())), "utf8"));
         } catch (IOException ioexcp) {
             ioexcp.printStackTrace();
+            alertException(ioexcp);
         } catch (Exception fuck) {
             fuck.printStackTrace();
+            alertException(fuck);
         }
+    }
+
+    private void alertException(Exception e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("哟，有一个错误出现了");
+        alert.setHeaderText(e.getClass().getName());
+        alert.setContentText(e.getLocalizedMessage());
+
+        alert.show();
     }
 
     private void preview(TreeFileItem treeFileItem) {
@@ -209,13 +222,13 @@ public class Main extends Application {
      * @return The result
      */
     private Pane generateTopPane(Stage primaryStage) {
-        VBox result = new VBox();
+        final VBox result = new VBox();
 
-        HBox buttonBars = new HBox();
+        final HBox buttonBars = new HBox();
         ImageView openImgView = new ImageView(
                 new Image(
                         getClass().getResourceAsStream("/resources/icons/si-glyph-folder-open.png")));
-        Button openBtn = new Button();
+        final Button openBtn = new Button();
         openImgView.setFitHeight(TitleBarIconSize);
         openImgView.setFitWidth(TitleBarIconSize);
         openBtn.setTooltip(new Tooltip("Open directory"));
@@ -255,29 +268,41 @@ public class Main extends Application {
             handleOpenDirectory(primaryStage);
         });
 
-        BorderPane pathDisplayer = new BorderPane();
-        Label labelCurrentPath = new Label("Current Path:");
+        final GridPane infoGrid = new GridPane();
+
+        final Label labelCurrentPath = new Label("Current Path:");
         currentPathTextField = new TextField();
         currentPathTextField.setDisable(true);
-        // pathDisplayer.getChildren().addAll(labelCurrentPath, currentPathTextField);
-        pathDisplayer.setLeft(labelCurrentPath);
-        pathDisplayer.setCenter(currentPathTextField);
 
-        BorderPane targetPathPane = new BorderPane();
-        Label targetPathLabel = new Label("Target Path:");
+        // BorderPane targetPathPane = new BorderPane();
+        final Label targetPathLabel = new Label("Target Path:");
         targetPathTextField = new TextField();
         targetPathTextField.setEditable(true);
         Button openTargetPathBtn = new Button("Open");
-        targetPathPane.setLeft(targetPathLabel);
-        targetPathPane.setCenter(targetPathTextField);
-        targetPathPane.setRight(openTargetPathBtn);
+        BorderPane targetBorderPane = new BorderPane();
+        targetBorderPane.setCenter(targetPathTextField);
+        targetBorderPane.setRight(openTargetPathBtn);
+        openTargetPathBtn.setOnAction((event) -> {
+            DirectoryChooser directoryChooser = new DirectoryChooser();
+            File chooseDirectory = directoryChooser.showDialog(primaryStage);
+            if (chooseDirectory != null) {
+                targetPathTextField.setText(chooseDirectory.getAbsolutePath());
+            }
+        });
+
+        final ColumnConstraints col1 = new ColumnConstraints();
+        final ColumnConstraints col2 = new ColumnConstraints(200, Control.USE_COMPUTED_SIZE, Double.MAX_VALUE);
+        col2.setHgrow(Priority.ALWAYS);
+        infoGrid.getColumnConstraints().addAll(col1, col2);
+        infoGrid.add(labelCurrentPath, 0, 0);
+        infoGrid.add(currentPathTextField, 1, 0);
+        infoGrid.add(targetPathLabel, 0, 1);
+        infoGrid.add(targetBorderPane, 1, 1);
 
         File currentPath = new File("file");
         targetPathTextField.textProperty().setValue(currentPath.getAbsolutePath());
 
-        result.getChildren().addAll(buttonBars,
-                pathDisplayer,
-                targetPathPane);
+        result.getChildren().addAll(buttonBars, infoGrid);
         return result;
     }
 

@@ -17,17 +17,18 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
 
     public static int FileIconSize = 16;
 
-    private Image fileIcon = new Image("file:///../image/1.jpg");
-    private Image javaIcon = new Image("file:///../resources/icons/java.png");
-    private Image cLangIcon = new Image("file:///../resources/icons/c.png");
-    private Image folderIcon = new Image("file:///../resources/icons/folder.png");
-    private Image folderOpenIcon = new Image("file:///../resources/icons/folder-open.png");
+    private Image fileIcon;
+    private Image javaIcon;
+    private Image cLangIcon;
+    private Image folderIcon;
+    private Image folderOpenIcon;
 
     private TreeFileItem treeFileItem;
 
     public FileTreeControl() {
         super();
 
+        loadResources();
         setEditable(false);
         /*
         setCellFactory(new Callback<TreeView<TreeFileItem>, TreeCell<TreeFileItem>>() {
@@ -43,6 +44,14 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
         });
         */
         setCellFactory(CheckBoxTreeCell.<TreeFileItem>forTreeView());
+    }
+
+    private void loadResources() {
+        fileIcon = new Image(getClass().getResourceAsStream("/image/1.jpg"));
+        javaIcon = new Image(getClass().getResourceAsStream("/resources/icons/java.png"));
+        cLangIcon = new Image(getClass().getResourceAsStream("/resources/icons/c.png"));
+        folderIcon = new Image(getClass().getResourceAsStream("/resources/icons/folder.png"));
+        folderOpenIcon = new Image(getClass().getResourceAsStream("/resources/icons/folder-open.png"));
     }
 
     public void setRootFileItem(TreeFileItem treeFileItem) {

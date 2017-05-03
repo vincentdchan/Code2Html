@@ -2,8 +2,9 @@ package Model;
 
 import Model.LangSpec.CLang;
 import Model.LangSpec.JavaLang;
+import sun.misc.IOUtils;
 
-import java.io.File;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -42,24 +43,20 @@ public class Generator {
                 "   font-size: " + _config.get_fontSize() + "px;\n" +
                 "}\n";
 
-        _styleCode += new String(
-                Files.readAllBytes(
-                        Paths.get(_stylePath)));
+        _styleCode += inputStreamToString(getClass().getResourceAsStream(_stylePath));
+        _styleCode += inputStreamToString(getClass().getResourceAsStream("/resources/test.css"));
+    }
 
-        _styleCode += new String(Files.readAllBytes(Paths.get("resources/test.css")));
+    private String inputStreamToString(InputStream input) throws IOException {
+        String result = new String();
+        BufferedReader bf = new BufferedReader(new InputStreamReader(input));
+        for (String line; (line = bf.readLine()) != null; result += line);
+        return result;
     }
 
     private String searchStyleFileByName(String name) {
-        File path = new File("resources/themeCSS");
-        for (File child : path.listFiles()) {
-            if (!child.isFile()) continue;
-            if (child.getName().startsWith(name)) {
-                return child.getAbsolutePath();
-            }
-        }
-        return null;
+        return "/resources/themeCSS/" + name + ".tmTheme.css";
     }
-
 
     /**
      * Generate the code in another thread.

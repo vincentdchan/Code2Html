@@ -6,13 +6,11 @@ import Model.TreeFileItem;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
@@ -23,6 +21,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -99,9 +99,10 @@ public class Main extends Application {
         Scene scene = new Scene(backpane, 800, 600);
         primaryStage.setScene(scene);
         scene.setFill(null);
+        // scene.getStylesheets().add("styles/test.css");
 
         //窗口图标
-        primaryStage.getIcons().add(new Image("file:///../image/2.jpg"));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/2.jpg")));
 
         primaryStage.show();
     }
@@ -153,13 +154,12 @@ public class Main extends Application {
         }
     }
 
-    private Pane generatePreviewToolbar() {
+    private Pane generatePreviewToolbar() throws URISyntaxException {
         HBox result = new HBox();
 
         Label themeSelectorLabel = new Label("Theme:");
-        String[] stylesList = Java2Html.getStylesNameList();
         ComboBox<String> themeSelector = new ComboBox<String>(
-                FXCollections.observableArrayList(stylesList)
+                FXCollections.observableArrayList(StyleFileList.names)
         );
         themeSelector.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             config.set_styleName(newVal);
@@ -210,49 +210,37 @@ public class Main extends Application {
     private Pane generateTopPane(Stage primaryStage) {
         VBox result = new VBox();
 
-        MenuBar menuBar = new MenuBar();
-        Menu menuFile = new Menu("File");
-        MenuItem menuItemOpen = new MenuItem("Open");
-        MenuItem menuItemAbout = new MenuItem("About");
-        MenuItem menuItemExit = new MenuItem("Exit");
-
-        menuItemOpen.setOnAction(e -> {
-            handleOpenDirectory(primaryStage);
-        });
-
-        //关闭程序
-        menuItemExit.setOnAction((ActionEvent t) -> {
-            primaryStage.close();
-        });
-
-        menuFile.getItems().addAll(menuItemOpen, menuItemAbout, menuItemExit);
-
-        Menu menuHelp = new Menu("Help");
-        menuBar.getMenus().addAll(menuFile, menuHelp);
-
         HBox buttonBars = new HBox();
-        ImageView openImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-folder-open.png"));
+        ImageView openImgView = new ImageView(
+                new Image(
+                        getClass().getResourceAsStream("/resources/icons/si-glyph-folder-open.png")));
         Button openBtn = new Button();
         openImgView.setFitHeight(TitleBarIconSize);
         openImgView.setFitWidth(TitleBarIconSize);
         openBtn.setTooltip(new Tooltip("Open directory"));
         openBtn.setGraphic(openImgView);
 
-        ImageView convertImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-triangle-right.png"));
+        ImageView convertImgView = new ImageView(
+                new Image(
+                        getClass().getResourceAsStream("/resources/icons/si-glyph-triangle-right.png")));
         convertImgView.setFitHeight(TitleBarIconSize);
         convertImgView.setFitWidth(TitleBarIconSize);
         Button convertBtn = new Button();
         convertBtn.setTooltip(new Tooltip("Begin Convert"));
         convertBtn.setGraphic(convertImgView);
 
-        ImageView previewImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-view.png"));
+        ImageView previewImgView = new ImageView(
+                new Image(
+                        getClass().getResourceAsStream("/resources/icons/si-glyph-view.png")));
         previewImgView.setFitWidth(TitleBarIconSize);
         previewImgView.setFitHeight(TitleBarIconSize);
         Button previewBtn = new Button();
         previewBtn.setTooltip(new Tooltip("Preview"));
         previewBtn.setGraphic(previewImgView);
 
-        ImageView settingImgView = new ImageView(new Image("file:///../resources/icons/si-glyph-gear.png"));
+        ImageView settingImgView = new ImageView(
+                new Image(
+                        getClass().getResourceAsStream("/resources/icons/si-glyph-gear.png")));
         settingImgView.setFitWidth(TitleBarIconSize);
         settingImgView.setFitHeight(TitleBarIconSize);
         Button settingBtn = new Button();
@@ -272,7 +260,7 @@ public class Main extends Application {
         currentPathTextField.setDisable(true);
         pathDisplayer.getChildren().addAll(labelCurrentPath, currentPathTextField);
 
-        result.getChildren().addAll(menuBar, buttonBars, pathDisplayer);
+        result.getChildren().addAll(buttonBars, pathDisplayer);
         return result;
     }
 

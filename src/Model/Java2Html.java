@@ -23,13 +23,14 @@ import java.util.regex.Pattern;
  */
 public final class Java2Html {
 
-
     private ArrayList<IResultGetter> _getters;
     private Configuration _config;
 
-    public static String[] getStylesNameList() {
+    public static String[] getStylesNameList(File file) {
+        System.out.println(file.getAbsolutePath());
         ArrayList<String> result = new ArrayList<>();
-        File file = new File("resources/themeCSS");
+        // System.out.println(System.getProperty("user.dir"));
+        // File file = new File("../resources/themeCSS");
         for (File child : file.listFiles()) {
             if (!child.isFile()) continue;
             String filename = child.getName();

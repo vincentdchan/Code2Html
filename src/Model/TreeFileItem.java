@@ -1,5 +1,7 @@
 package Model;
 
+import sun.reflect.generics.tree.Tree;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +31,18 @@ public final class TreeFileItem {
     public TreeFileItem(File file, String[] postfixes) {
         this.baseFile = file;
         this.postfixes = postfixes;
+    }
+
+    public int countCheckItem() {
+        if (isDirectory()) {
+            int result = 0;
+            for (TreeFileItem child : children()) {
+                result += child.countCheckItem();
+            }
+            return result;
+        } else {
+            return 1;
+        }
     }
 
     public boolean hasCheckedItem() {

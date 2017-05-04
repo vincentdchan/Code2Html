@@ -35,7 +35,7 @@ public class ScanStage extends Stage {
         subPane.setPadding(new Insets(15));
         BorderPane myPane = new BorderPane();
 
-        mainScene = new Scene(myPane, 360, 60);
+        mainScene = new Scene(myPane, 480, 60);
         mainLabel = new Label();
         myPane.setCenter(subPane);
         subPane.getChildren().add(new Label("Scan: "));

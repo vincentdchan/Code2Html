@@ -41,7 +41,7 @@ public class ConvertStage extends Stage {
         super();
 
         BorderPane mainPane = new BorderPane();
-        mainScene = new Scene(mainPane, 360, 80);
+        mainScene = new Scene(mainPane, 480, 80);
 
         BorderPane pane = new BorderPane();
         pane.setPadding(new Insets(10, 0, 0, 0));
@@ -88,10 +88,18 @@ public class ConvertStage extends Stage {
         convertTask.exceptionProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 newVal.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("错误");
+                alert.setHeaderText("转换过程中出现了一个错误");
+
+                alert.setContentText(newVal.getMessage());
+                alert.show();
+
+                close();
             }
         });
 
-        new Thread(convertTask).run();
+        new Thread(convertTask).start();
     }
 
     private class ConvertTask extends Task<String> {

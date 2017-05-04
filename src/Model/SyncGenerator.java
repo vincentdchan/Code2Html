@@ -1,21 +1,19 @@
 package Model;
 
+import Model.LangSpec.CLang;
+import Model.LangSpec.JavaLang;
 
-import java.io.CharArrayReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by duzhong on 17-3-4.
+ * Created by cdzos on 2017/5/4.
  */
-public final class GenHandler implements Runnable{
-
-    private Generator _generator;
-    private Configuration _config;
-    private String _srcCode;
-    private String _styleCode;
-    private ITokenizer _tokenizer;
-    private List<IResultGetter> _getters;
+public final class SyncGenerator {
 
     private final String HTMLBegin = "<html>\n" +
             "   <head>\n" +
@@ -27,60 +25,56 @@ public final class GenHandler implements Runnable{
 
     private final String HTMLMid2 =
             "       </style>\n" +
-            "   </head>\n" +
-            "   <body>\n";
+                    "   </head>\n" +
+                    "   <body>\n";
 
     private final String HTMLEnd = "" +
             "   </body>\n" +
             "</html>\n";
 
     private String _spaces = "";
-    private String _filename;
+    private String _styleCode;
 
-    GenHandler(Generator generator,
-               Configuration config,
-               String filename,
-               String srcCode,
-               String styleCode,
-               ITokenizer tokenizer,
-               List<IResultGetter> getters) {
-        _generator = generator;
-        _config = config;
-        _filename = filename;
-        _srcCode = srcCode;
-        _styleCode = styleCode;
-        _tokenizer = tokenizer;
-        _getters = getters;
+    Configuration config;
 
-        int tab2SpaceCount = _config.get_tab2spaceCount();
-        for (int i = 0; i < tab2SpaceCount; ++i) {
-            _spaces += " ";
-        }
+    public SyncGenerator() {
     }
 
-    @Override
-    public void run() {
+    public SyncGenerator(Configuration config) throws IOException {
+        setConfig(config);
+    }
+
+    public String convert(String filename, String srcCode) throws NotSupportedFiletypes {
+        ITokenizer tokenizer = null;
+        if (filename.endsWith(".java")) {
+            tokenizer = new JavaLang();
+        } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
+            tokenizer = new CLang();
+        } else {
+            throw new NotSupportedFiletypes(filename);
+        }
+
         StringBuilder sb = new StringBuilder();
         sb.append(HTMLBegin);
-        sb.append(_filename);
+        sb.append(filename);
         sb.append(HTMLMid1);
         sb.append(_styleCode);
         sb.append(HTMLMid2);
         sb.append("<div id=\"code_area\">\n");
 
-        sb.append(generateCodeHTML());
+        sb.append(generateCodeHTML(tokenizer, srcCode));
 
         sb.append("</div>\n");
         sb.append(HTMLEnd);
 
-        dispatchGetter(sb.toString());
+        return sb.toString();
     }
 
     private String generateLineNumber(int i) {
         return "<span class=\"linenumber\">" + i + "</span>";
     }
 
-    private String generateCodeHTML() {
+    private String generateCodeHTML(ITokenizer tokenizer, String _srcCode) {
         String[] lines = _srcCode.split("\r?\n");
 
         StringBuilder sb = new StringBuilder();
@@ -88,11 +82,11 @@ public final class GenHandler implements Runnable{
         for (String line : lines) {
             sb.append("<p>");
 
-            if (_config.is_showLineNumber()) {
+            if (config.is_showLineNumber()) {
                 sb.append(generateLineNumber(count++));
             }
 
-            List<Token> tokens = tokenize(line);
+            List<Token> tokens = tokenize(tokenizer, line);
 
             for (Token tok : tokens) {
                 String[] _syntax = tok.getSyntax();
@@ -132,13 +126,13 @@ public final class GenHandler implements Runnable{
         return result;
     }
 
-    private List<Token> tokenize(String code) {
+    private List<Token> tokenize(ITokenizer tokenizer, String code) {
         ArrayList<Token> result = new ArrayList<>();
         StringStream ss = new StringStream(code);
 
         while(!ss.reachEnd()) {
             Token tok = new Token();
-            tok.setSyntax(_tokenizer.tokenize(ss));
+            tok.setSyntax(tokenizer.tokenize(ss));
             tok.setContent(ss.popString());
 
             if (result.size() > 0) {
@@ -179,31 +173,58 @@ public final class GenHandler implements Runnable{
 
     }
 
-    private void dispatchGetter(String destCode) {
-        for (IResultGetter getter : _getters) {
-            getter.getResult(destCode);
+    private String inputStreamToString(InputStream input) throws IOException {
+        String result = new String();
+        BufferedReader bf = new BufferedReader(new InputStreamReader(input));
+        for (String line; (line = bf.readLine()) != null; result += line);
+        return result;
+    }
+
+    private String searchStyleFileByName(String name) {
+        return "/resources/themeCSS/" + name + ".tmTheme.css";
+    }
+
+    public Configuration getConfig() {
+        return config;
+    }
+
+    public void setConfig(Configuration config) throws IOException {
+        this.config = config;
+
+
+        int tab2SpaceCount = config.get_tab2spaceCount();
+        for (int i = 0; i < tab2SpaceCount; ++i) {
+            _spaces += " ";
         }
-        finish();
+
+        String _stylePath = searchStyleFileByName(config.get_styleName());
+        _styleCode = new String();
+
+        _styleCode = "body {\n" +
+                "   font-size: " + config.get_fontSize() + "px;\n" +
+                "}\n";
+        _styleCode += inputStreamToString(getClass().getResourceAsStream(_stylePath));
+        _styleCode += inputStreamToString(getClass().getResourceAsStream("/resources/test.css"));
     }
 
-    private void finish() {
-        _generator.removeHandler(this);
-    }
+    public class NotSupportedFiletypes extends Exception {
 
-    public Generator get_generator() {
-        return _generator;
-    }
+        private String filename;
 
-    public Configuration get_config() {
-        return _config;
-    }
+        public NotSupportedFiletypes(String filenam) {
+            super();
+            this.filename = filename;
+        }
 
-    public String get_srcCode() {
-        return _srcCode;
-    }
+        public String getFilename() {
+            return filename;
+        }
 
-    public String get_styleCode() {
-        return _styleCode;
+        @Override
+        public String toString() {
+            return this.filename;
+        }
+
     }
 
 }

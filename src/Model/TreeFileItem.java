@@ -31,6 +31,17 @@ public final class TreeFileItem {
         this.postfixes = postfixes;
     }
 
+    public boolean hasCheckedItem() {
+        if (!isDirectory()) return false;
+        for (TreeFileItem child : children()) {
+            if (child.isDirectory() && child.hasCheckedItem() ||
+                    (!child.isDirectory() && child.isChecked())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public File getBaseFile() {
         return baseFile;
     }

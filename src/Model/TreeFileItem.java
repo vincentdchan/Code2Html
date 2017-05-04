@@ -40,8 +40,10 @@ public final class TreeFileItem {
                 result += child.countCheckItem();
             }
             return result;
-        } else {
+        } else if (checked) {
             return 1;
+        } else {
+            return 0;
         }
     }
 

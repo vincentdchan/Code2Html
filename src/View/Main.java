@@ -22,7 +22,6 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import javax.tools.Tool;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -43,13 +42,10 @@ public class Main extends Application {
     private TextField targetPathTextField;
     private File srcPathFile;
     private BorderPane borderPane;
-    private ComboBox<String> showFileKindComboBox;
-    // private TableView<FileItem> middleTable;
     private FileTreeControl treeView;
     private TableView<FileItem> rightTable;
     private WebView previewWebView;
 
-    private ObservableList<FileItem> dataMiddle;
     private ObservableList<FileItem> dataRight;
     private File searchingPath;
 
@@ -62,15 +58,13 @@ public class Main extends Application {
         config = new Configuration();
 
         srcPathFile = new File("file");
-        // ObservableList<RightTable> dataRight = FXCollections.observableArrayList();
-//        Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
+//      Parent root = FXMLLoader.load(getClass().getResource("View.fxml"));
         primaryStage.setTitle("源代码自动转换程序");
         StackPane backpane = new StackPane();
 //        backpane.setStyle("-fx-background-color:cyan");
 
         borderPane = new BorderPane();
         Pane topPane = generateTopPane(primaryStage);
-        // Pane bottomPane = generateBottomPane(primaryStage);
 
         StackPane rightPane = new StackPane();
         rightTable = new TableView<>();
@@ -92,7 +86,6 @@ public class Main extends Application {
         middlePane.setDividerPosition(0, 0.3);
         borderPane.setTop(topPane);
         borderPane.setCenter(middlePane);
-        // borderPane.setBottom(bottomPane);
 
         backpane.getChildren().add(borderPane);
 
@@ -181,6 +174,12 @@ public class Main extends Application {
             previewWebView.getEngine().loadContent((String)event.getSource().getValue());
         });
 
+        task.exceptionProperty().addListener((slc, oldVal, newVal) ->  {
+            if (newVal != null) {
+                alertException((Exception) newVal);
+            }
+        });
+
         new Thread(task).start();
     }
 
@@ -196,29 +195,6 @@ public class Main extends Application {
     private void preview(TreeFileItem treeFileItem) {
         previewFileItem = treeFileItem;
         refreshPreview();
-    }
-
-    /**
-     * Check if the list contains value
-     * clear it if it contains value
-     * if it's null, then create one.
-     * @param checkBox
-     * @param fileItem
-     * @param event
-     */
-    private void handleFileItemChecked(CheckBox checkBox, FileItem fileItem, Event event) {
-        fileItem.setChecked(!checkBox.isSelected());
-        if (dataRight == null) {
-            dataRight = FXCollections.observableArrayList();
-            rightTable.setItems(dataRight);
-        } else {
-            dataRight.clear();
-        }
-        for (FileItem fileItem1 : dataMiddle) {
-            if (fileItem1.isChecked()) {
-                dataRight.add(fileItem1);
-            }
-        }
     }
 
     private Pane generatePreviewToolbar() throws URISyntaxException {
@@ -374,28 +350,6 @@ public class Main extends Application {
             scanStage.show();
             scanStage.beginReceive(new TreeFileItem(selectedDirecotry, FileFilters));
         }
-    }
-
-    private void searchDirectory(File directory) {
-        for (File child: directory.listFiles()) {
-            if (child.isDirectory()) {
-                searchDirectory(child);
-            } else {
-                String ext = showFileKindComboBox.getValue();
-                if (ext.equals("all")) {
-                    String filename = child.getName();
-                    if (filename.endsWith(".h") || filename.endsWith(".c") || filename.endsWith(".java")) {
-                        dataMiddle.add(new FileItem(child, searchingPath));
-                    }
-                } else if (child.getName().endsWith(ext)) {
-                    dataMiddle.add(new FileItem(child, searchingPath));
-                }
-            }
-        }
-    }
-
-    public ObservableList<FileItem> getDataMiddle() {
-        return dataMiddle;
     }
 
     public ObservableList<FileItem> getDataRight() {

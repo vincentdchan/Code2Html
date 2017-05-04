@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by cdzos on 2017/5/4.
@@ -37,6 +39,9 @@ public class ConvertStage extends Stage {
 
     private Configuration config;
 
+    private Lock _lock = new ReentrantLock();
+    private int convertCount;
+
     public ConvertStage() {
         super();
 
@@ -49,7 +54,7 @@ public class ConvertStage extends Stage {
         convertPathLabel = new Label();
         pane.setCenter(convertPathLabel);
 
-        progressBar = new ProgressBar();
+        progressBar = new ProgressBar(0.5);
         progressBar.prefWidthProperty().bind(mainPane.widthProperty());
         mainPane.setTop(pane);
         mainPane.setCenter(progressBar);
@@ -73,13 +78,16 @@ public class ConvertStage extends Stage {
         convertTask.setSrcDirectory(srcDirectory);
         convertTask.setTargetDirectory(targetDirectory);
 
-        convertPathLabel.textProperty().bind(convertTask.valueProperty());
+        convertPathLabel.textProperty().bind(convertTask.messageProperty());
         progressBar.progressProperty().bind(convertTask.progressProperty());
 
+        long beginTime = System.currentTimeMillis();
         convertTask.setOnSucceeded(event -> {
+            long finishedTime = System.currentTimeMillis();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("恭喜");
-            alert .setHeaderText("恭喜！转换成功！");
+            alert.setHeaderText("恭喜！转换成功！");
+            alert.setContentText("共转换 " + convertCount + " 个文件，耗时 " + (finishedTime - beginTime) * 1.0 / 1000 + "秒");
             alert.show();
 
             close();
@@ -102,18 +110,26 @@ public class ConvertStage extends Stage {
         new Thread(convertTask).start();
     }
 
-    private class ConvertTask extends Task<String> {
+    private class ConvertTask extends Task<Integer> {
 
         private TreeFileItem _srcDirectory;
         private File _targetDirectory;
+        private int workedCount;
 
         @Override
-        protected String call() throws Exception {
+        protected Integer call() throws Exception {
+            _lock.lock();
+            try {
+                convertCount = _srcDirectory.countCheckItem();
+            } finally {
+                _lock.unlock();
+            }
+            workedCount = 0;
             uniqueConvert(_srcDirectory, _targetDirectory);
-            return _targetDirectory.getAbsolutePath();
+            return convertCount;
         }
 
-        private void uniqueConvert(TreeFileItem srcDirectory, File targetDirectory) throws IOException, Model.SyncGenerator.NotSupportedFiletypes {
+        private void uniqueConvert(TreeFileItem srcDirectory, File targetDirectory) throws IOException, Model.SyncGenerator.NotSupportedFiletypes, InterruptedException {
             SyncGenerator generator = new SyncGenerator(config);
 
             for (TreeFileItem child : srcDirectory.children()) {
@@ -131,7 +147,9 @@ public class ConvertStage extends Stage {
                     }
                 } else if (!child.isDirectory() && child.isChecked()) {    // is file
                     File baseFile = child.getBaseFile();
-                    updateValue(baseFile.getAbsolutePath());
+                    workedCount++;
+                    updateMessage(baseFile.getAbsolutePath());
+                    updateProgress(workedCount, convertCount);
                     File targetFile = new File(targetDirectory, baseFile.getName() + ".html");
 
                     String srcCode = new String(Files.readAllBytes(
@@ -144,6 +162,10 @@ public class ConvertStage extends Stage {
                     out.close();
                 }
             }
+        }
+
+        public int getConvertCount() {
+            return convertCount;
         }
 
         public TreeFileItem getSrcDirectory() {
@@ -162,10 +184,6 @@ public class ConvertStage extends Stage {
             this._targetDirectory = targetDirectory;
         }
 
-    }
-
-    public TreeFileItem getRootFileItem() {
-        return rootFileItem;
     }
 
     public File getTargetPath() {

@@ -2,10 +2,12 @@ package View;
 
 import Model.Configuration;
 import Model.Java2Html;
+import Model.SyncGenerator;
 import Model.TreeFileItem;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -161,23 +163,25 @@ public class Main extends Application {
 
     private void refreshPreview() {
         if (previewFileItem == null) return;
-        Java2Html j2h = new Java2Html();
-        j2h.set_config(config);
-        j2h.addGetter((String reseult) -> {
-            previewWebView.getEngine().loadContent(reseult);
-        });
+
         File file = previewFileItem.getBaseFile();
-        try {
-            j2h.convert(file.getName(), new String(
-                    Files.readAllBytes(
-                            Paths.get(file.getAbsolutePath())), "utf8"));
-        } catch (IOException ioexcp) {
-            ioexcp.printStackTrace();
-            alertException(ioexcp);
-        } catch (Exception fuck) {
-            fuck.printStackTrace();
-            alertException(fuck);
-        }
+        Task<String> task = new Task<String>() {
+
+            @Override
+            protected String call() throws Exception {
+                SyncGenerator generator = new SyncGenerator(config);
+                return generator.convert(file.getName(), new String(
+                        Files.readAllBytes(Paths.get(file.getAbsolutePath())), "utf8"
+                ));
+            }
+
+        };
+
+        task.setOnSucceeded(event -> {
+            previewWebView.getEngine().loadContent((String)event.getSource().getValue());
+        });
+
+        new Thread(task).start();
     }
 
     private void alertException(Exception e) {
@@ -248,7 +252,6 @@ public class Main extends Application {
             if (newVal.length() == 0) return;
             int value = Integer.parseInt(newVal);
             if (value >= 8 && value <= 48) {
-                System.out.println(value);
                 config.set_fontSize(value);
                 refreshPreview();
             }
@@ -389,49 +392,6 @@ public class Main extends Application {
                 }
             }
         }
-    }
-
-    private Pane generateBottomPane(Stage primaryStage) {
-        VBox result = new VBox();
-        result.setAlignment(Pos.CENTER);
-        result.setMaxHeight(Double.MAX_VALUE);
-        result.setMaxWidth(Double.MAX_VALUE);
-        result.setPadding(new Insets(5, 16,5, 16));
-
-        GridPane bottomPane = new GridPane();
-        bottomPane.setAlignment(Pos.CENTER);
-        Label filePath = new Label("Path :");
-        TextField showFilePath = new TextField();
-        showFilePath.setText(srcPathFile.getAbsolutePath());
-        showFilePath.setAlignment(Pos.BASELINE_LEFT);
-        showFilePath.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
-        DirectoryChooser directoryChooser = new DirectoryChooser();
-        Button btChoosePath = new Button("Open");
-        Button btStartCode = new Button("Start to Code");
-        btChoosePath.setOnAction(e -> {
-            File file = directoryChooser.showDialog(primaryStage);
-            if (file != null) {
-                showFilePath.setText(file.getAbsolutePath());
-                btStartCode.setOnAction(new ConvertActionHandler(this, showFilePath.getText()));
-            }
-        });
-
-        Label fileKind = new Label("Kind :");
-        btStartCode.setOnAction(new ConvertActionHandler(this, showFilePath.getText()));
-//        btStartCode.setDefaultButton(true);
-        showFileKindComboBox = new ComboBox<>();
-        showFileKindComboBox.prefWidthProperty().bind(borderPane.widthProperty().divide(1.85));
-        showFileKindComboBox.getItems().addAll("all", ".h", ".c", ".java");
-        showFileKindComboBox.setValue("all");
-        bottomPane.add(filePath, 0, 0);
-        bottomPane.add(showFilePath, 1, 0);
-        bottomPane.add(btChoosePath, 2, 0);
-        bottomPane.add(fileKind, 0, 1);
-        bottomPane.add(showFileKindComboBox, 1, 1);
-        bottomPane.add(btStartCode, 2, 1);
-
-        result.getChildren().add(bottomPane);
-        return result;
     }
 
     public ObservableList<FileItem> getDataMiddle() {

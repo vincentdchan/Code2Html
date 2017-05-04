@@ -1,5 +1,7 @@
 package Model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -64,6 +66,10 @@ public final class Java2Html {
     public void convert(Entry[] entries) throws IOException, Generator.NotSupportedFiletypes {
         Generator generator = new Generator(_config);
         generator.generate(entries, _getters);
+    }
+
+    public String convertSync(String filename, String srcCode) throws IOException, Generator.NotSupportedFiletypes {
+        throw new NotImplementedException();
     }
 
     public void addGetter(IResultGetter getter) {

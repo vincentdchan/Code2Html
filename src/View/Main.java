@@ -366,7 +366,10 @@ public class Main extends Application {
             currentPathTextField.setText(selectedDirecotry.getAbsolutePath());
 
             // clear the data and search again
-            treeView.setRootFileItem(new TreeFileItem(selectedDirecotry, FileFilters));
+            // treeView.setRootFileItem(new TreeFileItem(selectedDirecotry, FileFilters));
+            ScanStage scanStage = new ScanStage(this);
+            scanStage.show();
+            scanStage.beginReceive(new TreeFileItem(selectedDirecotry, FileFilters));
         }
     }
 
@@ -439,4 +442,7 @@ public class Main extends Application {
         return dataRight;
     }
 
+    public FileTreeControl getTreeView() {
+        return treeView;
+    }
 }

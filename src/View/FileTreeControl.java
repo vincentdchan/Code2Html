@@ -17,11 +17,11 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
 
     public static int FileIconSize = 16;
 
-    private Image fileIcon;
-    private Image javaIcon;
-    private Image cLangIcon;
-    private Image folderIcon;
-    private Image folderOpenIcon;
+    private static Image fileIcon;
+    private static Image javaIcon;
+    private static Image cLangIcon;
+    private static Image folderIcon;
+    private static Image folderOpenIcon;
 
     private TreeFileItem treeFileItem;
 
@@ -89,44 +89,7 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
         setRoot(new MyTreeItem(treeFileItem));
     }
 
-    private final class MyTreeCellImpl extends CheckBoxTreeCell<TreeFileItem> {
-
-        private TextField textField;
-
-        public MyTreeCellImpl() {
-            /*
-            selectedProperty().addListener((obs, oldVal, newVal) -> {
-                System.out.println("change");
-                System.out.println(newVal);
-            });
-            */
-        }
-
-        /*
-        @Override
-        public void updateItem(TreeFileItem item, boolean empty) {
-            super.updateItem(item, empty);
-        }
-        */
-
-        /*
-        @Override
-        protected void updateItem(TreeFileItem item, boolean empty) {
-            super.updateItem(item, empty);
-
-            if (empty) {
-                setText(null);
-                setGraphic(null);
-            } else {
-                setText(item.getBaseFile().getName());
-                // textField.setText(item.getBaseFile().getName());
-                setGraphic(textField);
-            }
-        }
-        */
-    }
-
-    public final class MyTreeItem extends CheckBoxTreeItem<TreeFileItem> {
+    public final static class MyTreeItem extends CheckBoxTreeItem<TreeFileItem> {
 
         public MyTreeItem(TreeFileItem treeFileItem) {
             super(treeFileItem);

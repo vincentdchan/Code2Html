@@ -272,6 +272,34 @@ public class Main extends Application {
         convertImgView.setFitWidth(TitleBarIconSize);
         Button convertBtn = new Button();
         convertBtn.setTooltip(new Tooltip("Begin Convert"));
+        convertBtn.setOnAction(event -> {
+            ConvertStage stage = new ConvertStage();
+            if (treeView.getRoot() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("哟，有一个错误出现了");
+                alert.setHeaderText("错误");
+                alert.setContentText("请先选择一个文件夹，然后再转换");
+
+                alert.show();
+                return;
+            }
+            stage.setRootFileItem(treeView.getRoot().getValue());
+            String targetPathStr = targetPathTextField.getText();
+            File targetFile = new File(targetPathStr);
+            if (!targetFile.exists()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("哟，有一个错误出现了");
+                alert.setHeaderText("错误");
+                alert.setContentText("您设置的目标目录不存在");
+
+                alert.show();
+                return;
+            }
+            stage.setTargetPath(targetFile);
+            stage.setConfig(config);
+            stage.show();
+            stage.beginConvert();
+        });
         convertBtn.setGraphic(convertImgView);
 
         ImageView previewImgView = new ImageView(

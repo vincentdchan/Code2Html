@@ -33,7 +33,8 @@ public final class StringStream {
     public String popString() {
         if (tmp_ptr < ptr) {
             StringBuilder sb = new StringBuilder();
-            for (int i = tmp_ptr; i < ptr; i++) {
+            int end = ptr >= _content.length() ? _content.length() : ptr;
+            for (int i = tmp_ptr; i < end; i++) {
                 sb.append(_content.charAt(i));
             }
             tmp_ptr = ptr;

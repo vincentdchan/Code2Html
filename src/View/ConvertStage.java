@@ -100,7 +100,8 @@ public class ConvertStage extends Stage {
                 alert.setTitle("错误");
                 alert.setHeaderText("转换过程中出现了一个错误");
 
-                alert.setContentText(newVal.getMessage());
+                alert.setContentText(convertTask.getMessage() + '\n' +
+                        newVal.getMessage());
                 alert.show();
 
                 close();

@@ -176,6 +176,7 @@ public class Main extends Application {
 
         task.exceptionProperty().addListener((slc, oldVal, newVal) ->  {
             if (newVal != null) {
+                newVal.printStackTrace();
                 alertException((Exception) newVal);
             }
         });

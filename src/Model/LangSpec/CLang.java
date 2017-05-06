@@ -4,6 +4,8 @@ import Model.ITokenizer;
 import Model.StringStream;
 
 import java.util.ArrayList;
+import java.util.Stack;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -23,15 +25,20 @@ public class CLang implements ITokenizer {
             {Pattern.compile("^(?<![\\w$])(sizeof)(?![\\w$])"), "sizeof"},
             {Pattern.compile("^--"), "decrement"},
             {Pattern.compile("^\\+\\+"), "increment"},
-            {Pattern.compile("^%=|\\+=|-=|\\*=|(?<!\\()/="), "assignment"},
-            {Pattern.compile("^&=|\\^=|<<=|>>=|\\|="), "assignment-compound-bitwise"},
-            {Pattern.compile("^<<|>>"), "bitwise-shift"},
-            {Pattern.compile("^!=|<=|>=|==|<|>"), "comparision"},
-            {Pattern.compile("^&&|!|\\|\\|"), "logic"},
-            {Pattern.compile("^&|\\||\\^|~"), ""},
+            {Pattern.compile("^(%=|\\+=|-=|\\*=|(?<!\\()/=)"), "assignment"},
+            {Pattern.compile("^(&=|\\^=|<<=|>>=|\\|=)"), "assignment-compound-bitwise"},
+            {Pattern.compile("^(<<|>>)"), "bitwise-shift"},
+            {Pattern.compile("^(!=|<=|>=|==|<|>)"), "comparision"},
+            {Pattern.compile("^(&&|!|\\|\\|)"), "logic"},
+            {Pattern.compile("^(&|\\||\\^|~)"), ""},
             {Pattern.compile("^="), "assignment"},
             // {Pattern.compile("^%|\\*|/|-|\\+"), ""},
     };
+
+    public static Pattern MacroKeyword = Pattern.compile("^\\b(defined|define|ifdef|endif|ifndef|elif|else|if|include)\\b");
+    public static Pattern MacroConstant = Pattern.compile("^(_|[A-Z])+");
+    public static Pattern Word = Pattern.compile("^(_|[a-zA-Z])(_|[0-9a-zA-Z])*");
+
     public static Object PreservedPatterns[][] = {{
             Pattern.compile(
                     "^\\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|switch|while)\\b"),
@@ -54,6 +61,7 @@ public class CLang implements ITokenizer {
     }};
 
     private State state = State.Normal;
+    private Stack<State> stateStack = new Stack<>();
 
     @Override
     public String[] tokenize(StringStream ss) {
@@ -71,6 +79,7 @@ public class CLang implements ITokenizer {
                     result.add("comment");
                     state = State.Comment;
                 } else if (ss.swallow("\"")) {
+                    stateStack.push(state);
                     state = State.StringConstant;
                     result.add("string");
                 } else if (swallowOperators(ss, result) ||
@@ -81,6 +90,7 @@ public class CLang implements ITokenizer {
                 } else if (ss.swallow("#")) {
                     state = State.Macro;
                     result.add("macro");
+                } else if (ss.swallow(Word)) {
                 } else {
                     ss.moveForward();
                 }
@@ -91,8 +101,24 @@ public class CLang implements ITokenizer {
                     if (ss.getChar() != '\\') {
                         state = State.Normal;
                     }
+                    ss.moveForward();
+                } else if (ss.swallow("\"")) {
+                    stateStack.push(state);
+                    state = State.StringConstant;
+                    result.add("string");
+                } else if (ss.swallow(MacroKeyword)) {
+                    result.add("keyword");
+                } else if (ss.swallow(NumberPattern)) {
+                    result.add("constant-numeric");
+                } else if (ss.swallow(Word)) {
+                    String word = ss.getTopString();
+                    Matcher matcher = MacroConstant.matcher(word);
+                    if (matcher.find()) {
+                        result.add("constant-character");
+                    }
+                } else {
+                    ss.moveForward();
                 }
-                ss.moveForward();
                 break;
             case Comment:
                 result.add("comment");
@@ -106,8 +132,9 @@ public class CLang implements ITokenizer {
                 result.add("string");
                 if (ss.getChar() == '\\') { // escape
                     ss.moveForward(2);
-                } else if (ss.swallow("\"")) {
-                    state = State.Normal;
+                } else if (ss.getChar() == '"') {
+                    state = stateStack.pop();
+                    ss.moveForward();
                 } else {
                     ss.moveForward();
                 }

@@ -38,11 +38,11 @@ public class ScanStage extends Stage {
         mainScene = new Scene(myPane, 480, 60);
         mainLabel = new Label();
         myPane.setCenter(subPane);
-        subPane.getChildren().add(new Label("Scan: "));
+        subPane.getChildren().add(new Label("扫描： "));
         subPane.getChildren().add(mainLabel);
 
         initModality(Modality.APPLICATION_MODAL);
-        setTitle("Scanning...");
+        setTitle("扫描中...");
         setScene(mainScene);
         setResizable(false);
     }

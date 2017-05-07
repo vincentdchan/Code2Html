@@ -112,7 +112,7 @@ public class Main extends Application {
         Button expandAllBtn = new Button();
         expandAllBtn.setOnAction(event -> treeView.expandAll());
         expandAllBtn.setGraphic(expandIM);
-        expandAllBtn.setTooltip(new Tooltip("Expand All"));
+        expandAllBtn.setTooltip(new Tooltip("全部展开"));
 
         ImageView collapseIM = new ImageView(new Image(
                 getClass().getResourceAsStream("/resources/icons/si-glyph-arrow-resize-4.png")));
@@ -121,7 +121,7 @@ public class Main extends Application {
         Button collapseAllBtn = new Button();
         collapseAllBtn.setOnAction(event -> treeView.collapseAll());
         collapseAllBtn.setGraphic(collapseIM);
-        collapseAllBtn.setTooltip(new Tooltip("Collapse All"));
+        collapseAllBtn.setTooltip(new Tooltip("全部合并"));
 
         ImageView refreshIM = new ImageView(new Image(
                 getClass().getResourceAsStream("/resources/icons/si-glyph-arrow-reload.png")));
@@ -135,7 +135,7 @@ public class Main extends Application {
             }
         });
         refreshBtn.setGraphic(refreshIM);
-        refreshBtn.setTooltip(new Tooltip("Refresh"));
+        refreshBtn.setTooltip(new Tooltip("刷新"));
         toolbar.getChildren().addAll(expandAllBtn, collapseAllBtn, refreshBtn);
 
         treeView = new FileTreeControl();
@@ -201,7 +201,7 @@ public class Main extends Application {
     private Pane generatePreviewToolbar() throws URISyntaxException {
         HBox result = new HBox();
 
-        Label themeSelectorLabel = new Label("Theme:");
+        Label themeSelectorLabel = new Label("主题：");
         themeSelectorLabel.setPadding(new Insets(2, 3, 2, 3));
         ComboBox<String> themeSelector = new ComboBox<String>(
                 FXCollections.observableArrayList(StyleFileList.names)
@@ -212,7 +212,7 @@ public class Main extends Application {
         });
         themeSelector.setValue(config.get_styleName());
 
-        Label showLineNumberLabel = new Label("Show Line Number:");
+        Label showLineNumberLabel = new Label("显示行号：");
         showLineNumberLabel.setPadding(new Insets(2, 3, 2, 3));
         CheckBox showLineNumberCheckBox = new CheckBox();
         showLineNumberCheckBox.setSelected(true);
@@ -221,7 +221,7 @@ public class Main extends Application {
             refreshPreview();
         });
 
-        Label fontSizeLabel = new Label("Font size:");
+        Label fontSizeLabel = new Label("字号：");
         fontSizeLabel.setPadding(new Insets(2, 3, 2, 3));
         TextField fontSizeTextField = new TextField(Integer.toString(config.get_fontSize()));
         fontSizeTextField.setPrefWidth(36);
@@ -263,7 +263,7 @@ public class Main extends Application {
         final Button openBtn = new Button();
         openImgView.setFitHeight(TitleBarIconSize);
         openImgView.setFitWidth(TitleBarIconSize);
-        openBtn.setTooltip(new Tooltip("Open directory"));
+        openBtn.setTooltip(new Tooltip("打开目录"));
         openBtn.setGraphic(openImgView);
 
         ImageView convertImgView = new ImageView(
@@ -272,7 +272,7 @@ public class Main extends Application {
         convertImgView.setFitHeight(TitleBarIconSize);
         convertImgView.setFitWidth(TitleBarIconSize);
         Button convertBtn = new Button();
-        convertBtn.setTooltip(new Tooltip("Begin Convert"));
+        convertBtn.setTooltip(new Tooltip("开始转换"));
         convertBtn.setOnAction(event -> {
             ConvertStage stage = new ConvertStage();
             if (treeView.getRoot() == null) {
@@ -309,7 +309,7 @@ public class Main extends Application {
         previewImgView.setFitWidth(TitleBarIconSize);
         previewImgView.setFitHeight(TitleBarIconSize);
         Button previewBtn = new Button();
-        previewBtn.setTooltip(new Tooltip("Preview"));
+        previewBtn.setTooltip(new Tooltip("预览"));
         previewBtn.setGraphic(previewImgView);
 
         ImageView settingImgView = new ImageView(
@@ -318,7 +318,7 @@ public class Main extends Application {
         settingImgView.setFitWidth(TitleBarIconSize);
         settingImgView.setFitHeight(TitleBarIconSize);
         Button settingBtn = new Button();
-        settingBtn.setTooltip(new Tooltip("Setting"));
+        settingBtn.setTooltip(new Tooltip("设置"));
         settingBtn.setGraphic(settingImgView);
 
         buttonBars.getChildren().addAll(openBtn, convertBtn, previewBtn, settingBtn);
@@ -330,15 +330,15 @@ public class Main extends Application {
 
         final GridPane infoGrid = new GridPane();
 
-        final Label labelCurrentPath = new Label("Current Path:");
+        final Label labelCurrentPath = new Label("当前目录：");
         currentPathTextField = new TextField();
         currentPathTextField.setDisable(true);
 
         // BorderPane targetPathPane = new BorderPane();
-        final Label targetPathLabel = new Label("Target Path:");
+        final Label targetPathLabel = new Label("目标目录：");
         targetPathTextField = new TextField();
         targetPathTextField.setEditable(true);
-        Button openTargetPathBtn = new Button("Open");
+        Button openTargetPathBtn = new Button("打开...");
         BorderPane targetBorderPane = new BorderPane();
         targetBorderPane.setCenter(targetPathTextField);
         targetBorderPane.setRight(openTargetPathBtn);

@@ -50,7 +50,7 @@ public class ConvertStage extends Stage {
 
         BorderPane pane = new BorderPane();
         pane.setPadding(new Insets(10, 0, 0, 0));
-        pane.setLeft(new Label("Converting: "));
+        pane.setLeft(new Label("正在转换... "));
         convertPathLabel = new Label();
         pane.setCenter(convertPathLabel);
 
@@ -60,7 +60,7 @@ public class ConvertStage extends Stage {
         mainPane.setCenter(progressBar);
 
         initModality(Modality.APPLICATION_MODAL);
-        setTitle("Convert");
+        setTitle("转换中");
         setScene(mainScene);
         setResizable(false);
     }

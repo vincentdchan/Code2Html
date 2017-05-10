@@ -22,6 +22,12 @@
 
 也可以在Release页面下载已经编译好的Jar文件
 
+## 支持转换的语言
+
+- Java
+- C
+- HTML
+
 ## 组员 
 
 - [@ChannelOne](https://github.com/ChannelOne) 主要负责程序核心逻辑

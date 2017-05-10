@@ -65,7 +65,7 @@ public final class StringStream {
     public boolean test(Pattern pattern) {
         String _tail = _content.substring(ptr);
         Matcher matcher = pattern.matcher(_tail);
-        return matcher.find(ptr);
+        return matcher.find();
     }
 
     /**

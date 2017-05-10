@@ -39,7 +39,7 @@ public class Main extends Application {
 
     public static int TitleBarIconSize = 24;
     public static int ToolbarIconSize = 12;
-    public static String[] FileFilters = {".c", ".java", ".h"};
+    public static String[] FileFilters = {".c", ".java", ".h", ".html", ".htm"};
 
     private TextField currentPathTextField;
     private TextField targetPathTextField;

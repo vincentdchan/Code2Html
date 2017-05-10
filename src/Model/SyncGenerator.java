@@ -1,6 +1,7 @@
 package Model;
 
 import Model.LangSpec.CLang;
+import Model.LangSpec.HTML;
 import Model.LangSpec.JavaLang;
 
 import java.io.BufferedReader;
@@ -50,6 +51,8 @@ public final class SyncGenerator {
             tokenizer = new JavaLang();
         } else if (filename.endsWith(".c") || filename.endsWith(".h")) {
             tokenizer = new CLang();
+        } else if (filename.endsWith(".html") || filename.endsWith(".htm")) {
+            tokenizer = new HTML();
         } else {
             throw new NotSupportedFiletypes(filename);
         }

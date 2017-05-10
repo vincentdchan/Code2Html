@@ -1,0 +1,73 @@
+body {
+    color: #B9BDB6;
+    background-color: #1B2426;
+} 
+.jc-comment {
+    color: #646763;
+} 
+.jc-string {
+    color: #5CE638;
+} 
+.jc-constant-numeric {
+    color: #5CE638;
+} 
+.jc-constant-language {
+    color: #5CE638;
+} 
+.jc-constant-character {
+    color: #FFFFFF;
+} 
+.jc-constant-other {
+    color: #FFFFFF;
+} 
+.jc-variable-language {
+    color: #FFFFFF;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-keyword {
+    color: #5BA1CF;
+} 
+.jc-storage {
+    color: #FFFFFF;
+} 
+.jc-entity-name-class {
+    color: #FFFFFF;
+} 
+.jc-entity-other-inherited-class {
+    color: #FFFFFF;
+} 
+.jc-entity-name-function {
+    color: #FFAA3E;
+} 
+.jc-variable-parameter {
+    color: #FFFFFF;
+} 
+.jc-entity-name-tag {
+    color: #FFFFFF;
+} 
+.jc-entity-other-attribute-name {
+    color: #878A85;
+} 
+.jc-support-function {
+} 
+.jc-support-constant {
+} 
+.jc-support-type {
+} 
+.jc-support-class {
+} 
+.jc-support-other-variable {
+} 
+.jc-invalid {
+} 
+.jc-text source {
+    background-color: #435A5F47;
+} 
+.jc-string-unquoted-heredoc {
+    background-color: #435A5F47;
+} 
+.jc-source source {
+    background-color: #435A5F47;
+} 

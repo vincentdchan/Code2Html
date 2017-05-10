@@ -1,0 +1,122 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #00B418;
+} 
+.jc-variable {
+    color: #0206FF;
+} 
+.jc-keyword {
+    color: #0100B6;
+} 
+.jc-constant-numeric {
+    color: #CD0000;
+} 
+.jc-constant {
+    color: #C5060B;
+} 
+.jc-constant-language {
+    color: #585CF6;
+} 
+.jc-string {
+    color: #D80800;
+} 
+.jc-constant-character-escape {
+    color: #26B31A;
+} 
+.jc-string source {
+    color: #26B31A;
+} 
+.jc-meta-preprocessor {
+    color: #1A921C;
+} 
+.jc-keyword-control-import {
+    color: #0C450D;
+} 
+.jc-entity-name-function {
+    color: #0000A2;
+} 
+.jc-keyword-other-name-of-parameter-objc {
+    color: #0000A2;
+} 
+.jc-entity-name-type {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-variable-parameter {
+} 
+.jc-storage-type-method {
+    color: #70727E;
+} 
+.jc-meta-section entity-name-section {
+} 
+.jc-declaration-section entity-name-section {
+} 
+.jc-support-function {
+    color: #3C4C72;
+} 
+.jc-support-class {
+    color: #6D79DE;
+} 
+.jc-support-type {
+    color: #6D79DE;
+} 
+.jc-support-constant {
+    color: #06960E;
+} 
+.jc-support-variable {
+    color: #21439C;
+} 
+.jc-keyword-operator-js {
+    color: #687687;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-invalid-deprecated-trailing-whitespace {
+    background-color: #FFD0D0;
+} 
+.jc-text source {
+    background-color: #427FF530;
+} 
+.jc-string-unquoted {
+    background-color: #427FF530;
+} 
+.jc-meta-xml-processing {
+    color: #68685B;
+} 
+.jc-declaration-xml-processing {
+    color: #68685B;
+} 
+.jc-meta-doctype {
+    color: #888888;
+} 
+.jc-declaration-doctype {
+    color: #888888;
+} 
+.jc-meta-doctype-DTD {
+} 
+.jc-declaration-doctype-DTD {
+} 
+.jc-meta-tag {
+    color: #1C02FF;
+} 
+.jc-declaration-tag {
+    color: #1C02FF;
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-markup-heading {
+    color: #0C07FF;
+} 
+.jc-markup-quote {
+    color: #000000;
+} 
+.jc-markup-list {
+    color: #B90690;
+} 

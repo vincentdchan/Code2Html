@@ -1,0 +1,118 @@
+body {
+    color: #2D669A;
+    background-color: #FFFEF9;
+} 
+.jc-markup-bold {
+} 
+.jc-meta-link {
+} 
+.jc-markup-underline {
+} 
+.jc-entity-name-class {
+    color: #4F1900;
+} 
+.jc-entity-name-type-class {
+    color: #4F1900;
+} 
+.jc-support-class {
+    color: #4F1900;
+} 
+.jc-constant-language {
+    color: #4F1900;
+} 
+.jc-variable-other-constant {
+    color: #4F1900;
+} 
+.jc-entity-other-attribute-name {
+    color: #4F1900;
+} 
+.jc-punctuation-definition-entity {
+    color: #4F1900;
+} 
+.jc-constant-character {
+    color: #000000;
+} 
+.jc-constant-other {
+    color: #000000;
+} 
+.jc-punctuation-definition-constant {
+    color: #000000;
+} 
+.jc-keyword {
+    color: #761B48;
+} 
+.jc-keyword-operator-setter {
+    color: #761B48;
+} 
+.jc-keyword-other-special-method {
+    color: #761B48;
+} 
+.jc-punctuation-delimiter-method {
+    color: #761B48;
+} 
+.jc-entity-name-tag {
+    color: #761B48;
+} 
+.jc-punctuation {
+    color: #9D3266;
+} 
+.jc-punctuation-definition-string {
+    color: #9D3266;
+} 
+.jc-variable-other {
+    color: #9D3266;
+} 
+.jc-meta-tag {
+    color: #9D3266;
+} 
+.jc-support-type-property-name {
+    color: #9D3266;
+} 
+.jc-punctuation-definition-string {
+    color: #9D3266;
+    background-color: #FFFEF9;
+} 
+.jc-constant-numeric {
+    color: #2A9A66;
+} 
+.jc-constant-character-entity {
+    color: #2A9A66;
+} 
+.jc-constant-character-entity punctuation-definition-entity {
+    color: #2A9A66;
+} 
+.jc-string {
+    color: #2A9A66;
+    background-color: #E8F5F5;
+} 
+.jc-string-regexp {
+    color: #443355;
+    background-color: #E8F1F5;
+} 
+.jc-variable-language {
+    color: #2D669A;
+} 
+.jc-variable-other {
+    color: #2D669A;
+} 
+.jc-variable-parameter-function {
+    color: #2D669A;
+} 
+.jc-keyword-other-special-method {
+    color: #2D669A;
+} 
+.jc-variable-other-block {
+    color: #2D669A;
+} 
+.jc-constant-character {
+} 
+.jc-punctuation-definition-comment {
+} 
+.jc-punctuation-delimiter-object {
+} 
+.jc-comment {
+    color: #555555;
+} 
+.jc-punctuation-definition-comment {
+    color: #555555;
+} 

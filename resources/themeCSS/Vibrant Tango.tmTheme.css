@@ -1,0 +1,134 @@
+body {
+    color: #FFFFFF;
+    background-color: #191D1E;
+} 
+.jc-text {
+    color: #FFFFFF;
+} 
+.jc-source-ruby-rails-embedded-html {
+} 
+.jc-text-html-ruby {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-ruby {
+    color: #8DE635;
+} 
+.jc-source-ruby {
+} 
+.jc-source {
+    color: #FFFFFF;
+} 
+.jc-comment {
+    color: #744E7B;
+} 
+.jc-constant {
+    color: #739FCF;
+} 
+.jc-keyword {
+    color: #F27709;
+} 
+.jc-keyword-preprocessor {
+    color: #EDF8F9;
+} 
+.jc-keyword-preprocessor directive {
+    color: #FFFFFF;
+} 
+.jc-entity-name-function {
+    color: #FBEB50;
+} 
+.jc-storage-type-function-js {
+    color: #FBEB50;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #744E7B;
+    background-color: #070707;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-support-function-activerecord-rails {
+    color: #E8B96F;
+} 
+.jc-string {
+    color: #8DE635;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #000000;
+    background-color: #FBEB50;
+} 
+.jc-string-regexp {
+    color: #739FCF;
+} 
+.jc-string-literal {
+    color: #FBEB50;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-class {
+} 
+.jc-support-class-js {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+} 
+.jc-meta-tag-inline-any-html {
+    color: #F27709;
+} 
+.jc-meta-tag-block-any-html {
+    color: #F27709;
+} 
+.jc-entity-other-attribute-name {
+    color: #8DE635;
+} 
+.jc-keyword-other {
+    color: #FBEB50;
+} 
+.jc-meta-selector-css {
+    color: #F27709;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #F27709;
+} 
+.jc-entity-name-tag-wildcard-css {
+    color: #F27709;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #F27709;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #F27709;
+} 
+.jc-support-type-property-name-css {
+    color: #E8B96F;
+} 
+.jc-keyword-other-unit-css {
+    color: #FFFFFF;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-css {
+    color: #FFFFFF;
+} 
+.jc-support-function-event-handler-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-operator-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-control-js {
+    color: #FBEB50;
+} 
+.jc-support-class-prototype-js {
+    color: #FFFFFF;
+} 
+.jc-object-property-function-prototype-js {
+    color: #F27709;
+} 

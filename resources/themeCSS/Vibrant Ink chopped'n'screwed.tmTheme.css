@@ -1,0 +1,190 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-text {
+    color: #FFFFFF;
+} 
+.jc-source-ruby-rails-embedded-html {
+} 
+.jc-text-html-ruby {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-ruby {
+    color: #CCFF33;
+} 
+.jc-source-ruby {
+    color: #FFFFFF;
+} 
+.jc-source {
+    color: #FFFFFF;
+} 
+.jc-comment {
+    color: #363636;
+} 
+.jc-constant {
+    color: #64AEF9;
+} 
+.jc-keyword {
+    color: #FF7827;
+} 
+.jc-keyword-preprocessor {
+    color: #EDF8F9;
+} 
+.jc-keyword-preprocessor directive {
+    color: #FFFFFF;
+} 
+.jc-entity-name-function {
+    color: #F8CC49;
+} 
+.jc-storage-type-function-js {
+    color: #F8CC49;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #363636;
+} 
+.jc-variable-other {
+    color: #042CF7;
+} 
+.jc-variable-js {
+    color: #042CF7;
+} 
+.jc-punctuation-separator-variable {
+    color: #042CF7;
+} 
+.jc-support-function-activerecord-rails {
+    color: #999966;
+} 
+.jc-string {
+    color: #FEFF8E;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #DDE93D;
+    background-color: #61601D;
+} 
+.jc-string-regexp {
+    color: #44B4CC;
+} 
+.jc-string-literal {
+    color: #CCFF33;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-class {
+} 
+.jc-support-class-js {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+} 
+.jc-meta-tag-inline-any-html {
+    color: #FF873A;
+} 
+.jc-meta-tag-block-any-html {
+    color: #FF873A;
+} 
+.jc-entity-other-attribute-name {
+    color: #FF873A;
+} 
+.jc-keyword-other {
+    color: #FF7827;
+} 
+.jc-meta-selector-css {
+    color: #FCE85F;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #FCE85F;
+} 
+.jc-entity-name-tag-wildcard-css {
+    color: #FCE85F;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #FCE85F;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #FCE85F;
+} 
+.jc-support-type-property-name-css {
+    color: #9CD2F8;
+} 
+.jc-keyword-other-unit-css {
+    color: #F2F2F2;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #F2F2F2;
+} 
+.jc-constant-numeric-css {
+    color: #F2F2F2;
+} 
+.jc-support-function-event-handler-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-operator-js {
+    color: #FF6600;
+} 
+.jc-keyword-control-js {
+    color: #FFCC00;
+} 
+.jc-support-class-prototype-js {
+    color: #FFFFFF;
+} 
+.jc-object-property-function-prototype-js {
+    color: #4CB786;
+} 
+.jc-constant-character-escaped {
+    color: #B2D9D0;
+} 
+.jc-constant-character-escape {
+    color: #B2D9D0;
+} 
+.jc-string source {
+    color: #B2D9D0;
+} 
+.jc-string source-ruby {
+    color: #B2D9D0;
+} 
+.jc-support-function {
+    color: #E94526;
+} 
+.jc-storage {
+    color: #EE8329;
+} 
+.jc-variable-other-readwrite-global-pre-defined {
+    color: #44BCF9;
+} 
+.jc-variable-language {
+    color: #44BCF9;
+} 
+.jc-variable-other-constant {
+} 
+.jc-support-variable {
+    color: #F5B92D;
+} 
+.jc-variable-other-readwrite-global {
+    color: #D0D0FF;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-variable-js {
+    color: #FFFFFF;
+} 
+.jc-punctuation-separator-variable {
+    color: #FFFFFF;
+} 
+.jc-variable-other-readwrite-class {
+} 
+.jc-variable-other-readwrite-instance {
+    color: #1AA6FC;
+} 
+.jc-variable-other-php {
+} 
+.jc-variable-other-normal {
+} 

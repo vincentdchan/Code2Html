@@ -1,0 +1,77 @@
+body {
+    color: #F1F1F1;
+    background-color: #1F1F1F;
+} 
+.jc-text {
+    color: #DCDCDC;
+} 
+.jc-source {
+    color: #DCDCDC;
+} 
+.jc-comment {
+    color: #8A8988;
+} 
+.jc-constant {
+    color: #389AD9;
+} 
+.jc-keyword {
+    color: #FF8C56;
+} 
+.jc-variable-language {
+    color: #D4312C;
+} 
+.jc-variable-other {
+    color: #D4312C;
+} 
+.jc-meta-preprocessor-c {
+    color: #D0D0FF;
+} 
+.jc-keyword-control-import {
+} 
+.jc-entity-name-function {
+    color: #389AD9;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #FFFFFF;
+    background-color: #9B9B9B;
+} 
+.jc-string {
+    color: #F3F99A;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #0A0A0A;
+    background-color: #F3F48C;
+} 
+.jc-string-regexp {
+    color: #ECF5A7;
+} 
+.jc-string-literal {
+    color: #ECF5A7;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-type {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+    color: #FC8C56;
+} 
+.jc-entity-other-attribute-name {
+    color: #389AD9;
+} 
+.jc-declaration-tag {
+    color: #389AD9;
+} 
+.jc-meta-tag {
+    color: #389AD9;
+} 
+.jc-support-function {
+    color: #FF6666;
+} 

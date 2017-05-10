@@ -1,0 +1,144 @@
+body {
+    color: #E8E9E8;
+    background-color: #000000;
+} 
+.jc-text {
+    color: #E8E9E8;
+    background-color: #0F0F0F;
+} 
+.jc-source-ruby-rails-embedded-html {
+    background-color: #000000;
+} 
+.jc-text-html-ruby {
+    color: #FFFFFF;
+    background-color: #101010;
+} 
+.jc-constant-numeric-ruby {
+    color: #CCFF33;
+} 
+.jc-source-ruby {
+} 
+.jc-source {
+    color: #E8E9E8;
+    background-color: #000000;
+} 
+.jc-comment {
+    color: #683E81;
+} 
+.jc-constant {
+    color: #339999;
+} 
+.jc-keyword {
+    color: #FF3190;
+} 
+.jc-keyword-preprocessor {
+    color: #EDF8F9;
+} 
+.jc-keyword-preprocessor directive {
+    color: #FFFFFF;
+} 
+.jc-entity-name-function {
+    color: #4CCCFF;
+} 
+.jc-storage-type-function-js {
+    color: #4CCCFF;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #772CB7;
+    background-color: #070707;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-support-function-activerecord-rails {
+    color: #999966;
+} 
+.jc-string {
+    color: #71ED15;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #000000;
+    background-color: #CCCC33;
+} 
+.jc-string-regexp {
+    color: #CC8C2B;
+} 
+.jc-string-literal {
+    color: #CCCC33;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-class {
+    color: #E9E3E6;
+} 
+.jc-support-class-js {
+    color: #E9E3E6;
+} 
+.jc-entity-other-inherited-class {
+    color: #E979D0;
+} 
+.jc-entity-name-tag {
+} 
+.jc-meta-tag-inline-any-html {
+    color: #57AAFF;
+} 
+.jc-meta-tag-block-any-html {
+    color: #57AAFF;
+} 
+.jc-entity-other-attribute-name {
+    color: #99CC99;
+} 
+.jc-keyword-other {
+    color: #FF2C9F;
+} 
+.jc-meta-selector-css {
+    color: #57AAFF;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #57AAFF;
+} 
+.jc-entity-name-tag-wildcard-css {
+    color: #57AAFF;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #57AAFF;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #57AAFF;
+} 
+.jc-support-type-property-name-css {
+    color: #999966;
+} 
+.jc-keyword-other-unit-css {
+    color: #FFFFFF;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-css {
+    color: #FFFFFF;
+} 
+.jc-support-function-event-handler-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-operator-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-control-js {
+    color: #FF319F;
+} 
+.jc-support-class-prototype-js {
+    color: #FFFFFF;
+} 
+.jc-object-property-function-prototype-js {
+    color: #57AAFF;
+} 
+.jc-storage {
+    color: #FF319F;
+} 

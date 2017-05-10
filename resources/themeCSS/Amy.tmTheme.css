@@ -1,0 +1,140 @@
+body {
+    color: #D0D0FF;
+    background-color: #200020;
+} 
+.jc-comment-block {
+    color: #404080;
+    background-color: #200020;
+} 
+.jc-string {
+    color: #999999;
+} 
+.jc-constant-language {
+    color: #707090;
+} 
+.jc-constant-numeric {
+    color: #7090B0;
+} 
+.jc-constant-numeric-integer-int32 {
+} 
+.jc-constant-numeric-integer-int64 {
+} 
+.jc-constant-numeric-integer-nativeint {
+} 
+.jc-constant-numeric-floating-point-ocaml {
+} 
+.jc-constant-character {
+    color: #666666;
+} 
+.jc-constant-language-boolean {
+    color: #8080A0;
+} 
+.jc-constant-language {
+} 
+.jc-constant-other {
+} 
+.jc-variable-language {
+    color: #008080;
+} 
+.jc-variable-other {
+    color: #008080;
+} 
+.jc-keyword {
+    color: #A080FF;
+} 
+.jc-keyword-operator {
+    color: #A0A0FF;
+} 
+.jc-keyword-other-decorator {
+    color: #D0D0FF;
+} 
+.jc-keyword-operator-infix-floating-point-ocaml {
+} 
+.jc-keyword-operator-prefix-floating-point-ocaml {
+} 
+.jc-keyword-other-directive {
+    color: #C080C0;
+} 
+.jc-keyword-other-directive-line-number {
+    color: #C080C0;
+} 
+.jc-keyword-control {
+    color: #80A0FF;
+} 
+.jc-storage {
+    color: #B0FFF0;
+} 
+.jc-entity-name-type-variant {
+    color: #60B0FF;
+} 
+.jc-storage-type-variant-polymorphic {
+    color: #60B0FF;
+} 
+.jc-entity-name-type-variant-polymorphic {
+    color: #60B0FF;
+} 
+.jc-entity-name-type-module {
+    color: #B000B0;
+} 
+.jc-entity-name-type-module-type-ocaml {
+    color: #B000B0;
+} 
+.jc-support-other {
+    color: #A00050;
+} 
+.jc-entity-name-type-class {
+    color: #70E080;
+} 
+.jc-entity-name-type-class-type {
+    color: #70E0A0;
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-function {
+    color: #50A0A0;
+} 
+.jc-variable-parameter {
+    color: #80B0B0;
+} 
+.jc-entity-name-type-token {
+    color: #3080A0;
+} 
+.jc-entity-name-type-token-reference {
+    color: #3CB0D0;
+} 
+.jc-entity-name-function-non-terminal {
+    color: #90E0E0;
+} 
+.jc-entity-name-function-non-terminal-reference {
+    color: #C0F0F0;
+} 
+.jc-entity-name-tag {
+    color: #009090;
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-constant {
+    background-color: #200020;
+} 
+.jc-support-type {
+} 
+.jc-support-class {
+} 
+.jc-support-other-variable {
+} 
+.jc-invalid-illegal {
+    color: #400080;
+    background-color: #FFFF00;
+} 
+.jc-invalid-deprecated {
+    color: #200020;
+    background-color: #CC66FF;
+} 
+.jc-source-camlp4-embedded {
+    background-color: #40008054;
+} 
+.jc-source-camlp4-embedded-parser-ocaml {
+} 
+.jc-punctuation {
+    color: #805080;
+} 

@@ -1,0 +1,43 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-meta-header-multimarkdown {
+    color: #979797;
+    background-color: #FFFFFF;
+} 
+.jc-meta-header-key-multimarkdown {
+} 
+.jc-meta-header-value-multimarkdown {
+} 
+.jc-markup-heading-markdown {
+} 
+.jc-markup-table-multimarkdown {
+    color: #FF0000;
+} 
+.jc-meta-link-reference-def-markdown {
+    color: #21FF0A;
+} 
+.jc-meta-footnote-reference-def-multimarkdown {
+    color: #FF8D04;
+} 
+.jc-meta-citation-reference-def-multimarkdown {
+    color: #0ABFFF;
+} 
+.jc-markup-raw-block-markdown {
+    background-color: #E5E5E5;
+} 
+.jc-markup-math-multimarkdown {
+    background-color: #E5E5E5;
+} 
+.jc-markup-raw-inline-markdown {
+} 
+.jc-markup-quote-markdown {
+    background-color: #E5E5E5;
+} 
+.jc-citation-possible {
+    color: #FF0093;
+} 
+.jc-meta-link {
+    color: #0205F0;
+} 

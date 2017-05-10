@@ -1,0 +1,59 @@
+body {
+    color: #66CCFF;
+    background-color: #000000C7;
+} 
+.jc-comment {
+    color: #66FF66;
+} 
+.jc-string {
+    color: #FF66FF;
+} 
+.jc-constant-numeric {
+} 
+.jc-constant-language {
+} 
+.jc-constant-character {
+    color: #FFFF00;
+} 
+.jc-constant-other {
+    color: #FFFF00;
+} 
+.jc-variable-language {
+} 
+.jc-variable-other {
+} 
+.jc-keyword {
+    color: #999999;
+} 
+.jc-storage {
+} 
+.jc-entity-name-class {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-function {
+} 
+.jc-variable-parameter {
+    color: #FF0080;
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-function {
+    color: #FFCC66;
+} 
+.jc-support-constant {
+    color: #FF0000;
+} 
+.jc-support-type {
+    color: #FFFFFF;
+} 
+.jc-support-class {
+    color: #FFFFFF;
+} 
+.jc-support-other-variable {
+    color: #000000;
+} 
+.jc-invalid {
+} 

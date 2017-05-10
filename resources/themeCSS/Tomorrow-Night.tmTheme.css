@@ -1,0 +1,124 @@
+body {
+    color: #C5C8C6;
+    background-color: #1D1F21;
+} 
+.jc-comment {
+    color: #969896;
+} 
+.jc-keyword-operator-class {
+    color: #CED1CF;
+} 
+.jc-constant-other {
+    color: #CED1CF;
+} 
+.jc-source-php-embedded-line {
+    color: #CED1CF;
+} 
+.jc-variable {
+    color: #CC6666;
+} 
+.jc-support-other-variable {
+    color: #CC6666;
+} 
+.jc-string-other-link {
+    color: #CC6666;
+} 
+.jc-string-regexp {
+    color: #CC6666;
+} 
+.jc-entity-name-tag {
+    color: #CC6666;
+} 
+.jc-entity-other-attribute-name {
+    color: #CC6666;
+} 
+.jc-constant-numeric {
+    color: #DE935F;
+} 
+.jc-constant-language {
+    color: #DE935F;
+} 
+.jc-support-constant {
+    color: #DE935F;
+} 
+.jc-constant-character {
+    color: #DE935F;
+} 
+.jc-variable-parameter {
+    color: #DE935F;
+} 
+.jc-punctuation-section-embedded {
+    color: #DE935F;
+} 
+.jc-keyword-other-unit {
+    color: #DE935F;
+} 
+.jc-entity-name-class {
+    color: #F0C674;
+} 
+.jc-entity-name-type-class {
+    color: #F0C674;
+} 
+.jc-support-type {
+    color: #F0C674;
+} 
+.jc-support-class {
+    color: #F0C674;
+} 
+.jc-string {
+    color: #B5BD68;
+} 
+.jc-constant-other-symbol {
+    color: #B5BD68;
+} 
+.jc-entity-other-inherited-class {
+    color: #B5BD68;
+} 
+.jc-markup-heading {
+    color: #B5BD68;
+} 
+.jc-keyword-operator {
+    color: #8ABEB7;
+} 
+.jc-constant-other-color {
+    color: #8ABEB7;
+} 
+.jc-entity-name-function {
+    color: #81A2BE;
+} 
+.jc-meta-function-call {
+    color: #81A2BE;
+} 
+.jc-support-function {
+    color: #81A2BE;
+} 
+.jc-keyword-other-special-method {
+    color: #81A2BE;
+} 
+.jc-meta-block-level {
+    color: #81A2BE;
+} 
+.jc-keyword {
+    color: #B294BB;
+} 
+.jc-storage {
+    color: #B294BB;
+} 
+.jc-storage-type {
+    color: #B294BB;
+} 
+.jc-entity-name-tag-css {
+    color: #B294BB;
+} 
+.jc-invalid {
+    color: #CED2CF;
+    background-color: #DF5F5F;
+} 
+.jc-meta-separator {
+    color: #CED2CF;
+    background-color: #82A3BF;
+} 
+.jc-invalid-deprecated {
+    color: #CED2CF;
+    background-color: #B798BF;
+} 

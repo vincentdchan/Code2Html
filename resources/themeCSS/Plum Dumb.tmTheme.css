@@ -1,0 +1,119 @@
+body {
+    color: #FFFFFF;
+    background-color: #00000BF7;
+} 
+.jc-keyword-other-actionscript-3 {
+    color: #FFCC66;
+    background-color: #FFFFFF00;
+} 
+.jc-source-php {
+    background-color: #33333326;
+} 
+.jc-text-html source {
+    background-color: #33009933;
+} 
+.jc-source {
+} 
+.jc-text {
+} 
+.jc-entity-name-class {
+    color: #FFFFFF;
+} 
+.jc-entity-other-inherited-class {
+    color: #FFFFFF;
+} 
+.jc-comment {
+    color: #666666;
+    background-color: #3333334D;
+} 
+.jc-constant {
+    color: #FFCC00;
+    background-color: #9900FF33;
+} 
+.jc-constant-language {
+    background-color: #9900FF1A;
+} 
+.jc-constant-character {
+    color: #FFCC00;
+} 
+.jc-constant-other {
+    color: #FFCC00;
+} 
+.jc-entity-name-class {
+    color: #CCCC99;
+    background-color: #BEAFFF1A;
+} 
+.jc-entity-name-type {
+    background-color: #29002FD9;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #FF0000A6;
+} 
+.jc-invalid-deprecated {
+    background-color: #FF00008C;
+} 
+.jc-keyword {
+    color: #CCCC66;
+} 
+.jc-support-type {
+    color: #999966;
+} 
+.jc-support-class {
+    color: #999966;
+} 
+.jc-support-constant {
+    color: #33FFCC;
+} 
+.jc-support-function {
+    color: #66FFCC;
+    background-color: #66FFFF1A;
+} 
+.jc-support-other-variable {
+    color: #FFFFCC;
+} 
+.jc-storage-type-modifier {
+    color: #CCCC99;
+} 
+.jc-keyword-operator {
+    color: #666666;
+} 
+.jc-punctuation-definition-embedded-begin {
+    color: #FFCC00;
+    background-color: #3300FF80;
+} 
+.jc-punctuation-definition-embedded-end {
+    color: #FFCC00;
+    background-color: #3300FF80;
+} 
+.jc-punctuation {
+    color: #999999BF;
+} 
+.jc-storage {
+    color: #FFFFCC;
+} 
+.jc-string {
+    color: #99FF66;
+    background-color: #6600CC59;
+} 
+.jc-meta-verbatim {
+    color: #99FF66;
+    background-color: #6600CC59;
+} 
+.jc-string-regexp {
+} 
+.jc-entity-other-attribute-name {
+    color: #FFFFCC;
+} 
+.jc-entity-name-tag {
+    color: #FFFF99;
+    background-color: #3333CC00;
+} 
+.jc-variable-language {
+    color: #00FFFF;
+    background-color: #00CCFF26;
+} 
+.jc-variable-other {
+    color: #00FFFF;
+    background-color: #00CCFF26;
+} 

@@ -1,0 +1,115 @@
+body {
+    color: #F8F8F2;
+    background-color: #0D0D0D;
+} 
+.jc-comment {
+    color: #8C8C8C;
+} 
+.jc-string {
+    color: #FFEE99;
+} 
+.jc-constant-numeric {
+    color: #FF80F4;
+} 
+.jc-constant-language {
+    color: #FF80F4;
+} 
+.jc-constant-character {
+    color: #FF80F4;
+} 
+.jc-constant-other {
+    color: #FF80F4;
+} 
+.jc-variable {
+} 
+.jc-keyword {
+    color: #F92672;
+} 
+.jc-storage {
+    color: #F92672;
+} 
+.jc-storage-type {
+    color: #66D9EF;
+} 
+.jc-entity-name-class {
+    color: #A6E22E;
+} 
+.jc-entity-other-inherited-class {
+    color: #A6E22E;
+} 
+.jc-entity-name-function {
+    color: #A6E22E;
+} 
+.jc-variable-parameter {
+    color: #FD971F;
+} 
+.jc-entity-name-tag {
+    color: #F92672;
+} 
+.jc-entity-other-attribute-name {
+    color: #A6E22E;
+} 
+.jc-support-function {
+    color: #66D9EF;
+} 
+.jc-support-constant {
+    color: #66D9EF;
+} 
+.jc-support-type {
+    color: #66D9EF;
+} 
+.jc-support-class {
+    color: #66D9EF;
+} 
+.jc-support-other-variable {
+} 
+.jc-support-other-namespace {
+    color: #FFB2F9;
+} 
+.jc-entity-name-type-namespace {
+    color: #FFB2F9;
+} 
+.jc-support-other-namespace-use-as-php {
+    color: #66D9EF;
+} 
+.jc-variable-language-namespace-php {
+    color: #D66990;
+} 
+.jc-punctuation-separator-inheritance-php {
+    color: #F92672;
+} 
+.jc-support-function-misc-css {
+    color: #FFEE99;
+} 
+.jc-support-constant-property-value-css {
+    color: #FFEE99;
+} 
+.jc-support-constant-font-name-css {
+    color: #FFEE99;
+} 
+.jc-entity-other-tagbraces-twig {
+    color: #A6E22E;
+} 
+.jc-keyword-control-twig {
+    color: #FD971F;
+} 
+.jc-variable-other-twig {
+    color: #FF80F4;
+} 
+.jc-support-function-filter-variable-twig {
+    color: #FFCCFB;
+} 
+.jc-entity-name-function-twig {
+    color: #F92672;
+} 
+.jc-entity-other-argument-twig {
+    color: #E5DB7E;
+} 
+.jc-invalid {
+    color: #F8F8F0;
+    background-color: #F92672;
+} 
+.jc-invalid-deprecated {
+    color: #F8F8F0;
+    background-color: #FF80F4;
+} 

@@ -1,0 +1,145 @@
+body {
+    color: #F8F8F8;
+    background-color: #245032;
+} 
+.jc-comment {
+    color: #FD6209;
+} 
+.jc-constant {
+    color: #9CF340;
+} 
+.jc-keyword {
+    color: #96DD3B;
+} 
+.jc-keyword-control-import-python {
+    color: #FFB454;
+} 
+.jc-keyword-control-import-from-python {
+    color: #FFB454;
+} 
+.jc-entity {
+    color: #FEC758;
+} 
+.jc-storage {
+    color: #FFE862;
+} 
+.jc-string {
+    color: #E1FFB8;
+} 
+.jc-support {
+    color: #9DF39F;
+} 
+.jc-variable {
+    color: #FB9A4B;
+} 
+.jc-invalid {
+    background-color: #94DA3A;
+} 
+.jc-text source {
+    background-color: #B0B3BA14;
+} 
+.jc-text-html-ruby source {
+    background-color: #B1B3BA21;
+} 
+.jc-entity-other-inherited-class {
+    color: #FFE862;
+} 
+.jc-string-quoted source {
+    color: #9DF39F;
+} 
+.jc-string constant {
+    color: #FFE862;
+} 
+.jc-string-regexp {
+    color: #FFB454;
+} 
+.jc-string variable {
+    color: #EDEF7D;
+} 
+.jc-support-function {
+    color: #FFE862;
+} 
+.jc-support-constant {
+    color: #EB939A;
+} 
+.jc-declaration-sgml-html declaration-doctype {
+    color: #989898;
+} 
+.jc-declaration-sgml-html declaration-doctype entity {
+    color: #989898;
+} 
+.jc-declaration-sgml-html declaration-doctype string {
+    color: #989898;
+} 
+.jc-declaration-xml-processing {
+    color: #989898;
+} 
+.jc-declaration-xml-processing entity {
+    color: #989898;
+} 
+.jc-declaration-xml-processing string {
+    color: #989898;
+} 
+.jc-declaration-tag {
+    color: #E8E8E7;
+} 
+.jc-declaration-tag entity {
+    color: #E8E8E7;
+} 
+.jc-meta-tag {
+    color: #E8E8E7;
+} 
+.jc-meta-tag entity {
+    color: #E8E8E7;
+} 
+.jc-meta-selector-css entity-name-tag {
+    color: #AA5507;
+    background-color: #245032;
+} 
+.jc-meta-selector-css entity-other-attribute-name-id {
+    color: #FEC758;
+} 
+.jc-meta-selector-css entity-other-attribute-name-class {
+    color: #41A83E;
+} 
+.jc-support-type-property-name-css {
+    color: #96DD3B;
+} 
+.jc-meta-property-group support-constant-property-value-css {
+    color: #FFE862;
+} 
+.jc-meta-property-value support-constant-property-value-css {
+    color: #FFE862;
+} 
+.jc-meta-property-value support-constant-named-color-css {
+    color: #FFE862;
+} 
+.jc-meta-property-value constant {
+    color: #FFE862;
+} 
+.jc-meta-preprocessor-at-rule keyword-control-at-rule {
+    color: #FD6209;
+} 
+.jc-meta-constructor-argument-css {
+    color: #EC9799;
+} 
+.jc-meta-diff {
+    color: #F8F8F8;
+    background-color: #0B2F20;
+} 
+.jc-meta-diff-header {
+    color: #F8F8F8;
+    background-color: #0B2F20;
+} 
+.jc-markup-deleted {
+    color: #EC9799;
+    background-color: #FEDCDD;
+} 
+.jc-markup-changed {
+    color: #F8F8F8;
+    background-color: #C4B14A;
+} 
+.jc-markup-inserted {
+    color: #41A83E;
+    background-color: #9BF199;
+} 

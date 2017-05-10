@@ -1,0 +1,122 @@
+body {
+    color: #FFFFFF;
+    background-color: #040A12;
+} 
+.jc-comment {
+    color: #510D15;
+} 
+.jc-string {
+    color: #3B5D8B;
+} 
+.jc-constant-numeric {
+    color: #B9D2EB;
+} 
+.jc-constant-language {
+    color: #EF872A;
+} 
+.jc-constant-character {
+} 
+.jc-constant-other {
+} 
+.jc-variable-language {
+    color: #C5FF38;
+} 
+.jc-variable-other {
+    color: #C5FF38;
+} 
+.jc-keyword {
+    color: #3B5D8B;
+} 
+.jc-storage {
+    color: #ED2E8B;
+} 
+.jc-entity-name-class {
+    color: #8CFBCF;
+} 
+.jc-entity-other-inherited-class {
+    color: #FF6600;
+} 
+.jc-entity-name-function {
+    color: #63983B;
+} 
+.jc-variable-parameter {
+    color: #F4B52D;
+} 
+.jc-entity-name-tag {
+    color: #766817;
+} 
+.jc-entity-other-attribute-name {
+    color: #D6CB6D;
+} 
+.jc-support-function {
+    color: #FF3700;
+} 
+.jc-support-constant {
+    color: #7AB7F9;
+} 
+.jc-support-type {
+} 
+.jc-support-class {
+} 
+.jc-support-other-variable {
+    color: #264D0B;
+} 
+.jc-invalid {
+} 
+.jc-text-html declaration-tag {
+    color: #2193AE;
+} 
+.jc-text-html meta-tag {
+    color: #2193AE;
+} 
+.jc-text-html entity-name-tag-xhtml {
+    color: #2193AE;
+} 
+.jc-source-ruby string {
+    color: #FEFAC6;
+} 
+.jc-string-quoted-other {
+    color: #FEFAC6;
+} 
+.jc-ruby-source {
+    color: #BD2241;
+} 
+.jc-meta-function-method-without-arguments-ruby {
+    color: #BD2241;
+} 
+.jc-keyword-control-def-ruby {
+    color: #BD2241;
+} 
+.jc-entity-name-function-ruby {
+    color: #C7F945;
+} 
+.jc-source-ruby {
+    color: #E94526;
+} 
+.jc-meta-module-ruby {
+    color: #E94526;
+} 
+.jc-keyword-control-module-ruby {
+    color: #E94526;
+} 
+.jc-source-ruby {
+    color: #EC6828;
+} 
+.jc-support-class-ruby {
+    color: #EC6828;
+} 
+.jc-source-ruby {
+    color: #FFFFFF;
+} 
+.jc-punctuation-section-array-ruby {
+    color: #FDF05D;
+} 
+.jc-source-ruby {
+    color: #BD2241;
+} 
+.jc-meta-function-method-without-arguments-ruby {
+    color: #BD2241;
+} 
+.jc-keyword-control-def-ruby {
+    color: #BD2241;
+} 

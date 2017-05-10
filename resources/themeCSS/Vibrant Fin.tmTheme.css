@@ -1,0 +1,138 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000F2;
+} 
+.jc-text {
+    color: #FFFFFF;
+    background-color: #0F0F0FED;
+} 
+.jc-source-ruby-rails-embedded-html {
+    background-color: #000000;
+} 
+.jc-text-html-ruby {
+    color: #FFFFFF;
+    background-color: #101010;
+} 
+.jc-constant-numeric-ruby {
+    color: #CCFF33;
+} 
+.jc-source-ruby {
+} 
+.jc-source {
+    color: #FFFFFF;
+    background-color: #000000F2;
+} 
+.jc-comment {
+    color: #634D70;
+} 
+.jc-constant {
+    color: #339999;
+} 
+.jc-keyword {
+    color: #FF6600;
+} 
+.jc-keyword-preprocessor {
+    color: #EDF8F9;
+} 
+.jc-keyword-preprocessor directive {
+    color: #FFFFFF;
+} 
+.jc-entity-name-function {
+    color: #FFCC00;
+} 
+.jc-storage-type-function-js {
+    color: #FFCC00;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #772CB7;
+    background-color: #070707;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-support-function-activerecord-rails {
+    color: #999966;
+} 
+.jc-string {
+    color: #66FF00;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #000000;
+    background-color: #CCCC33;
+} 
+.jc-string-regexp {
+    color: #44B4CC;
+} 
+.jc-string-literal {
+    color: #CCCC33;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-class {
+} 
+.jc-support-class-js {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+} 
+.jc-meta-tag-inline-any-html {
+    color: #FF6600;
+} 
+.jc-meta-tag-block-any-html {
+    color: #FF6600;
+} 
+.jc-entity-other-attribute-name {
+    color: #99CC99;
+} 
+.jc-keyword-other {
+    color: #DDE93D;
+} 
+.jc-meta-selector-css {
+    color: #FF6600;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #FF6600;
+} 
+.jc-entity-name-tag-wildcard-css {
+    color: #FF6600;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #FF6600;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #FF6600;
+} 
+.jc-support-type-property-name-css {
+    color: #999966;
+} 
+.jc-keyword-other-unit-css {
+    color: #FFFFFF;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-css {
+    color: #FFFFFF;
+} 
+.jc-support-function-event-handler-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-operator-js {
+    color: #FFFFFF;
+} 
+.jc-keyword-control-js {
+    color: #CCCC66;
+} 
+.jc-support-class-prototype-js {
+    color: #FFFFFF;
+} 
+.jc-object-property-function-prototype-js {
+    color: #FF6600;
+} 

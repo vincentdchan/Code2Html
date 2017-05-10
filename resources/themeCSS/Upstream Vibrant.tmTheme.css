@@ -1,0 +1,155 @@
+body {
+    color: #E2F6FF;
+    background-color: #000000D9;
+} 
+.jc-comment {
+    color: #4E4E4E;
+} 
+.jc-keyword {
+    color: #2499DA;
+} 
+.jc-storage {
+    color: #2499DA;
+} 
+.jc-constant-numeric {
+    color: #FF73FD;
+} 
+.jc-constant {
+    color: #9CFFFF;
+} 
+.jc-constant-language {
+    color: #FF6C60;
+} 
+.jc-variable {
+    color: #9CFFFF;
+} 
+.jc-string {
+    color: #B2D72C;
+} 
+.jc-variable-language {
+    color: #FF6C60;
+} 
+.jc-constant-character-escape {
+    color: #E2F6F2;
+} 
+.jc-string source {
+    color: #E2F6F2;
+} 
+.jc-meta-preprocessor {
+    color: #B2D72C;
+} 
+.jc-keyword-control-import {
+    color: #B2D72C;
+} 
+.jc-entity-name-function {
+    color: #EEEEEE;
+} 
+.jc-support-function-any-method {
+    color: #EEEEEE;
+} 
+.jc-entity-name-type {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-keyword-control {
+    color: #2499DA;
+} 
+.jc-keyword-operator {
+    color: #EEEEEE;
+} 
+.jc-storage-modifier {
+    color: #E1F5B1;
+} 
+.jc-variable-parameter {
+} 
+.jc-storage-type-method {
+    color: #70727E;
+} 
+.jc-meta-section entity-name-section {
+    color: #E2F6FF;
+} 
+.jc-declaration-section entity-name-section {
+    color: #E2F6FF;
+} 
+.jc-support-function {
+    color: #E1F5B1;
+} 
+.jc-support-class {
+    color: #FFF7B0;
+} 
+.jc-support-type {
+    color: #FFF7B0;
+} 
+.jc-support-constant {
+    color: #B2D72C;
+} 
+.jc-support-variable {
+    color: #9CFFFF;
+} 
+.jc-keyword-operator-js {
+    color: #687687;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-invalid-deprecated-trailing-whitespace {
+    color: #0A0B0C;
+    background-color: #FFD0D0;
+} 
+.jc-text source {
+    background-color: #18111100;
+} 
+.jc-string-unquoted {
+    background-color: #18111100;
+} 
+.jc-text source string-unquoted {
+    background-color: #0000000F;
+} 
+.jc-text source text source {
+    background-color: #0000000F;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #68685B;
+} 
+.jc-meta-tag-sgml-doctype {
+    color: #888888;
+} 
+.jc-meta-tag-sgml-doctype entity {
+    color: #888888;
+} 
+.jc-meta-tag-sgml-doctype string {
+    color: #888888;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #888888;
+} 
+.jc-meta-tag-preprocessor-xml entity {
+    color: #888888;
+} 
+.jc-meta-tag-preprocessor-xml string {
+    color: #888888;
+} 
+.jc-string-quoted-docinfo-doctype-DTD {
+} 
+.jc-meta-tag {
+    color: #2499DA;
+} 
+.jc-declaration-tag {
+    color: #2499DA;
+} 
+.jc-entity-name-tag {
+    color: #2499DA;
+} 
+.jc-entity-other-attribute-name {
+    color: #E1F5B1;
+} 
+.jc-markup-heading {
+    color: #4266A0;
+} 
+.jc-markup-quote {
+    color: #89725B;
+} 
+.jc-markup-list {
+    color: #B90690;
+} 

@@ -1,0 +1,232 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-text {
+    color: #FFFFFF;
+} 
+.jc-source-ruby-rails-embedded-html {
+} 
+.jc-text-html-ruby {
+    color: #FFFFFF;
+} 
+.jc-constant-numeric-ruby {
+    color: #CCFF33;
+} 
+.jc-source-ruby {
+    color: #FFFFFF;
+} 
+.jc-source {
+    color: #FFFFFF;
+} 
+.jc-comment {
+    color: #545454;
+} 
+.jc-constant {
+    color: #5FBAFD;
+} 
+.jc-keyword {
+    color: #FF7827;
+} 
+.jc-keyword-preprocessor {
+    color: #C1F0F6;
+} 
+.jc-keyword-preprocessor directive {
+    color: #FFFFDD;
+} 
+.jc-entity-name-function {
+    color: #FF9C3B;
+} 
+.jc-storage-type-function-js {
+    color: #FF9C3B;
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #363636;
+} 
+.jc-variable-other {
+    color: #1AA6FC;
+} 
+.jc-variable-js {
+    color: #1AA6FC;
+} 
+.jc-punctuation-separator-variable {
+    color: #1AA6FC;
+} 
+.jc-support-function-activerecord-rails {
+    color: #999966;
+} 
+.jc-string {
+    color: #FFFC7A;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #DDE93D;
+    background-color: #61601D;
+} 
+.jc-string-regexp {
+    color: #44B4CC;
+} 
+.jc-string-literal {
+    color: #CCFF33;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-class {
+} 
+.jc-support-class-js {
+} 
+.jc-entity-other-inherited-class {
+    color: #D20037;
+} 
+.jc-entity-name-tag {
+    color: #E95126;
+} 
+.jc-meta-tag-inline-any-html {
+    color: #E95126;
+} 
+.jc-meta-tag-block-any-html {
+    color: #E95126;
+} 
+.jc-entity-other-attribute-name {
+    color: #E95126;
+} 
+.jc-keyword-other {
+    color: #DDE93D;
+} 
+.jc-meta-selector-css {
+    color: #FF873A;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #FF873A;
+} 
+.jc-entity-name-tag-wildcard-css {
+    color: #FF873A;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #FF873A;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #FF873A;
+} 
+.jc-support-type-property-name-css {
+    color: #44B4CC;
+} 
+.jc-keyword-other-unit-css {
+    color: #F2F2F2;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #F2F2F2;
+} 
+.jc-constant-numeric-css {
+    color: #F2F2F2;
+} 
+.jc-support-function-event-handler-js {
+    color: #FFFFDD;
+} 
+.jc-keyword-operator-js {
+    color: #FF873A;
+} 
+.jc-keyword-control-js {
+    color: #F3450F;
+} 
+.jc-support-constant-js {
+    color: #B91F39;
+} 
+.jc-support-class-prototype-js {
+    color: #EDF8F9;
+} 
+.jc-object-property-function-prototype-js {
+    color: #FF4A10;
+} 
+.jc-constant-character-escaped {
+    color: #B2D9D0;
+} 
+.jc-constant-character-escape {
+    color: #B2D9D0;
+} 
+.jc-string source {
+    color: #B2D9D0;
+} 
+.jc-string source-ruby {
+    color: #B2D9D0;
+} 
+.jc-support {
+    color: #DF0033;
+} 
+.jc-support-function {
+    color: #F84E14;
+} 
+.jc-support-constant {
+    color: #F9DC76;
+} 
+.jc-storage {
+    color: #FF9419;
+} 
+.jc-variable-other-readwrite-global-pre-defined {
+    color: #127FFB;
+} 
+.jc-variable-language {
+    color: #127FFB;
+} 
+.jc-variable-other-constant {
+    color: #FF1800;
+} 
+.jc-support-variable {
+    color: #CCFF33;
+} 
+.jc-variable-other-readwrite-global {
+    color: #D0D0FF;
+} 
+.jc-variable-other {
+    color: #FFFFFF;
+} 
+.jc-variable-js {
+    color: #FFFFFF;
+} 
+.jc-punctuation-separator-variable {
+    color: #FFFFFF;
+} 
+.jc-variable-other-readwrite-class {
+} 
+.jc-variable-other-readwrite-instance {
+    color: #1AA6FC;
+} 
+.jc-variable-other-php {
+} 
+.jc-variable-other-normal {
+} 
+.jc-declaration-tag {
+    color: #FF7827;
+} 
+.jc-declaration-tag entity {
+    color: #FF7827;
+} 
+.jc-meta-tag {
+    color: #FF7827;
+} 
+.jc-meta-tag entity {
+    color: #FF7827;
+} 
+.jc-declaration-tag-inline {
+    color: #FF7827;
+} 
+.jc-declaration-tag-inline entity {
+    color: #FF7827;
+} 
+.jc-source entity-name-tag {
+    color: #FF7827;
+} 
+.jc-source entity-other-attribute-name {
+    color: #FF7827;
+} 
+.jc-meta-tag-inline {
+    color: #FF7827;
+} 
+.jc-meta-tag-inline entity {
+    color: #FF7827;
+} 

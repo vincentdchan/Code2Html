@@ -1,0 +1,231 @@
+body {
+    color: #CACACA;
+    background-color: #1E1E1E;
+} 
+.jc-comment {
+    color: #3C5636;
+    background-color: #112B0A1A;
+} 
+.jc-constant {
+    color: #E66C29;
+} 
+.jc-entity {
+    color: #2EB43B;
+} 
+.jc-keyword {
+    color: #8F8D17;
+} 
+.jc-keyword-operator {
+    color: #7AFF79;
+} 
+.jc-storage {
+    color: #7A925F;
+} 
+.jc-string {
+    color: #A57C5C;
+} 
+.jc-support {
+    color: #2F8996;
+} 
+.jc-variable {
+    color: #77ACB0;
+} 
+.jc-source-php {
+    background-color: #15151540;
+} 
+.jc-text source {
+    background-color: #FFFFFF0A;
+} 
+.jc-text-html-ruby source {
+    background-color: #9898980A;
+} 
+.jc-entity-other-inherited-class {
+    color: #9B5C2E;
+} 
+.jc-string source {
+    color: #F5E76B;
+} 
+.jc-string constant {
+    color: #A5974E;
+} 
+.jc-string-regexp {
+    color: #E3965E;
+} 
+.jc-string-regexp constant-character-escape {
+    color: #C57630;
+} 
+.jc-string-regexp source-ruby-embedded {
+    color: #C57630;
+} 
+.jc-string-regexp string-regexp-arbitrary-repitition {
+    color: #C57630;
+} 
+.jc-string variable {
+    color: #4D769A;
+} 
+.jc-variable-other-global-safer-php {
+    color: #4A7952;
+} 
+.jc-support-function {
+    color: #EDD34D;
+} 
+.jc-support-constant {
+    color: #959630;
+} 
+.jc-meta-group-braces-round punctuation-section-scope {
+    color: #C1C273;
+} 
+.jc-meta-group-braces-round meta-delimiter-object-comma {
+    color: #C1C273;
+} 
+.jc-meta-brace-round {
+    color: #C1C273;
+} 
+.jc-meta-group-braces-square punctuation-section-scope {
+    color: #C8CA67;
+} 
+.jc-meta-group-braces-square meta-delimiter-object-comma {
+    color: #C8CA67;
+} 
+.jc-meta-brace-square {
+    color: #C8CA67;
+} 
+.jc-punctuation-separator-array {
+    color: #C8CA67;
+} 
+.jc-punctuation-section-array {
+    color: #C8CA67;
+} 
+.jc-meta-preprocessor-c {
+    color: #8996A8;
+} 
+.jc-meta-preprocessor-c keyword {
+    color: #AFC4DB;
+} 
+.jc-meta-tag-sgml-doctype {
+    color: #494949;
+} 
+.jc-meta-tag-sgml-doctype entity {
+    color: #494949;
+} 
+.jc-meta-tag-sgml-doctype string {
+    color: #494949;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #494949;
+} 
+.jc-meta-tag-preprocessor-xml entity {
+    color: #494949;
+} 
+.jc-meta-tag-preprocessor-xml string {
+    color: #494949;
+} 
+.jc-entity-other-attribute-name {
+    color: #B06520;
+} 
+.jc-meta-attribute-smarty {
+    color: #B06520;
+} 
+.jc-entity-name-tag {
+    color: #BAA827;
+} 
+.jc-declaration-tag-inline {
+    color: #54724B;
+} 
+.jc-declaration-tag-inline entity {
+    color: #54724B;
+} 
+.jc-source entity-name-tag {
+    color: #54724B;
+} 
+.jc-source entity-other-attribute-name {
+    color: #54724B;
+} 
+.jc-meta-tag-inline {
+    color: #54724B;
+} 
+.jc-meta-tag-inline entity {
+    color: #54724B;
+} 
+.jc-declaration-tag {
+    color: #495573;
+} 
+.jc-meta-tag {
+    color: #495573;
+} 
+.jc-declaration-tag-entity {
+    color: #495573;
+} 
+.jc-meta-tag-entity {
+    color: #495573;
+} 
+.jc-meta-selector-css entity-name-tag {
+    color: #E98662;
+} 
+.jc-meta-selector-css entity-other-attribute-name-pseudo-class-css {
+    color: #9D7648;
+} 
+.jc-meta-selector-css entity-other-attribute-name-pseudo-element-css {
+    color: #9D7648;
+} 
+.jc-meta-selector-css entity-other-attribute-name-id {
+    color: #975B36;
+} 
+.jc-meta-selector-css entity-other-attribute-name-class {
+    color: #976A1C;
+} 
+.jc-support-type-property-name-css {
+    color: #517192;
+} 
+.jc-meta-property-group support-constant-property-value-css {
+    color: #979D3D;
+} 
+.jc-meta-property-value support-constant-property-value-css {
+    color: #979D3D;
+} 
+.jc-meta-preprocessor-at-rule keyword-control-at-rule {
+    color: #8693A5;
+} 
+.jc-meta-property-value support-constant-named-color-css {
+    color: #C6C857;
+} 
+.jc-meta-property-value constant {
+    color: #C6C857;
+} 
+.jc-meta-constructor-argument-css {
+    color: #C1A25F;
+} 
+.jc-meta-diff {
+    color: #5AA2A0;
+} 
+.jc-meta-diff-header {
+    color: #5AA2A0;
+} 
+.jc-meta-separator {
+    color: #5AA2A0;
+} 
+.jc-markup-deleted {
+    color: #F8F8F8;
+    background-color: #2A0205;
+} 
+.jc-markup-changed {
+    color: #F8F8F8;
+    background-color: #2B2309;
+} 
+.jc-markup-inserted {
+    color: #F8F8F8;
+    background-color: #121D0C;
+} 
+.jc-markup-list {
+    color: #F9EB77;
+} 
+.jc-markup-heading {
+    color: #CF6A4C;
+} 
+.jc-invalid-deprecated {
+    color: #D24346;
+} 
+.jc-invalid-illegal {
+    color: #A2A2A2;
+    background-color: #351D18;
+} 

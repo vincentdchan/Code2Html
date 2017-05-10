@@ -1,0 +1,241 @@
+body {
+    color: #010101;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #898989;
+} 
+.jc-entity {
+    color: #A15001;
+} 
+.jc-keyword {
+    color: #016692;
+} 
+.jc-entity-name-type {
+    color: #646409;
+} 
+.jc-support {
+    color: #646409;
+} 
+.jc-storage {
+    color: #877611;
+} 
+.jc-storage-modifier {
+    color: #014A69;
+} 
+.jc-constant {
+    color: #333366;
+} 
+.jc-string {
+    color: #009F78;
+} 
+.jc-constant-numeric {
+    color: #8C008A;
+} 
+.jc-punctuation {
+} 
+.jc-variable {
+    color: #696989;
+} 
+.jc-invalid-deprecated {
+    color: #A00294;
+} 
+.jc-invalid-illegal {
+    color: #A00294;
+    background-color: #DF68D9BF;
+} 
+.jc-text source {
+    background-color: #B1B3BA08;
+} 
+.jc-entity-other-inherited-class {
+    color: #D19264;
+} 
+.jc-source string source {
+    color: #000000;
+} 
+.jc-source string source punctuation-section-embedded {
+    color: #00FF00;
+} 
+.jc-string constant {
+    color: #00FF00;
+} 
+.jc-string-regexp {
+    color: #9D7416;
+} 
+.jc-string-regexp constant-character-escape {
+    color: #FF8000;
+} 
+.jc-string-regexp source-ruby-embedded {
+    color: #FF8000;
+} 
+.jc-string-regexp string-regexp-arbitrary-repitition {
+    color: #FF8000;
+} 
+.jc-string-regexp-group {
+    color: #B08C39;
+    background-color: #0000001A;
+} 
+.jc-string-regexp-character-class {
+    color: #C29B4E;
+} 
+.jc-string variable {
+    color: #756565;
+} 
+.jc-support-function {
+    color: #7A7025;
+} 
+.jc-support-constant {
+    color: #582B00;
+} 
+.jc-meta-preprocessor-c {
+    color: #765757;
+} 
+.jc-meta-preprocessor-c keyword {
+    color: #502424;
+} 
+.jc-meta-cast {
+    color: #010101;
+} 
+.jc-meta-sgml-html meta-doctype {
+    color: #010101;
+} 
+.jc-meta-sgml-html meta-doctype entity {
+    color: #010101;
+} 
+.jc-meta-sgml-html meta-doctype string {
+    color: #010101;
+} 
+.jc-meta-xml-processing {
+    color: #010101;
+} 
+.jc-meta-xml-processing entity {
+    color: #010101;
+} 
+.jc-meta-xml-processing string {
+    color: #010101;
+} 
+.jc-meta-tag {
+    color: #0067C2;
+} 
+.jc-meta-tag entity {
+    color: #0067C2;
+} 
+.jc-source entity-name-tag {
+    color: #00528B;
+} 
+.jc-source entity-other-attribute-name {
+    color: #00528B;
+} 
+.jc-meta-tag-inline {
+    color: #00528B;
+} 
+.jc-meta-tag-inline entity {
+    color: #00528B;
+} 
+.jc-entity-other-attribute-name {
+    color: #BC4D00;
+} 
+.jc-entity-name-tag-namespace {
+    color: #9B431E;
+} 
+.jc-entity-other-attribute-name-namespace {
+    color: #9B431E;
+} 
+.jc-meta-selector-css entity-name-tag {
+    color: #0067C2;
+} 
+.jc-meta-selector-css entity-other-attribute-name-tag-pseudo-class {
+    color: #628795;
+} 
+.jc-meta-selector-css entity-other-attribute-name-id {
+    color: #667587;
+} 
+.jc-meta-selector-css entity-other-attribute-name-class {
+    color: #2A85CF;
+} 
+.jc-support-type-property-name-css {
+    color: #000000;
+} 
+.jc-meta-property-group support-constant-property-value-css {
+    color: #675C06;
+} 
+.jc-meta-property-value support-constant-property-value-css {
+    color: #675C06;
+} 
+.jc-meta-preprocessor-at-rule keyword-control-at-rule {
+    color: #795A5A;
+} 
+.jc-meta-property-value support-constant-named-color-css {
+    color: #3C785D;
+} 
+.jc-meta-property-value constant {
+    color: #3C785D;
+} 
+.jc-meta-constructor-argument-css {
+    color: #628795;
+} 
+.jc-meta-diff {
+    color: #FFFFFF;
+    background-color: #0E2231;
+} 
+.jc-meta-diff-header {
+    color: #FFFFFF;
+    background-color: #0E2231;
+} 
+.jc-markup-deleted {
+    color: #FFFFFF;
+    background-color: #420E09;
+} 
+.jc-markup-changed {
+    color: #FFFFFF;
+    background-color: #4A410D;
+} 
+.jc-markup-inserted {
+    color: #FFFFFF;
+    background-color: #253B22;
+} 
+.jc-markup-italic {
+    color: #9D7416;
+} 
+.jc-markup-bold {
+    color: #9D7416;
+} 
+.jc-markup-underline {
+    color: #9B431E;
+} 
+.jc-markup-quote {
+    color: #46391E;
+    background-color: #FEE09C12;
+} 
+.jc-markup-heading {
+    color: #D95B06;
+    background-color: #632D04;
+} 
+.jc-markup-heading entity {
+    color: #D95B06;
+    background-color: #632D04;
+} 
+.jc-markup-list {
+    color: #46391E;
+} 
+.jc-markup-raw {
+    color: #7C4CA8;
+    background-color: #B1B3BA08;
+} 
+.jc-markup comment {
+    color: #C84D09;
+} 
+.jc-meta-separator {
+    color: #746DFF;
+    background-color: #242424;
+} 
+.jc-meta-line-entry-logfile {
+    background-color: #EEEEEE29;
+} 
+.jc-meta-line-exit-logfile {
+    background-color: #EEEEEE29;
+} 
+.jc-meta-line-error-logfile {
+    color: #FFFFFF;
+    background-color: #751012;
+} 

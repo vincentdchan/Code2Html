@@ -1,0 +1,61 @@
+body {
+    color: #FFFFFF;
+    background-color: #000306F2;
+} 
+.jc-comment {
+    color: #404040;
+    background-color: #090A0FFA;
+} 
+.jc-string {
+    color: #00D8FF;
+} 
+.jc-constant-numeric {
+    color: #E62286;
+} 
+.jc-constant-language {
+} 
+.jc-constant-character {
+    color: #00D8FF;
+} 
+.jc-constant-other {
+    color: #00D8FF;
+} 
+.jc-variable-language {
+    color: #E62286;
+} 
+.jc-variable-other {
+    color: #E62286;
+} 
+.jc-keyword {
+} 
+.jc-storage {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-type-module-ruby {
+} 
+.jc-entity-name-type-class-ruby {
+} 
+.jc-entity-name-function {
+} 
+.jc-variable-parameter {
+    color: #E62286;
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+    color: #E62286;
+} 
+.jc-support-function {
+} 
+.jc-support-constant {
+} 
+.jc-support-type {
+} 
+.jc-support-class {
+} 
+.jc-support-other-variable {
+} 
+.jc-invalid {
+    color: #FF0C00;
+} 

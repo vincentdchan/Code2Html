@@ -1,0 +1,123 @@
+body {
+    color: #E8E8E8;
+    background-color: #000000;
+} 
+.jc-comment {
+    color: #555555;
+} 
+.jc-comment-block {
+    color: #555555;
+} 
+.jc-constant {
+    color: #6D6D6D;
+} 
+.jc-entity {
+    color: #925D4C;
+} 
+.jc-keyword-operator {
+    color: #925D4C;
+} 
+.jc-keyword {
+    color: #6D6D6D;
+} 
+.jc-constant-numeric {
+    color: #83979B;
+} 
+.jc-storage {
+    color: #6D6D6D;
+} 
+.jc-string {
+    color: #606D51;
+} 
+.jc-support {
+    color: #6D6D6D;
+} 
+.jc-variable {
+    color: #E8E9E8;
+} 
+.jc-invalid {
+    color: #F45E43;
+} 
+.jc-text source {
+    color: #F0F0F0;
+} 
+.jc-text-html-ruby source {
+    color: #F0F0F0;
+} 
+.jc-entity-other-inherited-class {
+    color: #925D4C;
+} 
+.jc-string-quoted source {
+    color: #606D51;
+} 
+.jc-string constant {
+    color: #606D51;
+} 
+.jc-string-regexp {
+    color: #7C8E68;
+} 
+.jc-string variable {
+    color: #925D4C;
+} 
+.jc-support-function {
+    color: #925D4C;
+} 
+.jc-support-constant {
+    color: #6D6D6D;
+} 
+.jc-other-preprocessor-c {
+    color: #6D6D6D;
+} 
+.jc-other-preprocessor-c entity {
+    color: #6D6D6D;
+} 
+.jc-declaration-sgml-html declaration-doctype {
+    color: #6D6D6D;
+} 
+.jc-declaration-sgml-html declaration-doctype entity {
+    color: #6D6D6D;
+} 
+.jc-declaration-sgml-html declaration-doctype string {
+    color: #6D6D6D;
+} 
+.jc-declaration-xml-processing {
+    color: #6D6D6D;
+} 
+.jc-declaration-xml-processing entity {
+    color: #6D6D6D;
+} 
+.jc-declaration-xml-processing string {
+    color: #6D6D6D;
+} 
+.jc-declaration-tag {
+    color: #8A9DA0;
+} 
+.jc-declaration-tag entity {
+    color: #8A9DA0;
+} 
+.jc-meta-tag {
+    color: #8A9DA0;
+} 
+.jc-meta-tag entity {
+    color: #8A9DA0;
+} 
+.jc-meta-diff {
+    color: #F8F8F8;
+    background-color: #0E2231;
+} 
+.jc-meta-diff-header {
+    color: #F8F8F8;
+    background-color: #0E2231;
+} 
+.jc-markup-deleted {
+    color: #F8F8F8;
+    background-color: #D03620;
+} 
+.jc-markup-changed {
+    color: #F8F8F8;
+    background-color: #C4B14A;
+} 
+.jc-markup-inserted {
+    color: #F8F8F8;
+    background-color: #41A83E;
+} 

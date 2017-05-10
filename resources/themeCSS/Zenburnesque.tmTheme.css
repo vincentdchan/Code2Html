@@ -1,0 +1,88 @@
+body {
+    color: #DEDEDE;
+    background-color: #404040;
+} 
+.jc-comment {
+    color: #709070;
+} 
+.jc-keyword-other-directive {
+} 
+.jc-keyword-other-directive-line-number {
+} 
+.jc-constant-character {
+    color: #FF8080;
+} 
+.jc-string {
+    color: #FF2020;
+} 
+.jc-constant-numeric {
+    color: #22C0FF;
+} 
+.jc-constant-numeric-floating-point {
+} 
+.jc-constant-language {
+} 
+.jc-constant-character {
+} 
+.jc-constant-other {
+} 
+.jc-variable-parameter {
+} 
+.jc-variable-other {
+} 
+.jc-keyword {
+    color: #FFFFA0;
+} 
+.jc-entity-name-module {
+    color: #FF8000;
+} 
+.jc-support-other-module {
+    color: #FF8000;
+} 
+.jc-keyword-operator {
+    color: #FFFFA0;
+} 
+.jc-source-ocaml keyword-operator-symbol-infix-floating-point {
+} 
+.jc-source-ocaml keyword-operator-symbol-prefix-floating-point {
+} 
+.jc-storage-type {
+    color: #6080FF;
+} 
+.jc-entity-name-class-variant {
+    color: #4080A0;
+} 
+.jc-storage {
+} 
+.jc-entity-name-type {
+    color: #F09040;
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-function {
+    color: #FFCC66;
+} 
+.jc-storage-type-user-defined {
+    color: #FFE000;
+} 
+.jc-entity-name-type-class-type {
+    color: #F4A020;
+} 
+.jc-variable-parameter {
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-function {
+} 
+.jc-support-constant {
+} 
+.jc-support-type {
+} 
+.jc-support-class {
+} 
+.jc-support-variable {
+} 
+.jc-invalid {
+} 

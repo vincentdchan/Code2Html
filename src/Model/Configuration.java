@@ -6,7 +6,7 @@ package Model;
 public class Configuration {
 
     private boolean _showLineNumber = true;
-    private String _styleName = "1337";
+    private String _styleName = "Monokai";
     private int _tab2spaceCount = 4;
     private boolean _showJavaHint = true;
     private boolean _enableNav = true;

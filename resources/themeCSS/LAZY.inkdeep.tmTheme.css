@@ -1,0 +1,73 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #ACADAC;
+} 
+.jc-constant {
+    color: #3B5BB5;
+} 
+.jc-entity {
+    color: #3B5BB5;
+} 
+.jc-text-tex-latex entity {
+    color: #D62A28;
+} 
+.jc-keyword {
+    color: #FF6600;
+} 
+.jc-storage {
+    color: #FF6600;
+} 
+.jc-string {
+    color: #409B1C;
+} 
+.jc-meta-verbatim {
+    color: #409B1C;
+} 
+.jc-support {
+    color: #3B5BB5;
+} 
+.jc-variable {
+} 
+.jc-invalid-deprecated {
+    color: #990000;
+} 
+.jc-invalid-illegal {
+    color: #F8F8F8;
+    background-color: #9D1E15;
+} 
+.jc-entity-other-inherited-class {
+    color: #3B5BB5;
+} 
+.jc-string constant-other-placeholder {
+    color: #671EBB;
+} 
+.jc-meta-function-call-py {
+    color: #3E4558;
+} 
+.jc-meta-tag {
+    color: #3A4A64;
+} 
+.jc-meta-tag entity {
+    color: #3A4A64;
+} 
+.jc-keyword-type-variant {
+    color: #7F90AA;
+} 
+.jc-source-ocaml keyword-operator {
+    color: #000000;
+} 
+.jc-source-ocaml keyword-operator-symbol-infix {
+    color: #3B5BB5;
+} 
+.jc-source-ocaml keyword-operator-symbol-prefix {
+    color: #3B5BB5;
+} 
+.jc-source-ocaml keyword-operator-symbol-infix-floating-point {
+} 
+.jc-source-ocaml keyword-operator-symbol-prefix-floating-point {
+} 
+.jc-source-ocaml constant-numeric-floating-point {
+} 

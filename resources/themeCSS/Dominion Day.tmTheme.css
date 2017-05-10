@@ -1,0 +1,277 @@
+body {
+    color: #B9ADD7;
+    background-color: #000000;
+} 
+.jc-absolutely none {
+    color: #83529D;
+    background-color: #2B093C;
+} 
+.jc-absolutely none {
+    color: #83529D;
+    background-color: #2B093C;
+} 
+.jc-absolutely none {
+    color: #83529D;
+    background-color: #2B093C;
+} 
+.jc-absolutely none {
+    color: #83529D;
+    background-color: #2B093C;
+} 
+.jc-absolutely none {
+    color: #36104A;
+    background-color: #961A68;
+} 
+.jc-keyword - keyword-operator {
+    color: #5B55FE;
+} 
+.jc-keyword-operator-logical {
+    color: #5B55FE;
+} 
+.jc-storage {
+    color: #5B55FE;
+} 
+.jc-comment {
+    color: #554D9D;
+} 
+.jc-string-quoted-double-block-python {
+    color: #554D9D;
+} 
+.jc-string-unquoted-cdata-xml {
+    color: #554D9D;
+} 
+.jc-string {
+    color: #83529D;
+} 
+.jc-constant {
+    color: #B36FD6;
+} 
+.jc-variable-other-constant-ruby {
+    color: #B36FD6;
+} 
+.jc-entity-name-function {
+    color: #971BA1;
+} 
+.jc-meta-function-call {
+    color: #971BA1;
+} 
+.jc-support {
+    color: #971BA1;
+} 
+.jc-entity {
+    color: #B36FD6;
+} 
+.jc-variable-parameter {
+    color: #5D935D;
+} 
+.jc-variable-other {
+    color: #5D935D;
+} 
+.jc-invalid {
+    color: #A3FFA6;
+    background-color: #FF00002E;
+} 
+.jc-keyword-operator {
+    color: #A5A4C5;
+} 
+.jc-support-variable-magic-python {
+    color: #B36FD6;
+} 
+.jc-variable-parameter-function-python {
+    color: #D4A5F3;
+} 
+.jc-meta-function-call-arguments-python {
+    color: #D4A5F3;
+} 
+.jc-punctuation-definition-arguments-begin-python {
+    color: #B9ADD7;
+} 
+.jc-punctuation-definition-arguments-end-python {
+    color: #B9ADD7;
+} 
+.jc-meta-function-decorator-python {
+    color: #5D935D;
+} 
+.jc-entity-name-function-decorator-python {
+    color: #5D935D;
+} 
+.jc-meta-function-decorator-arguments-python {
+    color: #5D935D;
+} 
+.jc-variable-parameter-function-ruby {
+    color: #B9ADD7;
+} 
+.jc-variable-other-readwrite-global-ruby {
+    color: #651E8A;
+} 
+.jc-variable-other-readwrite-class-ruby {
+    color: #B36FD6;
+} 
+.jc-variable-other-readwrite-instance-ruby {
+    color: #C5A1D7;
+} 
+.jc-entity-name-tag {
+    color: #471062;
+} 
+.jc-punctuation-definition-tag {
+    color: #471062;
+} 
+.jc-entity-other-attribute-name {
+    color: #65158F;
+} 
+.jc-meta-tag-any-html {
+    color: #65158F;
+} 
+.jc-meta-tag-block-any-html {
+    color: #471062;
+} 
+.jc-entity-name-tag-block-any-html {
+    color: #471062;
+} 
+.jc-meta-tag-structure-any-html punctuation-definition-tag-html {
+    color: #83529D;
+} 
+.jc-meta-tag-structure-any-html {
+    color: #83529D;
+} 
+.jc-entity-name-tag-structure-any-html {
+    color: #83529D;
+} 
+.jc-meta-tag-sgml-html {
+    color: #B36FD6;
+} 
+.jc-entity-name-tag-doctype-html {
+    color: #B36FD6;
+} 
+.jc-string-quoted-double-doctype-identifiers-and-DTDs-html {
+    color: #B36FD6;
+} 
+.jc-meta-tag-inline-any-html {
+    color: #971BA1;
+} 
+.jc-meta-tag-inline-any-html punctuation-definition-tag-html {
+    color: #971BA1;
+} 
+.jc-meta-tag-inline-any-html entity-other-attribute-name-html {
+    color: #971BA1;
+} 
+.jc-entity-name-tag-inline-any-html {
+    color: #971BA1;
+} 
+.jc-meta-tag-inline-any-html entity-other-attribute-name-html {
+    color: #65158F;
+} 
+.jc-source-js-embedded-html punctuation-definition-tag-html {
+    color: #971BA1;
+} 
+.jc-entity-name-tag-script {
+    color: #971BA1;
+} 
+.jc-entity-name-tag-namespace-xml {
+    color: #971BA1;
+} 
+.jc-entity-other-attribute-name-namespace-xml {
+    color: #971BA1;
+} 
+.jc-meta-tag-xml {
+    color: #971BA1;
+} 
+.jc-meta-tag-no-content-xml {
+    color: #971BA1;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #971BA1;
+} 
+.jc-entity-name-tag-localname-xml {
+    color: #B36FD6;
+} 
+.jc-punctuation-separator-namespace-xml {
+    color: #83529D;
+} 
+.jc-punctuation-definition-embedded-begin-php {
+    color: #971BA1;
+} 
+.jc-meta-consecutive-tags-php {
+    color: #971BA1;
+} 
+.jc-punctuation-definition-embedded-end-php {
+    color: #971BA1;
+} 
+.jc-variable-other-global-php {
+    color: #971BA1;
+} 
+.jc-variable-other-global-safer-php {
+    color: #971BA1;
+} 
+.jc-punctuation-definition-variable-php {
+    color: #B36FD6;
+} 
+.jc-variable-other-php {
+    color: #C5A1D7;
+} 
+.jc-variable-language-js {
+    color: #5450FF;
+} 
+.jc-keyword-operator-new-js {
+    color: #5450FF;
+} 
+.jc-meta-brace-square-js {
+    color: #83529D;
+} 
+.jc-entity-name-tag-css {
+    color: #971BA1;
+} 
+.jc-source-yaml entity-name-tag-yaml {
+    color: #971BA1;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #651E8A;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #651E8A;
+} 
+.jc-entity-other-attribute-name-attribute-css {
+    color: #651E8A;
+} 
+.jc-support-type-property-name-css {
+    color: #83529D;
+} 
+.jc-punctuation-definition-entity-css {
+    color: #B36FD6;
+} 
+.jc-meta-selector-css {
+    color: #B36FD6;
+} 
+.jc-keyword-other-unit-css {
+    color: #B36FD6;
+} 
+.jc-variable-parameter-url-css {
+    color: #B36FD6;
+} 
+.jc-constant-numeric-css {
+    color: #C5A1D7;
+} 
+.jc-constant-other-color-rgb-value-css {
+    color: #C5A1D7;
+} 
+.jc-variable-parameter-misc-css {
+    color: #C5A1D7;
+} 
+.jc-meta-property-value-css {
+    color: #C5A1D7;
+} 
+.jc-meta-property-list-css {
+    color: #C5A1D7;
+} 
+.jc-source-css {
+    color: #C5A1D7;
+} 
+.jc-string-quoted-double-attribute-value-css {
+    color: #C5A1D7;
+} 
+.jc-entity-other-attribute-name-pseudo-element-css {
+    color: #5D935D;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #5D935D;
+} 

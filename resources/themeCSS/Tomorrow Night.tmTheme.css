@@ -1,0 +1,205 @@
+body {
+    color: #AFB0AE;
+    background-color: #1D1F21;
+} 
+.jc-comment {
+    color: #8E8F8D;
+} 
+.jc-string {
+    color: #A7B367;
+} 
+.jc-string source {
+    color: #D09562;
+} 
+.jc-constant-numeric {
+    color: #D09562;
+} 
+.jc-constant-language {
+    color: #D56C69;
+} 
+.jc-constant-character {
+    color: #D56C69;
+} 
+.jc-constant-other {
+    color: #D56C69;
+} 
+.jc-keyword {
+    color: #82A3BF;
+} 
+.jc-support {
+    color: #D56C69;
+} 
+.jc-storage {
+    color: #BA9AC2;
+} 
+.jc-entity-name-class {
+    color: #82A3BF;
+} 
+.jc-entity-name-type-class {
+    color: #82A3BF;
+} 
+.jc-entity-name-type-module {
+    color: #82A3BF;
+} 
+.jc-entity-other-inherited-class {
+    color: #D56C69;
+} 
+.jc-entity-name-function {
+    color: #82A3BF;
+} 
+.jc-variable-parameter {
+    color: #82A3BF;
+} 
+.jc-entity-name-tag {
+    color: #BA9AC2;
+} 
+.jc-entity-other-attribute-name {
+    color: #BA9AC2;
+} 
+.jc-support-function {
+    color: #C3A2CC;
+} 
+.jc-keyword {
+    color: #AFB0AE;
+} 
+.jc-variable-other {
+    color: #82A3BF;
+} 
+.jc-variable-js {
+    color: #82A3BF;
+} 
+.jc-punctuation-separator-variable {
+    color: #82A3BF;
+} 
+.jc-constant-language {
+    color: #D09562;
+} 
+.jc-punctuation-section-embedded -(source string source punctuation-section-embedded) {
+    color: #A7B367;
+} 
+.jc-meta-brace-erb-html {
+    color: #A7B367;
+} 
+.jc-invalid {
+    color: #FF0B00;
+} 
+.jc-variable-other-php {
+    color: #D56C69;
+} 
+.jc-variable-other-normal {
+    color: #D56C69;
+} 
+.jc-meta-function-call {
+    color: #82A3BF;
+} 
+.jc-meta-function-call-object {
+    color: #BA9AC2;
+} 
+.jc-variable-other-property {
+    color: #BA9AC2;
+} 
+.jc-keyword-control {
+    color: #BA9AC2;
+} 
+.jc-meta-tag {
+    color: #BB99C1;
+} 
+.jc-entity-name-tag {
+    color: #BF9CBE;
+} 
+.jc-meta-doctype {
+    color: #A7B367;
+} 
+.jc-meta-tag-sgml-declaration-doctype {
+    color: #A7B367;
+} 
+.jc-meta-tag-sgml-doctype {
+    color: #A7B367;
+} 
+.jc-meta-tag-inline source {
+    color: #A7B367;
+} 
+.jc-text-html-php-source {
+    color: #A7B367;
+} 
+.jc-meta-tag-other {
+    color: #C3A2CC;
+} 
+.jc-entity-name-tag-style {
+    color: #C3A2CC;
+} 
+.jc-entity-name-tag-script {
+    color: #C3A2CC;
+} 
+.jc-meta-tag-block-script {
+    color: #C3A2CC;
+} 
+.jc-source-js-embedded punctuation-definition-tag-html {
+    color: #C3A2CC;
+} 
+.jc-source-css-embedded punctuation-definition-tag-html {
+    color: #C3A2CC;
+} 
+.jc-entity-other-attribute-name {
+    color: #C2A2CC;
+} 
+.jc-meta-tag punctuation-definition-string {
+    color: #C2A2CC;
+} 
+.jc-meta-tag string -source -punctuation {
+    color: #82A3BF;
+} 
+.jc-text source text meta-tag string -punctuation {
+    color: #82A3BF;
+} 
+.jc-punctuation-section-embedded -(source string source punctuation-section-embedded) {
+    color: #D09562;
+} 
+.jc-meta-brace-erb-html {
+    color: #D09562;
+} 
+.jc-meta-toc-list-id {
+    color: #C2A2CC;
+} 
+.jc-meta-selector-css entity-other-attribute-name-id {
+    color: #BA9AC2;
+} 
+.jc-support-type-property-name-css {
+    color: #82A3BF;
+} 
+.jc-meta-property-group support-constant-property-value-css {
+    color: #D56C69;
+} 
+.jc-meta-property-value support-constant-property-value-css {
+    color: #D56C69;
+} 
+.jc-variable-language-js {
+    color: #D66C68;
+} 
+.jc-meta-function-call-object-php {
+    color: #D3B96B;
+} 
+.jc-punctuation-definition-string-end-php {
+    color: #A8B06E;
+} 
+.jc-punctuation-definition-string-begin-php {
+    color: #A8B06E;
+} 
+.jc-source-php-embedded-line-html {
+    color: #AFB0AE;
+} 
+.jc-constant-other-symbol-ruby {
+    color: #A7B467;
+} 
+.jc-variable-language-ruby {
+    color: #D3B96B;
+} 
+.jc-keyword-other-special-method-ruby {
+    color: #D3B96C;
+} 
+.jc-source-ruby-embedded-source {
+    color: #D09562;
+} 
+.jc-keyword-other-DML-sql {
+    color: #D3B96B;
+} 

@@ -1,0 +1,121 @@
+body {
+    color: #CCCCCC;
+    background-color: #2D2D2D;
+} 
+.jc-comment {
+    color: #999999;
+} 
+.jc-keyword-operator-class {
+    color: #CCCCCC;
+} 
+.jc-constant-other {
+    color: #CCCCCC;
+} 
+.jc-source-php-embedded-line {
+    color: #CCCCCC;
+} 
+.jc-variable {
+    color: #F2777A;
+} 
+.jc-support-other-variable {
+    color: #F2777A;
+} 
+.jc-string-other-link {
+    color: #F2777A;
+} 
+.jc-entity-name-tag {
+    color: #F2777A;
+} 
+.jc-entity-other-attribute-name {
+    color: #F2777A;
+} 
+.jc-constant-numeric {
+    color: #F99157;
+} 
+.jc-constant-language {
+    color: #F99157;
+} 
+.jc-support-constant {
+    color: #F99157;
+} 
+.jc-constant-character {
+    color: #F99157;
+} 
+.jc-variable-parameter {
+    color: #F99157;
+} 
+.jc-punctuation-section-embedded {
+    color: #F99157;
+} 
+.jc-keyword-other-unit {
+    color: #F99157;
+} 
+.jc-entity-name-class {
+    color: #FFCC66;
+} 
+.jc-entity-name-type-class {
+    color: #FFCC66;
+} 
+.jc-support-type {
+    color: #FFCC66;
+} 
+.jc-support-class {
+    color: #FFCC66;
+} 
+.jc-string {
+    color: #99CC99;
+} 
+.jc-constant-other-symbol {
+    color: #99CC99;
+} 
+.jc-entity-other-inherited-class {
+    color: #99CC99;
+} 
+.jc-markup-heading {
+    color: #99CC99;
+} 
+.jc-keyword-operator {
+    color: #66CCCC;
+} 
+.jc-constant-other-color {
+    color: #66CCCC;
+} 
+.jc-entity-name-function {
+    color: #99CCCC;
+} 
+.jc-meta-function-call {
+    color: #99CCCC;
+} 
+.jc-support-function {
+    color: #99CCCC;
+} 
+.jc-keyword-other-special-method {
+    color: #99CCCC;
+} 
+.jc-meta-block-level {
+    color: #99CCCC;
+} 
+.jc-keyword {
+    color: #CC99CC;
+} 
+.jc-storage {
+    color: #CC99CC;
+} 
+.jc-storage-type {
+    color: #CC99CC;
+} 
+.jc-entity-name-tag-css {
+    color: #CC99CC;
+} 
+.jc-invalid {
+    color: #CDCDCD;
+    background-color: #F2777A;
+} 
+.jc-meta-separator {
+    color: #CDCDCD;
+    background-color: #99CCCC;
+} 
+.jc-invalid-deprecated {
+    color: #CDCDCD;
+    background-color: #CC99CC;
+} 

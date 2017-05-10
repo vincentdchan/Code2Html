@@ -1,0 +1,127 @@
+body {
+    color: #FFFFFF;
+    background-color: #002451;
+} 
+.jc-comment {
+    color: #7285B7;
+} 
+.jc-keyword-operator-class {
+    color: #FFFFFF;
+} 
+.jc-keyword-operator {
+    color: #FFFFFF;
+} 
+.jc-constant-other {
+    color: #FFFFFF;
+} 
+.jc-source-php-embedded-line {
+    color: #FFFFFF;
+} 
+.jc-variable {
+    color: #FF9DA4;
+} 
+.jc-support-other-variable {
+    color: #FF9DA4;
+} 
+.jc-string-other-link {
+    color: #FF9DA4;
+} 
+.jc-string-regexp {
+    color: #FF9DA4;
+} 
+.jc-entity-name-tag {
+    color: #FF9DA4;
+} 
+.jc-entity-other-attribute-name {
+    color: #FF9DA4;
+} 
+.jc-constant-numeric {
+    color: #FFC58F;
+} 
+.jc-constant-language {
+    color: #FFC58F;
+} 
+.jc-support-constant {
+    color: #FFC58F;
+} 
+.jc-constant-character {
+    color: #FFC58F;
+} 
+.jc-variable-parameter {
+    color: #FFC58F;
+} 
+.jc-punctuation-section-embedded {
+    color: #FFC58F;
+} 
+.jc-keyword-other-unit {
+    color: #FFC58F;
+} 
+.jc-entity-name-class {
+    color: #FFEEAD;
+} 
+.jc-entity-name-type-class {
+    color: #FFEEAD;
+} 
+.jc-support-type {
+    color: #FFEEAD;
+} 
+.jc-support-class {
+    color: #FFEEAD;
+} 
+.jc-string {
+    color: #D1F1A9;
+} 
+.jc-constant-other-symbol {
+    color: #D1F1A9;
+} 
+.jc-entity-other-inherited-class {
+    color: #D1F1A9;
+} 
+.jc-markup-heading {
+    color: #D1F1A9;
+} 
+.jc-keyword-operator {
+    color: #99FFFF;
+} 
+.jc-constant-other-color {
+    color: #99FFFF;
+} 
+.jc-entity-name-function {
+    color: #BBDAFF;
+} 
+.jc-meta-function-call {
+    color: #BBDAFF;
+} 
+.jc-support-function {
+    color: #BBDAFF;
+} 
+.jc-keyword-other-special-method {
+    color: #BBDAFF;
+} 
+.jc-meta-block-level {
+    color: #BBDAFF;
+} 
+.jc-keyword {
+    color: #EBBBFF;
+} 
+.jc-storage {
+    color: #EBBBFF;
+} 
+.jc-storage-type {
+    color: #EBBBFF;
+} 
+.jc-entity-name-tag-css {
+    color: #EBBBFF;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #F99DA5;
+} 
+.jc-meta-separator {
+    color: #FFFFFF;
+    background-color: #BBDAFE;
+} 
+.jc-invalid-deprecated {
+    color: #FFFFFF;
+    background-color: #EBBBFF;
+} 

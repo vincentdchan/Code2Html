@@ -1,0 +1,79 @@
+body {
+    color: #CCCCCC;
+    background-color: #000000D9;
+} 
+.jc-string {
+    color: #66FF66;
+} 
+.jc-constant-numeric {
+    color: #FF6666;
+} 
+.jc-string-regexp {
+    color: #66FFFF;
+} 
+.jc-keyword {
+    color: #6666FF;
+} 
+.jc-constant-language {
+    color: #FF66FF;
+} 
+.jc-support-class-exception {
+    color: #FF8000;
+} 
+.jc-entity-name-function {
+    color: #FFCC66;
+} 
+.jc-entity-name-class {
+    color: #CCCCCC;
+} 
+.jc-variable-parameter {
+    color: #CCCCCC;
+} 
+.jc-comment {
+    color: #666666;
+} 
+.jc-invalid {
+    color: #FF0080;
+    background-color: #E71A114D;
+} 
+.jc-invalid-deprecated-trailing-whitespace {
+    background-color: #E71A1100;
+} 
+.jc-text source {
+    color: #CCCCCC;
+    background-color: #FAFAFAFC;
+} 
+.jc-meta-tag {
+    color: #6666FF;
+} 
+.jc-declaration-tag {
+    color: #6666FF;
+} 
+.jc-constant {
+    color: #6782D3;
+} 
+.jc-support-constant {
+    color: #6782D3;
+} 
+.jc-support {
+    color: #6666FF;
+} 
+.jc-storage {
+    color: #CCCCCC;
+} 
+.jc-entity-name-section {
+    color: #400080;
+    background-color: #EEEEEED9;
+} 
+.jc-entity-name-frame {
+    color: #CCCCCC;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #666666;
+} 
+.jc-entity-other-attribute-name {
+    color: #3366CC;
+} 
+.jc-entity-name-tag {
+    color: #CCCCCC;
+} 

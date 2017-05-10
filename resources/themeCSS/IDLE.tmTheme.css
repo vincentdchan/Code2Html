@@ -1,0 +1,65 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #919191;
+} 
+.jc-string {
+    color: #00A33F;
+} 
+.jc-constant-numeric {
+} 
+.jc-constant-language {
+    color: #A535AE;
+} 
+.jc-constant-character {
+} 
+.jc-constant-other {
+} 
+.jc-variable-language {
+} 
+.jc-variable-other {
+} 
+.jc-keyword {
+    color: #FF5600;
+} 
+.jc-storage {
+    color: #FF5600;
+} 
+.jc-entity-name-type {
+    color: #21439C;
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-function {
+    color: #21439C;
+} 
+.jc-variable-parameter {
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-function {
+    color: #A535AE;
+} 
+.jc-support-constant {
+    color: #A535AE;
+} 
+.jc-support-type {
+    color: #A535AE;
+} 
+.jc-support-class {
+    color: #A535AE;
+} 
+.jc-support-variable {
+    color: #A535AE;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-constant-other-placeholder-py {
+    color: #990000;
+} 

@@ -1,0 +1,91 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #ADADAD;
+} 
+.jc-string {
+    color: #EA8500;
+} 
+.jc-constant-numeric {
+    color: #0F20F6;
+} 
+.jc-constant-language {
+    color: #530033;
+} 
+.jc-constant-character {
+    color: #0E00A7;
+} 
+.jc-constant-other {
+    color: #0E00A7;
+} 
+.jc-variable-language {
+    color: #1892FF;
+} 
+.jc-variable-other {
+    color: #1892FF;
+} 
+.jc-keyword {
+    color: #66FF00;
+} 
+.jc-storage {
+    color: #AA2063;
+} 
+.jc-entity-name-class {
+    color: #009749;
+} 
+.jc-entity-other-inherited-class {
+    color: #AA2063;
+} 
+.jc-entity-name-function {
+    color: #D20037;
+} 
+.jc-variable-parameter {
+    color: #053369;
+} 
+.jc-entity-name-tag {
+    color: #525F3C;
+} 
+.jc-entity-other-attribute-name {
+    color: #525F3C;
+} 
+.jc-support-function {
+    color: #728F3A;
+} 
+.jc-keyword {
+    color: #008DE2;
+} 
+.jc-variable-other {
+    color: #0000FF;
+} 
+.jc-variable-js {
+    color: #0000FF;
+} 
+.jc-punctuation-separator-variable {
+    color: #0000FF;
+} 
+.jc-constant-language {
+    color: #D20037;
+} 
+.jc-punctuation-section-embedded -(source string source punctuation-section-embedded) {
+    color: #525F3C;
+} 
+.jc-meta-brace-erb-html {
+    color: #525F3C;
+} 
+.jc-invalid {
+    color: #EB291C;
+} 
+.jc-variable-other-php {
+    color: #0000FF;
+} 
+.jc-variable-other-normal {
+    color: #0000FF;
+} 
+.jc-meta-function-call {
+    color: #163369;
+} 
+.jc-keyword-control {
+    color: #0A00DF;
+} 

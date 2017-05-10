@@ -1,0 +1,128 @@
+body {
+    color: #000000;
+    background-color: #F4F4F4F2;
+} 
+.jc-comment {
+    color: #386F90;
+    background-color: #DDEEFEF2;
+} 
+.jc-variable {
+    color: #20498D;
+} 
+.jc-keyword {
+    color: #5B91E1;
+} 
+.jc-constant-numeric {
+    color: #C34F0A;
+} 
+.jc-constant {
+    color: #C5060B;
+} 
+.jc-constant-language {
+    color: #585CF6;
+} 
+.jc-string {
+    color: #840E0B;
+} 
+.jc-constant-character-escaped {
+    color: #26B31A;
+} 
+.jc-constant-character-escape {
+    color: #26B31A;
+} 
+.jc-string source {
+    color: #26B31A;
+} 
+.jc-other-preprocessor {
+    color: #1A921C;
+} 
+.jc-entity-name-preprocessor {
+    color: #0C450D;
+} 
+.jc-entity-name-function {
+    color: #1B4B9D;
+} 
+.jc-keyword-other-name-of-parameter-objc {
+    color: #1B4B9D;
+} 
+.jc-entity-name-class {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-variable-parameter {
+} 
+.jc-storage-type-method {
+    color: #70727E;
+} 
+.jc-meta-section entity-name-section {
+} 
+.jc-declaration-section entity-name-section {
+} 
+.jc-support-function {
+    color: #3C4C72;
+} 
+.jc-support-class {
+    color: #2D5579;
+} 
+.jc-support-type {
+    color: #2D5579;
+} 
+.jc-support-constant {
+    color: #619A1C;
+} 
+.jc-support-other-variable {
+    color: #21439C;
+} 
+.jc-keyword-operator-js {
+    color: #687687;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-invalid-trailing-whitespace {
+    background-color: #FFD0D0;
+} 
+.jc-text source {
+    background-color: #427FF530;
+} 
+.jc-string-unquoted {
+    background-color: #427FF530;
+} 
+.jc-meta-xml-processing {
+    color: #68685B;
+} 
+.jc-declaration-xml-processing {
+    color: #68685B;
+} 
+.jc-meta-doctype {
+    color: #888888;
+} 
+.jc-declaration-doctype {
+    color: #888888;
+} 
+.jc-meta-doctype-DTD {
+} 
+.jc-declaration-doctype-DTD {
+} 
+.jc-meta-tag {
+    color: #1C3981;
+} 
+.jc-declaration-tag {
+    color: #1C3981;
+} 
+.jc-entity-name-tag {
+    color: #001D56;
+} 
+.jc-entity-other-attribute-name {
+    color: #000000;
+} 
+.jc-markup-heading {
+    color: #0C07FF;
+} 
+.jc-markup-quote {
+    color: #000000;
+} 
+.jc-markup-list {
+    color: #B90690;
+} 

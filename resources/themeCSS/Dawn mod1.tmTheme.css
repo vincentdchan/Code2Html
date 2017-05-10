@@ -1,0 +1,111 @@
+body {
+    color: #080808;
+    background-color: #F9F9F9F2;
+} 
+.jc-comment {
+    color: #5A525F;
+} 
+.jc-constant {
+    color: #811F24;
+} 
+.jc-entity {
+    color: #BF4F24;
+} 
+.jc-keyword {
+    color: #794938;
+} 
+.jc-storage {
+    color: #A71D5D;
+} 
+.jc-string | punctuation-definition-string {
+    color: #0B6125;
+} 
+.jc-support {
+    color: #691C97;
+} 
+.jc-variable {
+    color: #234A97;
+} 
+.jc-punctuation-separator {
+    color: #794938;
+} 
+.jc-invalid-deprecated {
+    color: #B52A1D;
+} 
+.jc-invalid-illegal {
+    color: #F8F8F8;
+    background-color: #B52A1D;
+} 
+.jc-string source {
+    color: #080808;
+    background-color: #6F8BBA26;
+} 
+.jc-string constant {
+    color: #696969;
+} 
+.jc-string variable {
+    color: #234A97;
+} 
+.jc-string-regexp {
+    color: #CF5628;
+} 
+.jc-string-regexp-character-class {
+    color: #CF5628;
+} 
+.jc-string-regexp constant-character-escaped {
+    color: #CF5628;
+} 
+.jc-string-regexp source-ruby-embedded {
+    color: #CF5628;
+} 
+.jc-string-regexp string-regexp-arbitrary-repitition {
+    color: #CF5628;
+} 
+.jc-string-regexp constant-character-escape {
+    color: #811F24;
+} 
+.jc-text source {
+    background-color: #6F8BBA26;
+} 
+.jc-support-function {
+    color: #693A17;
+} 
+.jc-support-constant {
+    color: #B4371F;
+} 
+.jc-support-variable {
+    color: #234A97;
+} 
+.jc-markup-list {
+    color: #9F5922;
+} 
+.jc-markup-heading | markup-heading entity-name {
+    color: #2550A4;
+} 
+.jc-markup-quote {
+    color: #0B6125;
+    background-color: #BBBBBB30;
+} 
+.jc-markup-italic {
+    color: #080808;
+} 
+.jc-markup-bold {
+    color: #00B04E;
+} 
+.jc-markup-underline {
+    color: #080808;
+} 
+.jc-markup-link {
+    color: #234A97;
+} 
+.jc-markup-raw {
+    color: #234A97;
+    background-color: #BBBBBB30;
+} 
+.jc-markup-deleted {
+    color: #59140E;
+} 
+.jc-meta-separator {
+    color: #19356D;
+    background-color: #DCDCDC;
+} 

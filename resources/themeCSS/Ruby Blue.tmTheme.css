@@ -1,0 +1,107 @@
+body {
+    color: #FFFFFF;
+    background-color: #121E31;
+} 
+.jc-text {
+    color: #8AA6C1;
+    background-color: #0D151EF2;
+} 
+.jc-source {
+    color: #FFFFFF;
+    background-color: #233244E6;
+} 
+.jc-comment {
+    color: #428BDD;
+} 
+.jc-constant {
+    color: #8AA6C1;
+} 
+.jc-keyword {
+    color: #F8BB00;
+} 
+.jc-other-preprocessor-c {
+    color: #B6B9F9;
+    background-color: #0C151E;
+} 
+.jc-entity-name-preprocessor {
+} 
+.jc-entity-name-function {
+} 
+.jc-variable-parameter {
+    color: #8AA6C1;
+} 
+.jc-source comment-block {
+    color: #438AD7;
+    background-color: #21374FF2;
+} 
+.jc-string {
+    color: #1DC116;
+} 
+.jc-string constant-character-escape {
+    color: #EDDD37;
+} 
+.jc-string-interpolated {
+    color: #080808;
+    background-color: #CACACA;
+} 
+.jc-string-regexp {
+    color: #CA4344;
+} 
+.jc-string-literal {
+    color: #E2CE00;
+} 
+.jc-constant-numeric {
+    color: #EDDD3D;
+} 
+.jc-constant-other {
+    color: #B53B3C;
+} 
+.jc-keyword-operator {
+    color: #8AA6C1;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #468434;
+} 
+.jc-entity-name-class {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-function {
+    color: #B43D3D;
+} 
+.jc-meta-diff {
+    color: #FFFFFF;
+    background-color: #344668;
+} 
+.jc-meta-diff-header {
+    color: #FFFFFF;
+    background-color: #344668;
+} 
+.jc-markup-deleted {
+    color: #FFFFFF;
+    background-color: #7A3942;
+} 
+.jc-markup-inserted {
+    color: #FFFFFF;
+    background-color: #6DB04E;
+} 
+.jc-markup-changed {
+    color: #FFFFFF;
+    background-color: #968C44;
+} 
+.jc-meta-tag-haml {
+    color: #65798C;
+} 
+.jc-meta-section-attributes-haml {
+    color: #65798C;
+} 
+.jc-entity-name-tag-class-haml {
+    color: #65798C;
+} 
+.jc-entity-name-tag-id-haml {
+    color: #65798C;
+} 

@@ -1,0 +1,76 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-text {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-source {
+    background-color: #000000;
+} 
+.jc-comment {
+    color: #696854;
+} 
+.jc-comment-block {
+    color: #696854;
+    background-color: #121212;
+} 
+.jc-constant {
+    color: #96DAFF;
+} 
+.jc-keyword {
+    color: #D01D33;
+} 
+.jc-variable {
+    color: #898989;
+} 
+.jc-storage {
+    color: #3185B9;
+} 
+.jc-entity-name-function {
+    color: #AAAAAA;
+} 
+.jc-variable-parameter {
+    color: #C3C3C3;
+} 
+.jc-string {
+    color: #E3E658;
+} 
+.jc-string-regexp {
+    color: #D8E600;
+} 
+.jc-entity-name-type {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-meta-tag {
+    color: #3E3E3E;
+} 
+.jc-meta-tag entity {
+    color: #3E3E3E;
+} 
+.jc-entity-other-attribute-name {
+    color: #A1A1A1;
+} 
+.jc-meta-attribute-with-value-id-html {
+    color: #FFC58E;
+} 
+.jc-string-quoted-double-html {
+    color: #FFC58E;
+} 
+.jc-support-function {
+    color: #CBC3B1;
+} 
+.jc-support-class {
+    color: #FFC074;
+} 
+.jc-punctuation-definition-prolog-haml {
+    color: #3C2F2B;
+} 
+.jc-entity-name-tag-class-haml {
+    color: #808080;
+} 
+.jc-entity-name-tag-id-haml {
+    color: #FF3F52;
+} 

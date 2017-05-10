@@ -1,0 +1,121 @@
+body {
+    color: #FFFFFF;
+    background-color: #181310FA;
+} 
+.jc-comment {
+    color: #0066FF;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #AA0000;
+} 
+.jc-source {
+    color: #9C6B00;
+    background-color: #9C6B0014;
+} 
+.jc-source keyword {
+    color: #787BFF;
+} 
+.jc-source storage {
+    color: #787BFF;
+} 
+.jc-source constant {
+    color: #FF64AA;
+} 
+.jc-source constant-language {
+} 
+.jc-source variable {
+    color: #FFD163;
+} 
+.jc-source keyword-operator {
+} 
+.jc-source support-function {
+    color: #FFB200;
+} 
+.jc-source entity-name-function {
+    color: #FFB200;
+} 
+.jc-source meta-class entity {
+    color: #FFB200;
+} 
+.jc-meta-scope-heredoc {
+    color: #A8998B;
+} 
+.jc-source string {
+    color: #A8998B;
+} 
+.jc-text-html-basic {
+    color: #A8998B;
+} 
+.jc-meta-scope-heredoc {
+    background-color: #0000004D;
+} 
+.jc-source string {
+    background-color: #0000004D;
+} 
+.jc-meta-tag {
+    color: #00CD00;
+} 
+.jc-declaration-tag {
+    color: #00CD00;
+} 
+.jc-entity-other-attribute-name {
+    color: #9865FF;
+} 
+.jc-meta-tag string {
+    color: #007B00;
+} 
+.jc-text-html constant-character {
+    color: #FFFFFF;
+} 
+.jc-source-css {
+    color: #005C5C;
+    background-color: #00FCFF0F;
+} 
+.jc-source-css keyword-control-at-rule {
+    color: #009A9A;
+} 
+.jc-source-css entity-name-tag-css {
+    color: #5AFFFF;
+} 
+.jc-source-css meta-selector-css entity-other-attribute-name {
+    color: #009A9A;
+} 
+.jc-source-css support-function {
+    color: #5AFFFF;
+} 
+.jc-source-css punctuation-section-function {
+    color: #5AFFFF;
+} 
+.jc-source-css variable-parameter {
+} 
+.jc-source-css support-type-property-name {
+    color: #CC63FF;
+} 
+.jc-source-css support-constant {
+    color: #9A9900;
+} 
+.jc-source-css keyword-other {
+    color: #9A9900;
+} 
+.jc-source-css constant-numeric {
+    color: #FFFF00;
+} 
+.jc-source-css constant-other {
+    color: #FFFF00;
+} 
+.jc-source-css variable {
+    color: #FFFF00;
+} 
+.jc-source-php-embedded-line {
+    background-color: #9C6B0029;
+} 
+.jc-source-js source-php {
+    background-color: #9C6B0029;
+} 
+.jc-source-js support-class {
+    color: #FFD163;
+} 
+.jc-source-js support-constant {
+    color: #FFB200;
+} 

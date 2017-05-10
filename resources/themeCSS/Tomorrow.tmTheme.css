@@ -1,0 +1,121 @@
+body {
+    color: #4D4D4C;
+    background-color: #FFFFFF;
+} 
+.jc-comment {
+    color: #8E908C;
+} 
+.jc-keyword-operator-class {
+    color: #666969;
+} 
+.jc-constant-other {
+    color: #666969;
+} 
+.jc-source-php-embedded-line {
+    color: #666969;
+} 
+.jc-variable {
+    color: #C82829;
+} 
+.jc-support-other-variable {
+    color: #C82829;
+} 
+.jc-string-other-link {
+    color: #C82829;
+} 
+.jc-string-regexp {
+    color: #C82829;
+} 
+.jc-entity-name-tag {
+    color: #C82829;
+} 
+.jc-entity-other-attribute-name {
+    color: #C82829;
+} 
+.jc-constant-numeric {
+    color: #F5871F;
+} 
+.jc-constant-language {
+    color: #F5871F;
+} 
+.jc-support-constant {
+    color: #F5871F;
+} 
+.jc-constant-character {
+    color: #F5871F;
+} 
+.jc-variable-parameter {
+    color: #F5871F;
+} 
+.jc-punctuation-section-embedded {
+    color: #F5871F;
+} 
+.jc-keyword-other-unit {
+    color: #F5871F;
+} 
+.jc-entity-name-class {
+    color: #C99E00;
+} 
+.jc-entity-name-type-class {
+    color: #C99E00;
+} 
+.jc-support-type {
+    color: #C99E00;
+} 
+.jc-support-class {
+    color: #C99E00;
+} 
+.jc-string {
+    color: #718C00;
+} 
+.jc-constant-other-symbol {
+    color: #718C00;
+} 
+.jc-entity-other-inherited-class {
+    color: #718C00;
+} 
+.jc-markup-heading {
+    color: #718C00;
+} 
+.jc-keyword-operator {
+    color: #3E999F;
+} 
+.jc-constant-other-color {
+    color: #3E999F;
+} 
+.jc-entity-name-function {
+    color: #4271AE;
+} 
+.jc-meta-function-call {
+    color: #4271AE;
+} 
+.jc-support-function {
+    color: #4271AE;
+} 
+.jc-keyword-other-special-method {
+    color: #4271AE;
+} 
+.jc-meta-block-level {
+    color: #4271AE;
+} 
+.jc-keyword {
+    color: #8959A8;
+} 
+.jc-storage {
+    color: #8959A8;
+} 
+.jc-storage-type {
+    color: #8959A8;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #C82829;
+} 
+.jc-meta-separator {
+    color: #FFFFFF;
+    background-color: #4271AE;
+} 
+.jc-invalid-deprecated {
+    color: #FFFFFF;
+    background-color: #8959A8;
+} 

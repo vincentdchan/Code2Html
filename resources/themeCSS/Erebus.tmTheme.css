@@ -1,0 +1,134 @@
+body {
+    color: #F8F8F2;
+    background-color: #140A0A;
+} 
+.jc-comment {
+    color: #8C6969;
+} 
+.jc-string {
+    color: #FFB2B2;
+} 
+.jc-constant-numeric {
+    color: #E57EDD;
+} 
+.jc-constant-language {
+    color: #E57EDD;
+} 
+.jc-constant-character {
+    color: #E57EDD;
+} 
+.jc-constant-other {
+    color: #E57EDD;
+} 
+.jc-variable {
+    color: #D0A3F8;
+} 
+.jc-keyword {
+    color: #D95757;
+} 
+.jc-storage {
+    color: #D95757;
+} 
+.jc-storage-type {
+    color: #FFB266;
+} 
+.jc-entity-name-class {
+    color: #F2AAEC;
+} 
+.jc-entity-other-inherited-class {
+    color: #F2AAEC;
+} 
+.jc-entity-name-function {
+    color: #F2AAEC;
+} 
+.jc-variable-parameter {
+    color: #FFD2A6;
+} 
+.jc-entity-name-tag {
+    color: #D95757;
+} 
+.jc-entity-other-attribute-name {
+    color: #FFB266;
+} 
+.jc-support-function {
+    color: #FFB266;
+} 
+.jc-support-constant {
+    color: #FFB266;
+} 
+.jc-support-type {
+    color: #FFB266;
+} 
+.jc-support-class {
+    color: #FFB266;
+} 
+.jc-support-other-variable {
+} 
+.jc-support-other-namespace {
+    color: #FFD2A6;
+} 
+.jc-entity-name-type-namespace {
+    color: #FFD2A6;
+} 
+.jc-support-other-namespace-use-as-php {
+    color: #FFB266;
+} 
+.jc-variable-language-namespace-php {
+    color: #D17B7B;
+} 
+.jc-punctuation-separator-inheritance-php {
+    color: #E57EDD;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #F2AAEC;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #F2AAEC;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #E57EDD;
+} 
+.jc-support-function-misc-css {
+    color: #FFD2A6;
+} 
+.jc-support-constant-property-value-css {
+    color: #FFD2A6;
+} 
+.jc-support-constant-font-name-css {
+    color: #FFD2A6;
+} 
+.jc-constant-numeric-css {
+    color: #F2AAEC;
+} 
+.jc-variable-parameter-misc-css {
+    color: #F2AAEC;
+} 
+.jc-entity-other-tagbraces-twig {
+    color: #E57EDD;
+} 
+.jc-keyword-control-twig {
+    color: #FFB266;
+} 
+.jc-variable-other-twig {
+    color: #FFCCFB;
+} 
+.jc-support-function-filter-twig {
+    color: #D95757;
+} 
+.jc-support-function-filter-variable-twig {
+    color: #E57EDD;
+} 
+.jc-entity-name-function-twig {
+    color: #D95757;
+} 
+.jc-entity-other-argument-twig {
+    color: #FFB2B2;
+} 
+.jc-invalid {
+    color: #F8F8F0;
+    background-color: #D95757;
+} 
+.jc-invalid-deprecated {
+    color: #F8F8F0;
+    background-color: #E57EDD;
+} 

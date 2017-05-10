@@ -1,0 +1,64 @@
+body {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-text {
+    color: #FFFFFF;
+    background-color: #434242;
+} 
+.jc-source {
+    color: #FFFFFF;
+    background-color: #000000;
+} 
+.jc-comment {
+    color: #9933CC;
+} 
+.jc-constant {
+    color: #3387CC;
+} 
+.jc-keyword {
+    color: #CC7833;
+} 
+.jc-meta-preprocessor-c {
+    color: #D0D0FF;
+} 
+.jc-keyword-control-import {
+} 
+.jc-entity-name-function {
+} 
+.jc-variable-parameter {
+} 
+.jc-source comment-block {
+    color: #FFFFFF;
+    background-color: #9B9B9B;
+} 
+.jc-string {
+    color: #66CC33;
+} 
+.jc-string constant-character-escape {
+    color: #AAAAAA;
+} 
+.jc-string-interpolated {
+    color: #000000;
+    background-color: #CCCC33;
+} 
+.jc-string-regexp {
+    color: #CCCC33;
+} 
+.jc-string-literal {
+    color: #CCCC33;
+} 
+.jc-string-interpolated constant-character-escape {
+    color: #555555;
+} 
+.jc-entity-name-type {
+} 
+.jc-entity-other-inherited-class {
+} 
+.jc-entity-name-tag {
+} 
+.jc-entity-other-attribute-name {
+} 
+.jc-support-function {
+    color: #C83730;
+} 

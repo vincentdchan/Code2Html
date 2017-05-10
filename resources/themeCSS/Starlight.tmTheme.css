@@ -1,0 +1,22 @@
+body {
+    color: #C0B6A8;
+    background-color: #223859F2;
+} 
+.jc-comment {
+    color: #AEAEAE;
+} 
+.jc-string {
+    color: #B9A185;
+} 
+.jc-constant-numeric {
+    color: #B9A185;
+} 
+.jc-keyword {
+    color: #A38474;
+} 
+.jc-variable {
+    color: #A19A83;
+} 
+.jc-invalid {
+    color: #F3D651;
+} 

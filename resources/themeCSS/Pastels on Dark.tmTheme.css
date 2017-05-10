@@ -1,0 +1,180 @@
+body {
+    color: #DADADA;
+    background-color: #211E1E;
+} 
+.jc-comment {
+    color: #555555;
+} 
+.jc-comment-block {
+    color: #555555;
+} 
+.jc-string {
+    color: #AD9361;
+} 
+.jc-constant-numeric {
+    color: #CCCCCC;
+} 
+.jc-keyword {
+    color: #A1A1FF;
+} 
+.jc-meta-preprocessor {
+    color: #2F006E;
+} 
+.jc-keyword-control-import {
+} 
+.jc-support-function {
+    color: #A1A1FF;
+} 
+.jc-declaration-function function-result {
+    color: #0000FF;
+} 
+.jc-declaration-function function-name {
+} 
+.jc-declaration-function argument-name {
+} 
+.jc-declaration-function function-arg-type {
+    color: #0000FF;
+} 
+.jc-declaration-function function-argument {
+} 
+.jc-declaration-class class-name {
+} 
+.jc-declaration-class class-inheritance {
+} 
+.jc-invalid {
+    color: #FFF9F9;
+    background-color: #FF0000;
+} 
+.jc-invalid-deprecated-trailing-whitespace {
+    background-color: #FFD0D0;
+} 
+.jc-declaration-section section-name {
+} 
+.jc-string-interpolation {
+    color: #C10006;
+} 
+.jc-string-regexp {
+    color: #666666;
+} 
+.jc-variable {
+    color: #C1C144;
+} 
+.jc-constant {
+    color: #6782D3;
+} 
+.jc-constant-character {
+    color: #AFA472;
+} 
+.jc-constant-language {
+    color: #DE8E30;
+} 
+.jc-embedded {
+} 
+.jc-keyword-markup-element-name {
+    color: #858EF4;
+} 
+.jc-keyword-markup-attribute-name {
+    color: #9B456F;
+} 
+.jc-meta-attribute-with-value {
+    color: #9B456F;
+} 
+.jc-keyword-exception {
+    color: #C82255;
+} 
+.jc-keyword-operator {
+    color: #47B8D6;
+} 
+.jc-keyword-control {
+    color: #6969FA;
+} 
+.jc-meta-tag-preprocessor-xml {
+    color: #68685B;
+} 
+.jc-meta-tag-sgml-doctype {
+    color: #888888;
+} 
+.jc-string-quoted-docinfo-doctype-DTD {
+} 
+.jc-comment-other-server-side-include-xhtml {
+    color: #909090;
+} 
+.jc-comment-other-server-side-include-html {
+    color: #909090;
+} 
+.jc-text-html declaration-tag {
+    color: #858EF4;
+} 
+.jc-text-html meta-tag {
+    color: #858EF4;
+} 
+.jc-text-html entity-name-tag-xhtml {
+    color: #858EF4;
+} 
+.jc-keyword-markup-attribute-name {
+    color: #9B456F;
+} 
+.jc-keyword-other-phpdoc-php {
+    color: #777777;
+} 
+.jc-keyword-other-include-php {
+    color: #C82255;
+} 
+.jc-support-constant-core-php {
+    color: #DE8E20;
+} 
+.jc-support-constant-std-php {
+    color: #DE8E10;
+} 
+.jc-variable-other-global-php {
+    color: #B72E1D;
+} 
+.jc-variable-other-global-safer-php {
+    color: #00FF00;
+} 
+.jc-string-quoted-single-php {
+    color: #BFA36D;
+} 
+.jc-keyword-storage-php {
+    color: #6969FA;
+} 
+.jc-string-quoted-double-php {
+    color: #AD9361;
+} 
+.jc-entity-other-attribute-name-id-css {
+    color: #EC9E00;
+} 
+.jc-entity-name-tag-css {
+    color: #B8CD06;
+} 
+.jc-entity-other-attribute-name-class-css {
+    color: #EDCA06;
+} 
+.jc-entity-other-attribute-name-pseudo-class-css {
+    color: #2E759C;
+} 
+.jc-invalid-bad-comma-css {
+    color: #FFFFFF;
+    background-color: #FF0000;
+} 
+.jc-support-constant-property-value-css {
+    color: #9B2E4D;
+} 
+.jc-support-type-property-name-css {
+    color: #E1C96B;
+} 
+.jc-constant-other-rgb-value-css {
+    color: #666633;
+} 
+.jc-support-constant-font-name-css {
+    color: #666633;
+} 
+.jc-support-constant-tm-language-def {
+    color: #7171F3;
+} 
+.jc-support-constant-name-tm-language-def {
+    color: #7171F3;
+} 
+.jc-keyword-other-unit-css {
+    color: #6969FA;
+} 

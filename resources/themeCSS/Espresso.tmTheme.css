@@ -1,0 +1,113 @@
+body {
+    color: #000000;
+    background-color: #FFFFFF;
+} 
+.jc-source {
+    color: #000000;
+} 
+.jc-comment {
+    color: #AAAAAA;
+} 
+.jc-keyword {
+    color: #2F6F9F;
+    background-color: #F5FAFF;
+} 
+.jc-storage {
+    color: #2F6F9F;
+    background-color: #F5FAFF;
+} 
+.jc-entity-name-function {
+    color: #4F9FD0;
+} 
+.jc-keyword-other-name-of-parameter-objc {
+    color: #4F9FD0;
+} 
+.jc-entity-name {
+    color: #CF4F5F;
+} 
+.jc-entity-other-inherited-class {
+    color: #7463CA;
+    background-color: #F6F5FF;
+} 
+.jc-support {
+    color: #2F6F9F;
+} 
+.jc-constant-numeric {
+    color: #CF4F5F;
+} 
+.jc-variable {
+    color: #000000;
+} 
+.jc-constant {
+    color: #CF4F5F;
+} 
+.jc-variable-other-constant {
+    color: #CF4F5F;
+} 
+.jc-constant-language {
+    color: #0B51A6;
+} 
+.jc-string {
+    color: #CF4F5F;
+    background-color: #FFF0F0;
+} 
+.jc-support-function {
+    color: #D71707;
+} 
+.jc-support-type {
+    color: #0B51A6;
+} 
+.jc-entity-name-tag {
+    color: #2F6F9F;
+    background-color: #F5FAFF;
+} 
+.jc-declaration-tag {
+    color: #2F6F9F;
+    background-color: #F5FAFF;
+} 
+.jc-entity-other-attribute-name {
+    color: #4F9FD0;
+} 
+.jc-meta-tag {
+    color: #000000;
+} 
+.jc-invalid {
+    color: #FFFFFF;
+    background-color: #990000;
+} 
+.jc-constant-character-escaped {
+    color: #000000;
+    background-color: #FFF0F0;
+} 
+.jc-constant-character-escape {
+    color: #000000;
+    background-color: #FFF0F0;
+} 
+.jc-string source {
+    color: #000000;
+    background-color: #FFF0F0;
+} 
+.jc-string source-ruby {
+    color: #000000;
+    background-color: #FFF0F0;
+} 
+.jc-markup-inserted {
+    color: #E6E1DC;
+    background-color: #81C7FF;
+} 
+.jc-markup-deleted {
+    color: #E6E1DC;
+    background-color: #D1363D;
+} 
+.jc-meta-diff-header {
+    background-color: #64AB80;
+} 
+.jc-meta-separator-diff {
+    background-color: #64AB80;
+} 
+.jc-meta-diff-index {
+    background-color: #64AB80;
+} 
+.jc-meta-diff-range {
+    background-color: #64AB80;
+} 

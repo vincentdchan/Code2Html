@@ -1,0 +1,56 @@
+body {
+    color: #F8F8F8;
+    background-color: #1F1F1F;
+} 
+.jc-comment {
+    color: #AEAEAE;
+} 
+.jc-constant {
+    color: #FF593E;
+} 
+.jc-entity {
+    color: #FF6400;
+} 
+.jc-keyword {
+    color: #FFCC66;
+} 
+.jc-storage {
+    color: #FFCC66;
+} 
+.jc-string {
+    color: #78CE91;
+} 
+.jc-meta-verbatim {
+    color: #78CE91;
+} 
+.jc-support {
+    color: #8DA6CE;
+} 
+.jc-variable {
+    color: #BEF895;
+} 
+.jc-invalid-deprecated {
+    color: #AB2A1D;
+} 
+.jc-invalid-illegal {
+    color: #F8F8F8;
+    background-color: #9D1E15;
+} 
+.jc-entity-other-inherited-class {
+    color: #FF6400;
+} 
+.jc-string constant-other-placeholder {
+    color: #FF6400;
+} 
+.jc-meta-function-call-py {
+    color: #BECDE6;
+} 
+.jc-meta-tag {
+    color: #7F90AA;
+} 
+.jc-meta-tag entity {
+    color: #7F90AA;
+} 
+.jc-entity-name-section {
+    color: #F9FFFF;
+} 

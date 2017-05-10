@@ -1,0 +1,162 @@
+body {
+    color: #000000;
+    background-color: #F8F8FF;
+} 
+.jc-source {
+    background-color: #F8F8FF;
+} 
+.jc-comment {
+    color: #999988;
+} 
+.jc-keyword {
+    color: #000000;
+} 
+.jc-storage {
+    color: #000000;
+} 
+.jc-keyword-operator-assignment {
+    color: #000000;
+} 
+.jc-keyword-other-special-method {
+} 
+.jc-entity-name-function {
+    color: #990000;
+} 
+.jc-keyword-other-name-of-parameter-objc {
+    color: #990000;
+} 
+.jc-entity-name {
+    color: #445588;
+} 
+.jc-constant-numeric {
+    color: #009999;
+} 
+.jc-variable-language {
+    color: #108888;
+} 
+.jc-variable-other {
+    color: #108888;
+} 
+.jc-constant-language {
+    color: #000000;
+} 
+.jc-variable-other-constant-ruby {
+    color: #0F8787;
+} 
+.jc-constant-language {
+    color: #000000;
+} 
+.jc-string {
+    color: #DD1144;
+} 
+.jc-entity-other-inherited-class {
+    color: #0F8787;
+} 
+.jc-punctuation-separator-inheritance {
+    color: #000000;
+} 
+.jc-punctuation-separator-variable {
+    color: #000000;
+} 
+.jc-punctuation-section-array {
+    color: #000000;
+} 
+.jc-punctuation-separator-key-value {
+    color: #000000;
+} 
+.jc-punctuation-section-function {
+    color: #000000;
+} 
+.jc-punctuation-section-scope {
+    color: #000000;
+} 
+.jc-keyword-other-special-method-ruby {
+} 
+.jc-constant-other-symbol {
+    color: #AA2C8C;
+} 
+.jc-support-class-ruby {
+    color: #008080;
+} 
+.jc-string-regexp {
+    color: #009926;
+} 
+.jc-string-quoted source {
+    color: #000000;
+} 
+.jc-meta-tag-sgml-html {
+    color: #999999;
+} 
+.jc-entity-name-tag-doctype {
+    color: #999999;
+} 
+.jc-string-quoted-double-doctype {
+    color: #999999;
+} 
+.jc-punctuation-definition-tag {
+    color: #121289;
+} 
+.jc-entity-name-tag {
+    color: #121289;
+} 
+.jc-entity-other-attribute-name {
+    color: #0A8585;
+} 
+.jc-entity-other-attribute-name {
+    color: #0A8585;
+} 
+.jc-punctuation-section-embedded-ruby {
+    color: #999999;
+} 
+.jc-source-ruby-embedded-source punctuation-section-embedded-ruby {
+    color: #CF1040;
+} 
+.jc-punctuation-section-property-list-css {
+} 
+.jc-support-type-property-name-css {
+} 
+.jc-punctuation-separator-key-value-css {
+    color: #000000;
+} 
+.jc-meta-property-value {
+    color: #009999;
+} 
+.jc-constant-other-color {
+    color: #009999;
+} 
+.jc-punctuation-terminator-rule-css {
+    color: #000000;
+} 
+.jc-support-constant-font-name {
+    color: #000000;
+} 
+.jc-keyword-other-unit {
+    color: #009999;
+} 
+.jc-entity-other-attribute-name-pseudo-class {
+    color: #000000;
+} 
+.jc-support-constant-property-value {
+    color: #000000;
+} 
+.jc-entity-other-attribute-name-class {
+    color: #445588;
+} 
+.jc-entity-other-attribute-name-id {
+    color: #990000;
+} 
+.jc-meta-diff-header-from-file {
+    color: #000000;
+    background-color: #FFDDDD;
+} 
+.jc-meta-diff-header-to-file {
+    color: #000000;
+    background-color: #DDFFDD;
+} 
+.jc-markup-inserted-diff {
+    background-color: #DDFFDD;
+} 
+.jc-markup-deleted-diff {
+    color: #000000;
+    background-color: #FFDDDD;
+} 

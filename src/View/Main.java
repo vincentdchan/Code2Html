@@ -346,7 +346,7 @@ public class Main extends Application {
         Button aboutBtn = new Button();
         aboutBtn.setTooltip(new Tooltip("关于"));
         aboutBtn.setOnAction(event -> {
-            AboutStage stage = new AboutStage();
+            AboutStage stage = new AboutStage(this);
             stage.show();
         });
         aboutBtn.setGraphic(aboutImgView);

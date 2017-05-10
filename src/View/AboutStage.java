@@ -1,8 +1,13 @@
 package View;
 
+import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
+import com.sun.javafx.application.HostServicesDelegate;
+import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -20,13 +25,16 @@ public class AboutStage extends Stage {
     private Scene mainScene;
     private VBox mainPane;
 
+    private Application app;
+
     public static String AboutContent = "组员：\n" +
             "陈度中\n" +
             "曾敏洋\n" +
             "陈广鹏\n";
 
-    public AboutStage() {
+    public AboutStage(Application app) {
         super();
+        this.app = app;
 
         mainPane = new VBox();
         mainPane.setAlignment(Pos.TOP_CENTER);
@@ -37,11 +45,16 @@ public class AboutStage extends Stage {
         title.setFont(new Font(36));
         title.prefWidth(480);
 
+        Hyperlink hyperLink = new Hyperlink("https://github.com/ChannelOne/Code2Html");
+        hyperLink.setOnAction(event -> {
+            HostServicesDelegate hostServices = HostServicesFactory.getInstance(app);
+            hostServices.showDocument("https://github.com/ChannelOne/Code2Html");
+        });
 
         Text content = new Text(AboutContent);
         content.setFont(new Font(18));
 
-        mainPane.getChildren().addAll(title, content);
+        mainPane.getChildren().addAll(title, hyperLink, content);
         mainScene = new Scene(mainPane, 480, 420);
 
         // content.wrappingWidthProperty().bind(mainPane.widthProperty().divide(3));

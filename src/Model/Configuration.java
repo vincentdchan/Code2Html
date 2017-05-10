@@ -11,6 +11,7 @@ public class Configuration {
     private boolean _showJavaHint = true;
     private boolean _enableNav = true;
     private int _fontSize = 14;
+    private String _fontFamily = "";
 
     @Override
     public Object clone() {
@@ -70,4 +71,13 @@ public class Configuration {
     public void set_fontSize(int _fontSize) {
         this._fontSize = _fontSize;
     }
+
+    public String get_fontFamily() {
+        return _fontFamily;
+    }
+
+    public void set_fontFamily(String _fontFamily) {
+        this._fontFamily = _fontFamily;
+    }
+
 }

@@ -6,10 +6,6 @@
     color: grey;
 }
 
-div#code_area {
-    font-family: Monaco, Consolas, monospace;
-}
-
 p {
     padding: 0;
     margin: 0;

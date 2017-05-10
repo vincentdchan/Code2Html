@@ -17,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.text.*;
 import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -28,6 +29,8 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
     public static void main(String[] args) {
@@ -198,6 +201,22 @@ public class Main extends Application {
         refreshPreview();
     }
 
+    private List<String> findMonoFontFamilies(List<String> fonts) {
+        List<String> result = new ArrayList<>();
+        final Text thinTxt = new Text("1 l");
+        final Text thickTxt = new Text("MWX");
+        for (String fontFamilyName: fonts){
+            Font font = Font.font(fontFamilyName, FontWeight.NORMAL, FontPosture.REGULAR, 14.0d);
+            thinTxt.setFont(font);
+            thickTxt.setFont(font);
+            if (thinTxt.getLayoutBounds().getWidth() ==
+                    thickTxt.getLayoutBounds().getWidth()) {
+                result.add(fontFamilyName);
+            }
+        }
+        return result;
+    }
+
     private Pane generatePreviewToolbar() throws URISyntaxException {
         HBox result = new HBox();
 
@@ -221,10 +240,25 @@ public class Main extends Application {
             refreshPreview();
         });
 
+        Label fontFamilyLabel = new Label("字体：");
+        fontFamilyLabel.setPadding(new Insets(2, 3, 2, 3));
+        List<String> family = findMonoFontFamilies(Font.getFamilies());
+        ComboBox<String> fontFamilySelector = new ComboBox<String>(
+                FXCollections.observableArrayList(family)
+        );
+        fontFamilySelector.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                config.set_fontFamily(newVal);
+                refreshPreview();
+            }
+        });
+
+
         Label fontSizeLabel = new Label("字号：");
         fontSizeLabel.setPadding(new Insets(2, 3, 2, 3));
         TextField fontSizeTextField = new TextField(Integer.toString(config.get_fontSize()));
-        fontSizeTextField.setPrefWidth(36);
+        fontSizeTextField.setAlignment(Pos.TOP_RIGHT);
+        fontSizeTextField.setPrefWidth(42);
         fontSizeTextField.textProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal.length() == 0) return;
             int value = Integer.parseInt(newVal);
@@ -236,6 +270,7 @@ public class Main extends Application {
 
         result.getChildren().addAll(themeSelectorLabel, themeSelector,
                 showLineNumberLabel, showLineNumberCheckBox,
+                fontFamilyLabel, fontFamilySelector,
                 fontSizeLabel, fontSizeTextField);
 
         return result;
@@ -303,25 +338,20 @@ public class Main extends Application {
         });
         convertBtn.setGraphic(convertImgView);
 
-        ImageView previewImgView = new ImageView(
+        ImageView aboutImgView = new ImageView(
                 new Image(
-                        getClass().getResourceAsStream("/resources/icons/si-glyph-view.png")));
-        previewImgView.setFitWidth(TitleBarIconSize);
-        previewImgView.setFitHeight(TitleBarIconSize);
-        Button previewBtn = new Button();
-        previewBtn.setTooltip(new Tooltip("预览"));
-        previewBtn.setGraphic(previewImgView);
+                        getClass().getResourceAsStream("/resources/icons/si-glyph-circle-info.png")));
+        aboutImgView.setFitWidth(TitleBarIconSize);
+        aboutImgView.setFitHeight(TitleBarIconSize);
+        Button aboutBtn = new Button();
+        aboutBtn.setTooltip(new Tooltip("关于"));
+        aboutBtn.setOnAction(event -> {
+            AboutStage stage = new AboutStage();
+            stage.show();
+        });
+        aboutBtn.setGraphic(aboutImgView);
 
-        ImageView settingImgView = new ImageView(
-                new Image(
-                        getClass().getResourceAsStream("/resources/icons/si-glyph-gear.png")));
-        settingImgView.setFitWidth(TitleBarIconSize);
-        settingImgView.setFitHeight(TitleBarIconSize);
-        Button settingBtn = new Button();
-        settingBtn.setTooltip(new Tooltip("设置"));
-        settingBtn.setGraphic(settingImgView);
-
-        buttonBars.getChildren().addAll(openBtn, convertBtn, previewBtn, settingBtn);
+        buttonBars.getChildren().addAll(openBtn, convertBtn, aboutBtn);
 
         // Binding events
         openBtn.setOnAction(e -> {

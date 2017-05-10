@@ -198,10 +198,18 @@ public final class SyncGenerator {
         }
 
         String _stylePath = searchStyleFileByName(config.get_styleName());
+        String _fontFamily = "";
         _styleCode = new String();
+        if (config.get_fontFamily() != null) {
+            _fontFamily = "'" + config.get_fontFamily() + "', ";
+        }
 
         _styleCode = "body {\n" +
                 "   font-size: " + config.get_fontSize() + "px;\n" +
+                "}\n" +
+                "\n" +
+                "div#code_area {" +
+                "    font-family: " + _fontFamily + "Monaco, Consolas, monospace;" +
                 "}\n";
         _styleCode += inputStreamToString(getClass().getResourceAsStream(_stylePath));
         _styleCode += inputStreamToString(getClass().getResourceAsStream("/resources/test.css"));

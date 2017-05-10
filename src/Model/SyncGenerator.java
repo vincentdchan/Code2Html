@@ -92,9 +92,9 @@ public final class SyncGenerator {
             List<Token> tokens = tokenize(tokenizer, line);
 
             for (Token tok : tokens) {
-                String[] _syntax = tok.getSyntax();
+                List<String> _syntax = tok.getSyntax();
                 String content = escapeString(tok.getContent());
-                if (_syntax.length > 0) {
+                if (_syntax.size() > 0) {
                     sb.append("<span class=\"");
                     for (String tokStr : tok.getSyntax()) {
                         sb.append("jc-");
@@ -140,9 +140,9 @@ public final class SyncGenerator {
 
             if (result.size() > 0) {
                 Token top = result.get(result.size() - 1);
-                if (top.getSyntax().length == 1 &&
-                        tok.getSyntax().length == 1 &&
-                        top.getSyntax()[0].equals(tok.getSyntax()[0])) {
+                if (top.getSyntax().size() == 1 &&
+                        tok.getSyntax().size() == 1 &&
+                        top.getSyntax().get(0).equals(tok.getSyntax().get(0))) {
                     top.setContent(top.getContent() + tok.getContent());
                     continue;
                 }
@@ -155,14 +155,14 @@ public final class SyncGenerator {
 
     class Token {
 
-        private String[] syntax;
+        private List<String> syntax;
         private String content;
 
-        public String[] getSyntax() {
+        public List<String> getSyntax() {
             return syntax;
         }
 
-        public void setSyntax(String[] syntax) {
+        public void setSyntax(List<String> syntax) {
             this.syntax = syntax;
         }
 

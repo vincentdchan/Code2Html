@@ -4,6 +4,7 @@ import Model.ITokenizer;
 import Model.StringStream;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -64,7 +65,7 @@ public class CLang implements ITokenizer {
     private Stack<State> stateStack = new Stack<>();
 
     @Override
-    public String[] tokenize(StringStream ss) {
+    public List<String> tokenize(StringStream ss) {
         ArrayList<String> result = new ArrayList<>();
         switch (state) {
             case Normal:
@@ -140,7 +141,7 @@ public class CLang implements ITokenizer {
                 }
                 break;
         }
-        return result.toArray(new String[result.size()]);
+        return result;
     }
 
     private boolean swallowOperators(StringStream ss, ArrayList<String> tokens) {

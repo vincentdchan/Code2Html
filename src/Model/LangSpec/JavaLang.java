@@ -53,7 +53,7 @@ public class JavaLang implements ITokenizer {
         buildOperatorsPattern();
     }
 
-    public String[] tokenize(StringStream stream) {
+    public List<String> tokenize(StringStream stream) {
         List<String> result = new ArrayList<>();
         int variableLen;
         if (stream.getChar() == '\n') {
@@ -63,7 +63,7 @@ public class JavaLang implements ITokenizer {
                 case Normal:
                     if (stream.getChar() == ' ') {
                         stream.eatSpace();
-                        return new String[0];
+                        return result;
                     } else if (stream.swallow("/*")) {
                         currentState = State.Comment;
                         result.add("comment");
@@ -137,7 +137,7 @@ public class JavaLang implements ITokenizer {
             }
         }
 
-        return result.toArray(new String[result.size()]);
+        return result;
     }
 
     /**

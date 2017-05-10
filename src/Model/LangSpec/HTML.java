@@ -5,6 +5,7 @@ import Model.StringStream;
 
 import javax.xml.stream.events.Comment;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -36,7 +37,7 @@ public class HTML implements ITokenizer {
     private boolean findTag = false;
 
     @Override
-    public String[] tokenize(StringStream ss) {
+    public List<String> tokenize(StringStream ss) {
         ArrayList<String> result = new ArrayList<>();
         switch (state) {
             case Normal:
@@ -85,7 +86,7 @@ public class HTML implements ITokenizer {
                 }
                 break;
         }
-        return result.toArray(new String[result.size()]);
+        return result;
     }
 
 }

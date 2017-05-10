@@ -1,14 +1,12 @@
 package View;
 
 import Model.Configuration;
-import Model.Java2Html;
 import Model.SyncGenerator;
 import Model.TreeFileItem;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,12 +19,9 @@ import javafx.scene.text.*;
 import javafx.scene.web.WebView;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;

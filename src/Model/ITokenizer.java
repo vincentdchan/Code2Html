@@ -7,6 +7,6 @@ import java.util.List;
  */
 public interface ITokenizer {
 
-    String[] tokenize(StringStream stream);
+    List<String> tokenize(StringStream stream);
 
 }

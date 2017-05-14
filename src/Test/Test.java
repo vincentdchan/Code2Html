@@ -26,4 +26,8 @@ public abstract class Test {
         this.passInstances = passInstances;
     }
 
+    protected void Assert(boolean value) {
+        if (!value) throw new AssertionError();
+    }
+
 }

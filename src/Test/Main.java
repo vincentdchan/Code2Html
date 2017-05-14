@@ -1,5 +1,6 @@
 package Test;
 
+import Test.TokenizerTest.StringStreamTest;
 import Test.TokenizerTest.TokenizerTest;
 
 /**
@@ -17,7 +18,13 @@ public class Main {
         total_test += tokenizerTest.getTotalInstances();
         pass_test += tokenizerTest.getPassInstances();
 
-        System.out.println("Pass test: " + pass_test + "/" + total_test);
+        Test ssTest = new StringStreamTest();
+        ssTest.run();
+
+        total_test += ssTest.getTotalInstances();
+        pass_test += ssTest.getPassInstances();
+
+        System.out.println("Total pass test: " + pass_test + "/" + total_test);
     }
 
 }

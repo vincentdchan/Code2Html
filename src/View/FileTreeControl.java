@@ -17,7 +17,6 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
 
     public static int FileIconSize = 16;
 
-    private static Image fileIcon;
     private static Image javaIcon;
     private static Image cLangIcon;
     private static Image htmlIcon;
@@ -77,7 +76,7 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
     }
 
     private void loadResources() {
-        fileIcon = new Image(getClass().getResourceAsStream("/image/1.jpg"));
+//        fileIcon = new Image(getClass().getResourceAsStream("/image/1.jpg"));
         javaIcon = new Image(getClass().getResourceAsStream("/resources/icons/java.png"));
         cLangIcon = new Image(getClass().getResourceAsStream("/resources/icons/c.png"));
         htmlIcon = new Image(getClass().getResourceAsStream("/resources/icons/html.png"));
@@ -127,7 +126,7 @@ public final class FileTreeControl extends TreeView<Model.TreeFileItem> {
             } else if (filename.endsWith(".html") || filename.endsWith(".htm")) {
                 iv = new ImageView(htmlIcon);
             } else {
-                iv = new ImageView(fileIcon);
+                iv = new ImageView(folderIcon);
             }
             iv.setFitHeight(FileIconSize);
             iv.setFitWidth(FileIconSize);

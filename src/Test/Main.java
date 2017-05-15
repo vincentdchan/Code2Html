@@ -12,11 +12,8 @@ public class Main {
         int total_test = 0;
         int pass_test = 0;
 
-        Test tokenizerTest = new TokenizerTest();
-        tokenizerTest.run();
-
-        total_test += tokenizerTest.getTotalInstances();
-        pass_test += tokenizerTest.getPassInstances();
+        Test tkTest = new TokenizerTest();
+        tkTest.run();
 
         Test ssTest = new StringStreamTest();
         ssTest.run();

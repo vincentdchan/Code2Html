@@ -93,7 +93,7 @@ public class Main extends Application {
         scene.getStylesheets().add("/resources/ui.css");
 
         //窗口图标
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/2.jpg")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/image/c2html.png")));
 
         primaryStage.show();
     }

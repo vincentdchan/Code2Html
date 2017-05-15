@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -45,6 +46,7 @@ public class ScanStage extends Stage {
         setTitle("扫描中...");
         setScene(mainScene);
         setResizable(false);
+        getIcons().add(new Image(getClass().getResourceAsStream("/image/c2html.png")));
     }
 
     void beginReceive(TreeFileItem treeFileItem) {

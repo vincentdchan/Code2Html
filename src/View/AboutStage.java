@@ -8,6 +8,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -54,13 +57,19 @@ public class AboutStage extends Stage {
         Text content = new Text(AboutContent);
         content.setFont(new Font(18));
 
-        mainPane.getChildren().addAll(title, hyperLink, content);
+        Image logo = new Image(getClass().getResourceAsStream("/image/c2html.png"));
+        ImageView logoView = new ImageView(logo);
+        logoView.setFitWidth(200);
+        logoView.setFitHeight(200);
+
+        mainPane.getChildren().addAll(logoView , new Text() , title, hyperLink, content);
         mainScene = new Scene(mainPane, 480, 420);
 
         // content.wrappingWidthProperty().bind(mainPane.widthProperty().divide(3));
 
         initModality(Modality.APPLICATION_MODAL);
         setTitle("关于");
+        getIcons().add(new Image(getClass().getResourceAsStream("/image/c2html.png")));
         setScene(mainScene);
         setResizable(false);
     }

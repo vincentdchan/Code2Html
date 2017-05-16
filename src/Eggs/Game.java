@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 
 public class Game extends Application {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         launch(args);
     }
 
@@ -92,7 +92,7 @@ public class Game extends Application {
         borderPane.setTop(topPane);
     }
 
-    private void generateMenu(Stage primaryStage) throws Exception{
+    private void generateMenu(Stage primaryStage) throws Exception {
         menuBar = new MenuBar();
         menuGame = new Menu("Game");
         MenuItem menuItemRestart = new MenuItem("Restart");
@@ -111,6 +111,9 @@ public class Game extends Application {
         MenuItem menuItemSelf = new MenuItem("Custom");
         MenuItem menuItemExit = new MenuItem("Exit");
         menuItemExit.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("/image/ExitSheep.png"))));
+        menuItemExit.setOnAction(e -> {
+            primaryStage.close();
+        });
         menuGame.getItems().addAll(menuItemRestart, new SeparatorMenuItem(), menuItemEasy,
                 menuItemMedium, menuItemDifficult, menuItemSelf, new SeparatorMenuItem(), menuItemExit);
         menuBar.getMenus().add(menuGame);
@@ -129,7 +132,7 @@ public class Game extends Application {
         levels[3] = "Custom";
     }
 
-    private void generateCenterPane (BorderPane borderPane, String level) throws Exception{
+    private void generateCenterPane(BorderPane borderPane, String level) throws Exception {
         VBox centerPane = new VBox();
         Boom boom = new Boom(level);
         count = boom.getBoom_count();
@@ -153,7 +156,7 @@ public class Game extends Application {
         }
     }
 
-    private void setMenuItemAction(Stage primaryStage) throws Exception{
+    private void setMenuItemAction(Stage primaryStage) throws Exception {
         for (int i = 2; i <= 4; i++) {
             final int t = i;
             menuGame.getItems().get(i).setOnAction(e -> {
@@ -185,7 +188,7 @@ public class Game extends Application {
         }
     }
 
-    private void setReStartAction(Stage primaryStage) throws Exception{
+    private void setReStartAction(Stage primaryStage) throws Exception {
         BorderPane borderPane = new BorderPane();
         generateTopPane(borderPane, primaryStage);
         generateCenterPane(borderPane, curLevel);

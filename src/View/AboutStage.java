@@ -1,5 +1,6 @@
 package View;
 
+import Eggs.Game;
 import com.sun.deploy.uitoolkit.impl.fx.HostServicesFactory;
 import com.sun.javafx.application.HostServicesDelegate;
 import javafx.application.Application;
@@ -11,6 +12,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -61,6 +63,16 @@ public class AboutStage extends Stage {
         ImageView logoView = new ImageView(logo);
         logoView.setFitWidth(200);
         logoView.setFitHeight(200);
+        logoView.setOnMouseClicked((MouseEvent e) -> {
+            if(e.getClickCount() == 2){
+                Game game = new Game();
+                try {
+                    game.start(this);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
 
         mainPane.getChildren().addAll(logoView , new Text() , title, hyperLink, content);
         mainScene = new Scene(mainPane, 480, 420);

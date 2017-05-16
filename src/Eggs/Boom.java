@@ -46,8 +46,8 @@ public class Boom extends Game {
         tableIsWin = new int[row + 1][col + 1];
         tableMode = new int[row + 1][col + 1];
         for (int i = 0; i < boom_count; i++) {
-            int a = ((int) (Math.random() * row)) % row;
-            int b = ((int) (Math.random() * col)) % col;
+            int a = ((int) (Math.random() * (row + 1)));
+            int b = ((int) (Math.random() * (col + 1)));
             if (surroundingBoom[a][b] != -1) {
                 surroundingBoom[a][b] = -1;
                 tableIsWin[a][b] = 1;
@@ -79,22 +79,22 @@ public class Boom extends Game {
         if (row - 1 >= 0 && surroundingBoom[row - 1][col] == -1) {
             boom++;
         }
-        if (row - 1 >= 0 && col + 1 < this.col && surroundingBoom[row - 1][col + 1] == -1) {
+        if (row - 1 >= 0 && col + 1 <= this.col && surroundingBoom[row - 1][col + 1] == -1) {
             boom++;
         }
         if (col - 1 >= 0 && surroundingBoom[row][col - 1] == -1) {
             boom++;
         }
-        if (col + 1 < this.col && surroundingBoom[row][col + 1] == -1) {
+        if (col + 1 <= this.col && surroundingBoom[row][col + 1] == -1) {
             boom++;
         }
-        if (row + 1 < this.row && col - 1 >= 0 && surroundingBoom[row + 1][col - 1] == -1) {
+        if (row + 1 <= this.row && col - 1 >= 0 && surroundingBoom[row + 1][col - 1] == -1) {
             boom++;
         }
-        if (row + 1 < this.row && surroundingBoom[row + 1][col] == -1) {
+        if (row + 1 <= this.row && surroundingBoom[row + 1][col] == -1) {
             boom++;
         }
-        if (row + 1 < this.row && col < this.col && surroundingBoom[row + 1][col + 1] == -1) {
+        if (row + 1 <= this.row && col + 1 <= this.col && surroundingBoom[row + 1][col + 1] == -1) {
             boom++;
         }
         return boom;

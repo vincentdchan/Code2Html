@@ -213,7 +213,11 @@ public class Main extends Application {
     }
 
     private Pane generatePreviewToolbar() throws URISyntaxException {
-        HBox result = new HBox();
+        VBox result = new VBox();
+        HBox line1 = new HBox();
+        HBox line2 = new HBox();
+        line2.setPadding(new Insets(5, 0, 2, 0));
+        result.getChildren().addAll(line1, line2);
 
         Label themeSelectorLabel = new Label("主题：");
         themeSelectorLabel.setPadding(new Insets(2, 3, 2, 3));
@@ -225,15 +229,6 @@ public class Main extends Application {
             refreshPreview();
         });
         themeSelector.setValue(config.get_styleName());
-
-        Label showLineNumberLabel = new Label("显示行号：");
-        showLineNumberLabel.setPadding(new Insets(2, 3, 2, 3));
-        CheckBox showLineNumberCheckBox = new CheckBox();
-        showLineNumberCheckBox.setSelected(true);
-        showLineNumberCheckBox.selectedProperty().addListener((obs, oldVal, newVal) -> {
-            config.set_showLineNumber(newVal);
-            refreshPreview();
-        });
 
         Label fontFamilyLabel = new Label("字体：");
         fontFamilyLabel.setPadding(new Insets(2, 3, 2, 3));
@@ -248,6 +243,17 @@ public class Main extends Application {
             }
         });
 
+        line1.getChildren().addAll(themeSelectorLabel, themeSelector,
+                fontFamilyLabel, fontFamilySelector);
+
+        Label showLineNumberLabel = new Label("显示行号：");
+        showLineNumberLabel.setPadding(new Insets(2, 3, 2, 3));
+        CheckBox showLineNumberCheckBox = new CheckBox();
+        showLineNumberCheckBox.setSelected(true);
+        showLineNumberCheckBox.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            config.set_showLineNumber(newVal);
+            refreshPreview();
+        });
 
         Label fontSizeLabel = new Label("字号：");
         fontSizeLabel.setPadding(new Insets(2, 3, 2, 3));
@@ -263,10 +269,23 @@ public class Main extends Application {
             }
         });
 
-        result.getChildren().addAll(themeSelectorLabel, themeSelector,
-                showLineNumberLabel, showLineNumberCheckBox,
-                fontFamilyLabel, fontFamilySelector,
-                fontSizeLabel, fontSizeTextField);
+        Label tabSizeLabel = new Label("Tab字符占位数");
+        tabSizeLabel.setPadding(new Insets(2, 3, 2, 3));
+        TextField tabSizeTextField = new TextField(Integer.toString(config.get_tab2spaceCount()));
+        tabSizeTextField.setAlignment(Pos.TOP_RIGHT);
+        tabSizeTextField.setPrefWidth(42);
+        tabSizeTextField.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal.length() == 0) return;
+            int value = Integer.parseInt(newVal);
+            if (value >= 0 && value <= 48) {
+                config.set_tab2spaceCount(value);
+                refreshPreview();
+            }
+        });
+
+        line2.getChildren().addAll(showLineNumberLabel, showLineNumberCheckBox,
+                fontSizeLabel, fontSizeTextField,
+                tabSizeLabel, tabSizeTextField);
 
         return result;
     }

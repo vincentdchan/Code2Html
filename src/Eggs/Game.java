@@ -133,13 +133,14 @@ public class Game extends Application {
     }
 
     private void generateCenterPane(BorderPane borderPane, String level) throws Exception {
-        VBox centerPane = new VBox();
+//        VBox centerPane = new VBox();
+        GridPane centerPane = new GridPane();
         Boom boom = new Boom(level);
         count = boom.getBoom_count();
         boom_count.setText("" + count);
         scene = new Scene(borderPane, 55 * (boom.getCol() + 1), 55 * (boom.getRow() + 2));
         for (int i = 0; i <= boom.getRow(); i++) {
-            HBox hBox = new HBox();
+//            HBox hBox = new HBox();
             for (int j = 0; j <= boom.getCol(); j++) {
                 BoomButton boomButton = new BoomButton(boom, i, j);
                 boomButton.setSurroundingBoom(boom.getSurroundingBoom()[i][j]);
@@ -149,9 +150,10 @@ public class Game extends Application {
 //                boomButton.getButton().prefWidthProperty().bind(scene.widthProperty().divide(boom.getRow() + 1));
 //                boomButton.getButton().prefHeightProperty().bind(scene.heightProperty().divide(boom.getCol() + 1));
                 boom.getBoom()[i][j] = boomButton.getButton();
-                hBox.getChildren().add(boomButton.getButton());
+                centerPane.add(boomButton.getButton() , j , i);
+//                hBox.getChildren().add(boomButton.getButton());
             }
-            centerPane.getChildren().add(hBox);
+//            centerPane.getChildren().add(hBox);
             borderPane.setCenter(centerPane);
         }
     }

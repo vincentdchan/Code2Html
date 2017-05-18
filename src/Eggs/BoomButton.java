@@ -76,6 +76,8 @@ public class BoomButton extends Button {
                 extendZero(boom, rowIndex, colIndex);
                 Rule.showWin(boom, new Image(getClass().getResourceAsStream("/image/firework.png")));
             } else {
+                Animation animation = new Animation(button);
+                animation.play();
                 button.setText("" + surroundingBoom);
                 button.setTextFill(colorTable[surroundingBoom - 1]);
 //                button.setStyle(colorTable[surroundingBoom - 1]);
@@ -196,6 +198,8 @@ public class BoomButton extends Button {
     }
 
     private void extendZero(Boom boom, int row, int col) {
+        Animation animation = new Animation(boom.getBoom()[row][col]);
+        animation.play();
         boom.getBoom()[row][col].setStyle("-fx-background-color:grey;-fx-border-color:black");
         boom.getSurroundingBoom()[row][col] = -2;
         boom.getTableIsWin()[row][col] = 1;
@@ -208,6 +212,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row - 1][col - 1] != 0
                     && boom.getSurroundingBoom()[row - 1][col - 1] != -2
                     && boom.getTableMode()[row - 1][col - 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row][col]);
+                animation1.play();
                 boom.getBoom()[row - 1][col - 1].setText("" + boom.getSurroundingBoom()[row - 1][col - 1]);
                 boom.getBoom()[row - 1][col - 1].setTextFill(colorTable[boom.getSurroundingBoom()[row - 1][col - 1] - 1]);
                 boom.getBoom()[row - 1][col - 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
@@ -227,6 +233,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row - 1][col] != 0
                     && boom.getSurroundingBoom()[row - 1][col] != -2
                     && boom.getTableMode()[row - 1][col] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row - 1][col]);
+                animation.play();
                 boom.getBoom()[row - 1][col].setText("" + boom.getSurroundingBoom()[row - 1][col]);
                 boom.getBoom()[row - 1][col].setTextFill(colorTable[boom.getSurroundingBoom()[row - 1][col] - 1]);
                 boom.getBoom()[row - 1][col].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
@@ -245,6 +253,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row - 1][col + 1] != 0
                     && boom.getSurroundingBoom()[row - 1][col + 1] != -2
                     && boom.getTableMode()[row - 1][col + 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row - 1][col + 1]);
+                animation1.play();
                 boom.getBoom()[row - 1][col + 1].setText("" + boom.getSurroundingBoom()[row - 1][col + 1]);
                 boom.getBoom()[row - 1][col + 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
                 boom.getBoom()[row - 1][col + 1].setTextFill(colorTable[boom.getSurroundingBoom()[row - 1][col + 1] - 1]);
@@ -263,6 +273,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row][col - 1] != 0
                     && boom.getSurroundingBoom()[row][col - 1] != -2
                     && boom.getTableMode()[row][col - 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row][col - 1]);
+                animation1.play();
                 boom.getBoom()[row][col - 1].setText("" + boom.getSurroundingBoom()[row][col - 1]);
                 boom.getBoom()[row][col - 1].setTextFill(colorTable[boom.getSurroundingBoom()[row][col - 1] - 1]);
                 boom.getBoom()[row][col - 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
@@ -281,6 +293,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row][col + 1] != 0
                     && boom.getSurroundingBoom()[row][col + 1] != -2
                     && boom.getTableMode()[row][col + 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row][col + 1]);
+                animation1.play();
                 boom.getBoom()[row][col + 1].setText("" + boom.getSurroundingBoom()[row][col + 1]);
                 boom.getBoom()[row][col + 1].setTextFill(colorTable[boom.getSurroundingBoom()[row][col + 1] - 1]);
                 boom.getBoom()[row][col + 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
@@ -299,6 +313,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row + 1][col - 1] != 0
                     && boom.getSurroundingBoom()[row + 1][col - 1] != -2
                     && boom.getTableMode()[row + 1][col - 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row + 1][col - 1]);
+                animation1.play();
                 boom.getBoom()[row + 1][col - 1].setText("" + boom.getSurroundingBoom()[row + 1][col - 1]);
                 boom.getBoom()[row + 1][col - 1].setTextFill(colorTable[boom.getSurroundingBoom()[row + 1][col - 1] - 1]);
                 boom.getBoom()[row + 1][col - 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
@@ -317,6 +333,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row + 1][col] != 0
                     && boom.getSurroundingBoom()[row + 1][col] != -2
                     && boom.getTableMode()[row + 1][col] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row + 1][col]);
+                animation1.play();
                 boom.getBoom()[row + 1][col].setText("" + boom.getSurroundingBoom()[row + 1][col]);
                 boom.getBoom()[row + 1][col].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
                 boom.getBoom()[row + 1][col].setTextFill(colorTable[boom.getSurroundingBoom()[row + 1][col] - 1]);
@@ -335,6 +353,8 @@ public class BoomButton extends Button {
             if (boom.getSurroundingBoom()[row + 1][col + 1] != 0
                     && boom.getSurroundingBoom()[row + 1][col + 1] != -2
                     && boom.getTableMode()[row + 1][col + 1] == 1) {
+                Animation animation1 = new Animation(boom.getBoom()[row + 1][col + 1]);
+                animation1.play();
                 boom.getBoom()[row + 1][col + 1].setText("" + boom.getSurroundingBoom()[row + 1][col + 1]);
                 boom.getBoom()[row + 1][col + 1].setStyle("-fx-background-color:lightblue;-fx-border-color:black");
                 boom.getBoom()[row + 1][col + 1].setTextFill(colorTable[boom.getSurroundingBoom()[row + 1][col + 1] - 1]);

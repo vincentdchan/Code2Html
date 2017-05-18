@@ -4,6 +4,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
 
 /**
  * Created by ZMYang on 2017/5/13.
@@ -20,10 +24,11 @@ public class Rule{
                 boom.getTableMode()[i][j] = -2;
             }
         }
-//        Media media = new Media("lose.mp3");
-//        MediaPlayer mediaPlayer = new MediaPlayer(media);
-//        mediaPlayer.play();
-//        MediaView mediaView = new MediaView(media);
+        File music = new File("resources/music/lose.mp3");
+        String s = music.getAbsolutePath().replaceAll("\\\\" , "/");
+        Media media = new Media("file:///" + s);
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.play();
         alert.showAndWait();
     }
 
